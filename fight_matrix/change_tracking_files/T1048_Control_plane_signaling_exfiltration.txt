@@ -1,0 +1,30 @@
+================================================================================
+T1048: Control plane signaling exfiltration
+Architecture Segment:  Control-plane, Roaming
+----------------------------------------
+Procedure Examples
+----------------------------------------
+HTTP/2 optional parameters: HTTP/2 optional parameters may be used to communicate between a core NF and an external server (AF, IPX node) via NEF or SEPP.
+----------------------------------------
+Mitigations
+----------------------------------------
+M1037: Filter and inspect network traffic coming out of SEPP and NEF
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+User signaling data: 
+Operator resource identifiers: 
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Monitor and analyze traffic patterns and packet inspection over the SBI, especially to/from external functions.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206 

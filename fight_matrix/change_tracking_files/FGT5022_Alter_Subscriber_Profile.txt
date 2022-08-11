@@ -1,0 +1,34 @@
+================================================================================
+FGT5022: Alter Subscriber Profile
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+AMF or SMF modify UE context.: AMF/SMF can use Nudm_UECM_Update to modify UE context in the UDM. AMF or SMF can change some parameters in the UE context (which is like a subscriber profile, but valid only for a session; Section 5.2.3.2.5 of [3]. The parameters are: PEI (Permanent Equipment Identifier), analyticsID (for NWDAF), UE capabilities, Intersystem continuity context, SMF FQDN
+Rogue AF/NEF modifies UE’s configuration for a given external service.: Rogue AF/NEF via UDM can modify UE’s configuration for a given external service (e.g. pay for video for a game today). When the victim UE changes state from idle mode to connected mode, it will receive the modified services which may be inferior to the services originally provisioned. Example: NEF can use Nudm_ParameterProvision update service to update UE subscription data. Section 5.6.2.2 of TS29.503 & sections 4.15.6.2, 4.15.6.3, 4.15.6.3a of TS23.502.
+Compromised OA&M can modify subscriber profile data in UDR: Compromised GUI or CLI based attack on subscriber database in UDR
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5020: Secure subscriber repositories
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE call/data records: UE voice and data records accuracy
+UE static profile: The UE static profile data
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5011: Subscriber contacts Customer service to complain (in some limited cases)
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020: https://arxiv.org/abs/2005.05110v1 
+S. Holtmanns, I. Oliver and Y. Miche, “Mobile Subscriber Profile Data Privacy Breach via 4G Diameter Interconnection”, 2017.: https://www.riverpublishers.com/journal_read_html_article.php?j=JICTS/6/3/4 
+3GPP TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022. section 4.11.1.2.2: https://www.3gpp.org/DynaReport/23502.htm 

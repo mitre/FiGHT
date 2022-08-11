@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tactics/TA0008", {data:[{}],fetch:{},mutations:[]});

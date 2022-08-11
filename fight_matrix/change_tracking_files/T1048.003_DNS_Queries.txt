@@ -1,0 +1,30 @@
+================================================================================
+T1048.003: DNS Queries
+Architecture Segment:   Control Plane, Roaming
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1037: Filter public network lookups to limit exfiltration destinations. Potential use of protective DNS services.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+External DNS Resolution: Operator environment must permit DNS queries either directly or recursively for domains the operator doesn’t directly control.
+----------------------------------------
+Critical Assets
+----------------------------------------
+DNS Resolvers: The configuration of DNS Resolvers is important to ensure ability to monitor DNS queries for adversary behavior.
+----------------------------------------
+Detection
+----------------------------------------
+DS0015: Collect and analyze DNS lookup logs for unusual patterns and destinations
+DS0029: Analyze network destinations for DNS traffic for unusual destinations and volumes.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+“Bhadra framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems,” Retrieved April 28, 2022: https://arxiv.org/pdf/2005.05110.pdf

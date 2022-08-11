@@ -1,0 +1,37 @@
+================================================================================
+T1599: Network Boundary Bridging
+Architecture Segment:  Impl-OA&M, Impl-Virtualization, Arch-Slice
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1043: Credential Access Protection
+M1037: Filter Network Traffic
+M1026: Privileged Account Management
+M1032: Multi-factor Authentication
+M1027: Password Policies - NIST Guidelines.  This may also include token policies if security tokens are used.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Privileged access: Privileged access to device implementing the network separation controls
+----------------------------------------
+Critical Assets
+----------------------------------------
+Devices enforcing segmentation controls: Devices enforcing network segmentation and creating perimeter for applications may include firewalls, SDN controllers, or Proxies.
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Network Traffic should be monitored for traffic flows and messaging contents to determine abnormal activity.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Unusual network traffic flows: If network boundaries are breached, monitoring system may detect unusual network flow
+Network mapping activity: Adversary may attempt to discover networks and live hosts on the networks
+Connection attempts from unusual hosts: Adversary may attempt connect to hosts in the target network after profiling hosts and network mapping.
+----------------------------------------
+References
+----------------------------------------
+S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020: https://arxiv.org/abs/2005.05110v1 
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206 

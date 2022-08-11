@@ -1,0 +1,34 @@
+================================================================================
+T1557.502: Roaming and Interconnection
+Architecture Segment:   Roaming
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1037: Ensure only traffic from expected sources can reach the SEPP
+M1035: Minimize access to vSEPP from limited locations such as a privileged access workstation
+M1030: Limit network exposure of vSEPP from other core services in hPLMN
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+SEPP control: Adversary would need to be in control of the vSEPP which may be managed by a VAS
+----------------------------------------
+Critical Assets
+----------------------------------------
+SEPP function: Adversary would target the SEPP
+----------------------------------------
+Detection
+----------------------------------------
+DS0015: Monitor for access to SEPP application/appliance for unexpected access.
+DS0029: Analyze network traffic to/from SEPP to determine if from unexpected source/dest and consistent with expected traffic from other operators.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+P.Tommassen, “5G Security When Roaming,” iBasis, October 6, 2020: https://ibasis.com/5g-security-when-roaming/
+“5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,” 3GPP, TS 29.573 ver.16.9.0, March 2022: https://www.3gpp.org/DynaReport/29573.htm 
+“Security architecture and procedures for 5G System,” 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2: https://www.3gpp.org/DynaReport/33501.htm

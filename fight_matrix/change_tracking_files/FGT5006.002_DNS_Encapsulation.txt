@@ -1,0 +1,38 @@
+================================================================================
+FGT5006.002: DNS Encapsulation
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Free fake DNS loophole: Operators do not enforce free DNS service via the standard five-tuple flow ID (src IP, dest IP, src port, dest port, protocol). Instead, they use only the destination port (or plus protocol ID), thus exposing a vulnerability.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM1557: Use strong data integrity protection algorithms
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Unauthenticated DNS Services: The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
+----------------------------------------
+Critical Assets
+----------------------------------------
+DNS Servers: Whoever controls the DNS Servers controls how and what end users connect to over the network, making DNS Servers a type of critical infrastructure.
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Data transmitted across a network (ex: Web, DNS, Mail, File, etc.), that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable format (ex: PCAP)
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Billing Fraud: Attacker will be able to route traffic through DNS channels to use the network free of charge.
+Command and Control Network: Attacker can route command and control traffic through DNS to control botnets or other entities.
+Exfiltration Route: Attacker has a route to exfiltrate stolen data disguised as DNS packets.
+----------------------------------------
+References
+----------------------------------------
+“Badhra Framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”: https://arxiv.org/pdf/2005.05110.pdf
+Mobile Data Charging: New Attacks and Countermeasures: https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
+Merve Sahin, Aurelien Francillon, Payas Gupta, and Mustaque Ahamad. 2017. 
+“Sok: Fraud in telephony networks”. In 2017 IEEE European Symposium on Security
+and Privacy (EuroS&P). IEEE, p235–250: https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7961983&tag=1
+Kui Xu, Patrick Butler, Sudip Saha, Danfeng (Daphni) Yao in DNS CC Journal, “DNS for Massive-Scale Command and Control”: https://people.cs.vt.edu/~danfeng/papers/DNS-CC-JOURNAL.pdf

@@ -1,0 +1,54 @@
+T1555.501,Hardware Security Module Key Signing,Adversary ability to perform crypto operations,Adversary would have the ability to perform signing and cryptographic operations that would permit the adversary to masquerade as a legitimate authorized user and perform operations against NFs.
+T1499.501,Consume data allocation to deny or degrade service,Sustained degraded communication until additional data is purchased.,Sustained degraded communication until additional data is purchased.
+FGT5003,Network Function Service Discovery,Information of what other services are provided by a given MNO,
+FGT5019.003,Obtain subscriber identifier by NF,SUPI is available to the adversary,
+T1498.501,Flooding core network component,AMF service will not be available to legitimate users during attack.,"If AMF services are down, all services for the existing UEs which use NAS layer will not be available. For example: mobility, session management (QoS etc.), PDU session set up / tear down, SMS over NAS, location management. [Section 8.2.2.1 of 23.501]"
+FGT5028,Discover network slice identifier,Unauthorized disclosure of SD/NSSAI,
+FGT5012.002,Self Location Measurement,Subsequent attack,"Geolocation can make electronic attack for degradation of service more effective, bidding down to defeat ID and traffic confidentiality more effective, and can expose user to physical attack."
+FGT5035.001,DOS a UE via fake cellular base station,Permanence,"Communications are generally possible shortly after attacker stops transmitting. In some cases, UE might be locked down and require reboot or service provider intervention."
+FGT5019.002,Intercept Bid-Down IMSI,Target association,"Allows attacker to identify UE as target of interest for geolocation, degradation of service, loss of traffic confidentiality, or physical attack."
+T1046,Core-network scanning,"Identifier of some network nodes is known and thus can be spoofed, DOSed, etc.",
+T1600.501,Radio interface,User/UE data is revealed over the air interface,"Control Plane: All UE signaling data may be revealed if both NAS and AS CP (RRC) algorithms are weakened.
+
+User Plane: Subscriber (user plane) data may be revealed if AS UP algorithms are weakened."
+FGT5004.001,Network Flow Manipulation,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
+T1437,Control plane signaling disguise for C2,None known,
+FGT5015,Device database manipulation,None,
+FGT5004.002,Network Flow Manipulation,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
+T1499.502,Trigger Fraud Alert to Deny Service,Sustained denial of service,Denial of service continues until service provider is convinced there is no fraud.
+FGT5025,Falsify interconnect invoice, None,
+T1557.507,Non-SBI,Both CP & UP data are modified by AiTM attack,Both UE registration and normal data communication with network will be impacted.
+T1464,Jamming or Denial of Service,None.,No persistence of impact when attack is stopped.
+FGT5021,Tunnel ID uniqueness failure,User/UE data and disrupted over N3,
+FGT5021,Tunnel ID uniqueness failure,Incorrect subscribers' charging,
+FGT5018.002,Radio access hardware,Service unavailability,Destruction or damage of these assets may cause an unavailability of resources
+FGT5018.002,Radio access hardware,Information destruction,
+FGT5018.002,Radio access hardware,Information integrity,
+FGT5012.003,5G-GUTI reuse,User/UE is tracked via listening devices in area.,
+FGT5018.003,Edge Servers,Service unavailability,"Destruction of assets, unauthorized access, theft of data on local storage, vandalism, sabotage"
+FGT5018.003,Edge Servers,Information destruction,
+FGT5018.003,Edge Servers,Information integrity,
+FGT5018.001,Cabling and junction boxes,Service unavailability,Destruction or damage of these assets may cause an unavailability of resources.
+FGT5018.001,Cabling and junction boxes,Information destruction,
+FGT5018.001,Cabling and junction boxes,Information integrity,
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
+FGT5010,Fraudulent AMF registration for UE in UDM,"Rogue AMF can potentially mount other attacks on the victim UE, but the UE is not currently registered on the network",
+FGT5006.001,Layer 2 Proxy,.,
+FGT5008,Redirection of traffic via user plane network function,User downlink data intercepted.,"If adversary redirects to their own server, they can access the downlink data of the subscriber, who will not be aware that the traffic is being intercepted."
+FGT5012.001,Passive radio signals observation,Subsequent attack,"Geolocation can make electronic attack for degradation of service more effective, bidding down to defeat ID and traffic confidentiality more effective, and can expose user to physical attack."
+FGT5006,DNS Manipulation,.,
+FGT5011,Unauthorized access to NEF via token fraud,Attacker has access to NEF services,
+T1565,Non-SBI,Both CP & UP data are modified by AiTM attack,Both UE registration and normal data communication with network will be impacted.
+FGT5018.004,Theft of physical assets,Service unavailability,Theft of these assets may cause an unavailability of resources.
+FGT5018.004,Theft of physical assets,Increased maintenance costs,
+T1018,Core-network scanning,"Identifier of some network nodes is known and thus can be spoofed, DOSed, etc.",
+FGT5012.005,Shared network function in slice,UE in the target slice is tracked by the adversary with control over a different slice.,"Target slice information is leaked, slice confidentiality is breached due to sharing the NF between slices."
+T1592.501,Internal resource search,IP addresses of core network functions known,
+FGT5006.002,Billing Evasion,.,
+T1557.506,Air Interface,Temporary loss of user data confidentiality or integrity.,Transient technique. Works only as long as adversary-in-the-middle is able to retain connection.
+FGT5018,Vandalism of network infrastructure,"Service unavailability
+Information destruction
+Information integrity",Destruction or damage of these assets may cause an unavailability of resources.
+FGT5004,Network Flow Manipulation,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
+T1525,Compromised image,Compromised Image deployed in production,A compromised image deployed in the production can lead to variety of adversarial activities depending on what capabilities were added/deleted from the image.
+FGT5019.001,Intercept Home Network via SUCI,Target association,"When home network is unusual (e.g., US home network in Afghanistan), allows attacker to identify UE as target of interest for geolocation, degradation of service, loss of traffic confidentiality, or physical attack."

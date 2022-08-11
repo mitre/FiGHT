@@ -1,0 +1,31 @@
+================================================================================
+FGT5015: Device database manipulation
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+EIR database compromise: Reference [1], DC-003, calls for the MNOs to employ an EIR. The rest of the attack is theoretical: an adversary may modify some of the entries in the EIR database, e.g. device status (stolen, etc.)
+The AMF is the only function that checks the EIR based on permanent equipment id (PEI), upon UE registration (using the API N5g-eir_EquipmentIdentityCheck_Get).
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5020: Secure EIR function
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Integrity of device database: Device databases should be kept from tampering.
+User equipment status integrity: UE status should be kept accurate.
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5009: Difficult to detect unauthorized changes. Inspect logs of what changes were made and by whom in the EIR
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+GSM Association, “GSM Association Official Document FS.31, Baseline Security Controls.”, v2.0, Feb. 2020: https://www.gsma.com/security/resources/fs-31-gsma-baseline-security-controls 

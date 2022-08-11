@@ -1,0 +1,27 @@
+================================================================================
+T1583.502: Programmable UE devices
+Architecture Segment:  UE
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Fake UE build: Adversary uses Software-Defined-Radio (SDR) running OAI-5G (“OpenAirInterface”) modified software
+Fake UE acquisition: In [1], it is mentioned that the adversary must “forge a malicious UE”, which is then used to replay messages form the malicious (adversary controlled) gNB to the legitimate gNB
+----------------------------------------
+Mitigations
+----------------------------------------
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+Hu, X. et al: “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 

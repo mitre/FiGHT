@@ -1,0 +1,29 @@
+================================================================================
+T1588: IMSI Catcher
+Architecture Segment:  RAN, UE
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1056: This technique cannot be easily mitigated with preventive controls since it is based on behaviors performed outside of the scope of .
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+Adrian Dabrowski, Nicola Pianta, Thomas Klepp, Martin Mulazzani, and Edgar Weippl. IMSI-catch me if you can: IMSI-catcher-catchers. In Proceedings of the 30th annual computer security applications Conference, pages 246–255, 2014.: https://its-wiki.no/images/f/fb/Dabrowski_ISMI_Catch_me_Catchers.pdf
+Ravishankar Borgaonkar,  Altaf Shaik , 5G IMSI Catchers Mirage, Balckhat USA Conference 2021: https://blackhat.com/us-21/briefings/schedule/#g-imsi-catchers-mirage-23538
+HOW COPS CAN SECRETLY TRACK YOUR PHONE, The Intercept, online article, July 31, 2021.  Accessed 6/22/2022: https://theintercept.com/2020/07/31/protests-surveillance-stingrays-dirtboxes-phone-tracking/
+A Knight, Brier & Thorn, Hacking GSM: Building a Rogue Base Station to Hack Cellular Devices, Online Article.  Accessed 6/22/2022: https://www.brierandthorn.com/post/hacking-gsm-building-a-rogue-base-station-to-hack-cellular-devices

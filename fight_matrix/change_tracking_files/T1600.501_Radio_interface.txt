@@ -1,0 +1,56 @@
+================================================================================
+T1600.501: Radio interface
+Architecture Segment:  RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Fake or misconfigured base station: Adversary (e.g. with fake gNB) intentionally configures NULL encryption algorithm to have highest priority in gNB. These algorithms are sent to the UE in the (Access Stratum) AS Security Mode Command. Normally the activation of algorithms for the AS is done by the gNB based on that policy received from the SMF, but a fake gNB can ignore the SMF. Clauses 6.7.3 & D.1 of [2].
+
+Adversary with control over a legitimate gNB, and who currently serves the UE, tells the SMF that the UE Control Plane (CP) and User Plane (UP) policy is NULL encryption, and the (legitimate but not correctly implemented) SMF doesn’t check that against the locally-stored UE UP policy and lets the CP and UP data be transmitted with NULL encryption. Clause 6.6.1 of [2]
+Rogue or misconfigured SMF: Adversary makes the unauthorized change in the SMF CP and UP local policy to enable NULL encryption for CP & UP traffic.
+Alternatively, adversary exploits an SMF that is not implemented to check (for every UE it serves) that the algorithm received from gNB (which may be compromised or fake) matches the local policy. That local policy in turn should be checked that it is the same as the UE policy stored in the UDM. Any of these failures can result in the SMF enabling the CP and UP traffic over the radio interface to use NULL encryption.
+Rogue or misconfigured AMF non-roaming: Adversary with control over AMF (or control over the configuration of AMF) can affect UE procedures such as NAS Security Mode Command, such that the UE's NAS data is not protected, i.e. prioritize NULL algorithm for either NAS encryption or integrity.
+ 
+This can be followed by another attack behavior whereby eavesdropping can be done over the air interface for data and signaling. Clauses 5.3.2 and 5.5.1 of [2]
+Rogue or misconfigured AMF during roaming/handover: Compromised source AMF sends incorrect UE context information to legitimate target AMF during either (a) Initial registration and roaming or (b) Handover (N2 based). 
+The source AMF sends NULL  encryption algorithm information as part of the “UEContextTransfer” (initial registration and roaming) or “CreateUEContext” (N2 handover) service request messages. All UE data will be sent in cleartext after registration or handover is completed. Clauses 4.2.2.2.2, 4.9.1.3.1 and 5.2.2.1 of [3. ] The element in the UE context is the ueSecurityCapability which the rogue AMF sets to NULL only.
+Rogue or misconfigured AMF/MME during EPS roaming/handover: Compromised source MME/AMF sends incorrect UE context information to legitimate target AMF during EPS to 5GS handover and roaming with and without N26 interface.
+
+Source AMF sends NULL encryption algorithm information as part of the “UEContextTransfer” or 
+“RelocateUEContext” service request messages. All UE data will be sent in clear text after roaming or handover is completed. Clauses 4.11.1.2.2.2, 4.11.1.3.3, 4.11.2.3 and 5.2.2.1 of [3] The element in the UE context is the ueSecurityCapability which the rogue AMF sets to NULL only.
+----------------------------------------
+Mitigations
+----------------------------------------
+M1041: Ensure gNB implementation and SMF implementations are both checking the UE CP and UP security policy against the most trustworthy source and taking action to not enable NULL encryption except for emergency calls
+M1018: Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)
+M1051: Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)
+M1046: Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)
+M1031: Implement network intrusion prevention methods
+M1043: Implement credential access protection methods
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Rogue or misconfigured AMF or SMF or gNB: A rogue gNB may be required to change the UE’s CP and UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
+This attack is possible with only control over the AMF, in which case the algorithm for CP and UP protection is changed to NULL.
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE data: UE and subscriber (user plane) data privacy.
+UE signaling: UE signaling data privacy
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Inspect radio traffic and watch for unauthorized changes as the packets move through the interfaces.
+DS0015: Check configuration changes in gNB, SMF, AMF; Configuration audits by OSS/BSS.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+UE data unprotected on air interface: Control Plane: All UE signaling data may be revealed if both NAS and AS CP (RRC) algorithms are weakened.
+
+User Plane: Subscriber (user plane) data may be revealed if AS UP algorithms are weakened.
+----------------------------------------
+References
+----------------------------------------
+3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”.: https://www.3gpp.org/DynaReport/33926.htm  
+3GPP TS 33.501 “Security architecture and procedures for 5G System”.: https://www.3gpp.org/DynaReport/33501.htm  
+3GPP TS 23.502 “Procedures for the 5G System (5GS)”.: https://www.3gpp.org/DynaReport/23502.htm  

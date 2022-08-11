@@ -1,0 +1,39 @@
+================================================================================
+T1499: Interworking Denial of Service
+Architecture Segment:  Control-plane, User-plane
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Vulnerability Exploit: Adversary uses a vulnerability to cause the NF to crash
+Volumetric attack: Adversary uses one or more volumetric techniques to degrade or deny availability of the NF
+----------------------------------------
+Mitigations
+----------------------------------------
+M1016: Vulnerability scanning of public APIs
+M1050: Use WAF to minimize potential exploit of vulnerabilities
+M1037: Use of network based DDoS mitigation capabilities to filter traffic upstream
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+API vulnerability: Adversary may need to identify vulnerabilities in the API to obtain initial-access, unauthorized information, or perform a denial of service
+API credentials: Adversary may need to obtain credentials to collect unauthorized information
+----------------------------------------
+Critical Assets
+----------------------------------------
+SEPP: Security Edge Protection Proxy function which provides roaming interface for signaling traffic to roaming partner (MNO) networks
+UPF: User Plane Function which provides roaming interface for user plane traffic to roaming partner (MNO) networks
+AMF: Access and Mobility Function which provides roaming interface for signaling traffic to 4G networks via N26 interface
+----------------------------------------
+Detection
+----------------------------------------
+DS0015: Monitor application logs for unusual requests or rate of requests
+DS0029: Monitor for unusual volumes or sources of requests to the service
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206 
+TOP 7 REST API Security Threats, blog January 2019: https://blog.restcase.com/top-7-rest-api-security-threats/ 

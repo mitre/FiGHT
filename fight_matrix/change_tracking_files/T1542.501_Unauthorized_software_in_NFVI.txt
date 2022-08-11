@@ -1,0 +1,39 @@
+================================================================================
+T1542.501: Unauthorized software in NFVI
+Architecture Segment:   Impl-Virtualization, Impl-OA&M
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1046: Boot integrity
+M1045: Code Signing
+M1051: Update Software
+M1018: User Account Management, active monitoring of access attempts to CI/CD tools
+M1047: System audits can reveal anomalous behavior that may be caused by rootkits.  Audits of software repositories
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Physical, Virtual, and Cloud Native Functions: Any network functions within NFVI sphere of responsibility
+Hosts: Any hosts in NFVI within 5G security zone or in CI/CD pipeline, security and OSS tools
+----------------------------------------
+Detection
+----------------------------------------
+DS0022: File changes of any sort that cannot be traced back to authorized change.
+DS0007: Software image inconsistency.  Signature and checksum mismatch
+DS0008: Kernel executing unknow processes or unauthorized processes not typical of the host.
+DS0029: Network traffic pattern may reveal remote C2 communication from rootkit
+DS0009: Active processes or process log may reveal unauthorized activity due to rootkits
+DS0019: Background services not typically associated with the host
+Degraded performance: System may have reboots, or unexpected performance degradation, may be slow to respond to inputs.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April 26, 2021: https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management

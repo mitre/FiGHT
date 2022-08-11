@@ -1,0 +1,32 @@
+================================================================================
+FGT5006.001: Layer 2 Redirection of Encrypted DNS
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Adversary employs the aLTEr procedure: In this active attack named ALTER, adversary exploits the fact that LTE user data is encrypted in counter mode (AES-CTR) but not integrity protected, which allows an adversary to modify the message payload. This is applicable in 5G when the user data integrity algorithm is set to NULL.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM1557: Use strong data integrity protection algorithms
+M1020: Break and inspect SSL/TLS sessions to look at encrypted web traffic for adversary activity.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Unauthenticated DNS Services: The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
+----------------------------------------
+Critical Assets
+----------------------------------------
+DNS Servers: Whoever controls the DNS Servers controls how and what end users connect to over the network, making DNS Servers a type of critical infrastructure.
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Data transmitted across a network (ex: Web, DNS, Mail, File, etc.), that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable format (ex: PCAP)
+----------------------------------------
+Post-Conditions
+----------------------------------------
+DNS control: Adversary has redirected the end user to their own DNS system and can now conduct adversary-in-the-middle attacks.
+----------------------------------------
+References
+----------------------------------------
+D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, “Breaking LTE on Layer Two” https://alter-attack.net: https://alter-attack.net/media/breaking_lte_on_layer_two.pdf

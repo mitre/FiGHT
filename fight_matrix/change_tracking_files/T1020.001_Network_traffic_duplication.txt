@@ -1,0 +1,29 @@
+================================================================================
+T1020.001: Network traffic duplication
+Architecture Segment:  OA&M, Virtualization
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+: Encrypt sensitive data flows for Control plane and User plane traffic
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Virtual elements: Virtual switch, Virtual Router, Virtual Firewalls, Virtual Load Balancers, SDN Controllers
+----------------------------------------
+Detection
+----------------------------------------
+: Monitor network traffic for new traffic flows, analyze socket connections and protocol used to determine abnormal behavior.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+3GPP TR 33.848 Security Impacts of Virtualization,
+Section 5.15.2: https://www.3gpp.org/DynaReport/33848.htm

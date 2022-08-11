@@ -1,0 +1,33 @@
+================================================================================
+T1499.501: Consume data allocation to deny or degrade service
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Malicious data consumption application: Convince user to download or maliciously introduce application that consumes excessive data
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5007: Unlimited data plan. Attack is mitigated with a true unlimited data plan
+FGM5008: Monitor installed applications for data usage.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+A malicious app or set of apps have to have been installed on the UE: There are several methods to achieve this
+----------------------------------------
+Critical Assets
+----------------------------------------
+Assured user communications: Communications is denied until additional data usage is purchased.
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5006: Excessive data usage reported by UE or service provider.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Sustained degraded communication until additional data is purchased.: Sustained degraded communication until additional data is purchased.
+----------------------------------------
+References
+----------------------------------------
+Android devices ensnared in DDoS botnet, Feb. 2021: https://www.zdnet.com/article/android-devices-ensnared-in-ddos-botnet/ 
+Massive Android DDoS Botnet Derailed, Aug. 2017: https://www.darkreading.com/attacks-breaches/massive-android-ddos-botnet-derailed

@@ -1,0 +1,17 @@
+tactics: |
+  Tactics are tactical adversary goals during an attack. They represent the “why” of a technique: the reason for performing an action.
+  Tactics serve as useful contextual categories for individual techniques and cover standard notations for things adversaries do during an operation.
+  <sup><a href="https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf">[1]</a></sup>
+
+  MITRE FiGHT<sup>&trade;</sup> tactics represent mostly the same  adversary goals as are found in the MITRE ATT&CK<sup>&reg;</sup> Enterprise Matrix, most of which still apply in a 5G space.  MITRE FiGHT adds a Fraud Tactic.
+techniques: |
+  Techniques describe the means by which adversaries achieve tactical goals. They represent “how” an adversary achieves a tactical objective by performing an action.
+
+  Techniques may also represent “what” an adversary gains by performing an action. 
+
+  There can be multiple techniques in each tactic category as there are many ways to achieve tactical objectives.
+  <sup><a href="https://attack.mitre.org/docs/ATTACK_Design_and_Philosophy_March_2020.pdf">[1]</a></sup>
+mitigations: |
+  Mitigations describe the means by which defenders can prevent adversary behaviors.  These methods can be technical, procedural, or policy based. 
+data sources: | 
+  Data Sources describe the sources of data used to detect activity.

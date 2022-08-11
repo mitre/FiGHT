@@ -1,0 +1,34 @@
+================================================================================
+T1609.501: Accessing Terminated VNF
+Architecture Segment:  Impl-OA&M, Impl-Virtualization
+----------------------------------------
+Procedure Examples
+----------------------------------------
+S0683: Peirates can use kubectl or the Kubernetes API to run commands.
+S0623: Siloscape can send kubectl commands to victim clusters through an IRC channel and can run kubectl locally to spread once within a victim cluster
+----------------------------------------
+Mitigations
+----------------------------------------
+M1038: Use read-only containers, read-only file systems, and minimal images when possible to prevent the execution of commands.
+M1035: Limit communications with the container service to local Unix sockets or remote access via SSH. Require secure port access to communicate with the APIs over TLS by disabling unauthenticated access to the Docker API and Kubernetes API Server
+M1026: In Kubernetes environments, consider defining a Pod Security Policy that prevents pods from running privileged containers
+M1018: Enforce authentication and role-based access control on the container service to restrict users to the least privileges required.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Container and Container engines: Container and container engine may expose privileged information to adversary directly from process  or thru container engine.
+Container Management Controller system: In Container management architecture ( Kubernetes for example) adversary may use Kublet commands or API proxy to gain access to information and control of the container.
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+ETSI NFV SEC025, Secure End-to-End VNF and NS management specification
+Release 4, section 4.4.6, accessed 6/28/2022: https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_&_NS_management/NFV-SEC025v0012.zip

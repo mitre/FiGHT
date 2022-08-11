@@ -1,0 +1,33 @@
+================================================================================
+T1195: Supply Chain Compromise
+Architecture Segment:   Virtualization, OA&M
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1051: Update Software regularly
+M1016: Vulnerability Scanning of software before it is brought into MNO environment as well as regular scans to detect abnormal behavior
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+CORE, RAN VNFs: 
+OSS Tools: 
+Security tools: 
+CI/CD Tools: 
+----------------------------------------
+Detection
+----------------------------------------
+DS0022: Use verification of distributed binaries through hash checking or other integrity checking mechanisms. Scan downloads for malicious signatures and attempt to test software and updates prior to deployment while taking note of potential suspicious activity.
+DS0013: Perform physical inspection of hardware to look for potential tampering. Perform integrity checking on pre-OS boot mechanisms that can be manipulated for malicious purposes and compare against known good baseline behavior.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+ETSI NFV SEC001, “Network Functions Virtualization (NFV); NFV Security; Problem Statement”, Jan. 2014, section 6.9: https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf 

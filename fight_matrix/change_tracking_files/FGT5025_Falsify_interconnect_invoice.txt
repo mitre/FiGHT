@@ -1,0 +1,31 @@
+================================================================================
+FGT5025: Falsify interconnect invoice
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+False charging: Signaling fraud may be undertaken by a partner operator, via false charging over international signaling interconnection. In [1] section 5.3. Reference [2] mentions service fraud.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5503: Employ home-routing instead of local breakout for user traffic (but this means more delay and lower quality of service)
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Operator revenue: Operator loses revenue
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5006: Usage data analysis via AI/ML
+FGDS5011: Cross-check with subscriber services (if subscriber complains)
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, section 5.2, November 2019.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks 
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206 

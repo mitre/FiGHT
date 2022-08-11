@@ -1,0 +1,42 @@
+================================================================================
+FGT5021: Tunnel ID uniqueness failure
+Architecture Segment:   User plane
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Rogue or misconfigured gNB or UPF: Rogue or wrong configuration/implementation in gNB or UPF can cause existing TEID to be assigned to a new N3 reference point or PDU session. Clause J.2.2.2 of [1]
+
+Duplicate TEID allocation can happen during EPS to 5GS handover or roaming.
+
+Duplicate TEID can cause traffic disruption, charging issues and eavesdropping of legitimate subscriber data by adversary. Clause 5.8.2.3 of [2], clause 4.11.1.2.2 of [3]
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5094: Ensure UPF and gNB/NG-eNB check for uniqueness for every new TEID they allocate locally. The newly assigned TEID must not have been in use in the past given certain amount of time (which should be set to the reasonable maximum tunnel lifetimes observed).
+M1035: Limit Access to Resource Over Network
+M1047: The UPF and g/eNB must keep a log of the TEIDs currently in use (which they assigned), and purge TEIDs once the tunnel is torn down. This log must be checked every time a new TEID is allocated.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Control or misconfiguration of gNB or UPF: Faulty implementation at gNB or UPF ; or, control over gNB, and UPF
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE billing data: UE’s billing data of legitimate UE
+UE data: UE’s reception of its data is disrupted.
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Packet inspection over the N3 interface. If two packets are seen to have the same TEID on the RAN to UPF interface, then it can be verified that they indeed belong to the same UE. It may be difficult to detect as it is per UE and per PDU session.
+FGDS5003: Charging system reports anomaly of subscriber CDRs. Periodic CDR audits can detect anomaly
+----------------------------------------
+Post-Conditions
+----------------------------------------
+UE data disruption: UE user plane data gets disrupted
+Incorrect charging: Incorrect subscribers' charging
+----------------------------------------
+References
+----------------------------------------
+3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”.: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3002
+3GPP TS 23.501 “System architecture for the 5G System (5GS)”.: https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3144
+3GPP TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022.: https://www.3gpp.org/DynaReport/23502.htm 

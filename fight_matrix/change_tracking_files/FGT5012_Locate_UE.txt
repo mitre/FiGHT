@@ -1,0 +1,29 @@
+================================================================================
+FGT5012: Locate UE
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Use radio access to locate UE: Adversary may use the radio access network to determine that a particular UE is in the area, or where exactly the UE is located
+Use core network signaling to locate UE: Adversary may use the core network signaling to trigger the procedure of locating a particular UE via RAN
+----------------------------------------
+Mitigations
+----------------------------------------
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE location: UE/User geographical location, coarse or fine-grained
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020: https://arxiv.org/abs/2005.05110v1 

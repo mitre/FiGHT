@@ -1,0 +1,97 @@
+T1555.501,Hardware Security Module Key Signing,HSM,"A hardware security module (HSM) is a physical computing device that safeguards and manages digital keys, performs encryption and decryption functions for digital signatures, strong authentication and other cryptographic functions. These modules traditionally come in the form of a plug-in card or an external device that attaches directly to a computer or network  - server. A hardware security module contains one or more secure crypto-processor chips. https://en.wikipedia.org/wiki/Hardware_security_module"
+FGT5029,Exploit Semi-public Facing Application or System,SEPP,Security Edge Protection Proxy
+FGT5012,Locate UE,User location,
+T1040,Non-SBI,"UE data, UE signaling",
+T1499.501,Consume data allocation to deny or degrade service,Assured user communications,Communications is denied until additional data usage is purchased.
+T1557.504,Gather data on the interconnect,"Sensitive User signaling such as authentication data, user location for the N32 interface",
+T1557.504,Gather data on the interconnect,User data for the N9 interface,
+FGT5003,Network Function Service Discovery,Operator network components and services,It is possible for example to find out whether an operator provides services to a certain customer? Or whether a user is also part of a private slice e.g. DOD
+FGT5019.003,Obtain subscriber identifier by NF,UE permanent identity (SUPI),
+T1498.501,Flooding core network component,Network services (AMF),AMF serving the UEs.
+FGT5022,Alteration of subscriber  profile charging parameters,UE call/data records accuracy,
+FGT5022,Alteration of subscriber  profile charging parameters,UE static profile,
+FGT5028,Discover network slice identifier,Confidentiality of slice-specific resources,
+FGT5028,Discover network slice identifier,"AMF, UDM functions",
+FGT5012.002,Self Location Measurement,User location,User location
+FGT5035.001,DOS a UE via fake cellular base station,Communications availability,Communications availability
+FGT5019.002,Intercept Bid-Down IMSI,Hard identification,Unique and non-transient user identity
+T1499.002,UDM DOS via SUCI replay,UDM-SIDF resources,
+T1046,Core-network scanning,MNO core network component data.,
+T1600.501,Radio interface,UE data/SMS,UE signaling and subscriber (user plane) data.
+T1021,Remote Services,Network functions,5G or RAN Network functions including VNF and PNFs
+T1021,Remote Services,"Hosts, VMs, or Infrastructure elements",Virtualized 5G environment relies on underlying compute and SDN network elements which may be of interest to adversary
+FGT5004.001,Network Flow Manipulation,"SDN Controller and Network Elements, operations, and security tools","Adversary may target a particular network controller, network element, CI/CD, security, and operations tools to manipulate SDN network flows."
+FGT5004.001,Network Flow Manipulation,SDN controller Configuration file,Adversary may target configuration to manipulate controller and network element behavior
+T1437,Control plane signaling disguise for C2,User subscription data,
+T1437,Control plane signaling disguise for C2,Operator resource identifiers,
+FGT5015,Device database manipulation,Integrity of device database,
+FGT5015,Device database manipulation,User equipment status integrity,
+FGT5004.002,Network Flow Manipulation,"SDN Network Elements, operations, and security tools","Adversary may target a particular network controller, network element, CI/CD, security, and operations tools to manipulate SDN network flows."
+FGT5004.002,Network Flow Manipulation,SDN vSwitch Configuration file,Adversary may target configuration to manipulate controller and network element behavior
+FGT5004.002,Network Flow Manipulation,SDN vSwitch flow table,"Network flows are stored in Network Flow tables, usually refer to as route or switch tables that vSwitch uses to decide which packet forwarding port to use for incoming packets"
+FGT5033,Retrieve UE subscription data,"UDM, subscriber/UE data","Subscriber data can be permanent (not updateable) or updateable (like the current serving PLMN, AMF etc)"
+FGT5026,SIM cloning,"Operator resources for SMS, voice calls.",
+T1499.502,Trigger Fraud Alert to Deny Service,Assured user communications,Communications is denied
+FGT5024,SIM boxing,Operator revenue.,Revenue loss from international calls appearing as if they are domestic (often subsidized)
+FGT5024,SIM boxing,"Operator resources for SMS, voice calls- Quality of service is impacted","A lot of calls are redirected to underprovisioned cells, causing bad quality calls for legit subscribers"
+FGT5025,Falsify interconnect invoice,Operator revenue,
+T1557.507,Non-SBI,"UE data, UE signaling",
+FGT5012.004,Core network function signaling,Operator network components,"NEF, AMF, SMF, UPF, NWDAF, GMLC, LMF"
+FGT5012.004,Core network function signaling,UE location,
+FGT5031,Call Detail Record (CDR) collection,User data records (calls/data/SMS),The privacy of subscribers’ data is at stake.
+T1464,Jamming or Denial of Service,Radio receivers at base station and user equipment,Radio receivers at base station and user equipment
+FGT5021,Tunnel ID uniqueness failure,"UE correct billing for data/SMS, data flow itself",
+T1499.503,DOS a UE via gNB or NF signaling,Network services,Communications is denied
+T1040.502,Middlebox Service Based Interface,"Signaling data, provisioning data, service discovery",
+T1439,Lawful Intercept Abuse,,From ENISA
+FGT5018.002,Radio access hardware,Radio access hardware," RAN-CU, C-RAN MEC and mmWave routers"
+FGT5012.003,5G-GUTI reuse,"UE location, accurate","Location is accurate to a cell area, since the sniffer device has to be close enough to hear the UE send its 5G GUTI"
+FGT5018.003,Edge Servers,Edge facility equipment,"Destruction of edge computing facilities, unauthorized access at system level as an entry point to all hosted resources, theft of data on local storage, vandalism and/or sabotage of equipment."
+FGT5018.001,Cabling and junction boxes,Data cables,
+FGT5018.001,Cabling and junction boxes,Power cables,
+FGT5027,Spoof network slice identifier,Confidentiality of slice-specific resources,UE (served by that slice) related information. Slice specific configuration – e.g what NFs are part of it (?)
+FGT5027,Spoof network slice identifier,Core NFs,"The functionality of any core NF that is shared between slices (AMF, SMF, PCF,.. )"
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,"SDN Network Elements, operations, and security tools","Adversary may target a particular network controller, network element, CI/CD, security, and operations tools to manipulate SDN network flows."
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,SDN vSwitch Configuration file,Adversary may target configuration to manipulate controller and network element behavior
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,SDN vSwitch flow table,"Network flows are stored in Network Flow tables, usually refer to as route or switch tables that vSwitch uses to decide which packet forwarding port to use for incoming packets"
+T1199.501,Trusted MNO Relationship,SEPP,An adversary would want to compromise the cSEPP as it is the VPLMN end-point for the N32c channel to the HPLMN
+T1199.501,Trusted MNO Relationship,VPLMN UPF,An adversary would want to compromise the VPLMN UPF as it is used as an endpoint on the roaming network for the N9 interface between UPFs
+FGT5010,Fraudulent AMF registration for UE in UDM,UDM functionality,
+FGT5010,Fraudulent AMF registration for UE in UDM,UE data,
+FGT5010,Fraudulent AMF registration for UE in UDM,UE location,
+FGT5016,Abuse of Inter-operator Interfaces,SEPP,Adversaries May need to compromise a vSEPP to perform certain activities to ensure they look legitimate.
+FGT5016,Abuse of Inter-operator Interfaces,vNFs,Adversaries may need to compromise a vPLMN NF to perform certain activities to ensure they look legitimate
+FGT5016,Abuse of Inter-operator Interfaces,IPX signing keys,Adversary will need to compromise keys used to sign IE modifications at IPX
+T1190.501,Application or System Exploitation,SEPP,Security Edge Protection Proxy
+T1557.505,Service Based Interface,"5G Core network services, control plane data.",There are many procedures that can be impacted if an adversary gets in the middle of a TLS connection between two functions on the SBI.
+FGT5030,Network-side SMS collection,User data content,
+FGT5008,Redirection of traffic via user plane network function,User data,
+FGT5012.001,Passive radio signals observation,User location,User location
+T1040.501,Network function Service Based Interface,"Signaling data, provisioning data, service discovery",
+FGT5002,Bypass home routing,UE location,Coarse location: In the form of routing info (MSC address)
+FGT5011,Unauthorized access to NEF via token fraud,"Operator NEF, operator Services",
+FGT5034,Charging fraud via NF control,UE call/data records accuracy,Communications is denied
+T1565,Non-SBI,"UE data, UE signaling",
+FGT5005,Memory Scrapping,SDN Controller and Network Elements (or any target host),"Adversary may target a particular network controller, network element, CI/CD, security, and operations tools to collect data"
+FGT5005,Memory Scrapping,"SDN Configurations file, Network flow tables",Adversary may target configuration or network flow data
+FGT5018.004,Theft of physical assets,Physical assets and commodities,
+T1195.501,SIM credential theft,Privacy of subscriber data and voice traffic,Adversary is after getting the keys to decrypt cellular communications for those sets of SIMs whose credentials it captured.
+T1018,Core-network scanning,MNO core network component data.,
+T1557.502,Interception via Visited SEPP,SEPP,Adversary would target the SEPP
+FGT5007,Registration of malicious network functions,Network services,Network services provided to UEs.
+FGT5012.005,Shared network function in slice,UE location,
+FGT5001,Exploitation of Interconnect Edge Application Programming Interfaces,"Operator core NFs services, user data /status privacy",
+T1592.501,Internal resource search,"Mobile network topology, interconnects.",
+T1592.501,Internal resource search,"Hostnames and IP addresses of core network functions like subscriber database, AMF (not confirmed)",
+FGT5012.006,NAS exploit,User location,User location
+T1557.506,Air Interface,"User traffic integrity, User location, User signaling",All data and voice transmitted to and from user can be intercepted in the clear
+FGT5018,Vandalism of network infrastructure,Physical infrastructure,"- Radio access units 
+- ICT equipment 
+- Light data center 
+- Cloud data center 
+- Edge Computing Facilities"
+T1557.501,Bid down UE,User data,
+FGT5004,Network Flow Manipulation,"SDN Controller and Network Elements, operations, and security tools","Adversary may target a particular network controller, network element, CI/CD, security and operations tools to manipulate SDN network flows."
+FGT5004,Network Flow Manipulation,"SDN Configurations file, Network flow tables",Adversary may target configuration or network flow data
+T1525,Compromised image,"Core, RAN, SDN, System tools","Adversary may target a particular network domain, CI/CD, or security and operations tools."
+FGT5019.001,Intercept Home Network via SUCI,None.,Home network is broadcast unconcealed over the air per standard. No attack on assets is necessary.

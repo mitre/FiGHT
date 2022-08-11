@@ -1,0 +1,28 @@
+================================================================================
+FGT5032: gNodeB Component Manipulation
+Architecture Segment:  RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+RAN Service Management and Orchestration: Configuration and data related to gNodeB
+ORAN RIC: RIC and Configuration and data related to gNodeB
+x-Apps: x-App and Configuration and data related to gNodeB, Realtime optimization data
+r-Apps: r-App and Configuration and data related to gNodeB, non-Realtime optimization data
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------

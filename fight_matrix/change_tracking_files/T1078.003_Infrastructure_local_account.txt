@@ -1,0 +1,32 @@
+================================================================================
+T1078.003: Infrastructure local account
+Architecture Segment:   OA&M
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1027: Passwords Policies to ensure secure local accounts across all devices that necessitate local accounts
+M1026: Privileged account management
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Physical Network Functions: Any 5G, Network, OSS and Security capability deployed as PNF supporting local accounts
+Infrastructure servers: Any Virtualization and Network host supporting local account
+----------------------------------------
+Detection
+----------------------------------------
+DS0028: Logon session
+DS0002: User Account authentication
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+ENISA “Threat Landscape and Good Practice Guide for Software Defined Networks/5G”, Jan. 2016, Table 1, and 2: https://www.enisa.europa.eu/publications/sdn-threat-landscape
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206  

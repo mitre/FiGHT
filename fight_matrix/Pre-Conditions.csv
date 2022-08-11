@@ -1,0 +1,85 @@
+T1555.501,Hardware Security Module Key Signing,Obtain service account credentials,Adversary acquires credentials with legitimate privileges to conduct operations using the HSM Adversary has a position to initiate transactions with the HSM.
+FGT5029,Exploit Semi-public Facing Application or System,Vulnerability Identified,Adversary must have identified a vulnerability susceptible to the specially crafted message that results in an ability to use use additional techniques.
+T1499.501,Consume data allocation to deny or degrade service,A malicious app or set of apps have to have been installed on the UE,There are several methods to achieve this
+FGT5003,Network Function Service Discovery,Access to NRF,NRF is by design open to connections from other functions. Control of another NF in the operator domain may be required.
+FGT5019.003,Obtain subscriber identifier by NF,Known UE phone number/GPSI. Control over an AF or NEF.,
+FGT5028,Discover network slice identifier,Compromise of core consumer NF,"For NF discovery service, 23.502 lists these consumers: AMF, SMF, PCF, NEF, NSSF, SMSF, AUSF, CHF, NRF, NWDAF, I-CSCF, SCSCF, IMS-AS, SCP, UDM, AF, DCCF, MBSF, 5G DDNMF, TSCTSF."
+FGT5012.002,Self Location Measurement,Permissive user security profile OR system does not employ over-the-air encryption.,User security profile must allow bidding down to less secure format OR system does not employ over-the-air encryption.
+FGT5035.001,DOS a UE via fake cellular base station,Permissive user security profile,User security profile allows bidding down to less secure service
+FGT5019.002,Intercept Bid-Down IMSI,Permissive user security profile,User security profile must allow bidding down.
+T1499.002,UDM DOS via SUCI replay,Access to rogue Base Station or rogue UE,
+T1046,Core-network scanning,Access to scanning tool,
+T1600.501,Radio interface,"Incorrect AMF or SMF implementation, rogue gNB","A rogue gNB may be required to change the UE’s CP & UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
+This attack is possible with only control over the AMF, in which case the algorithm for CP & UP protection is changed to NULL."
+FGT5004.001,Network Flow Manipulation,Credential and Access to SDN Controller,Privileged Access to SDN controller via direct login or thru APIs
+T1437,Control plane signaling disguise for C2,None known,
+FGT5015,Device database manipulation,None,
+FGT5004.002,Network Flow Manipulation,Credential and Access to SDN vSwitch,Privileged Access to SDN vSwitch via direct login or thru Control Plane APIs
+T1499.502,Trigger Fraud Alert to Deny Service,A valid IMSI or SUCI must be intercepted by attacker.,There are several methods to achieve this
+FGT5024,SIM boxing,"Adversary purchases a SIM box, SIM cards, and obtain an Internet connection",
+FGT5025,Falsify interconnect invoice,none,
+T1557.507,Non-SBI,Malware or wrong configuration in switches/routers between RAN and core and between gNBs,
+FGT5012.004,Core network function signaling,Access to SS7 network,Pretend to be an operator supporting only older generations
+FGT5012.004,Core network function signaling,Access to operator’s network function,"Adversary has to gain control of one core NF, or UPF or NEF."
+FGT5012.004,Core network function signaling,Knowledge of the UE SUPI or 5G-GUTI,For all Core network function abuse
+T1464,Jamming or Denial of Service,None,N/A
+FGT5021,Tunnel ID uniqueness failure,"Faulty implementation at gNB or UPF ; or, control over gNB, and UPF",
+T1040.502,Middlebox Service Based Interface,Control of a SCP,This is just one possible way
+FGT5018.002,Radio access hardware,Improper physical security of radio access hardware,"Despite the virtualized structure of the 5G network and all involved network functions, there will be a strong dependency on the physical infrastructure, especially in the initial migration/hybrid 5G deployments."
+FGT5012.003,5G-GUTI reuse,None,
+FGT5018.003,Edge Servers,Improper security monitoring of edge computing facilities,"Mobile-edge computing have to be integrated in the network-wide Security Incident and Monitoring System, but with additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider -level monitoring mechanisms. Failure to do so may leave advanced or sustained threats undetected, as well as technical failures or malfunctions of local resources."
+FGT5018.001,Cabling and junction boxes,Unprotected cables,"Fibers routed between pieces of equipment without proper protection are susceptible to damage, which can critically affect network reliability. The fiber cable management system should therefore ensure that every fiber is protected from physical damage."
+FGT5018.001,Cabling and junction boxes, Unprotected junction boxes,"Lack of protection of junction boxes / splice closures. Improper cable routing also causes increased congestion in the termination panel and the cableways, increasing the possibility of bend radius violations and long-term failure."
+FGT5027,Spoof network slice identifier,Two slices share one common NF. NRF does not check requester slice identifier and the target (consumer) slice identifier.,
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Credential and Access to SDN vSwitch,Privileged Access to SDN vSwitch via direct login or thru Control Plane APIs
+T1199.501,Trusted MNO Relationship,Compromised or intentional use of VPLMN resources,"An adversary must already have compromised a trusted VPLMN, MEC, IPX, and/or VAS provider"
+FGT5010,Fraudulent AMF registration for UE in UDM,Faulty UDM implementation,"If the UDM does not store the authentication status of a UE, or the authentication status is incorrect"
+FGT5016,Abuse of Inter-operator Interfaces,IPX key compromise,Adversary will need to compromise keys used to sign IE modifications at IPX
+FGT5016,Abuse of Inter-operator Interfaces,Compromise of initiating SEPP,Compromise of the initiating SEPP would permit an adversary to establish a protection policy that would allow IPX modification.
+T1190.501,Application or System Exploitation,Vulnerability Identified,Adversary must have identified a vulnerability susceptible to the specially crafted message that results in an ability to use use additional techniques.
+FGT5030,Network-side SMS collection,Malware developed,
+FGT5008,Redirection of traffic via user plane network function,UPF IP address or control,
+FGT5012.001,Passive radio signals observation,Line-of-sight,Attacker must have radio line-of-sight to target for most accurate geolocation.
+T1040.501,Network function Service Based Interface,Control of a NF on the SBI,
+FGT5006,DNS Manipulation,"Two slices share one common NF that is able to get UE location info (e.g. AMF). Adversary has control of one slice or at least a NF in that slice, -- where said NF is allowed to talk to the AMF.",
+FGT5002,Bypass home routing,Access to a host that could pass as belonging to a different operator (roaming partner),
+FGT5002,Bypass home routing,Access to the MSISDN of the user device,
+FGT5011,Unauthorized access to NEF via token fraud,Access to some MNO services,
+T1565,Non-SBI,Malware or wrong configuration in gNB.,
+FGT5005,Memory Scrapping,Credential and Access to SDN Controller and network elements,Privileged Access to SDN controller and Network elements to transfer and install malware to the target host.
+FGT5018.004,Theft of physical assets,Improper security monitoring of remote/shared facilities,"Remote/shared sites have to be integrated in the network-wide Security Incident and Monitoring System, but with additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider -level monitoring mechanisms. Failure to do so may leave advanced or sustained threats undetected, as well as technical failures or malfunctions of local resources."
+T1018,Core-network scanning,Access to scanning tool,
+T1557.502,Interception via Visited SEPP,SEPP,Adversary would need to be in control of the VSEPP which may be managed by a VAS
+FGT5012.005,Shared network function in slice,"Two slices share one common NF that is able to get UE location info . Adversary has control of one slice or at least a NF in that slice, -- where said NF is allowed to talk to the AMF.","The following core NFs can legitimately ask for or obtain directly the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core NFs can only get limited/coarse location: SMF, UPF, PCF."
+T1592.501,Internal resource search,"Access to GSMA account; in some cases, none.",
+FGT5006.002,Billing Evasion,"Two slices share one common NF that is able to get UE location info (e.g. AMF). Adversary has control of one slice or at least a NF in that slice, -- where said NF is allowed to talk to the AMF.",
+FGT5012.006,NAS exploit,Fake gNB in the area where the victim UE may be located. Fake UE as well in the NAS SMC attack.,Adversary must construct a fake gNB that it can control what messages it sends to UEs.
+T1557.506,Air Interface,Permissive user security profile OR system employs null integrity.,User security profile must allow bidding down to less security service OR system must employ null integrity.
+FGT5018,Vandalism of network infrastructure,Improper physical security of 5G Core Components infrastructure; gNB Component infrastructure; NFVI; SDN; MEC host may impact the overall security and performance of the system.,"5G Core Components
+• Improper physical security of Data-Centers / Telecommunication equipment room. 
+• Improper isolation of physical secure perimeter between tenants.
+• Improper environmental protection controls.
+• Inadequate / defective security devices. 
+
+gNB Components infrastructure 
+•Improper physical security of telecommunications equipment rooms and equipment sited in partners’ or users’ premises.
+• Improper physical security of physically isolated operation areas.
+• Inadequate / defective security devices. 
+
+NFVI 
+• Improper physical security of telecommunications equipment rooms.
+• Improper physical security of physically isolated operation areas.
+• Inadequate / defective security devices. 
+
+SDN 
+• unprotected Data Centre Interconnection channels areas.
+• improper physical secure perimeter or isolation between tenants. 
+
+MEC host 
+• Improper physical and environmental security of edge computing facilities; 
+• Improper security monitoring of edge computing facilities; 
+• Insecure service environment."
+T1557.501,Bid down UE,Fake base station with strong signal and UE system,"Attacker has procured a UE and gNB under its control, and the victim UE is nearby"
+FGT5004,Network Flow Manipulation,Credential and Access to SDN Controller and network elements,Privileged Access to SDN controller and Network elements
+T1525,Compromised image,Credential and Access to repository and or image creation tools (i.e. Docker),"Image can be manipulated, or a new image can be introduced to have same impact.  Privileged Access to tool or repo is required."
+FGT5019.001,Intercept Home Network via SUCI,Ability to receive SUCI over the air,Attacker requires sufficient signal to noise and interference ratio

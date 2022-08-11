@@ -1,0 +1,28 @@
+================================================================================
+T1583.501: Fake Cellular Base Station or Access Point
+Architecture Segment:   RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+M1056: This technique cannot be easily mitigated with preventive controls since it is based on behaviors performed outside of the scope of the mobile network operator
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5002: UE measurements of received power levels from all base stations nearby, and their identifiers. Reference [2], section 6.24
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+3rd Generation Partnership Project (3GPP)  TR 33.809: “Study on  5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.: https://www.3gpp.org/DynaReport/33809.htm 

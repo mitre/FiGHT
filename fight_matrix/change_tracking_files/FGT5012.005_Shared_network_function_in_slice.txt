@@ -1,0 +1,31 @@
+================================================================================
+FGT5012.005: Shared network function in slice
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Malicious NF belonging to compromised Network Slice gets an access token for the target AMF, which serves both target slice and compromised slice.: Malicious NF of a compromised slice gets access token for a shared AMF, but then asks AMF for the location of a UE in the target slice. The AMF checks that the authorization (OAuth) token is ok, which it is, but does not check that the UE ID is served by target slice, while the requester NF is from compromised slice.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5012: Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token). That is, this attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Two slices share one common NF that is able to get UE location info. Adversary has control of one slice or at least a NF in that slice -- where said NF is allowed to talk to the AMF.: The following core NFs can legitimately ask for or obtain directly the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core NFs can only get limited/coarse location: SMF, UPF, PCF.
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE location: UE/User geographical location, coarse or fine-grained
+----------------------------------------
+Detection
+----------------------------------------
+DS0015: Regularly audit applications and interface messaging logs. Check logs of requests/responses at the shared NF. E.g., each entry should contain IMSI, NF consumer that requested it, slice IDs of both.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+UE in the target slice is tracked by the adversary with control over a different slice.: Target slice information is leaked, slice confidentiality is breached due to sharing the NF between slices.
+----------------------------------------
+References
+----------------------------------------
+AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks", 17032021-v1.00, March 2021, section 3.1.5: https://info.adaptivemobile.com/network-slicing-security 

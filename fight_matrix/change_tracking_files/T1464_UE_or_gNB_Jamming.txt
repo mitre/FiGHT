@@ -1,0 +1,35 @@
+================================================================================
+T1464: UE or gNB Jamming
+Architecture Segment:  RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Noise jamming via jammer device: Jammer device is used to perform noise jamming of the radio interface, See [1]
+False synchronization signals: Fake UE sends false synchronization signals to the gNB
+Replay legitimate signals: Fake base station replays modified portions of legitimate signals from gNB or towards gNB
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5099: Move user equipment closer to base station to overpower jamming signal.
+FGM5100: Increase height of User Equipment to avoid jamming signal
+FGM5001: Disable jamming source
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+Radio receivers at base station and user equipment: UE and gNB basic operations
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5001: Identify source and location of jammer
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+Y. Arjoune and S. Faruque, “Smart Jamming Attacks in 5G New Radio: A Review” (2020), 10th Annual Computing and Communication Workshop and Conference (CCWC): https://ieeexplore.ieee.org/abstract/document/9031175/ 
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+Lichtman, et al. “5G NR Jamming, Spoofing, and Sniffing: Threat Assessment and Mitigation” (2018), 2018 IEEE International Conference on Communications Workshops: https://arxiv.org/pdf/1803.03845.pdf

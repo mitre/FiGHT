@@ -1,0 +1,33 @@
+================================================================================
+FGT5018.002: Radio access hardware
+Architecture Segment:   PHYS & Env
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Physical sabotage/vandalism of the network infrastructure: Classified as a deliberate physical attack, this threat relates to actions taken by actors aimed at destroying, disabling or stealing physical assets supporting the 5G Network. A physical attack to 5G critical assets may disrupt, interfere and ultimately cause unavailability of the network service. Despite the existence of physical protection mechanisms (e.g., physical surveillance and surveillance cameras, security locks, security guards), physical breaches and insider threat attacks may still occur.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5005: Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against vandalism.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Improper physical security of radio access hardware: Despite the virtualized structure of the 5G network and all involved network functions, there will be a strong dependency on the physical infrastructure, especially in the initial migration/hybrid 5G deployments.
+----------------------------------------
+Critical Assets
+----------------------------------------
+Radio access hardware (gNB):  RAN-CU & DU, C-RAN MEC and mmWave equipment
+----------------------------------------
+Detection
+----------------------------------------
+DS0040: Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed. Additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider-level monitoring mechanisms.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Service unavailability: Destruction or damage of these assets may cause unavailability of resources
+Information destruction: Destruction or damage of these assets may cause information destruction
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, page 202, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+El-Shorbagy, A.-moniem. “5G Technology and the Future of Architecture”. Procedia Computer Science, (2021), volume 182, p121–131.: https://doi.org/10.1016/j.procs.2021.02.017 

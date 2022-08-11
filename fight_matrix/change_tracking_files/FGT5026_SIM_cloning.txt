@@ -1,0 +1,33 @@
+================================================================================
+FGT5026: SIM cloning
+Architecture Segment:   UE
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Duplicate captured SIM card: Adversary gets physical access to the victim SIM card and then uses smart card copying software to achieve duplication of the SIM card contents.
+----------------------------------------
+Mitigations
+----------------------------------------
+M1017: Only accept SIM cards from reputable manufacturers (MNOs)
+M1018: User accounts management at the operator side
+M1022: Restrict access to subscriber repository, which would allow SIM card changes
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Access to SIM card: Adversary needs physical access to SIM card.
+----------------------------------------
+Critical Assets
+----------------------------------------
+Subscriber sensitive data: SUPI, root key, home network public key etc.
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5005: Investigate unusual SIM card patterns.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Access to user credentials: With the cloned SIM card, adversary now has access to the victim’s permanent identifier (SUPI or IMSI) and master subscriber key Ki. Those can be used for unauthorized access to 5G network.
+----------------------------------------
+References
+----------------------------------------
+Blog article, “Clone or Swap? SIM Card Vulnerabilities to Reckon With”: https://securityintelligence.com/posts/clone-or-swap-sim-card-vulnerabilities-to-reckon-with/

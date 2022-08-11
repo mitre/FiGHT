@@ -1,0 +1,54 @@
+================================================================================
+T1499.503: DOS a UE via gNB or NF signaling
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+DOS via gNB control (or fake UE): Adversary with a fake UE can send a De-registration request to the victim UE's gNB with the victim 5G-GUTI. Or , adversary with a fake gNB can send  Deregistration request to the victim UE. 
+After the victim UE is either actively or passive bid down to less secure protocol, an adversary with a fake base station denies service by (1) issuing registration reject messages or other orders to deny radio access, or (2) posing as a legitimate base station, but not relaying traffic to or from the intended recipient.
+Or, adversary with fake UE can try to register as the victim UE, and when the victim UE tries to RRC connect again, it will be rejected. See [2]
+DOS via AMF control: Adversary controlling AMF can cause authentication to fail or deny SMS service by deactivating SMS for a given SUPI [1]. Control of AMF can give an adversary the power to manipulate the AKA procedure between the AMF and any other UE, so that (at the simplest) the UE fails authentication and cannot get services.
+Rogue or misconfigured NF modifies the registration accept message for legitimate subscribers to deny access to some or all services that are configured in their profile.
+DOS via SEAF control: Adversary controlling SEAF may change the parameters exchanged back to the home network
+DOS via SMF control: Adversary controlling SMF can release an existing PDU session or not create a new one; or send a  N4 Session Release request to UPF
+DOS via UPF control: Adversary controlling UPF can send a report of PDU session inactivity, which results in de-activating the UE session. Or alter secondary authentication between DN AAA and SMF so it fails
+DOS via AUSF control: Adversary controlling AUSF: produce incorrect AKA parameters or change data out of UDM
+DOS via UDM control: Adversary controlling UDM: fail the SUPI de-concealing operation, UE key will be different and NAS SMC will fail (e.g., responding to SUCI deconcealment with an incorrect SUPI). See [3].
+DOS via ARPF control: Adversary controlling ARPF can
+Alter the root key (K) or provide wrong root key for the UE
+Generate wrong authentication vector (AV) during UE authentication procedure using EAP-AKA’ or 5G AKA.
+Both will result in authentication failure for the UE.  [Section 6.1.3 of [4]]
+DOS via UDR control: Adversary controlling UDR may give UDM incorrect security parameters, or remove UE authentication status.
+DOS via PCF control: Adversary controlling PCF may return a very restrictive policy for that UE.
+DOS via NSSF and NSSAAF control: Adversary controlling NSSF and NSSAAF may deny UE access to a slice by mishandling NSSAI (saying it's unavailable) or altering authentication params so that authentication procedure fails.
+DOS via CHF control: Adversary controlling CHF may send a message to SMF to start PDU session release.
+DOS via SMSF control: Adversary controlling SMSF may achieve DOS only on SMS for a given UE.
+DOS via 5G EIR control: Adversary controlling 5G EIR can mark UE as stolen.
+DOS via Home PLMN or visited PLMN SEPP: Adversary controlling home PLMN SEPP or visited PLMN SEPP can alter or discard registration request/response message and/or other signaling messages to deny access for a UE.
+----------------------------------------
+Mitigations
+----------------------------------------
+M1030: Implement industry standard core and edge network function security protection
+FGM1506: Periodically authenticate NFs in the network to assess whether they have been compromised
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Compromise gNB or NF: Adversary needs access to a fake or compromised gNB or a compromised NF.
+----------------------------------------
+Critical Assets
+----------------------------------------
+Network services: Communications is denied
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5011: Subscriber notifies provider of no or degraded service
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+Hu, X. et al: “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
+3rd Generation Partnership Project (3GPP)  TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, December. 2021, clauses E.2.2.1: https://www.3gpp.org/DynaReport/33926.htm 
+3rd Generation Partnership Project (3GPP)  TS 33.501: “Security architecture and procedures for 5G System”, Technical Specification, v17.6.0, June 2022: https://www.3gpp.org/DynaReport/33501.htm 

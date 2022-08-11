@@ -1,0 +1,33 @@
+================================================================================
+FGT5002: Bypass home routing
+Architecture Segment:  Control plane
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Send SMS location query via SS7 or Diameter: Incorrect implementation/configuration or compromised home SMS router can allow bypass of the SMS location query messages. Deployed SMS router as in Section 7.2.2 of [3]
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5004: Correctly configure SS7 firewall in home network https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html .
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Compromised SMS Center or STP: Access to a host that could pass as belonging to a different operator (roaming partner)
+Get phone number: Access to the MSISDN of the user device
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE location: Coarse location: In the form of routing info (MSC address)
+----------------------------------------
+Detection
+----------------------------------------
+DS0015: Logs of externally received messages requesting location of user or, logs of outgoing responses to such messages can detect anomalies. Logs are on the NF or functions which interface SMS home router such as MAP IWF or SMSC. [Figure 27 of [3].
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020: https://arxiv.org/abs/2005.05110v1 
+European Union Agency for Cybersecurity (ENISA), “Signaling security in telecom SS7/Diameter/5G”,  March 2018: https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g 
+GSM Association, “Official Document NG.111 - SMS Evolution”, v2.0, Nov. 2020: https://www.gsma.com/newsroom/wp-content/uploads//NG.111-v2.0.pdf 

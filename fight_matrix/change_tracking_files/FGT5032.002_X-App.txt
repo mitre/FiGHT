@@ -1,0 +1,30 @@
+================================================================================
+FGT5032.002: X-App
+Architecture Segment:  RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+----------------------------------------
+Mitigations
+----------------------------------------
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+----------------------------------------
+Critical Assets
+----------------------------------------
+RAN Service Management and Orchestration: Configuration and data related to gNodeB
+ORAN RIC: RIC and Configuration and data related to gNodeB
+x-Apps: x-App and Configuration and data related to gNodeB, Realtime optimization data
+----------------------------------------
+Detection
+----------------------------------------
+----------------------------------------
+Post-Conditions
+----------------------------------------
+----------------------------------------
+References
+----------------------------------------
+O-RAN ALLIANCE, ‘Non-RT RIC: Functional Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021: https://orandownloadsweb.azurewebsites.net/specifications
+O-RAN ALLIANCE, ‘Non-RT RIC Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022: https://orandownloadsweb.azurewebsites.net/specifications
+Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed June 2022, section 5.1: https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5

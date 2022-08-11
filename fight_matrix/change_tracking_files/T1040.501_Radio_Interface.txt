@@ -1,0 +1,39 @@
+================================================================================
+T1040.501: Radio Interface
+Architecture Segment:  RAN
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Eavesdrop on air interface for a given UE: The adversary employs a back to back fake gNB-UE combination. When UE security profile allows bidding down, adversary denies service to 5G, bids down victim UE to less secure protocol with illegitimate signaling, orders the UE to transmit with no or weak encryption, acts as an adversary-in-the-middle to intercept communication, and relays communication to and from intended recipient. 
+Subscriber location can be derived from measurement reports by rogue gNB. Reference [2] and section 6.7.4 of [3], and [4].
+Eavesdrop on air interface for any UE: Alternatively, if the 5G system employs null encryption, subscriber data traffic can be collected in the clear ([1]). Subscriber location can be sent by the UE to the network or vice versa
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5006: Set security profile to prohibit bidding down to less secure service.
+M1041: Avoid systems that employ null encryption. De-register when only NULL encryption is offered.
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Permissive subscriber security profile OR system employs null encryption.: Subscriber security profile must allow bidding down to less secure service OR system must employ null encryption.
+----------------------------------------
+Critical Assets
+----------------------------------------
+User plane traffic confidentiality: All user plane data sent by UE over the air can be intercepted in the clear.
+UE location: UE/subscriber geographical location
+Signaling traffic confidentiality: All signaling data (not NAS) including measurement reports sent by UE over the air can be intercepted in the clear.
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5010: UE transitions to less secure service. UE responds to requests that were not sent by legitimate network.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Temporary loss of subscriber data confidentiality.: Transient technique. Works only as long as adversary is able to retain connection.
+----------------------------------------
+References
+----------------------------------------
+European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020. Section 4.4: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+Hu, X. et al. : “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957  
+3GPP TS33.501 “Security architecture and procedures for 5G System”, Section 6.7.4: https://www.3gpp.org/DynaReport/33501.htm
+Zaenab D. Shakir, J. Zec, I. Kostanic, “Position location based on measurement reports in LTE cellular networks”, 2018 IEEE 19th Wireless and Microwave Technology Conference (WAMICON), 2018.: https://ieeexplore.ieee.org/document/8363501 

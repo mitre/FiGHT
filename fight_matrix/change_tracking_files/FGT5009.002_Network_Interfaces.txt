@@ -1,0 +1,54 @@
+================================================================================
+FGT5009.002: Network Interfaces
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Compromised or misconfigured gNB: A rogue or misconfigured gNB can disable IPSec integrity or use a weak IPSec integrity algorithm on backhaul interfaces such as N2, N3 and Xn. Then it can launch other attacks. Clause D.2.2 of [1], clause 5.3.3 of [2].
+Compromised or misconfigured AMF: A rogue or misconfigured AMF can disable IPSec integrity or use a weak IPSec integrity algorithm on N2 and N26 interfaces. Then it can launch other attacks. Clause K.2.1 of [1], clause 5.5.2  of [2]
+Compromised or misconfigured UPF: A rogue or misconfigured UPF can disable IPSec integrity or use a weak IPSec integrity algorithm on N3, N4 and N9 interfaces. Then it can launch other attacks. Clause L.2.1 of [1]
+Compromised or misconfigured SMF: A rogue or misconfigured SMF can disable IPSec integrity or use a weak IPSec integrity algorithm on N4 interface. Then it can launch other attacks. Clause 9.9 of [2]
+Compromised or misconfigured NF: A rogue or misconfigured AMF can disable the TLS integrity or use a weak TLS integrity algorithm to another NF including the SCP. Then it can launch other attacks to gain unauthorized access to network services. Clause 13.1 of [2]
+
+If SCP is rogue or misconfigured, it can force TLS connections to all NFs to be unencrypted or use weak integrity for all. Clause 5.9.2.4 of [2]
+Compromised or misconfigured SEPP or IPX component: A rogue or misconfigured SEPP can disable TLS integrity or use a weak TLS integrity algorithm on N32-c interface or N32-f interface or both.
+
+A rogue or misconfigured IPX component can disable JWS integrity or use a weak integrity algorithm when PRINS is used on N32-f. Then it can launch other attacks. Clauses 13.1 and 13.2 of [2]
+Compromised or misconfigured MME/AMF, or UPF.: A rogue or misconfigured AMF/MME can disable IPSec integrity or use a weak IPSec integrity algorithm on N26 interface. Then it can launch other attacks. Clause K.2.1 of [1], 8.4 of [2].
+
+A rogue or misconfigured UPF can disable IPSec integrity or use a weak IPSec integrity algorithm on the N9 interface between home PLMN UPF and visited PLMN UPF. See clause 9.9, 13.1 and 13.2 of [2]
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM1557: Use strong integrity protection on all non-SBI, SBI and roaming/interconnect interfaces. That is, TLS should be used in all SBI, N32-c and N32-f and PRINS in N32-f when TLS is not used.
+M1018: Network element security safeguards for gNB and all core NFs
+M1051: Network element security safeguards for gNB and all core NFs
+M1046: Network element security safeguards for gNB and all core NFs
+M1031: Implement network intrusion prevention methods
+M1043: Implement credential access protection methods
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+Rogue or misconfigured AMF or SMF or gNB or UPF or SEPP or MME or any other core NF: Adversary must have access to the network components to cause the attacks
+----------------------------------------
+Critical Assets
+----------------------------------------
+UE data: Any of the subscriber data sourced or destined to the UE
+UE signaling: Any of the signaling traffic between UE and network
+Network signaling: Any of the signaling traffic between 5G core NFs, between 5G core and RAN, within RAN and between 5G and 4G core networks.
+----------------------------------------
+Detection
+----------------------------------------
+DS0029: Inspect network traffic and watch for unauthorized changes as the packets move through the interfaces.
+DS0015: Check configuration changes in gNB, NFs, SEPP and MME.
+Run configuration audits by OSS/BSS.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+UE at risk of data manipulation: UE signaling with network and user plane data may be impacted. This can be used to cause DoS attack.
+Network signaling at risk of data manipulation: Network communication within core network or on the non-SBI interfaces or on roaming interface may be impacted.
+----------------------------------------
+References
+----------------------------------------
+3GPP TR33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes.”: https://www.3gpp.org/DynaReport/33926.htm
+3GPP TS33.501 “Security architecture and procedures for 5G System.”: https://www.3gpp.org/DynaReport/33501.htm

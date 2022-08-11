@@ -1,0 +1,33 @@
+================================================================================
+FGT5017: Call Detail Record (CDR) collection
+Architecture Segment: 
+----------------------------------------
+Procedure Examples
+----------------------------------------
+Attack on CDR database: Malware “interacts with CDR databases” (possibly from the SMSC, which this malware infects). Data miner loaded by installation script. The script collects CDR s for certain IMSIs, the info therein is voice call metadata, i.e. time, duration, phone numbers.
+----------------------------------------
+Mitigations
+----------------------------------------
+FGM5101: Isolate CDR databases from the rest of the IT systems/NOC resources
+M1043: CDR database admin users periodically re-checked
+----------------------------------------
+Pre-Conditions
+----------------------------------------
+SMSC is compromised: Rogue or misconfigured SMSC
+----------------------------------------
+Critical Assets
+----------------------------------------
+Subscriber data: Confidentiality of sensitive subscriber data in the form of (calls/data/SMS).
+----------------------------------------
+Detection
+----------------------------------------
+FGDS5012: CDR databases should log and raise alarms for any suspicious activity: new connections set up, privilege escalation in admin user.
+----------------------------------------
+Post-Conditions
+----------------------------------------
+Leakage of subscriber data: Exposure of subscriber sensitive information such as call/data/text.
+----------------------------------------
+References
+----------------------------------------
+Techradar.com news article Dec. 31, 2020, "T-Mobile data breach sees phone numbers and call records leaked online", Retrieved March 4, 2022: https://www.techradar.com/news/t-mobile-data-breach-sees-phone-numbers-and-call-records-leaked-online 
+Leong, R, Perez, D. and Dean, T.: “MESSAGETAP: Who’s Reading Your Text Messages” FireEye. 31 Oct 2019: https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages 
