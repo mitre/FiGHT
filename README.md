@@ -6,6 +6,8 @@ FiGHT™ serves as a foundation to 5G security research and can be operationaliz
 
 FiGHT™ is modeled after the MITRE ATT&CK® framework, and its tactics and techniques are complementary to those in ATT&CK. This early, beta release of FiGHT™ is being offered to the public in order to solicit feedback from the relevant communities of telecommunication providers, manufacturers, and cyber security researchers.
 
-MITRE FiGHT™ and MITRE ATT&CK® are a trademark and registered trademark of The MITRE Corporation. Approved for Public Release; Distribution Unlimited. Public Release Case Number 22-2192 @2022 The MITRE Corporation. ALL RIGHTS RESERVED.
+MITRE FiGHT™ and MITRE ATT&CK® are a trademark and registered trademark of The MITRE Corporation. 
+
+Approved for Public Release; Distribution Unlimited. Public Release Case Number 22-2192 @2022 The MITRE Corporation. ALL RIGHTS RESERVED.
 
 Visit the FiGHT website at https://fight.mitre.org!
