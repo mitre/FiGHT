@@ -10,4 +10,4 @@ MITRE FiGHT™ and MITRE ATT&CK® are a trademark and registered trademark of Th
 
 Approved for Public Release; Distribution Unlimited. Public Release Case Number 22-2192 @2022 The MITRE Corporation. ALL RIGHTS RESERVED.
 
-Visit the FiGHT website at https://fight.mitre.org!
+Visit the FiGHT website at https://fight.mitre.org.
