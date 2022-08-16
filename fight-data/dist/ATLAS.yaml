@@ -1387,7 +1387,44 @@ techniques:
     \ network connections, services, drivers, and other system components.\r\n[To\
     \ read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1014)\r\
     \n"
+  detections:
+  - detects: Software image inconsistency.  Signature and checksum mismatch
+    fgdsid: DS0007
+    name: Image
+  - detects: Kernel executing unknow processes or unauthorized processes not typical
+      of the host.
+    fgdsid: DS0008
+    name: Kernel
+  - detects: Active processes or process log may reveal unauthorized activity due
+      to rootkits
+    fgdsid: DS0009
+    name: Process
+  - detects: Background services not typically associated with the host
+    fgdsid: DS0019
+    name: Service
+  - detects: File changes of any sort that cannot be traced back to authorized change.
+    fgdsid: DS0022
+    name: File
+  - detects: Network traffic pattern may reveal remote C2 communication from rootkit
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1014
+  mitigations:
+  - fgmid: M1018
+    mitigates: User Account Management
+    name: User Account Management
+  - fgmid: M1045
+    mitigates: Code Signing
+    name: Code Signing
+  - fgmid: M1046
+    mitigates: Boot integrity
+    name: Boot Integrity
+  - fgmid: M1047
+    mitigates: System audits can reveal anomalous behavior that may be caused by rootkits.
+    name: Audit
+  - fgmid: M1051
+    mitigates: Update Software
+    name: Update Software
   name: Rootkit
   object-type: technique
   platforms: NONE
@@ -1419,7 +1456,24 @@ techniques:
     \ hostname, or other logical identifier on a network that may be used for Lateral\
     \ Movement from the current system.\r\n[To read more, please see the MITRE ATT&CK\
     \ page for this technique](https://attack.mitre.org/techniques/T1018)\r\n"
+  detections:
+  - detects: SIEM tools using network firewalls. Detect port scanners
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1018
+  mitigations:
+  - fgmid: M1030
+    mitigates: Ensure proper network segmentation is followed to protect critical
+      servers and devices.
+    name: Network Segmentation
+  - fgmid: M1031
+    mitigates: Use network intrusion detection/prevention systems to detect and prevent
+      remote service scans.
+    name: Network Intrusion Prevention
+  - fgmid: M1042
+    mitigates: Ensure that unnecessary ports and services are closed to prevent risk
+      of discovery and potential exploitation.
+    name: Disable or Remove Feature or Program
   name: Remote System Discovery
   object-type: technique
   platforms: 5G Network
@@ -1467,7 +1521,9 @@ techniques:
     \ exfiltration over compromised network infrastructure.\r\n[To read more, please\
     \ see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1020/001)\r\
     \n"
+  detections: []
   id: FGT1020.001
+  mitigations: []
   name: Traffic Duplication
   object-type: technique
   platforms: NONE
@@ -1510,7 +1566,29 @@ techniques:
     \ to log into a service specifically designed to accept remote connections, such\
     \ as telnet, SSH, and VNC.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1021)\r\n"
+  detections:
+  - detects: Audit command logs
+    fgdsid: DS0017
+    name: Command
+  - detects: 5G NFs have defined interfaces, any other session establishment activity
+      may be unauthorized.  Monitor traffic patterns and session sources along with
+      blocked/denied activity.
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor network traffic for expected and unexpected attempted and established
+      connections
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1021
+  mitigations:
+  - fgmid: M1018
+    mitigates: Limit the accounts that may use remote services. Limit the permissions
+      for accounts that are at higher risk of compromise; for example, configure SSH
+      so users can only run specific programs.
+    name: User Account Management
+  - fgmid: M1032
+    mitigates: Use multi-factor authentication on remote service logons where possible.
+    name: Multi-factor Authentication
   name: Remote Services
   object-type: technique
   platforms: NONE
@@ -1573,7 +1651,49 @@ techniques:
     \ an environment, including authentication material passed over the network.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1040)\r\
     \n"
+  detections:
+  - detects: Monitor processes which may sniff data.
+    fgdsid: DS0009
+    name: Process
+  - detects: Monitor for allowed modifications relative to the agreed upon modifications
+      per roaming agreements and agreements with IPX.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor commands given to NFs which may help data sniffing.
+    fgdsid: DS0017
+    name: Command
   id: FGT1040
+  mitigations:
+  - fgmid: FGM5033
+    mitigates: Use zero trust for NF protection
+    name: Zero Trust
+  - fgmid: M1020
+    mitigates: Encrypt using TLS all links between NFs and between NF and SCP
+    name: SSL/TLS Inspection
+  - fgmid: M1040
+    mitigates: Monitor to ensure configurations do not change from acceptable options
+    name: Behavior Prevention on Endpoint
+  - fgmid: M1041
+    mitigates: 'Non-SBI: Use encryption (IPSec) on these interfaces. Sections 9.2,
+      9.3, 9.4, 9.8, 9.9 of [2], and for N26 interfaces, see 4.3.1. of [3].
+
+
+      SBI: Encrypt using TLS all links between NFs and between NF and SCP if one is
+      deployed. TLS must use certificates for both client and server, and the certificate
+      must include the SBA node type and must be checked against what the expectation
+      is for that other party. The TLS profile should adhere to those in TS 33.210
+      [9]. IPSec can be optionally used to protect TLS traffic further at a lower
+      layer. Section 13.1.0 of [2] and also [8], [9].
+
+
+      Roaming: For SEPP, see sections 4.2.3.3, 4.3., 4.4. of [4], and sections 13.1
+      and 13.2 of [2].'
+    name: Encrypt Sensitive Information
+  - fgmid: M1054
+    mitigates: Ensure for MNO services that serve roaming partners that the minimum
+      acceptable configuration is adequate and complies with [2] TS 33.501 clause
+      13.2.4.9.
+    name: Software Configuration
   name: Network Sniffing
   object-type: technique
   platforms: 5G Network
@@ -1650,7 +1770,24 @@ techniques:
     \ hosts, including those that may be vulnerable to remote software exploitation.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1046)\r\
     \n"
+  detections:
+  - detects: SIEM tools using network firewalls. Detect port scanners
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1046
+  mitigations:
+  - fgmid: M1030
+    mitigates: Ensure proper network segmentation is followed to protect critical
+      servers and devices.
+    name: Network Segmentation
+  - fgmid: M1031
+    mitigates: Use network intrusion detection/prevention systems to detect and prevent
+      remote service scans.
+    name: Network Intrusion Prevention
+  - fgmid: M1042
+    mitigates: Ensure that unnecessary ports and services are closed to prevent risk
+      of discovery and potential exploitation.
+    name: Disable or Remove Feature or Program
   name: Network Service Scanning
   object-type: technique
   platforms: 5G Network
@@ -1698,7 +1835,16 @@ techniques:
     \ than that of the existing command and control channel.\r\n[To read more, please\
     \ see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1048)\r\
     \n"
+  detections:
+  - detects: Monitor and analyze traffic patterns and packet inspection over the SBI,
+      especially to/from external functions.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1048
+  mitigations:
+  - fgmid: M1037
+    mitigates: Filter and inspect network traffic coming out of SEPP and NEF
+    name: Filter Network Traffic
   name: Exfiltration Over Alternative Protocol
   object-type: technique
   platforms: 5G Network
@@ -1735,7 +1881,20 @@ techniques:
     \ network protocol other than that of the existing command and control channel.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1048/003)\r\
     \n"
+  detections:
+  - detects: Collect and analyze DNS lookup logs for unusual patterns and destinations
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Analyze network destinations for DNS traffic for unusual destinations
+      and volumes.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1048.003
+  mitigations:
+  - fgmid: M1037
+    mitigates: Filter public network lookups to limit exfiltration destinations. Potential
+      use of protective DNS services.
+    name: Filter Network Traffic
   name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
   object-type: technique
   platforms: NONE
@@ -1779,7 +1938,47 @@ techniques:
     \ and deployment systems, to move laterally through the network.\r\n[To read more,\
     \ please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1072)\r\
     \n"
+  detections:
+  - detects: Monitor for newly executed processes that does not correlate to known
+      good software. Analyze the process execution trees, historical activities from
+      the third-party application (such as what types of files are usually pushed),
+      and the resulting activities or events from the file/binary/script pushed to
+      systems.
+    fgdsid: DS0009
+    name: Process
+  - detects: Often these third-party applications will have logs of their own that
+      can be collected and correlated with other data from the environment. Ensure
+      that third-party application logs are on-boarded to the enterprise logging system
+      and the logs are regularly reviewed. Audit software deployment logs and look
+      for suspicious or unauthorized activity. A system not typically used to push
+      software to clients that suddenly is used for such a task outside of a known
+      admin function may be suspicious. Monitor account login activity on these applications
+      to detect suspicious/abnormal usage. Perform application deployment at regular
+      times so that irregular deployment activity stands out.
+    fgdsid: DS0015
+    name: Application Log
   id: FGT1072
+  mitigations:
+  - fgmid: M1018
+    mitigates: User Account Management, limited and least privileged user accounts
+    name: User Account Management
+  - fgmid: M1027
+    mitigates: Password Policies, no credential sharing, create traceability
+    name: Password Policies
+  - fgmid: M1029
+    mitigates: Remote Data Storage, restrict access and monitor repository activity
+    name: Remote Data Storage
+  - fgmid: M1030
+    mitigates: Network Segmentation allows limit movements, insert application aware
+      firewalls between segments
+    name: Network Segmentation
+  - fgmid: M1032
+    mitigates: Multi-factor Authentication adds additional layer of security for compromised
+      credentials as well as increased accountability
+    name: Multi-factor Authentication
+  - fgmid: M1051
+    mitigates: Update Software regularly to eliminate persistence
+    name: Update Software
   name: Software Deployment Tools
   object-type: technique
   platforms: NONE
@@ -1830,7 +2029,22 @@ techniques:
     \ a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense\
     \ Evasion.\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1078/003)\r\
     \n"
+  detections:
+  - detects: User Account authentication
+    fgdsid: DS0002
+    name: User Account
+  - detects: Logon session
+    fgdsid: DS0028
+    name: Logon Session
   id: FGT1078.003
+  mitigations:
+  - fgmid: M1026
+    mitigates: Privileged account management
+    name: Privileged Account Management
+  - fgmid: M1027
+    mitigates: Passwords Policies to ensure secure local accounts across all devices
+      that necessitate local accounts
+    name: Password Policies
   name: Local Accounts
   object-type: technique
   platforms: NONE
@@ -1874,7 +2088,82 @@ techniques:
     \ a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense\
     \ Evasion.\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1078/004)\r\
     \n"
+  detections:
+  - detects: Monitor user account authentication activity.  Monitor the activity of
+      cloud accounts to detect abnormal or malicious behavior, such as accessing information
+      outside of the normal function of the account or account usage at atypical hours.  Repeated
+      attempts may be indictive of password guessing or brute force password cracking.  Password
+      policies supporting lockout requiring administrative reset may help.
+    fgdsid: DS0002
+    name: User Account
+  - detects: Monitor for suspicious account behavior across cloud services that share
+      account.  Logon session logs and meta data helps determine if the session was
+      an authorized activity.
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor user account authentication activity.  Monitor the activity of
+      cloud accounts to detect abnormal or malicious behavior, such as accessing information
+      outside of the normal function of the account or account usage at atypical hours.  Repeated
+      attempts may be indictive of password guessing or brute force password cracking.  Password
+      policies supporting lockout requiring administrative reset may help.
+    fgdsid: DS0002
+    name: User Account
+  - detects: Monitor for suspicious account behavior across cloud services that share
+      account.  Logon session logs and meta data helps determine if the session was
+      an authorized activity.
+    fgdsid: DS0028
+    name: Logon Session
   id: FGT1078.004
+  mitigations:
+  - fgmid: M1017
+    mitigates: Applications may send push notifications to verify a login as a form
+      of multi-factor authentication (MFA). Train users to only accept valid push
+      notifications and to report suspicious push notifications.
+    name: User Training
+  - fgmid: M1018
+    mitigates: Periodically review user accounts and remove those that are inactive
+      or unnecessary. Limit the ability for user accounts to create additional accounts.
+    name: User Account Management
+  - fgmid: M1026
+    mitigates: Review privileged cloud account permission levels routinely to look
+      for those that could allow an adversary to gain wide access.  Unbound administrative
+      access to accounts should be be discouraged when creating account policies.
+    name: Privileged Account Management
+  - fgmid: M1027
+    mitigates: Ensure that cloud accounts, particularly privileged accounts, have
+      complex, unique passwords across all systems on the network. Passwords and access
+      keys should be rotated regularly. This limits the amount of time credentials
+      can be used to access resources if a credential is compromised without your
+      knowledge. Rotate access keys regularly.
+    name: Password Policies
+  - fgmid: M1032
+    mitigates: Use multi-factor authentication for cloud and virtualization OSS accounts
+      used for VNF deployments, especially privileged accounts.
+    name: Multi-factor Authentication
+  - fgmid: M1017
+    mitigates: Applications may send push notifications to verify a login as a form
+      of multi-factor authentication (MFA). Train users to only accept valid push
+      notifications and to report suspicious push notifications.
+    name: User Training
+  - fgmid: M1018
+    mitigates: Periodically review user accounts and remove those that are inactive
+      or unnecessary. Limit the ability for user accounts to create additional accounts.
+    name: User Account Management
+  - fgmid: M1026
+    mitigates: Review privileged cloud account permission levels routinely to look
+      for those that could allow an adversary to gain wide access.
+    name: Privileged Account Management
+  - fgmid: M1027
+    mitigates: Ensure that cloud accounts, particularly privileged accounts, have
+      complex, unique passwords across all systems on the network. Passwords and access
+      keys should be rotated regularly. This limits the amount of time credentials
+      can be used to access resources if a credential is compromised without your
+      knowledge. Rotate access keys regularly.
+    name: Password Policies
+  - fgmid: M1032
+    mitigates: Use multi-factor authentication for cloud and virtualization OSS accounts
+      used for VNF deployments, especially privileged accounts.
+    name: Multi-factor Authentication
   name: Cloud Accounts
   object-type: technique
   platforms: NONE
@@ -1922,7 +2211,15 @@ techniques:
     \ computer or program using software, data, or commands in order to cause unintended\
     \ or unanticipated behavior.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1190)\r\n"
+  detections: []
   id: FGT1190
+  mitigations:
+  - fgmid: M1016
+    mitigates: Vulnerability scanning of public APIs
+    name: Vulnerability Scanning
+  - fgmid: M1050
+    mitigates: Use WAF to minimize potential exploit of vulnerabilities
+    name: Exploit Protection
   name: Exploit Public-Facing Application
   object-type: technique
   platforms: NONE
@@ -2008,7 +2305,27 @@ techniques:
     \ additions to legitimate software in software distribution or update channels.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1195)\r\
     \n"
+  detections:
+  - detects: Perform physical inspection of hardware to look for potential tampering.
+      Perform integrity checking on pre-OS boot mechanisms that can be manipulated
+      for malicious purposes and compare against known good baseline behavior.
+    fgdsid: DS0013
+    name: Sensor Health
+  - detects: Use verification of distributed binaries through hash checking or other
+      integrity checking mechanisms. Scan downloads for malicious signatures and attempt
+      to test software and updates prior to deployment while taking note of potential
+      suspicious activity.
+    fgdsid: DS0022
+    name: File
   id: FGT1195
+  mitigations:
+  - fgmid: M1016
+    mitigates: Vulnerability Scanning of software before it is brought into MNO environment
+      as well as regular scans to detect abnormal behavior
+    name: Vulnerability Scanning
+  - fgmid: M1051
+    mitigates: Update Software regularly
+    name: Update Software
   name: Supply Chain Compromise
   object-type: technique
   platforms: NONE
@@ -2057,7 +2374,15 @@ techniques:
     \ in with routine device traffic and are difficult for enterprises to inspect.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1437)\r\
     \n"
+  detections: []
   id: FGT1437
+  mitigations:
+  - fgmid: FGM5501
+    mitigates: "Employ TLS proxies with DPI firewalls. TLS proxy/firewall can employ\
+      \ DPI to decrypt the packets and send them off to their destination, but only\
+      \ after logging what the packet contains. \nThe firewalls/proxies connect to\
+      \ a SIEM whose data is being kept up to date with current threats."
+    name: TLS proxy/firewalls with DPI on the SBA
   name: Standard Application Layer Protocol
   object-type: technique
   platforms: 5G Network
@@ -2109,7 +2434,31 @@ techniques:
     \ on the network can eavesdrop on communication.(Citation: mHealth).\r\n[To read\
     \ more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1439)\r\
     \n"
+  detections:
+  - detects: Restrict User accounts to establish connections to AMDF from known legal
+      entities (IP addresses, certificates, logon credentials etc.).  Monitor and
+      block attempted violations.
+    fgdsid: DS0002
+    name: User Account
+  - detects: File access, creation, deletion, modification, meta data
+    fgdsid: DS0022
+    name: File
+  - detects: Network traffic monitoring for connection creation, traffic flows and
+      network traffic contents
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1439
+  mitigations:
+  - fgmid: M1022
+    mitigates: Limit file and permission changes
+    name: Restrict File and Directory Permissions
+  - fgmid: M1035
+    mitigates: Limit access to resource over network. Limit the Point of Interception
+      to only UPF, UDM, AMD and SMF
+    name: Limit Access to Resource Over Network
+  - fgmid: M1047
+    mitigates: Monitor MDF activity, monitor configuration changes (Default and active)
+    name: Audit
   name: Eavesdrop on Insecure Network Communication
   object-type: technique
   platforms: NONE
@@ -2142,7 +2491,21 @@ techniques:
     \ prevent the mobile device from communicating.\r\n[To read more, please see the\
     \ MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1464)\r\
     \n"
+  detections:
+  - detects: Identify source and location of jammer
+    fgdsid: FGDS5001
+    name: RF Spectrum Monitor
   id: FGT1464
+  mitigations:
+  - fgmid: FGM5001
+    mitigates: Disable jamming source
+    name: Disable malicious transmitter
+  - fgmid: FGM5099
+    mitigates: Move user equipment closer to base station to overpower jamming signal.
+    name: Move UE close to gNB
+  - fgmid: FGM5100
+    mitigates: Increase height of User Equipment to avoid jamming signal
+    name: Raise height of UE
   name: Jamming or Denial of Service
   object-type: technique
   platforms: 5G radio access
@@ -2211,7 +2574,41 @@ techniques:
     \ degrade or block the availability of services to users.\r\n[To read more, please\
     \ see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1499)\r\
     \n"
+  detections:
+  - detects: Monitor application logs for unusual requests or rate of requests
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor for unusual volumes or sources of requests to the service
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Monitor application logs for unusual requests or rate of requests
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor for unusual volumes or sources of requests to the service
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1499
+  mitigations:
+  - fgmid: M1016
+    mitigates: Vulnerability scanning of public APIs
+    name: Vulnerability Scanning
+  - fgmid: M1037
+    mitigates: Use of network based DDoS mitigation capabilities to filter traffic
+      upstream
+    name: Filter Network Traffic
+  - fgmid: M1050
+    mitigates: Use WAF to minimize potential exploit of vulnerabilities
+    name: Exploit Protection
+  - fgmid: M1016
+    mitigates: Vulnerability scanning of public APIs
+    name: Vulnerability Scanning
+  - fgmid: M1037
+    mitigates: Use of network based DDoS mitigation capabilities to filter traffic
+      upstream
+    name: Filter Network Traffic
+  - fgmid: M1050
+    mitigates: Use WAF to minimize potential exploit of vulnerabilities
+    name: Exploit Protection
   name: Endpoint Denial of Service
   object-type: technique
   platforms: 5G, 5G
@@ -2293,7 +2690,22 @@ techniques:
   description: "Adversaries may target the different network services provided by\
     \ systems to conduct a DoS.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1499/002)\r\n"
+  detections:
+  - detects: Excessive number of access requests received at gNB.
+    fgdsid: FGDS5007
+    name: RAN access requests
+  - detects: Response rate measurements. UDM slow response
+    fgdsid: FGDS5007
+    name: RAN access requests
   id: FGT1499.002
+  mitigations:
+  - fgmid: FGM1502
+    mitigates: Increase RACH resources.
+    name: Increase RACH (Random Access CHannel resources)
+  - fgmid: FGM5499
+    mitigates: Rate limiting at NFs. SEAF or AUSF (NFs upstream from SIDF) can do
+      rate limiting if they receive the same SUCI multiple times within a short period.
+    name: Rate limiting by producer NF
   name: Service Exhaustion Flood
   object-type: technique
   platforms: 5G RAN, 5G
@@ -2354,7 +2766,36 @@ techniques:
     \ to establish persistence after gaining access to an environment.\r\n[To read\
     \ more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1525)\r\
     \n"
+  detections:
+  - detects: Analyze logs and other CI/CD events to detect unauthorized activity
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT1525
+  mitigations:
+  - fgmid: FGM5088
+    mitigates: Development and production repositories should be separated to avoid
+      access and image slipovers. Production repositories should be access controlled
+      for accounts responsible for deployments and operations accounts only.
+    name: Separate repositories for development and production
+  - fgmid: FGM5089
+    mitigates: In addition to image name, deployment tools must use hash and verify
+      image during deployment
+    name: Verify image in deployment
+  - fgmid: FGM5090
+    mitigates: Logs from tools and repository must be corelated to ensure unauthorized
+      activity is reported.
+    name: Log correlation
+  - fgmid: M1035
+    mitigates: Access to repositories should be restricted to known networks from
+      where any authorized actions need be executed.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1043
+    mitigates: Restricted Permissions to add images to repositories for person and
+      non-person accounts
+    name: Credential Access Protection
+  - fgmid: M1049
+    mitigates: Manual or automated image creation and storage must include image hash
+    name: Antivirus/Antimalware
   name: Implant Internal Image
   object-type: technique
   platforms: NONE
@@ -2442,7 +2883,29 @@ techniques:
     \ will intercept and change information.\r\n[To read more, please see the MITRE\
     \ ATT&CK page for this technique](https://attack.mitre.org/techniques/T1565/002)\r\
     \n"
+  detections:
+  - detects: Inspect network traffic and watch for unauthorized changes as the packets
+      move through the interfaces.
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Legitimate UEs notify their service provider about DoS attack and abnormal
+      session terminations.
+    fgdsid: FGDS5011
+    name: Subscriber notify provider
+  - detects: Radio traffic content can be examined to detect unauthorized modification.
+      Inspect radio traffic and watch for unauthorized changes as the packets move
+      through the interfaces.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1565.002
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use integrity (IPSec) on all non-SBI interfaces, TLS 1.3 on all SBI
+      interfaces including roaming interfaces (e.g. N32).
+    name: Integrity protection of data communication
+  - fgmid: FGM1557
+    mitigates: Use integrity on radio interface for both control plane and user plane
+    name: Integrity protection of data communication
   name: Transmitted Data Manipulation
   object-type: technique
   platforms: 5G network, 5G radio
@@ -2541,7 +3004,25 @@ techniques:
   description: "Adversaries may buy, lease, or rent infrastructure that can be used\
     \ during targeting.\r\n[To read more, please see the MITRE ATT&CK page for this\
     \ technique](https://attack.mitre.org/techniques/T1583)\r\n"
+  detections: []
   id: FGT1583
+  mitigations:
+  - fgmid: FGM5504
+    mitigates: Cloud compute, cloud storage and any serverless activity should be
+      isolated from other tenants
+    name: Resource Isolation in virtualization environment
+  - fgmid: FGM5505
+    mitigates: Hardware mediated  execution environment
+    name: Hardware mediated  execution environment
+  - fgmid: M1030
+    mitigates: Network isolation. Deployment architecture should consider physical
+      and virtual isolation from other tenants
+    name: Network Segmentation
+  - fgmid: M1041
+    mitigates: Any traffic going from a security zone to another security zone must
+      be protected with encryption.  Key based user and resource authentication and
+      authorization
+    name: Encrypt Sensitive Information
   name: Acquire Infrastructure
   object-type: technique
   platforms: 5G Network
@@ -2578,7 +3059,29 @@ techniques:
   description: "Adversaries may bridge network boundaries by compromising perimeter\
     \ network devices.\r\n[To read more, please see the MITRE ATT&CK page for this\
     \ technique](https://attack.mitre.org/techniques/T1599)\r\n"
+  detections:
+  - detects: Network Traffic should be monitored for traffic flows and messaging contents
+      to determine abnormal activity.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1599
+  mitigations:
+  - fgmid: M1026
+    mitigates: Privileged Account Management
+    name: Privileged Account Management
+  - fgmid: M1027
+    mitigates: Password Policies - NIST Guidelines.  This may also include token policies
+      if security tokens are used.
+    name: Password Policies
+  - fgmid: M1032
+    mitigates: Multi-factor Authentication
+    name: Multi-factor Authentication
+  - fgmid: M1037
+    mitigates: Filter Network Traffic
+    name: Filter Network Traffic
+  - fgmid: M1043
+    mitigates: Credential Access Protection
+    name: Credential Access Protection
   name: Network Boundary Bridging
   object-type: technique
   platforms: NONE
@@ -2637,7 +3140,35 @@ techniques:
   description: "Adversaries may break out of a container to gain access to the underlying\
     \ host.\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1611)\r\
     \n"
+  detections:
+  - detects: Monitor process creation and OS API execution activity.
+    fgdsid: DS0009
+    name: Process
+  - detects: Monitor for the deployment of suspicious or unknown container images
+      and pods in your environment, particularly containers running as root.
+    fgdsid: DS0032
+    name: Container
+  - detects: Monitor cluster-level (Kubernetes) data and events associated with changing
+      containers' volume configurations.
+    fgdsid: DS0034
+    name: Volume
   id: FGT1611
+  mitigations:
+  - fgmid: M1026
+    mitigates: 'Rootless containers: Ensure containers are not running as root by
+      default. In Kubernetes environments, consider defining a Pod Security Policy
+      that prevents pods from running privileged containers.'
+    name: Privileged Account Management
+  - fgmid: M1038
+    mitigates: Use read-only containers, read-only file systems, and minimal images
+      when possible, to prevent the running of commands.
+    name: Execution Prevention
+  - fgmid: M1048
+    mitigates: Consider utilizing seccomp, seccomp-bpf, or a similar solution that
+      restricts certain system calls such as mount. In Kubernetes environments, consider
+      defining a Pod Security Policy that limits container access to host process
+      namespaces, the host network, and the host file system
+    name: Application Isolation and Sandboxing
   name: Escape to Host
   object-type: technique
   platforms: Windows, Linux, MacOS
@@ -2682,7 +3213,14 @@ techniques:
     \ to/from certain subscribers (identified by IMSI or MSISDN), by compromising\
     \ the operator\u2019s SMSC.  Similar techniques can be applied to other operator\
     \ functions such as IP-SM-GW or STF, SMSF, towards the same goal.\r\n\r\n\r\n"
+  detections: []
   id: FGT5001
+  mitigations:
+  - fgmid: M1049
+    mitigates: Check telecom servers for malware or use endpoint security solution.
+      Implement the latest patches in Linux systems and use strong anti-virus software
+      to detect malware.
+    name: Antivirus/Antimalware
   name: Network-side SMS collection
   object-type: technique
   platforms: 5G Network
@@ -2726,7 +3264,19 @@ techniques:
     \ This technique is also applicable to 5G Phase 1, which has no SMSF (SMS Function),\
     \ so the route for SMS is still from SMSC (Short Message Service Center) to STP\
     \ (Signaling Transfer Point)  to IP-SM-GW (IP Short Message Gateway).\r\n\r\n"
+  detections:
+  - detects: Logs of externally received messages requesting location of user or,
+      logs of outgoing responses to such messages can detect anomalies. Logs are on
+      the NF or functions which interface SMS home router such as MAP IWF or SMSC.
+      [Figure 27 of [3].
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5002
+  mitigations:
+  - fgmid: FGM5004
+    mitigates: Correctly configure SS7 firewall in home network https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html
+      .
+    name: Correctly configure SS7 firewall
   name: Bypass home routing
   object-type: technique
   platforms: NONE
@@ -2779,7 +3329,30 @@ techniques:
     \ discover NF instances belonging to other slices. For example, an NF in one slice\
     \ should not be inquiring about NFs in other slices, unless it needs to communicate\
     \ with them. \r\n\r\n\r\n"
+  detections:
+  - detects: Logging of all access requests/inquiries
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5003
+  mitigations:
+  - fgmid: FGM5003
+    mitigates: 'Ensure cross-layer checks at the NRF, between the certificate presented
+      to it at the TLS connection setup stage and the identity and authorization requested
+      presented to it at the OAuth Token request stage.
+
+      Ensure the consumer is authorized to ask about this service.
+
+
+      Authorization follows need-to-know rules, such as:
+
+      1. a NF can not query for NFs in other network slices
+
+      2. a NF can only query for NFs that it needs to communicate with.'
+    name: Cross check between application layer and transport layer
+  - fgmid: FGM5501
+    mitigates: Inspect proxy servers such as SCP (if deployed) for any suspicious
+      use of access tokens such as unauthorized re-direct or replay of tokens
+    name: TLS proxy/firewalls with DPI on the SBA
   name: Network Function Service Discovery
   object-type: technique
   platforms: 5G Network
@@ -2836,7 +3409,58 @@ techniques:
     \ the literature, this scenario has been identified as a threat related to components\
     \ in the data plane and the controller plane of any SDN network (IP-WAN, IP-LAN,\
     \ RAN, Transport).\r\n\r\n\r\n"
+  detections:
+  - detects: Periodically audit SDN and Network element configuration and compare
+      with baseline configuration to detect unauthorized changes
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Periodically audit network flow tables to detect unauthorized changes
+      to flow data
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Analyze logs to detect unauthorized activity
+    fgdsid: FGDS5014
+    name: SDN Access Logs
   id: FGT5004
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Strong integrity protection method should be employed on APIs carrying
+      control plane traffic between Controller and network element as well as controller
+      and SDN application to avoid adversary in the middle threats
+    name: Integrity protection of data communication
+  - fgmid: FGM5090
+    mitigates: Logs from SDN Controller and network elements must be corelated to
+      ensure unauthorize activity is reported. Similarly, flow rules change log should
+      be reviewed and reconciled with authorized changes.
+    name: Log correlation
+  - fgmid: FGM5091
+    mitigates: Mutual authentication between the SDN controller and network elements.  The
+      SDN controller and SDN application can be used to prevent unauthorized access
+    name: Mutual authentication
+  - fgmid: M1022
+    mitigates: 'Restricted Permissions to add images to SDN Controller and Network
+      Elements for person and non-person accounts.
+
+
+      Restrict permissions for person and non-person accounts to prevent flow rule
+      insertion or modification'
+    name: Restrict File and Directory Permissions
+  - fgmid: M1030
+    mitigates: Physical and logical segmentation can prevent lateral movements.
+    name: Network Segmentation
+  - fgmid: M1041
+    mitigates: Strong encryption should be used on APIs carrying control plane traffic
+      between Controller and network element as well as controller and SDN application
+      to avoid adversary in the middle threats
+    name: Encrypt Sensitive Information
+  - fgmid: M1053
+    mitigates: All SDN Configurations should be backed up and periodically audited
+      to see differences between running configuration and back up configurations
+    name: Data Backup
+  - fgmid: M1054
+    mitigates: Keep baseline configurations up to date to avoid loopholes due to stale
+      configuration or configuration drift.
+    name: Software Configuration
   name: Network Flow Manipulation
   object-type: technique
   platforms: NONE
@@ -2883,7 +3507,60 @@ techniques:
     \  SDN controller acts as an Operating System for the Network in SDN architecture\
     \ and is widely deployed in data centers and wide area network connections (SD-WAN).\r\
     \n\r\n\r\n"
+  detections:
+  - detects: Periodically audit SDN and Network element configuration to detect unauthorized
+      changes
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Periodically audit network flow tables to detect unauthorized changes
+      to flow data
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Analyze logs to detect unauthorized activity
+    fgdsid: FGDS5014
+    name: SDN Access Logs
   id: FGT5004.001
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Strong integrity protection method should be employed on APIs carrying
+      control plane traffic between Controller and network element as well as controller
+      and SDN application to avoid adversary in the middle threats
+    name: Integrity protection of data communication
+  - fgmid: FGM5090
+    mitigates: Logs from SDN Controller and network elements must be corelated to
+      ensure unauthorize activity is reported. Similarly flow rules change log should
+      be reviewed and reconciled with authorized changes.
+    name: Log correlation
+  - fgmid: FGM5091
+    mitigates: Mutual authentication between SDN controller and network elements,
+      SDN controller and SDN application can prevent unauthorized access
+    name: Mutual authentication
+  - fgmid: M1022
+    mitigates: 'Restricted Permissions to add application images to SDN Controller
+      for person and non-person accounts.
+
+
+      Restricted permissions for person and non-person accounts to prevent flow rule
+      insertion or modification'
+    name: Restrict File and Directory Permissions
+  - fgmid: M1030
+    mitigates: Physical and logical segmentation can prevent lateral movements. Segmentation
+      techniques in the hosts and network will reduce the chances of lateral movement
+      to the control.
+    name: Network Segmentation
+  - fgmid: M1041
+    mitigates: Strong encryption should be used on APIs carrying control plane traffic
+      between Controller and network element as well as controller and SDN application
+      to avoid adversary in the middle threats
+    name: Encrypt Sensitive Information
+  - fgmid: M1053
+    mitigates: SDN controller configurations should be backed up and periodically
+      audited to see differences between running configuration and back up configurations
+    name: Data Backup
+  - fgmid: M1054
+    mitigates: Keep baseline configuration up to date to avoid loopholes due to stale
+      configuration or configuration drift.
+    name: Software Configuration
   name: 'Controller '
   object-type: technique
   platforms: NONE
@@ -2934,7 +3611,60 @@ techniques:
     \ may target vSwitch configuration or directly manipulate network flow tables\
     \ in memory to drive their decisions on how to redefine large parts of the network.\
     \ \r\n\r\n\r\n"
+  detections:
+  - detects: Periodically audit SDN and Network element configuration and compare
+      with baseline configuration to detect unauthorized changes
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Periodically audit network flow tables to detect unauthorized changes
+      to flow data
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Analyze logs to detect unauthorized activity
+    fgdsid: FGDS5014
+    name: SDN Access Logs
   id: FGT5004.002
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Strong integrity protection method should be employed on APIs carrying
+      control plane traffic between Controller and network element as well as controller
+      and vSwitch to avoid adversary in the middle threats
+    name: Integrity protection of data communication
+  - fgmid: FGM5090
+    mitigates: Logs from SDN Controller and network elements must be corelated to
+      ensure unauthorize activity is reported. Similarly flow rules change log should
+      be reviewed and reconciled with authorized changes.
+    name: Log correlation
+  - fgmid: FGM5091
+    mitigates: Mutual authentication between SDN controller and vSwitch can prevent
+      unauthorized access
+    name: Mutual authentication
+  - fgmid: M1022
+    mitigates: 'Restricted Permissions to add application images to SDN vSwitch for
+      person and non-person accounts.
+
+
+      Restricted permissions for person and non-person accounts to prevent flow rule
+      insertion or modification directly on the vSwitch'
+    name: Restrict File and Directory Permissions
+  - fgmid: M1030
+    mitigates: Physical and logical segmentation can prevent lateral movements. Segmentation
+      techniques in the hosts and network will reduce the chances of lateral movement
+      to the control.
+    name: Network Segmentation
+  - fgmid: M1041
+    mitigates: Strong encryption should be used on APIs carrying control plane traffic
+      between Controller and network element as well as controller and vSwitch to
+      avoid adversary in the middle threats
+    name: Encrypt Sensitive Information
+  - fgmid: M1053
+    mitigates: SDN vSwitch configurations should be backed up and periodically audited
+      to see differences between running configuration and back up configurations
+    name: Data Backup
+  - fgmid: M1054
+    mitigates: Keep baseline configuration up to date to avoid loopholes due to stale
+      configuration or configuration drift.
+    name: Software Configuration
   name: vSwitch
   object-type: technique
   platforms: NONE
@@ -2984,7 +3714,28 @@ techniques:
     \ software) can be used to exploit private data. Once successfully performed,\
     \ memory scraping can be used to extract sensitive SDN data (e.g. flow rules at\
     \ the northbound API).\r\n\r\n"
+  detections:
+  - detects: Analyze logs to detect unauthorized activity
+    fgdsid: DS0015
+    name: Application Log
+  - detects: All inbound and outbound connections should be audited for unauthorized
+      activity
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5005
+  mitigations:
+  - fgmid: FGM5090
+    mitigates: Logs from SDN Controller and network elements must be corelated to
+      ensure unauthorize activity (file transfer, patch installs, process init) is
+      reported.
+    name: Log correlation
+  - fgmid: M1033
+    mitigates: Restricted Permissions to add software to SDN Controller and Network
+      Elements for person and non-person accounts
+    name: Limit Software Installation
+  - fgmid: M1047
+    mitigates: SDN controllers and network elements scanned for file changes and processes.
+    name: Audit
   name: Memory Scraping
   object-type: technique
   platforms: NONE
@@ -3028,7 +3779,17 @@ techniques:
     \ series of techniques relating to modifying DNS packets to conceal payloads,\
     \ redirect network traffic, and unmask the identities and activities of end users.\
     \ \r\n\r\n"
+  detections:
+  - detects: 'Data transmitted across a network (ex: Web, DNS, Mail, File, etc.),
+      that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable
+      format (ex: PCAP)'
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5006
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use strong data integrity protection algorithms
+    name: Integrity protection of data communication
   name: DNS Manipulation
   object-type: technique
   platforms: NONE
@@ -3068,7 +3829,21 @@ techniques:
     \  User plane integrity protections prevent this attack on typical 5G RAN links,\
     \ however these protections are optional.  Alternatively, an adversary may have\
     \ bid-down the UE as a precondition to achieve the effect.\r\n  \r\n"
+  detections:
+  - detects: 'Data transmitted across a network (ex: Web, DNS, Mail, File, etc.),
+      that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable
+      format (ex: PCAP)'
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5006.001
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use strong data integrity protection algorithms
+    name: Integrity protection of data communication
+  - fgmid: M1020
+    mitigates: Break and inspect SSL/TLS sessions to look at encrypted web traffic
+      for adversary activity.
+    name: SSL/TLS Inspection
   name: Layer 2 Redirection of Encrypted DNS
   object-type: technique
   platforms: NONE
@@ -3112,7 +3887,17 @@ techniques:
     \ attacks and to hide traffic for billing fraud, command and control of a bot\
     \ or other device, or for any other task where hidden traffic is useful.\r\n\r\
     \n"
+  detections:
+  - detects: 'Data transmitted across a network (ex: Web, DNS, Mail, File, etc.),
+      that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable
+      format (ex: PCAP)'
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5006.002
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use strong data integrity protection algorithms
+    name: Integrity protection of data communication
   name: DNS Encapsulation
   object-type: technique
   platforms: 5G
@@ -3168,7 +3953,26 @@ techniques:
     \ in the network to perform other type of attacks such as Denial of Service, the\
     \ distribution of malicious software, or obtaining sensitive information.\r\n\r\
     \n\r\n"
+  detections:
+  - detects: Detections for T1610. Monitor application logs of core NFs.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Detections for T1610--Deploy Container. Applicable only in the case that
+      the NF is deployed as a container.
+    fgdsid: DS0032
+    name: Container
   id: FGT5007
+  mitigations:
+  - fgmid: FGM1506
+    mitigates: Cross check newly registered NFs. Out of band mechanism for cross checking
+      new NFs that are registered in NRF are as expected by network administrator.
+    name: Periodic authentication/authorization of NFs
+  - fgmid: M1018
+    mitigates: User account access
+    name: User Account Management
+  - fgmid: M1030
+    mitigates: Network segmentation
+    name: Network Segmentation
   name: Registration of malicious network functions
   object-type: technique
   platforms: NONE
@@ -3206,7 +4010,23 @@ techniques:
     \ to divert traffic flows and allow a malicious actor to eavesdrop on user traffic.\
     \ \r\n\r\nRedirection attacks on the core network result in not only communication\
     \ interception, but also in billing discrepancies.\r\n\r\n\r\n"
+  detections:
+  - detects: Monitor AF to NEF APIs for illegitimate traffic redirection requests.
+      Monitor Nnef_TrafficInfluence_Update API calls from AF to NEF for traffic redirection
+      requests to unauthorized DNN & S-NSSAI.
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5008
+  mitigations:
+  - fgmid: FGM5019
+    mitigates: Authorize all API calls by external AFs to NEF
+    name: Authorize external API calls
+  - fgmid: M1040
+    mitigates: Monitor internal API calls between NFs for suspicious activities
+    name: Behavior Prevention on Endpoint
+  - fgmid: M1047
+    mitigates: Audit insecure NF configurations
+    name: Audit
   name: Redirection of traffic via user plane network function
   object-type: technique
   platforms: 5G Network
@@ -3276,7 +4096,16 @@ techniques:
     \ so as to enable the weak or no integrity algorithm, thus allowing for manipulation\
     \ or spoofing of user data or signaling (over the radio interface or within the\
     \ core network, e.g. Non-SBI, or SBI, or roaming interfaces). \r\n\r\n\r\n"
+  detections:
+  - detects: Data sent over the network or radio interface can be analyzed to check
+      for the integrity algorithm.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5009
+  mitigations:
+  - fgmid: M1047
+    mitigates: Monitor periodically if integrity protection algorithm is enabled
+    name: Audit
   name: Weaken Integrity
   object-type: technique
   platforms: NONE
@@ -3327,7 +4156,38 @@ techniques:
     \ These actions can be followed by another adversarial behavior whereby data and\
     \ signaling sent over the radio interface is manipulated or tampered with.  \r\
     \n\r\n"
+  detections:
+  - detects: Check configuration changes in gNB, SMF, AMF. Configuration audits by
+      OSS/BSS
+    fgdsid: DS0015
+    name: Application Log
+  - detects: 'Radio traffic content
+
+      Inspect radio traffic and watch for unauthorized changes as the packets move
+      through the interfaces.'
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5009.001
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Ensure gNB implementation and SMF implementations are both checking
+      the UE CP and UP security policy against the most trustworthy source and taking
+      action to not enable NULL integrity except for emergency calls
+    name: Integrity protection of data communication
+  - fgmid: FGM5006
+    mitigates: UE should refuse to set up a PDU connection without integrity
+    name: Restrictive user profile
+  - fgmid: M1018
+    mitigates: Network element security safeguards for gNBs, AMFs and SMFs. Includes
+      measures in section 5.3.4 of [2] (e.g. software updates, OA&M access security,
+      secure boot)
+    name: User Account Management
+  - fgmid: M1031
+    mitigates: Implement network intrusion prevention methods
+    name: Network Intrusion Prevention
+  - fgmid: M1043
+    mitigates: Implement credential access protection methods
+    name: Credential Access Protection
   name: Radio Interface
   object-type: technique
   platforms: 5G Radio
@@ -3443,7 +4303,38 @@ techniques:
     \ integrity algorithm for TLS or JWS signatures on the N32 interface. An adversary\
     \ with control over visited network UPF may disable IPSec on N9 interface or a\
     \ compromised MME or AMF may disable IPSec on N26 interface. \r\n\r\n"
+  detections:
+  - detects: 'Check configuration changes in gNB, NFs, SEPP and MME.
+
+      Run configuration audits by OSS/BSS.'
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Inspect network traffic and watch for unauthorized changes as the packets
+      move through the interfaces.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5009.002
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use strong integrity protection on all non-SBI, SBI and roaming/interconnect
+      interfaces. That is, TLS should be used in all SBI, N32-c and N32-f and PRINS
+      in N32-f when TLS is not used.
+    name: Integrity protection of data communication
+  - fgmid: M1018
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: User Account Management
+  - fgmid: M1031
+    mitigates: Implement network intrusion prevention methods
+    name: Network Intrusion Prevention
+  - fgmid: M1043
+    mitigates: Implement credential access protection methods
+    name: Credential Access Protection
+  - fgmid: M1046
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: Boot Integrity
+  - fgmid: M1051
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: Update Software
   name: Network Interfaces
   object-type: technique
   platforms: 5G network
@@ -3543,7 +4434,22 @@ techniques:
     \ improperly configured UDM needs to be able to perform all of the basic functions,\
     \ except that it does not mark a UE as de-registered when it powers off or is\
     \ legitimately (or illegitimately) de-registered by the network.\r\n \r\n"
+  detections: []
   id: FGT5010
+  mitigations:
+  - fgmid: FGM1506
+    mitigates: "Periodic authentication / authorization of NF consumer e.g. AMF by\
+      \ NRF will help detect rogue AMFs. \nNot currently in 3GPP/GSMA (TBC) specs,\
+      \ but it can be enhanced. It\u2019s process management (OA&M)"
+    name: Periodic authentication/authorization of NFs
+  - fgmid: FGM5013
+    mitigates: Implement security as per clause 6.1.9 of 3GPP TS 29.503, namely OAuth2.0
+    name: Timely updates to UE status
+  - fgmid: FGM5014
+    mitigates: Cross check whether the requesting AMF is likely to be the one serving
+      that UE now. Validate the expected geography of where UE actually may be, in
+      comparison to the area that the requester AMF is supposed to serve.
+    name: UE location plausibility
   name: Fraudulent AMF registration for UE in UDM
   object-type: technique
   platforms: NONE
@@ -3608,7 +4514,25 @@ techniques:
     \n\r\nA malicious Access Function (AF) with a fraudulent (stolen, altered, or\
     \ constructed) access token may invoke the NEF services arbitrarily. \r\n\r\n\r\
     \n"
+  detections:
+  - detects: Logs or registration attempts to NEF
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5011
+  mitigations:
+  - fgmid: FGM5003
+    mitigates: Ensure NEF checks AF credentials across layers (TLS, OAuth2.0), and
+      has a list (provided out of band) with all the allowed AF by unique identifier
+      (or type of AF), and to which service they are allowed access (this access may
+      be general, not per UE).
+    name: Cross check between application layer and transport layer
+  - fgmid: FGM5019
+    mitigates: NEF should authorize API calls from external AFs for all service accesses,
+      via OAuth token verification.
+    name: Authorize external API calls
+  - fgmid: M1040
+    mitigates: Prevent suspicious API calls
+    name: Behavior Prevention on Endpoint
   name: Unauthorized access to Network Exposure Function (NEF) via token fraud
   object-type: technique
   platforms: 5G Network
@@ -3643,7 +4567,9 @@ techniques:
   description: " An adversary may obtain the UE location using radio access or core\
     \ network.\r\nAdversary may employ various means to obtain UE location (course,\
     \ fine) using radio access or core network. \r\n\r\n"
+  detections: []
   id: FGT5012
+  mitigations: []
   name: Locate UE
   object-type: technique
   platforms: 5G Network
@@ -3681,7 +4607,17 @@ techniques:
     \ but an adversary with multiple receivers can geolocate a UE from the differential\
     \ time of arrival of UE transmitted signal events completely independently of\
     \ the process the UE is doing to geo-locate itself. \r\n\r\n"
+  detections: []
   id: FGT5012.001
+  mitigations:
+  - fgmid: FGM5098
+    mitigates: Reduce usage. Use UE only when needed. Turn UE off if not needed for
+      period of time.
+    name: Reduce UE usage
+  - fgmid: FGM5099
+    mitigates: Move UE closer to base station and/or reduce height of UE above terrain
+      and/or move indoors or into multipath environment.
+    name: Move UE close to gNB
   name: Passive radio signals observation
   object-type: technique
   platforms: NONE
@@ -3726,7 +4662,24 @@ techniques:
     \ was turned off by the network. These messages of interest contain location reports\
     \ that the UE sends to the network upon (legitimate) request from the network.\
     \ \r\n\r\n"
+  detections:
+  - detects: Subscriber transitions to less secure service.
+    fgdsid: FGDS5010
+    name: UE transition to less secure service
   id: FGT5012.002
+  mitigations:
+  - fgmid: FGM5006
+    mitigates: Restrictive subscriber security profile. Do not use unencrypted systems.
+      Set subscriber security profile to prohibit bidding down to less secure service.
+    name: Restrictive user profile
+  - fgmid: FGM5096
+    mitigates: Disable location on UE device. This is only a partial mitigation because
+      location parameters can still be available from UE.
+    name: Disable UE location use
+  - fgmid: M1041
+    mitigates: Avoid systems that employ null encryption. De-register when only NULL
+      encryption is offered
+    name: Encrypt Sensitive Information
   name: Self Location Measurement
   object-type: technique
   platforms: NONE
@@ -3774,7 +4727,12 @@ techniques:
     \ an adversary could keep on tracking the user using the old 5G-GUTI after these\
     \ registration procedures. This attack has been observed in 4G where the UE were\
     \ allocated the same GUTI. \r\n\r\n"
+  detections: []
   id: FGT5012.003
+  mitigations:
+  - fgmid: FGM5094
+    mitigates: Ensure AMF implementation allocates new 5G-GUTI every time possible.
+    name: Allocate new 5G identifiers judiciously
   name: 5G-GUTI reuse
   object-type: technique
   platforms: 5G radio access
@@ -3823,7 +4781,22 @@ techniques:
     \ to obtain location information for a given UE.\r\n\r\nNote: In case of 3G/4G\
     \ core networks using SS7, this technique is covered by Mobile T1430.002 Impersonate\
     \ SS7 nodes.\r\n \r\n\r\n"
+  detections: []
   id: FGT5012.004
+  mitigations:
+  - fgmid: FGM1506
+    mitigates: Periodic authentication / authorization of NF consumer e.g. AMF by
+      NRF will help detect rogue AMFs. Not currently in 3GPP specs, but it can be
+      enhanced.
+    name: Periodic authentication/authorization of NFs
+  - fgmid: FGM5019
+    mitigates: NEF authorizes 3rd party AFs for location service using policy. Nnef_Location
+      API called by AF should be authorized properly. AF uses GPSI as UE identity.
+    name: Authorize external API calls
+  - fgmid: M1037
+    mitigates: Filter out request messages that come from external (to the operator)
+      sources to guard against SS7 attacks
+    name: Filter Network Traffic
   name: Core Network Function Signaling
   object-type: technique
   platforms: NONE
@@ -3912,7 +4885,22 @@ techniques:
     \ adversary controlling a slice or a NF in a slice obtains an access token for\
     \ a shared 5G Core NF (e.g. AMF) and uses it to get location info for an IMSI/SUPI\
     \ of a user belonging to a different slice but still served by same NF.\r\n\r\n"
+  detections:
+  - detects: Regularly audit applications and interface messaging logs. Check logs
+      of requests/responses at the shared NF. E.g., each entry should contain IMSI,
+      NF consumer that requested it, slice IDs of both.
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5012.005
+  mitigations:
+  - fgmid: FGM5012
+    mitigates: Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI)
+      of the consumer NF (and presented in the authorization Token). That is, this
+      attack could be mitigated if the shared network function (NF service producer)
+      checks the SUPI in a service request and the requesting NF service consumer
+      are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications
+      allow for such check)
+    name: Slice ID check
   name: Shared Network Function in slice
   object-type: technique
   platforms: 5G core
@@ -3960,7 +4948,15 @@ techniques:
     \ to coarse location.  The victim UE tried to connect to a nearby gNB, and adversary\
     \ then lured UEs to connect to it (e.g. by increasing the transmission power of\
     \ the fake gNB). \r\n\r\n"
+  detections:
+  - detects: Operator standard means to detect presence of fake gNBs. gNB radio signals
+      (sent to all UEs to enable them to select gNB and connect) are received and
+      reported by UEs to the operator, who can then run cross checks with the signals
+      that the UEs should have received if all gNBs nearby were legitimate..
+    fgdsid: FGDS5002
+    name: UE signal measurements
   id: FGT5012.006
+  mitigations: []
   name: NAS Exploit
   object-type: technique
   platforms: 5G Network
@@ -4011,7 +5007,40 @@ techniques:
     \ with same key pair without knowledge of MANO). Adversary may use malicious attestation\
     \ server attacks, etc. VNF instantiation may mallow adversary to register VNF\
     \ with 5G core to launch further attacks. \r\n\r\n"
+  detections:
+  - detects: Monitor POD creation and modification events.
+    fgdsid: DS0014
+    name: Pod
+  - detects: Audit application logs (NFVO, VIM).  Configuration management databases
+      (CMDB) and other asset management systems may help with the detection of computer
+      systems or network devices that should not exist on a network.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor container creation, container start events
+    fgdsid: DS0032
+    name: Container
   id: FGT5013
+  mitigations:
+  - fgmid: M1018
+    mitigates: Enforce the principle of least privilege by limiting container dashboard
+      access to only the necessary users.
+    name: User Account Management
+  - fgmid: M1030
+    mitigates: Deny direct remote access to internal systems through the use of network
+      proxies, gateways, and firewalls.
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Limit communications with the container service to local Unix sockets
+      or remote access via SSH. Require secure port access to communicate with the
+      APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes
+      API Server, and container orchestration web applications.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1047
+    mitigates: Scan images before deployment, and block those that are not in compliance
+      with security policies. In Kubernetes environments, the admission controller
+      can be used to validate images after a container deployment request is authenticated
+      but before the container is deployed.
+    name: Audit
   name: Malicious VNF Instantiation
   object-type: technique
   platforms: NONE
@@ -4053,7 +5082,44 @@ techniques:
     \  A hardware and network resource separation is required to provide isolation\
     \ and protection from an adversary mapping capabilities in the network for certain\
     \ VNF/VNFc.\r\n\r\n"
+  detections:
+  - detects: Monitor POD creation and modification events.
+    fgdsid: DS0014
+    name: Pod
+  - detects: Audit application logs (NFVO, VIM).  Configuration management databases
+      (CMDB) and other asset management systems may help with the detection of computer
+      systems or network devices that should not exist on a network.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor command history on VNFs and hosts
+    fgdsid: DS0017
+    name: Command
+  - detects: Monitor container creation, container start events
+    fgdsid: DS0032
+    name: Container
   id: FGT5014
+  mitigations:
+  - fgmid: M1018
+    mitigates: Enforce the principle of least privilege by limiting container dashboard
+      access to only the necessary users.
+    name: User Account Management
+  - fgmid: M1030
+    mitigates: Deny direct remote access to internal systems through the use of network
+      proxies, gateways, and firewalls.  Segment execution environment with node and
+      network.
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Limit communications with the container service to local Unix sockets
+      or remote access via SSH. Require secure port access to communicate with the
+      APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes
+      API Server, and container orchestration web applications.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1047
+    mitigates: Scan images before deployment, and block those that are not in compliance
+      with security policies. In Kubernetes environments, the admission controller
+      can be used to validate images after a container deployment request is authenticated
+      but before the container is deployed.
+    name: Audit
   name: Shared resource discovery
   object-type: technique
   platforms: 5G
@@ -4095,7 +5161,16 @@ techniques:
     \ \"stolen\", \"prohibited'). \r\n\r\nNote: Modifying the EIR does not affect\
     \ the subscription data such as access to network slice, customer data, or allow\
     \ fraudulent use of service. \r\n\r\n"
+  detections:
+  - detects: Difficult to detect unauthorized changes. Inspect logs of what changes
+      were made and by whom in the EIR
+    fgdsid: FGDS5009
+    name: Access to operator resource
   id: FGT5015
+  mitigations:
+  - fgmid: FGM5020
+    mitigates: Secure EIR function
+    name: Secure subscriber repositories
   name: Device Database Manipulation
   object-type: technique
   platforms: NONE
@@ -4136,7 +5211,27 @@ techniques:
     \ these messages, the adversary may obtain sensitive information about the PLMN\u2019\
     s subscribers. With the ability to send messages seen by the PLMN as legitimate,\
     \ the trusted partner may also commit fraud. \r\n\r\n\r\n\r\n"
+  detections:
+  - detects: Monitor for use of IE modification by IPX and respond when unexpected
+      IE modifications are seen.
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5016
+  mitigations:
+  - fgmid: M1041
+    mitigates: Block or limit cipher choices used for JWS. Use of weak JWS ciphers
+      could allow unauthorized disclosure
+    name: Encrypt Sensitive Information
+  - fgmid: M1054
+    mitigates: Block unauthorized IE modifications by IPX. Allow only communication
+      where authorized IpxId is not NULL
+    name: Software Configuration
+  - fgmid: M1056
+    mitigates: Avoid using PRINS and use direct SEPP-SEPP with HTTP/s.  Use of the
+      SEPP to SEPP solution instead of allowing an IPX to potentially observe and
+      manipulate information avoids the problem. A future SEPP hub solution may also
+      mitigate this risk by providing a more scalable SEPP to SEPP solution.
+    name: Pre-compromise
   name: Abuse of Inter-operator Interfaces
   object-type: technique
   platforms: IPX, SEPP, VAS
@@ -4191,7 +5286,19 @@ techniques:
     \ may collect CDRs from mobile networks by using malware. \r\n\r\nNote: In earlier\
     \ generations of 3GPP networks, CDRs are generated on switches, and then moved\
     \ to billing servers.\r\n\r\n"
+  detections:
+  - detects: 'CDR databases should log and raise alarms for any suspicious activity:
+      new connections set up, privilege escalation in admin user.'
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT5017
+  mitigations:
+  - fgmid: FGM5101
+    mitigates: Isolate CDR databases from the rest of the IT systems/NOC resources
+    name: Isolate CDR database
+  - fgmid: M1043
+    mitigates: CDR database admin users periodically re-checked
+    name: Credential Access Protection
   name: 'Call Detail Record (CDR) collection '
   object-type: technique
   platforms: NONE
@@ -4237,7 +5344,19 @@ techniques:
     \ of physical protection mechanisms (e.g., physical surveillance and surveillance\
     \ cameras, security locks, security guards), physical breaches and insider threat\
     \ attacks may still occur.\r\n\r\n\r\n"
+  detections:
+  - detects: Asset tracking tools. Security Management and Detection
+    fgdsid: DS0040
+    name: Operational Databases
   id: FGT5018
+  mitigations:
+  - fgmid: FGM5005
+    mitigates: 'Communications Centers.
+
+      Communication centers should provide a full set of physical and environmental
+      controls aimed to assure access control, monitoring, continuity of operations
+      and protection against environmental disasters.'
+    name: Physical and environmental protection
   name: Vandalism of Network Infrastructure
   object-type: technique
   platforms: NONE
@@ -4312,7 +5431,33 @@ techniques:
     \ to disrupt service.\r\n \r\nFibers routed between pieces of equipment without\
     \ proper protection are susceptible to damage, which can critically affect network\
     \ reliability.\r\n\r\n"
+  detections:
+  - detects: 'Security Incident and event monitoring
+
+      Event logs recording user activities, exceptions, faults and information security
+      events should be produced, kept and regularly reviewed. Additional considerations:
+      development of use-case specific alert rules, integration and correlation of
+      data at all levels (network, application), integration and correlation with
+      service provider-level monitoring mechanisms.'
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT5018.001
+  mitigations:
+  - fgmid: FGM5005
+    mitigates: 'Implement physical and environmental controls.
+
+      Sites should be provided with a full set of physical and environmental controls
+      aimed to assure access control, monitoring, continuity of operations and protection
+      against environmental disasters'
+    name: Physical and environmental protection
+  - fgmid: FGM5540
+    mitigates: Power supply facilities in the isolated area such as mobile base stations
+      should preferably provide an uninterruptible power supply with capacity for
+      all loading and capable of withstanding primary power supply failures for the
+      duration of likely outages. If that is impossible, a mechanism to provide uninterruptible
+      power to critical equipment should be installed. Batteries may need to be augmented
+      with a private electric generator, especially in isolated areas.
+    name: Power supplies
   name: Cabling and junction boxes
   object-type: technique
   platforms: Data transmission infrastructure and power supply
@@ -4364,7 +5509,21 @@ techniques:
     \ on sharing site spaces in existing infrastructure to reduce costs due to the\
     \ increased amount of hardware required to maintain Quality of Service (QoS).\r\
     \n\r\n"
+  detections:
+  - detects: 'Event logs recording user activities, exceptions, faults and information
+      security events should be produced, kept and regularly reviewed. Additional
+      considerations: development of use-case specific alert rules, integration and
+      correlation of data at all levels (network, application), integration and correlation
+      with service provider-level monitoring mechanisms.'
+    fgdsid: DS0040
+    name: Operational Databases
   id: FGT5018.002
+  mitigations:
+  - fgmid: FGM5005
+    mitigates: Sites should be provided with a full set of physical and environmental
+      controls aimed to assure access control, monitoring, continuity of operations
+      and protection against vandalism.
+    name: Physical and environmental protection
   name: Radio Access Hardware
   object-type: technique
   platforms: Radio access hardware
@@ -4422,7 +5581,22 @@ techniques:
     \ equipment value. An additional risk assessment is needed to assess suitability\
     \ in the context of additional risks incurred by presence of computing facilities\
     \ and data.\r\n\r\n"
+  detections:
+  - detects: 'Event logs recording user activities, exceptions, faults and information
+      security events should be produced, kept and regularly reviewed. Additional
+      considerations: development of use-case specific alert rules, integration and
+      correlation of data at all levels (network, application), integration and correlation
+      with service provider-level monitoring mechanisms.'
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT5018.003
+  mitigations:
+  - fgmid: FGM5005
+    mitigates: Edge sites should be provided with a full set of physical and environmental
+      controls aimed to assure access control, monitoring, continuity of operations
+      and protection against environmental disasters. Failure to do so may lead to
+      unauthorized access, destruction of assets and impairment of operations.
+    name: Physical and environmental protection
   name: Edge servers
   object-type: technique
   platforms: Edge server
@@ -4474,7 +5648,24 @@ techniques:
     \ freely, without the fear of being identified. Copper wires and battery theft\
     \ exploit the second-hand market fueled by the worldwide demand for these goods.\r\
     \n\r\n"
+  detections:
+  - detects: 'Event logs recording user activities, exceptions, faults and information
+      security events should be produced, kept and regularly reviewed. Additional
+      considerations: development of use-case specific alert rules, integration and
+      correlation of data at all levels (network, application), integration and correlation
+      with service provider-level monitoring mechanisms.'
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT5018.004
+  mitigations:
+  - fgmid: FGM5005
+    mitigates: 'Implement physical and environmental controls
+
+      Shared/Remote sites should be provided with a full set of physical and environmental
+      controls aimed to assure access control, monitoring, continuity of operations
+      and protection against environmental disasters. Failure to do so may lead to
+      unauthorized access, destruction of assets and impairment of operations.'
+    name: Physical and environmental protection
   name: Theft of Assets
   object-type: technique
   platforms: remote/shared location physical assets
@@ -4534,7 +5725,9 @@ techniques:
     \ Identifier (SUCI)) over the radio interface as part of the initial registration\
     \ to the 5G network. Some non-UE specific information is part of the SUPI and\
     \ is not encrypted (e.g., home network name). \r\n\r\n"
+  detections: []
   id: FGT5019
+  mitigations: []
   name: Identify UE
   object-type: technique
   platforms: 5G Network
@@ -4564,7 +5757,15 @@ techniques:
     \ Network identifier is sent unencrypted, so that the serving network knows where\
     \ to get the information to authenticate this UE. The home network may constitute\
     \ sensitive information in some special cases.  \r\n\r\n"
+  detections: []
   id: FGT5019.001
+  mitigations:
+  - fgmid: FGM1505
+    mitigates: When the subscriber affiliation is reflected in the home network identifier
+      (part of subscriber identifier), and would benefit from not being sent in the
+      clear, the subscriber's provider (home network) should be a proxy mobile network
+      operator - whose identifier does not reveal the true affiliation of the subscriber.
+    name: Proxy home network
   name: Intercept Home Network via SUCI
   object-type: technique
   platforms: NONE
@@ -4611,7 +5812,17 @@ techniques:
     \ Then, the adversary  actively interrogates or passively intercepts unencrypted\
     \ International Mobile Subscriber Identifier (IMSI)  for 2G/3G/4G or Media Access\
     \ Control (MAC) for WiFi.\r\n\r\n"
+  detections:
+  - detects: UE transitions to less secure service
+    fgdsid: FGDS5010
+    name: UE transition to less secure service
   id: FGT5019.002
+  mitigations:
+  - fgmid: FGM5006
+    mitigates: Restrictive user security profile can dictate that the UE will refuse
+      to networks that are not 5G. The prevention of bidding-down is achieved via
+      user security profile stored in the UE.
+    name: Restrictive user profile
   name: Intercept bid-down IMSI
   object-type: technique
   platforms: 5G radio
@@ -4658,7 +5869,17 @@ techniques:
     \ UE GPSI.  \r\nAfter acquiring the SUPI, an adversary can use it in other follow-on\
     \ behaviors against that UE, such as obtain location information or slice subscription\
     \ data.\r\n"
+  detections:
+  - detects: "Logging of AF inquiries for UEs that they don\u2019t serve. Post process\
+      \ the logs to detect fraudulent API calls by rogue AF or NF."
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5019.003
+  mitigations:
+  - fgmid: FGM5019
+    mitigates: NEF should check that UE in question is subscribed to services of the
+      AF. This way, unauthorized access by external rogue AFs can be avoided.
+    name: Authorize external API calls
   name: Obtain subscriber identifier via NF
   object-type: technique
   platforms: NONE
@@ -4716,7 +5937,17 @@ techniques:
     \ subscription data, SMS subscription data, slice information (the UE\u2019s NSSAIs),\
     \ \"supported features\", serving PLMN ID. This threat consists of a compromised\
     \ NF to ask the UDM for the data for a given SUPI or GPSI. \r\n\r\n"
+  detections:
+  - detects: Monitor logs
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5020
+  mitigations:
+  - fgmid: FGM5033
+    mitigates: 'Standard 5G enterprise/core network security functionality
+
+      E.g. Zero trust principles for OA&M.'
+    name: Zero Trust
   name: Retrieve UE subscription data
   object-type: technique
   platforms: 5G Core Network
@@ -4773,7 +6004,33 @@ techniques:
     \ charging errors.\r\n\r\nRogue or erroneous configuration/implementation in gNB\
     \ or UPF can cause an existing TEID to be assigned to a new PDU session. This\
     \ can also happen during EPS to 5GS handover or roaming.\r\n\r\n"
+  detections:
+  - detects: Packet inspection over the N3 interface. If two packets are seen to have
+      the same TEID on the RAN to UPF interface, then it can be verified that they
+      indeed belong to the same UE. It may be difficult to detect as it is per UE
+      and per PDU session.
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Charging system reports anomaly of subscriber CDRs. Periodic CDR audits
+      can detect anomaly
+    fgdsid: FGDS5003
+    name: Charging anomaly
   id: FGT5021
+  mitigations:
+  - fgmid: FGM5094
+    mitigates: Ensure UPF and gNB/NG-eNB check for uniqueness for every new TEID they
+      allocate locally. The newly assigned TEID must not have been in use in the past
+      given certain amount of time (which should be set to the reasonable maximum
+      tunnel lifetimes observed).
+    name: Allocate new 5G identifiers judiciously
+  - fgmid: M1035
+    mitigates: Limit Access to Resource Over Network
+    name: Limit Access to Resource Over Network
+  - fgmid: M1047
+    mitigates: The UPF and g/eNB must keep a log of the TEIDs currently in use (which
+      they assigned), and purge TEIDs once the tunnel is torn down. This log must
+      be checked every time a new TEID is allocated.
+    name: Audit
   name: Tunnel Endpoint ID (TEID) uniqueness failure
   object-type: technique
   platforms: 5G Network
@@ -4835,7 +6092,15 @@ techniques:
     \ access to the provisioning interface) on the UDM/UDR would allow all changes\
     \ to the UE profile (e.g., change from post-paid to pre-paid or vice-versa).\r\
     \n\r\n"
+  detections:
+  - detects: Subscriber contacts Customer service to complain (in some limited cases)
+    fgdsid: FGDS5011
+    name: Subscriber notify provider
   id: FGT5022
+  mitigations:
+  - fgmid: FGM5020
+    mitigates: Secure subscriber repositories
+    name: Secure subscriber repositories
   name: Alter Subscriber Profile
   object-type: technique
   platforms: NONE
@@ -4880,7 +6145,23 @@ techniques:
     \ manipulate signaling or parameters to achieve charging/billing fraud where victim\
     \ is UE or operator itself. \r\n\r\nThere are multiple procedures to support this\
     \ adversarial behavior, and they depend on the NF that is compromised.\r\n\r\n"
+  detections:
+  - detects: Management system (OSS/BSS) checks uniqueness of charging ID for all
+      new PDU sessions in non-roaming scenario and existing PDU sessions in handover
+      and roaming scenario
+    fgdsid: FGDS5003
+    name: Charging anomaly
   id: FGT5023
+  mitigations:
+  - fgmid: FGM1506
+    mitigates: Periodic authentication / authorization of NF consumer e.g. SMF/PCF/CHF/NEF/AF
+      by NRF will help detect rogue NFs.
+    name: Periodic authentication/authorization of NFs
+  - fgmid: FGM5094
+    mitigates: Rigorous checks of unique mapping of charging ID to PDU session (applicable
+      to the SMF case). Management system (OSS/BSS) can generate alert for possible
+      intervention
+    name: Allocate new 5G identifiers judiciously
   name: Charging fraud via NF control
   object-type: technique
   platforms: NONE
@@ -4942,7 +6223,37 @@ techniques:
     \ In fraudulent use, they are placed in the range of a given base station so they\
     \ can act as that set of UEs connecting to the base station and can be physically\
     \ moved periodically to avoid being detected). \r\n\r\n"
+  detections:
+  - detects: Use firewall to restrict unwanted traffic
+    fgdsid: DS0018
+    name: Firewall
+  - detects: "There are several tools, some using analysis after the fact, others\
+      \ test calls to network probes. Some tools use real time analysis of voice call\
+      \ characteristic \u2013 to detect VoIP calls illicitly tunneled into the operator\
+      \ network."
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: 'The audio received by the base station from a simboxed
+
+      call will contain losses, indicating that the audio signal
+
+      has traveled over an Internet connection, while the audio from a legitimate
+      call will not contain these losses. See [3]'
+    fgdsid: FGDS5004
+    name: Scan voice calls
+  - detects: Keeping track of SIM cards with strange usage pattern (e.g. bought but
+      only used 1 hour) they may be part of a SIM box, and then blocking those SIM
+      cards.
+    fgdsid: FGDS5005
+    name: SIM card pattern
   id: FGT5024
+  mitigations:
+  - fgmid: M1040
+    mitigates: 'Several tools exist to tag such SIM cards and reject calls from them.
+
+      Analyze and monitor call patterns, mobility patterns, and detect anomalies.
+      See [4]'
+    name: Behavior Prevention on Endpoint
   name: SIM boxing
   object-type: technique
   platforms: NONE
@@ -4992,7 +6303,19 @@ techniques:
     \ roaming partner could falsify a UE service usage or route traffic through several\
     \ partner networks inducing high termination fees to claim revenue in the form\
     \ of service charges.\r\n\r\n"
+  detections:
+  - detects: Usage data analysis via AI/ML
+    fgdsid: FGDS5006
+    name: UE data usage
+  - detects: Cross-check with subscriber services (if subscriber complains)
+    fgdsid: FGDS5011
+    name: Subscriber notify provider
   id: FGT5025
+  mitigations:
+  - fgmid: FGM5503
+    mitigates: Employ home-routing instead of local breakout for user traffic (but
+      this means more delay and lower quality of service)
+    name: Increase control of home network for user plane
   name: Falsify interconnect invoice
   object-type: technique
   platforms: NONE
@@ -5025,7 +6348,22 @@ techniques:
     \ is applicable to 3G, 4G and 5G. It may or may not be possible depending on how\
     \ secure the SIM card is. Some manufacturers of lower tier SIMs may leave their\
     \ devices vulnerable.\r\n\r\n"
+  detections:
+  - detects: Investigate unusual SIM card patterns.
+    fgdsid: FGDS5005
+    name: SIM card pattern
   id: FGT5026
+  mitigations:
+  - fgmid: M1017
+    mitigates: Only accept SIM cards from reputable manufacturers (MNOs)
+    name: User Training
+  - fgmid: M1018
+    mitigates: User accounts management at the operator side
+    name: User Account Management
+  - fgmid: M1022
+    mitigates: Restrict access to subscriber repository, which would allow SIM card
+      changes
+    name: Restrict File and Directory Permissions
   name: SIM cloning
   object-type: technique
   platforms: 5G UE
@@ -5068,7 +6406,22 @@ techniques:
     \ to access, then using that token to get information from the shared NF. It is\
     \ assumed that the shared NF is serving both own slice and the victim slice.\r\
     \n\r\n"
+  detections:
+  - detects: Check logs of requests/responses at the shared NF. E.g., each entry should
+      contain UE ID (SUPI), NF consumer that requested it, slice Ids of both.
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5027
+  mitigations:
+  - fgmid: FGM5003
+    mitigates: The attack can be mitigated if the NRF performs additional checks.
+      The NRF authorizes the NF service consumer to obtain tokens only for authorized
+      slice(s). (3GPP SA3 investigating as of early 2022). A cross check with the
+      TLS certificate of requester should be performed as well at the NRF.
+    name: Cross check between application layer and transport layer
+  - fgmid: M1020
+    mitigates: Inspect TLS layer encryption
+    name: SSL/TLS Inspection
   name: Spoof network slice identifier
   object-type: technique
   platforms: 5G network
@@ -5122,7 +6475,17 @@ techniques:
     \ consumer NF is compromised and wants to discover other slice IDs, it can ask\
     \ the NRF for OAuth tokens but with guessed slice identities, until a valid one\
     \ is returned.\r\n\r\n"
+  detections:
+  - detects: Logs at the NRF of failed NSSAI lookups. If a NF asks for NSSAIs that
+      do not exist, then flag that or take action
+    fgdsid: DS0015
+    name: Application Log
   id: FGT5028
+  mitigations:
+  - fgmid: FGM5499
+    mitigates: NRF protection against brute-force attacks. NRF should not respond
+      to requests after a given number of failed NSSAI lookups (See detections)
+    name: Rate limiting by producer NF
   name: 'Discover network slice identifier '
   object-type: technique
   platforms: NONE
@@ -5189,7 +6552,34 @@ techniques:
     \ by adversaries. The Network Function addendum to the ATT&CK technique [T1190](\
     \ https://5g-security.pages.mitre.org/techniques/T1190) covers internet facing\
     \ service interfaces.\r\n\r\n"
+  detections:
+  - detects: Monitor application logs for evidence of unexpected access requests or
+      potential pattern of errors logged that might indicate attempts to create unexpected
+      behavior
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor login session logs for evidence an adversary has created accounts
+      or setup access after compromise of the service via specially formed packets
+      on the service API
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Observe unusual traffic to the SEPP and any evidence of unusual source
+      or destinations from the SEPP that might indicate a source of specially formed
+      packets.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT5029
+  mitigations:
+  - fgmid: FGM5010
+    mitigates: Redeploy SEPP regularly to prevent dwell time aka use non-persistence
+    name: Non-Persistent Services
+  - fgmid: M1050
+    mitigates: Use of a Web Application Firewall may only allow properly formatted
+      service communication.
+    name: Exploit Protection
+  - fgmid: M1051
+    mitigates: Aggressive patching may reduce window of vulnerability if a known vulnerability
+    name: Update Software
   name: Exploit Semi-public Facing Application
   object-type: technique
   platforms: SEPP, UPF
@@ -5246,7 +6636,9 @@ techniques:
     \ of networks between RAN VNF and Core VNF in the same Cloud or MEC may further\
     \ allow lateral movements of adversary if a gNodeB component is compromised.\r\
     \n\r\n\r\n"
+  detections: []
   id: FGT5032
+  mitigations: []
   name: gNodeB Component Manipulation
   object-type: technique
   platforms: NONE
@@ -5279,7 +6671,9 @@ techniques:
     \ of the O-RAN architecture. A compromise of the RIC components (by any means)\
     \ can potentially lead to unauthorized change in CU or DU via E2 Interface.\r\n\
     \r\n"
+  detections: []
   id: FGT5032.001
+  mitigations: []
   name: Radio Intelligent Controller (RIC)
   object-type: technique
   platforms: 5G Network
@@ -5330,7 +6724,9 @@ techniques:
     \ 5G base station performance and delivery of services to a group of UEs or a\
     \ single UE. \r\n\r\n A compromise of an xApp (or through xApp Agent) can potentially\
     \ lead to unauthorized changes in a CU or DU via E2 Interface. \r\n\r\n"
+  detections: []
   id: FGT5032.002
+  mitigations: []
   name: ' X-App'
   object-type: technique
   platforms: 5G Network
@@ -5372,7 +6768,9 @@ techniques:
     \ value added services related to RAN operation and optimization.  \r\n\r\n A\
     \ compromise of an r-App (or through r-App Agent) can potentially lead to unauthorized\
     \ changes in CU or DU via Near-RT RIC E2 Interface.\r\n\r\n"
+  detections: []
   id: FGT5032.003
+  mitigations: []
   name: ' rApps'
   object-type: technique
   platforms: 5G Network
@@ -5412,7 +6810,20 @@ techniques:
     \ to 5G, bids down victim UE to less secure network (4G or 3G) with illegitimate\
     \ signaling, orders the UE to transmit with no or weak encryption/integrity protection.\r\
     \n\r\n"
+  detections:
+  - detects: UE transitions to less secure service. UE responds to requests that were
+      not sent by legitimate network.
+    fgdsid: FGDS5010
+    name: UE transition to less secure service
   id: FGT1040.501
+  mitigations:
+  - fgmid: FGM5006
+    mitigates: Set security profile to prohibit bidding down to less secure service.
+    name: Restrictive user profile
+  - fgmid: M1041
+    mitigates: Avoid systems that employ null encryption. De-register when only NULL
+      encryption is offered.
+    name: Encrypt Sensitive Information
   name: Radio interface
   object-type: technique
   platforms: 5G RAN
@@ -5468,7 +6879,26 @@ techniques:
     \ means to intercept/steal SIM data in transit from SIM card vendors towards the\
     \ HSM or the UDR/UDM in the operator's network in order to obtain customer credentials.\r\
     \n\r\n"
+  detections: []
   id: FGT1195.501
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Protect the files where SIM data is stored by integrity protection
+    name: Integrity protection of data communication
+  - fgmid: M1017
+    mitigates: 'Personnel security: Train personnel in SIM card OEMs to be wary of
+      social engineering and other attempts of unauthorized parties to gain access
+      to any relevant resource, and to report suspicious activities'
+    name: User Training
+  - fgmid: M1022
+    mitigates: Restrict access to files exchanged between SIM vendor and MNO
+    name: Restrict File and Directory Permissions
+  - fgmid: M1030
+    mitigates: Physical and cyber security of IT systems, servers.
+    name: Network Segmentation
+  - fgmid: M1041
+    mitigates: Protect the files where SIM data is stored by encryption
+    name: Encrypt Sensitive Information
   name: 'SIM Credential Theft
 
     '
@@ -5511,7 +6941,9 @@ techniques:
     \ MEC.  When service providers are used for providing service to customers, the\
     \ adversary may be in a position to compromise information about the user. \r\n\
     \r\n\r\n\r\n"
+  detections: []
   id: FGT1195.502
+  mitigations: []
   name: Compromise Service Supply Chain
   object-type: technique
   platforms: NONE
@@ -5561,7 +6993,34 @@ techniques:
     \ to collect information. Depending on the roaming partner\u2019s configuration,\
     \ core functions may be directly exposed to service providers used by the roaming\
     \ partner.\r\n\r\n"
+  detections:
+  - detects: Analysis of application logs on the HPLMN SEPP and PLMN NFs  may indicate
+      unusual control channel activity.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Analysis of network traffic from VAS, and/or IPX may indicate unexpected
+      or unusual traffic.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1199.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: Management of credentials used by partners to be scoped to the least
+      privilege can minimize potential abuse.  Does not mitigate misuse within allowed
+      privileges.
+    name: User Account Management
+  - fgmid: M1030
+    mitigates: Minimize exposure of functions to only those partner functions that
+      need to access.
+    name: Network Segmentation
+  - fgmid: M1037
+    mitigates: Ensure communication with functions such as a SEPP is constrained to
+      necessary addresses, ports, and protocols.
+    name: Filter Network Traffic
+  - fgmid: M1054
+    mitigates: Validation of credentials properly can mitigate some MITM attacks and
+      ensure revoked/expired credentials are not allowed.
+    name: Software Configuration
   name: MNO Roaming Partners
   object-type: technique
   platforms: NONE
@@ -5619,7 +7078,28 @@ techniques:
     \ Proxy (SCP) is not employed, an adversary in the network sends many otherwise-legitimate\
     \ control messages to a NF so as to overload it. Network service is degraded for\
     \ all other users in that area (served by AMF).\r\n\r\n"
+  detections:
+  - detects: 'Application layer DoS attack detection mechanism can be used to detect
+      repeated attempt of UE attach-detach cycle within a short period.
+
+      NAS-MM (Non-access stratum Mobility Mgmt) app layer proxy with UE request rate
+      limiting capability.'
+    fgdsid: DS0018
+    name: Firewall
   id: FGT1498.501
+  mitigations:
+  - fgmid: FGM5498
+    mitigates: 'Employ a firewall or other rate control box on the N2 interface [from
+      RAN to AMF]
+
+
+      (May not be available in the market). Employ a NAS-MM (Non-access stratum Mobility
+      Mgmt) application layer proxy at the edge of the network, having the capability
+      to limit UE request rate.
+
+      In addition, SCP can act as load balancer between the service consumer (AMF)
+      and service producer (UDM). (Annex E of [2])'
+    name: Limit incoming signaling traffic
   name: 'Flooding of core network components '
   object-type: technique
   platforms: 5G network
@@ -5675,7 +7155,18 @@ techniques:
     \ their messages and process executed in due time.  This result in UEs or some\
     \ network functions experiencing denial of service within target slices.     \r\
     \n\r\n\r\n"
+  detections:
+  - detects: Monitor systems performance and alert on quota exceptions on hosts, applications
+      and networks
+    fgdsid: DS0013
+    name: Sensor Health
   id: FGT1498.502
+  mitigations:
+  - fgmid: M1030
+    mitigates: Implementing segmentation policy at granular level, network and compute
+      resources can prevent some co-residency threats when mapped to SLAs, Users,
+      and Resource policies
+    name: Network Segmentation
   name: Shared slice common control network function resource exhaustion
   object-type: technique
   platforms: NONE
@@ -5702,7 +7193,19 @@ techniques:
   description: " A malicious app consumes subscriber data allocation so as to deny\
     \ or degrade service to that UE. \r\nA malicious application might consume a UE's\
     \ limited data plan, denying or throttling service.\r\n\r\n\r\n"
+  detections:
+  - detects: Excessive data usage reported by UE or service provider.
+    fgdsid: FGDS5006
+    name: UE data usage
   id: FGT1499.501
+  mitigations:
+  - fgmid: FGM5007
+    mitigates: Unlimited data plan. Attack is mitigated with a true unlimited data
+      plan
+    name: Unlimited data plan
+  - fgmid: FGM5008
+    mitigates: Monitor installed applications for data usage.
+    name: Monitor installed applications for data usage
   name: Consume data allocation to deny or degrade service
   object-type: technique
   platforms: 5G UE
@@ -5737,7 +7240,17 @@ techniques:
     \ impossible locations. When the UE security profile allows, the adversary can\
     \ illegitimately use a known IMSI/SUPI or, if a valid Subscriber Concealed Identity\
     \ (SUCI) is known, use a legitimate SUCI for false registrations. \r\n\r\n"
+  detections:
+  - detects: Subscriber contacts service provider to determine why service is denied.
+    fgdsid: FGDS5011
+    name: Subscriber notify provider
   id: FGT1499.502
+  mitigations:
+  - fgmid: FGM5093
+    mitigates: UDM/SIDF checks the freshness parameter of SUCI received from the same
+      UE (having the same SUPI). If replayed by adversary within a short period of
+      time, freshness test will fail.
+    name: SUCI freshness parameter
   name: Trigger fraud alert to deny service
   object-type: technique
   platforms: NONE
@@ -5780,7 +7293,20 @@ techniques:
     \r\nAdversary may compromise a NF and thus manipulate signaling for the UE registration\
     \ or session management procedures, in order to deny service to that UE.\r\n\r\
     \n"
+  detections:
+  - detects: Subscriber notifies provider of no or degraded service
+    fgdsid: FGDS5011
+    name: Subscriber notify provider
   id: FGT1499.503
+  mitigations:
+  - fgmid: FGM1506
+    mitigates: Periodically authenticate NFs in the network to assess whether they
+      have been compromised
+    name: Periodic authentication/authorization of NFs
+  - fgmid: M1030
+    mitigates: Implement industry standard core and edge network function security
+      protection
+    name: Network Segmentation
   name: ' DOS a UE via gNB or NF signaling'
   object-type: technique
   platforms: NONE
@@ -5891,7 +7417,46 @@ techniques:
     \ pipelines, image building and storage process and thru add on tools.  Unless\
     \ Hardware Mediated Execution Environment (HMEE) is used to validate host resources,\
     \ malware inserted during boot process may not be easily detected.  \r\n\r\n"
+  detections:
+  - detects: Software image inconsistency.  Signature and checksum mismatch
+    fgdsid: DS0007
+    name: Image
+  - detects: Kernel executing unknow processes or unauthorized processes not typical
+      of the host.
+    fgdsid: DS0008
+    name: Kernel
+  - detects: Active processes or process log may reveal unauthorized activity due
+      to rootkits
+    fgdsid: DS0009
+    name: Process
+  - detects: Background services not typically associated with the host
+    fgdsid: DS0019
+    name: Service
+  - detects: File changes of any sort that cannot be traced back to authorized change.
+    fgdsid: DS0022
+    name: File
+  - detects: Network traffic pattern may reveal remote C2 communication from rootkit
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1542.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: User Account Management, active monitoring of access attempts to CI/CD
+      tools
+    name: User Account Management
+  - fgmid: M1045
+    mitigates: Code Signing
+    name: Code Signing
+  - fgmid: M1046
+    mitigates: Boot integrity
+    name: Boot Integrity
+  - fgmid: M1047
+    mitigates: System audits can reveal anomalous behavior that may be caused by rootkits.  Audits
+      of software repositories
+    name: Audit
+  - fgmid: M1051
+    mitigates: Update Software
+    name: Update Software
   name: 'Unauthorized software in NFVI
 
     '
@@ -5927,7 +7492,28 @@ techniques:
     \ utilize a legitimate HSM functions, e.g., through PKCS #11 function calls, Cryptoki\
     \ library, etc., such that an adversary may obtain signatures and derivative key\
     \ material seen as legitimate by other MNO NFs. \r\n\r\n"
+  detections:
+  - detects: Analyze the application logs for access from appropriate NFs and appropriate/typical
+      use
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Analyze access logs for appropriate use by admins
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor for activity from unexpected sources
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1555.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: Restrict users of HSM to minimal privileges from only permitted NFs
+    name: User Account Management
+  - fgmid: M1026
+    mitigates: Ensure administrative accounts for HSM are carefully managed to minimize
+      potential admin credential compromise. This may include use of privileged access
+      workstations, privileged account management solutions, separation of duties
+      approaches, etc.
+    name: Privileged Account Management
   name: Hardware Security Module Key Signing
   object-type: technique
   platforms: 5G
@@ -5978,7 +7564,13 @@ techniques:
     \ to 5G, bids down victim UE to less secure protocol with illegitimate signaling,\
     \ orders the UE to transmit with no or weak encryption/integrity protection.\r\
     \n\r\n"
+  detections:
+  - detects: UE measurements of received power levels from all base stations nearby,
+      and their identifiers Reference clause 6.24 of [3]
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT1557.501
+  mitigations: []
   name: Radio interface
   object-type: technique
   platforms: NONE
@@ -6052,7 +7644,26 @@ techniques:
     \ through which the roaming traffic may flow. The adversary may attempt to control\
     \ a device in the path or re-direct traffic to a device the adversary controls.\r\
     \n\r\n"
+  detections:
+  - detects: Monitor for access to SEPP application/appliance for unexpected access.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Analyze network traffic to/from SEPP to determine if from unexpected
+      source/dest and consistent with expected traffic from other operators.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1557.502
+  mitigations:
+  - fgmid: M1030
+    mitigates: Limit network exposure of vSEPP from other core services in hPLMN
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Minimize access to vSEPP from limited locations such as a privileged
+      access workstation
+    name: Limit Access to Resource Over Network
+  - fgmid: M1037
+    mitigates: Ensure only traffic from expected sources can reach the SEPP
+    name: Filter Network Traffic
   name: 'Roaming and Interconnection '
   object-type: technique
   platforms: SEPP, VAS, IPX
@@ -6093,7 +7704,23 @@ techniques:
     \ the AMF. However, unlike radio communications, operator RAN to core communications\
     \ are not always employing the confidentiality or integrity protection mandated\
     \ by 3GPP standards.\r\n\r\n"
+  detections:
+  - detects: Check configuration changes in all switches/routers. Configuration audits
+      by OSS/BSS
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Inspect Network traffic content and watch for unauthorized changes as
+      the packets move through the routers/middle boxes
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1557.503
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use integrity (IPSec) on all non-SBI interfaces
+    name: Integrity protection of data communication
+  - fgmid: M1041
+    mitigates: Use encryption (IPSec) on all non-SBI interfaces
+    name: Encrypt Sensitive Information
   name: 'Non-SBI '
   object-type: technique
   platforms: NONE
@@ -6145,7 +7772,24 @@ techniques:
     \ for NF mutual authentication and NF transport layer protection. The end result\
     \ is UE sensitive information or data being disclosed or tampered or both.\r\n\
     \r\n\r\n"
+  detections: []
   id: FGT1557.504
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Use TLS 1.3 or TLS 1.2 with only strong ciphersuites.
+    name: Integrity protection of data communication
+  - fgmid: FGM5095
+    mitigates: TLS certificate thorough checking. Ensure that all certificates received
+      over a connection are valid for the current server endpoint, and abort the handshake
+      if they are not. In some usages, it may be simplest to refuse any change of
+      certificates during renegotiation
+    name: TLS certificate check
+  - fgmid: M1041
+    mitigates: Use TLS 1.3 or TLS 1.2 with only strong ciphersuites
+    name: Encrypt Sensitive Information
+  - fgmid: M1047
+    mitigates: Audit NF configuration for interfaces, e.g. what version of TLS.
+    name: Audit
   name: 'Service Based Interface '
   object-type: technique
   platforms: 5G Network
@@ -6201,7 +7845,29 @@ techniques:
     \ network sends to the UE an \u201CABBA\u201D parameter (Anti Bidding Down between\
     \ Architectures), which indicates the security features that the network possesses.\
     \ \r\n\r\n"
+  detections:
+  - detects: At the UE side, the UE can tell that there is a 5G cell site that it
+      can hear, but if it eventually gets connected to a 4G cell site, then it may
+      have suffered a bidding down attack
+    fgdsid: FGDS5013
+    name: UE connecting to 4G
   id: FGT1562.501
+  mitigations:
+  - fgmid: FGM5002
+    mitigates: 'UE should discard RRC redirection that is  not integrity protected,
+      and go search for other gNBs. UE should only accept to register to networks
+      that require mutual auth and strong encryption, also integrity protection of
+      user plane.
+
+      [reference](https://www.scribd.com/document/350156530/forcing-targeted-lte-cellphone-into-unsafe-network)'
+    name: Discard RAN signaling received without integrity protection
+  - fgmid: FGM5092
+    mitigates: UE warns user of lower security network (and the user can take action
+      to limit data or type of data, or to disconnect).
+    name: Warn user
+  - fgmid: FGM5097
+    mitigates: Set security profile to prohibit bidding down to less secure service.
+    name: Disable acceptance of a less secure system
   name: Bid down UE
   object-type: technique
   platforms: 5G RAN
@@ -6241,7 +7907,18 @@ techniques:
     \ radio component can be mounted in a given favorable location and be connected\
     \ to a system of the adversary (instead of a regular operator\u2019s network),\
     \ in order to avoid detection.  \r\n\r\n\r\n"
+  detections:
+  - detects: UE measurements of received power levels from all base stations nearby,
+      and their identifiers. Reference [2], section 6.24
+    fgdsid: FGDS5002
+    name: UE signal measurements
   id: FGT1583.501
+  mitigations:
+  - fgmid: M1056
+    mitigates: This technique cannot be easily mitigated with preventive controls
+      since it is based on behaviors performed outside of the scope of the mobile
+      network operator
+    name: Pre-compromise
   name: Fake Cellular Base Station or Access Point
   object-type: technique
   platforms: 5G radio
@@ -6266,7 +7943,9 @@ techniques:
     \ follow-on behaviors against the Radio-Access Network (RAN) such as denial of\
     \ service.\r\n\r\nFake UEs are used in many adversarial behaviors against the\
     \ mobile network. \r\n\r\n"
+  detections: []
   id: FGT1583.502
+  mitigations: []
   name: Programable UE devices
   object-type: technique
   platforms: 5G radio
@@ -6308,7 +7987,19 @@ techniques:
     \ information is intended to not be publicly accessible; however, data leaks and\
     \ insider attacks have occurred, and thus this information can be and has been\
     \ used by adversaries in their discovery tactics.\r\n\r\n"
+  detections:
+  - detects: Leaking this information in the Internet is obvious
+    fgdsid: FGDS5008
+    name: Search Internet for leaks
+  - detects: Access to IR.21 file should be logged.
+    fgdsid: FGDS5009
+    name: Access to operator resource
   id: FGT1592.501
+  mitigations:
+  - fgmid: FGM5500
+    mitigates: Control access to IR.21 files in GSMA. Host/application hosting this
+      file should guard against such leak.
+    name: Restrict access to operator OA&M resources
   name: Internal resource search
   object-type: technique
   platforms: 5G Network
@@ -6358,7 +8049,56 @@ techniques:
     \ Slice or create slice resources that share the NFVI resources of the target\
     \ slice. Malicious co-tenancy activities can lead to unauthorized access to data,\
     \ misuse of resources, or management actions. \r\n\r\n"
+  detections:
+  - detects: Monitor systems performance
+    fgdsid: DS0013
+    name: Sensor Health
+  - detects: Audit logs - Auditing logs for security, authentication and authorization
+      activity, host access, hosts, virtualization orchestrator and managers can reveal
+      behavioral anomalies
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Audit Policy Violations - Automated user and resource policy compliance
+      checks and instrumentation to alert on violation attempts
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor network flows
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1599.501
+  mitigations:
+  - fgmid: FGM5505
+    mitigates: Hardware Mediated Execution Environment -Employ secure, hardware- based
+      execution integrity as part of host/server design
+    name: Hardware mediated  execution environment
+  - fgmid: FGM5506
+    mitigates: Use of Network Slice Templates -Use of templates for network slicing
+      can enforce baseline security and isolation requirements.  These templates can
+      be created for networks, compute and 5G slice functions deployments.
+    name: network slice templates
+  - fgmid: M1026
+    mitigates: Least Privilege Access Control Policy - Access control policies should
+      be granular to allow for optimal access to service requirements.
+    name: Privileged Account Management
+  - fgmid: M1030
+    mitigates: 'Security and Trust zones -Security and trust zones can help isolate
+      resources and can be mapped to business needs.
+
+      Micro and Nano segmentation- Implementing segmentation policy at granular level,
+      network and compute resources can prevent some co-residency threats when mapped
+      to SLAs, Users, and Resource policies.
+
+
+      Physical separation- Hardware, network, and point of presence can be separated
+      to provide additional isolation.'
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Resource Policy enforcement -Create and enforce resource policy; policy
+      can include SLA, quotas, QOS etc.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1041
+    mitigates: Encryption can be used to protect data at rest and in transit
+    name: Encrypt Sensitive Information
   name: 'Malicious co-tenancy  exploit of NFVI (Network Slice)
 
     '
@@ -6413,7 +8153,56 @@ techniques:
     \ safeguards may allow an adversary to starve a target slice or VNFs of the resources\
     \ it needs to meet the SLA and to create opportunities information exposure.\r\
     \n\r\n\r\n\r\n"
+  detections:
+  - detects: Monitor systems performance
+    fgdsid: DS0013
+    name: Sensor Health
+  - detects: Audit logs - Auditing logs for security, authentication and authorization
+      activity, host access, hosts, virtualization orchestrator and managers can reveal
+      behavioral anomalies
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Audit Policy Violations - Automated user and resource policy compliance
+      checks and instrumentation to alert on violation attempts
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor network flows
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1599.502
+  mitigations:
+  - fgmid: FGM5505
+    mitigates: Hardware Mediated Execution Environment -Employ secure, hardware- based
+      execution integrity as part of host/server design
+    name: Hardware mediated  execution environment
+  - fgmid: FGM5506
+    mitigates: Use of Network Slice Templates -Use of templates for network slicing
+      can enforce baseline security and isolation requirements.  These templates can
+      be created for networks, compute and 5G slice functions deployments.
+    name: network slice templates
+  - fgmid: M1026
+    mitigates: Least Privilege Access Control Policy - Access control policies should
+      be granular to allow for optimal access to service requirements.
+    name: Privileged Account Management
+  - fgmid: M1030
+    mitigates: 'Security and Trust zones -Security and trust zones can help isolate
+      resources and can be mapped to business needs.
+
+      Micro and Nano segmentation- Implementing segmentation policy at granular level,
+      network and compute resources can prevent some co-residency threats when mapped
+      to SLAs, Users, and Resource policies.
+
+
+      Physical separation- Hardware, network, and point of presence can be separated
+      to provide additional isolation.'
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Resource Policy enforcement -Create and enforce resource policy; policy
+      can include SLA, quotas, QOS etc.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1041
+    mitigates: Encryption can be used to protect data at rest and in transit
+    name: Encrypt Sensitive Information
   name: 'Network Slice infrastructure
 
     resource hijacking
@@ -6464,7 +8253,56 @@ techniques:
     \ can result in placing adversary\u2019s virtualized application on the same VM\
     \ or container engine as target NF and allow for further attacks of container\
     \ or VM escape or resource exhaustion.\r\n\r\n"
+  detections:
+  - detects: Monitor systems performance
+    fgdsid: DS0013
+    name: Sensor Health
+  - detects: Audit logs - Auditing logs for security, authentication and authorization
+      activity, host access, hosts, virtualization orchestrator and managers can reveal
+      behavioral anomalies
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Audit Policy Violations - Automated user and resource policy compliance
+      checks and instrumentation to alert on violation attempts
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Monitor network flows
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1599.503
+  mitigations:
+  - fgmid: FGM5505
+    mitigates: Hardware Mediated Execution Environment -Employ secure, hardware- based
+      execution integrity as part of host/server design (M1041).
+    name: Hardware mediated  execution environment
+  - fgmid: FGM5506
+    mitigates: Use of Network Slice Templates -Use of templates for network slicing
+      can enforce baseline security and isolation requirements.  These templates can
+      be created for networks, compute and 5G slice functions deployments.
+    name: network slice templates
+  - fgmid: M1026
+    mitigates: Least Privilege Access Control Policy - Access control policies should
+      be granular to allow for optimal access to service requirements.
+    name: Privileged Account Management
+  - fgmid: M1030
+    mitigates: 'Security and Trust zones -Security and trust zones can help isolate
+      resources and can be mapped to business needs.
+
+      Micro and Nano segmentation- Implementing segmentation policy at granular level,
+      network and compute resources can prevent some co-residency threats when mapped
+      to SLAs, Users, and Resource policies.
+
+
+      Physical separation- Hardware, network, and point of presence can be separated
+      to provide additional isolation.'
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Resource Policy enforcement -Create and enforce resource policy; policy
+      can include SLA, quotas, QOS etc.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1041
+    mitigates: Encryption can be used to protect data at rest and in transit
+    name: Encrypt Sensitive Information
   name: 'Network Slice
 
     application resource hijacking
@@ -6499,7 +8337,39 @@ techniques:
     \ data can be manipulated for nefarious purposes.  SDN VNF unauthorized configuration\
     \ changes can lead modified 5G traffic flows and may bridge otherwise isolated\
     \ slices. \r\n\r\n"
+  detections:
+  - detects: Image life cycle and runtime events
+    fgdsid: DS0007
+    name: Image
+  - detects: Audit configuration - Periodically audit VNF configuration to detect
+      unauthorized changes
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Access Logs - Analyze logs to detect unauthorized activity to VNF and
+      other tools used in lifecycle management and security of the VNF
+    fgdsid: DS0028
+    name: Logon Session
+  - detects: Audit network flow - Audit network flows to VNF and other tools used
+      in lifecycle management and security of the VNF
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1599.504
+  mitigations:
+  - fgmid: M1033
+    mitigates: VNF Access Rights -Restricted Permissions to add images to VNFs (Network
+      Element) for person and non-person accounts
+    name: Limit Software Installation
+  - fgmid: M1047
+    mitigates: Logs from VNFs must be corelated with other OA&M and Security monitoring
+      tools to ensure unauthorize activity is reported. SEIM like system should be
+      deployed to correlate events.
+    name: Audit
+  - fgmid: M1053
+    mitigates: Configuration back ups -All VNF Configurations should be backed up
+      and periodically audited to see differences between running configuration and
+      back up configurations as well as comparison between configuration catalogue
+      and running instance
+    name: Data Backup
   name: Manipulate Virtual Network Function (VNF) Configuration
   object-type: technique
   platforms: NONE
@@ -6549,7 +8419,43 @@ techniques:
     \ Control Plane (CP) -- or user data -- AS User Pane (UP)) -- over the radio interface.\
     \ These can be followed by another adversarial behavior whereby eavesdropping\
     \ can be done over the air interface for data and signaling.\r\n\r\n"
+  detections:
+  - detects: Check configuration changes in gNB, SMF, AMF; Configuration audits by
+      OSS/BSS.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Inspect radio traffic and watch for unauthorized changes as the packets
+      move through the interfaces.
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1600.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: Network element security safeguards for gNBs, AMFs and SMFs. Includes
+      measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access
+      security, secure boot)
+    name: User Account Management
+  - fgmid: M1031
+    mitigates: Implement network intrusion prevention methods
+    name: Network Intrusion Prevention
+  - fgmid: M1041
+    mitigates: Ensure gNB implementation and SMF implementations are both checking
+      the UE CP and UP security policy against the most trustworthy source and taking
+      action to not enable NULL encryption except for emergency calls
+    name: Encrypt Sensitive Information
+  - fgmid: M1043
+    mitigates: Implement credential access protection methods
+    name: Credential Access Protection
+  - fgmid: M1046
+    mitigates: Network element security safeguards for gNBs, AMFs and SMFs. Includes
+      measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access
+      security, secure boot)
+    name: Boot Integrity
+  - fgmid: M1051
+    mitigates: Network element security safeguards for gNBs, AMFs and SMFs. Includes
+      measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access
+      security, secure boot)
+    name: Update Software
   name: Radio Interface
   object-type: technique
   platforms: NONE
@@ -6663,7 +8569,36 @@ techniques:
     \ encryption algorithm for TLS or JWE encryption on the N32 interface. An adversary\
     \ with control over visited network UPF may disable IPSec on N9 interface or a\
     \ compromised MME or AMF may disable IPSec on N26 interface.\r\n\r\n"
+  detections:
+  - detects: Check configuration changes in gNB and all core NFs; Configuration audits
+      by OSS/BSS.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Inspect network traffic and watch for unauthorized changes
+    fgdsid: DS0029
+    name: Network Traffic
   id: FGT1600.502
+  mitigations:
+  - fgmid: M1018
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: User Account Management
+  - fgmid: M1031
+    mitigates: Implement network intrusion prevention methods
+    name: Network Intrusion Prevention
+  - fgmid: M1041
+    mitigates: Ensure strong encryption is used in all non-SBI, SBI and roaming/interconnect
+      interfaces. That is, TLS should be used in all SBI, N32-c and N32-f and PRINS
+      in N32-f when TLS is not used.
+    name: Encrypt Sensitive Information
+  - fgmid: M1043
+    mitigates: Implement credential access protection methods
+    name: Credential Access Protection
+  - fgmid: M1046
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: Boot Integrity
+  - fgmid: M1051
+    mitigates: Network element security safeguards for gNB and all core NFs
+    name: Update Software
   name: Network Interfaces
   object-type: technique
   platforms: NONE
@@ -6745,7 +8680,13 @@ techniques:
     \nIt also should have its power adjustable so that it will be higher than the\
     \ legitimate base stations nearby it, so as to succeed in luring UEs to connect\
     \ to it.\r\n\r\n\r\n"
+  detections:
+  - detects: UE measurements of received power levels from all base stations nearby,
+      and their identifiers. Reference clause 6.24 of [2]
+    fgdsid: FGDS5012
+    name: SIEM
   id: FGT1608.501
+  mitigations: []
   name: Set up Configurability of Fake Base Station or Access Point
   object-type: technique
   platforms: 5G radio
@@ -6793,7 +8734,27 @@ techniques:
     \ NFVI to prevent the deletion/erasure of data and states of the VNF that has\
     \ been terminated. Data may include application data, cryptographic keys (service\
     \ accounts).\r\n\r\n\r\n"
+  detections: []
   id: FGT1609.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: Enforce authentication and role-based access control on the container
+      service to restrict users to the least privileges required.
+    name: User Account Management
+  - fgmid: M1026
+    mitigates: In Kubernetes environments, consider defining a Pod Security Policy
+      that prevents pods from running privileged containers
+    name: Privileged Account Management
+  - fgmid: M1035
+    mitigates: Limit communications with the container service to local Unix sockets
+      or remote access via SSH. Require secure port access to communicate with the
+      APIs over TLS by disabling unauthenticated access to the Docker API and Kubernetes
+      API Server
+    name: Limit Access to Resource Over Network
+  - fgmid: M1038
+    mitigates: Use read-only containers, read-only file systems, and minimal images
+      when possible to prevent the execution of commands.
+    name: Execution Prevention
   name: Accessing Terminated VNF
   object-type: technique
   platforms: NONE
@@ -6833,7 +8794,44 @@ techniques:
     \ virtualization resources is a business requirement to ensure a co-resident compromised\
     \ or malicious VNF/VNFc cannot access shared resources or read data.\r\n\r\n\r\
     \n"
+  detections:
+  - detects: Monitor process activity on node, hosts and VNFs.
+    fgdsid: DS0009
+    name: Process
+  - detects: Audit application logs (NFVO, VIM).  Configuration management databases
+      (CMDB) and other asset management systems may help with the detection of computer
+      systems or network devices that should not exist on a network.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor container creation, container start events
+    fgdsid: DS0032
+    name: Container
+  - detects: Monitor volume or storage modifications, attachment or read actions.
+    fgdsid: DS0034
+    name: Volume
   id: FGT1611.501
+  mitigations:
+  - fgmid: M1018
+    mitigates: Enforce the principle of least privilege by limiting container dashboard
+      access to only the necessary users.
+    name: User Account Management
+  - fgmid: M1030
+    mitigates: Deny direct remote access to internal systems through the use of network
+      proxies, gateways, and firewalls.  Segment execution environment with node and
+      network.
+    name: Network Segmentation
+  - fgmid: M1035
+    mitigates: Limit communications with the container service to local Unix sockets
+      or remote access via SSH. Require secure port access to communicate with the
+      APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes
+      API Server, and container orchestration web applications.
+    name: Limit Access to Resource Over Network
+  - fgmid: M1047
+    mitigates: Scan images before deployment, and block those that are not in compliance
+      with security policies. In Kubernetes environments, the admission controller
+      can be used to validate images after a container deployment request is authenticated
+      but before the container is deployed.
+    name: Audit
   name: Malicious privileged container VNF Shared Resource Access
   object-type: technique
   platforms: NONE
@@ -6864,7 +8862,9 @@ techniques:
     \ the use of automated processing after being gathered during Collection.\r\n\
     [To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1020)\r\
     \n"
+  detections: []
   id: FGT1020
+  mitigations: []
   name: Automated Exfiltration
   object-type: technique
   platforms: 5G
@@ -6880,7 +8880,9 @@ techniques:
     \ as a means of gaining Initial Access, Persistence, Privilege Escalation, or\
     \ Defense Evasion.\r\n[To read more, please see the MITRE ATT&CK page for this\
     \ technique](https://attack.mitre.org/techniques/T1078)\r\n"
+  detections: []
   id: FGT1078
+  mitigations: []
   name: Valid Accounts
   object-type: technique
   platforms: 5G
@@ -6897,7 +8899,9 @@ techniques:
   description: "Adversaries may insert, delete, or manipulate data in order to manipulate\
     \ external outcomes or hide activity.\r\n[To read more, please see the MITRE ATT&CK\
     \ page for this technique](https://attack.mitre.org/techniques/T1565)\r\n"
+  detections: []
   id: FGT1565
+  mitigations: []
   name: Data Manipulation
   object-type: technique
   platforms: 5G
@@ -6911,7 +8915,9 @@ techniques:
   description: "Adversaries may breach or otherwise leverage organizations who have\
     \ access to intended victims.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1199)\r\n"
+  detections: []
   id: FGT1199
+  mitigations: []
   name: Trusted Relationship
   object-type: technique
   platforms: 5G
@@ -6927,7 +8933,9 @@ techniques:
     \ degrade or block the availability of targeted resources to users.\r\n[To read\
     \ more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1498)\r\
     \n"
+  detections: []
   id: FGT1498
+  mitigations: []
   name: Network Denial of Service
   object-type: technique
   platforms: 5G
@@ -6941,7 +8949,9 @@ techniques:
   description: "Adversaries may abuse Pre-OS Boot mechanisms as a way to establish\
     \ persistence on a system.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1542)\r\n"
+  detections: []
   id: FGT1542
+  mitigations: []
   name: Pre-OS Boot
   object-type: technique
   platforms: 5G
@@ -6956,7 +8966,9 @@ techniques:
   description: "Adversaries may search for common password storage locations to obtain\
     \ user credentials.\r\n[To read more, please see the MITRE ATT&CK page for this\
     \ technique](https://attack.mitre.org/techniques/T1555)\r\n"
+  detections: []
   id: FGT1555
+  mitigations: []
   name: Credentials from Password Stores
   object-type: technique
   platforms: 5G
@@ -6975,7 +8987,9 @@ techniques:
     \ or [Transmitted Data Manipulation](https://attack.mitre.org/techniques/T1565/002).\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1557)\r\
     \n"
+  detections: []
   id: FGT1557
+  mitigations: []
   name: Adversary-in-the-Middle
   object-type: technique
   platforms: 5G
@@ -6991,7 +9005,9 @@ techniques:
     \ in order to hinder or disable defensive mechanisms.\r\n[To read more, please\
     \ see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1562)\r\
     \n"
+  detections: []
   id: FGT1562
+  mitigations: []
   name: Impair Defenses
   object-type: technique
   platforms: 5G
@@ -7005,7 +9021,9 @@ techniques:
   description: "Adversaries may gather information about the victim's hosts that can\
     \ be used during targeting.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1592)\r\n"
+  detections: []
   id: FGT1592
+  mitigations: []
   name: Gather Victim Host Information
   object-type: technique
   platforms: 5G
@@ -7020,7 +9038,9 @@ techniques:
     \ in order to bypass encryption that would otherwise protect data communications.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1600)\r\
     \n"
+  detections: []
   id: FGT1600
+  mitigations: []
   name: Weaken Encryption
   object-type: technique
   platforms: 5G
@@ -7034,7 +9054,9 @@ techniques:
   description: "Adversaries may upload, install, or otherwise set up capabilities\
     \ that can be used during targeting.\r\n[To read more, please see the MITRE ATT&CK\
     \ page for this technique](https://attack.mitre.org/techniques/T1608)\r\n"
+  detections: []
   id: FGT1608
+  mitigations: []
   name: Stage Capabilities
   object-type: technique
   platforms: 5G
@@ -7048,7 +9070,9 @@ techniques:
   description: "Adversaries may abuse a container administration service to execute\
     \ commands within a container.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1609)\r\n"
+  detections: []
   id: FGT1609
+  mitigations: []
   name: Container Administration Command
   object-type: technique
   platforms: 5G

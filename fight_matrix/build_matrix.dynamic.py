@@ -361,6 +361,7 @@ def get_gold_csv(filename, enterprise_filename, mobile_filename, drafts=None):
         index += 1
     # Link up subtechniques to techniques
     new_proposeds = {}
+    # pylint: disable=consider-using-dict-items
     for tid in proposed:
         proposal = proposed[tid]
         this_type = proposal.get_type()
@@ -564,6 +565,8 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
         addendums = []
         architectures = []
         access_requireds = []
+        mitigates_technique = []
+        detects_technique = []
         if tid in drafts:
             num_drafts = len(drafts[tid])
             all_platforms = ""
@@ -607,14 +610,19 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
                 #description += "---\r\n\r\n"
                 if mitigations:
                     for fgmid in mitigations:
-                        if fgmid in draft.get_mitigations():
+                        these_mitigations = draft.get_mitigations()
+                        if fgmid in these_mitigations:
                             if tid not in mitigations[fgmid]["techniques"]:
                                 mitigations[fgmid]["techniques"].append(convert_fgtids(tid))
+                                mitigates_technique.append({"fgmid": fgmid, "name": mitigations[fgmid]["name"], "mitigates": these_mitigations[fgmid]})
                 if datasources:
                     for fgdsid in datasources:
-                        if fgdsid in draft.get_detections():
+                        these_detections = draft.get_detections()
+                        if fgdsid in these_detections:
                             if tid not in datasources[fgdsid]["techniques"]:
                                 datasources[fgdsid]["techniques"].append(convert_fgtids(tid))
+                                detects_technique.append({"fgdsid": fgdsid, "name": datasources[fgdsid]["name"], "detects": these_detections[fgdsid]})
+
             #number = 1
             #if len(refs):
             #    for reference in refs:
@@ -652,7 +660,9 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
             "platforms": all_platforms_str,
             "architecture-segment": all_archsegs_str,
             "status": status,
-            "typecode": fight_types[fight_type_num]
+            "typecode": fight_types[fight_type_num],
+            "mitigations": mitigates_technique,
+            "detections": detects_technique
         }
         if addendums:
             technique["addendums"] = addendums
