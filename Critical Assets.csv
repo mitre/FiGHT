@@ -56,7 +56,7 @@ T1078.004,Container Management- Unbounded admin access,Cloud/virtualized contain
 T1195.502,Compromise Service Supply Chain,NEF,Network Exposure Function is a likely target for adversaries in a MEC environment.
 FGT5015,Device database manipulation,Integrity of device database,Device databases should be kept from tampering.
 FGT5015,Device database manipulation,User equipment status integrity,UE status should be kept accurate.
-FGT5012.006,NAS exploit,UE location,"UE/User geographical location, coarse or fine-grained"
+FGT5012.006,NAS exploit,UE location,"UE/Subscriber geographical location, coarse or fine-grained"
 FGT5026,SIM cloning,Subscriber sensitive data,"SUPI, root key, home network public key etc."
 T1499,Interworking Denial of Service,SEPP,Security Edge Protection Proxy function which provides roaming interface for signaling traffic to roaming partner (MNO) networks
 T1499,Interworking Denial of Service,UPF,User Plane Function which provides roaming interface for user plane traffic to roaming partner (MNO) networks
@@ -72,7 +72,7 @@ T1555.501,Hardware Security Module Key Signing,HSM,"A physical computing device 
 FGT5009.002,Network Interfaces,UE data,Any of the subscriber data sourced or destined to the UE
 FGT5009.002,Network Interfaces,UE signaling,Any of the signaling traffic between UE and network
 FGT5009.002,Network Interfaces,Network signaling,"Any of the signaling traffic between 5G core NFs, between 5G core and RAN, within RAN and between 5G and 4G core networks."
-FGT5012.005,Shared network function in slice,UE location,"UE/User geographical location, coarse or fine-grained"
+FGT5012.005,Shared network function in slice,UE location,"UE/Subscriber geographical location, coarse or fine-grained"
 FGT5032.002,X-App,RAN Service Management and Orchestration,Configuration and data related to gNodeB
 FGT5032.002,X-App,ORAN RIC,RIC and Configuration and data related to gNodeB
 FGT5032.002,X-App,x-Apps,"x-App and Configuration and data related to gNodeB, Realtime optimization data"
@@ -144,13 +144,13 @@ FGT5003,Network Function Service Discovery,Operator network components and servi
 T1499.002,Base station flood with fictitious access requests,RACH,Adversary targets access requests in Random Access CHannel (RACH)
 FGT5017,Call Detail Record (CDR) collection,Subscriber data,Confidentiality of sensitive subscriber data in the form of (calls/data/SMS).
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,VNF and VNF Data,Adversary may identify high value 5G network functions targets for its exploits
-FGT5018,Vandalism of network infrastructure,Physical infrastructure,"Radio access units 
+FGT5018,Vandalism of network infrastructure,Physical infrastructure,"Radio access units, 
 
-ICT equipment 
+ICT equipment, 
 
-Light data center 
+Light data center, 
 
-Cloud data center 
+Cloud data center, 
 
 Edge Computing Facilities"
 T1499.502,Trigger Fraud Alert to Deny Service,Assured user communications,Communications is denied

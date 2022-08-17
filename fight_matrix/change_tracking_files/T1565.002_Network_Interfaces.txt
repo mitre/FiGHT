@@ -44,7 +44,7 @@ FGDS5011: Legitimate UEs notify their service provider about DoS attack and abno
 ----------------------------------------
 Post-Conditions
 ----------------------------------------
-UE data manipulation: Both UE signaling and subscriber user plane data communication with network will be impacted. This can cause DoS attack for legitimate subscribers.
+UE data manipulation: Both UE signaling and user plane data communication with network will be impacted. This can cause DoS attack for legitimate subscribers.
 ----------------------------------------
 References
 ----------------------------------------

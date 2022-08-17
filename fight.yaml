@@ -2660,7 +2660,7 @@ techniques:
 - access-required: 'Radio access, '
   addendums:
   - "#### Addendum Name: Base station flood with fictitious access requests\r\n#####\
-    \ Architecture Segments: RAN, UE\r\n An adversary may transmit  an overwhelming\
+    \ Architecture Segments: RAN, UE\r\n An adversary may transmit an overwhelming\
     \ number of access requests to a gNB to degrade the ability of legitimate UE to\
     \ obtain access.\r\n\r\nAn adversary transmits large number of access requests\
     \ over Random Access CHannel (RACH) to degrade the ability of legitimate UE to\
@@ -2673,7 +2673,7 @@ techniques:
     \ a legitimate SUCI sent by a legitimate device to a base station. The adversary\
     \ can then replay this SUCI many times, possibly from a fake base station or UE\
     \ being used to send to the core network.  This will cause the core network function\
-    \ in charge of decrypting the SUCI, namely the UDM-SIDF (Unified Data Management\
+    \ in charge of deconcealment of the SUCI, namely the UDM-SIDF (Unified Data Management\
     \ - Subscription Identifier De-Concealing Function), to work on this computationally\
     \ intensive asymmetric cryptographic operation. A Denial of Service attack on\
     \ the UDM can cause the available processing power of the UDM to decrease and\
@@ -2684,9 +2684,9 @@ techniques:
   criticalassets:
   - Description: Adversary targets access requests in Random Access CHannel (RACH)
     Name: RACH
-  - Description: UDM/SIDF resources are used for decryption of SUCI sent by legitimate
+  - Description: UDM/SIDF resources are used for deconcealment of SUCI sent by legitimate
       UEs
-    Name: UDM-SIDF resources
+    Name: UDM/SIDF resources
   description: "Adversaries may target the different network services provided by\
     \ systems to conduct a DoS.\r\n[To read more, please see the MITRE ATT&CK page\
     \ for this technique](https://attack.mitre.org/techniques/T1499/002)\r\n"
@@ -2712,7 +2712,8 @@ techniques:
   postconditions:
   - Description: Legitimate UEs have low probability of successfully requesting access
     Name: Less service for legitimate UEs
-  - Description: Legitimate UEs have low probability of successfully requesting access
+  - Description: Legitimate UEs have low or zero probability of successfully requesting
+      access
     Name: Less or no service for legitimate UEs
   preconditions:
   - Description: Adversary must be able to transmit to gNB with sufficient power to
@@ -2910,8 +2911,8 @@ techniques:
   object-type: technique
   platforms: 5G network, 5G radio
   postconditions:
-  - Description: Both UE signaling and subscriber user plane data communication with
-      network will be impacted. This can cause DoS attack for legitimate subscribers.
+  - Description: Both UE signaling and user plane data communication with network
+      will be impacted. This can cause DoS attack for legitimate subscribers.
     Name: UE data manipulation
   - Description: Both UE registration and normal data communication with network will
       be impacted.
@@ -2919,8 +2920,8 @@ techniques:
   preconditions:
   - Description: See [FGT5009.002](/techniques/FGT5009.002)
     Name: Weakened or disabled integrity protection
-  - Description: gNB is compromised to disable integrity protection on control and
-      user plane interfaces.
+  - Description: gNB is compromised or incorrectly configured to disable integrity
+      protection on control and user plane interfaces.
     Name: Malware or incorrect configuration in gNB.
   procedureexamples:
   - Description: 'If gNB is compromised or misconfigured, CP and UP data can be manipulated
@@ -2974,11 +2975,10 @@ techniques:
   - "[3GPP TS 23.501 \u201CSystem architecture for the 5G System (5GS)\u201D](https://www.3gpp.org/DynaReport/23501.htm)"
   - "[3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D](https://www.3gpp.org/DynaReport/23502.htm)"
   - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D, sections J.2.2.1, K.2.3.1, K.2.3.2,\
-    \ K.2.3.3, K.2.6.1](https://www.3gpp.org/DynaReport/33926.htm  )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    . Sections 5.3.3, 5.5.2, 6.6.4, 6.7.3, D.1](https://www.3gpp.org/DynaReport/33501.htm\
+    \ assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
     \  )"
+  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
+    .](https://www.3gpp.org/DynaReport/33501.htm  )"
   - "[D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201CBreaking LTE on Layer\
     \ two\u201D,  in Proc. IEEE Symposium on Security and Privacy (SP), 2019, pp.\
     \ 1-16.](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
@@ -3234,7 +3234,7 @@ techniques:
       \ and destination phone number). This is highly targeted to given IMSI numbers\
       \ (e.g., proponents of movements against the Chinese gov\u2019t). (note: Call\
       \ Data Records (CDRs) were also targeted for certain IMSIs, the info therein\
-      \ is call metadata, i.e. time, duration, phone numbers). [1], [2]."
+      \ is called metadata, i.e. time, duration, phone numbers). [1], [2]."
     Name: Malware loaded into a Linux running SMSC server
   references:
   - "[Dynamic Ciso.com \u201CNew Malware Discovered by FireEye APT41, Infects SMS\
@@ -3369,9 +3369,9 @@ techniques:
   - Description: A malicious NF can abuse access token issued by the NRF for one slice
       to access another shared NF in a different slice. Clause H.2.2.1 of [2]
     Name: Access token abuse
-  - Description: Access tokens can be hijacked by a compromised intermediate reverse
-      proxy server such as SCP (if deployed by operator). This attack can be followed
-      by re-direct or replay or access tokens. Section 3.9 of [3]
+  - Description: Access tokens can be hijacked by a compromised intermediate proxy
+      such as SCP (if deployed by operator). This attack can be followed by re-direct
+      or replay of access tokens. Clause 3.9 of [3]
     Name: Access token hijack
   references:
   - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
@@ -3871,7 +3871,7 @@ techniques:
   - TA0003
   typecode: fight_subtechnique
 - access-required: user
-  architecture-segment: NONE
+  architecture-segment: 5G
   bluf: 'An adversary can hide user traffic within DNS requests that are part of the
     data sessions and transmit data undetected.
 
@@ -4034,11 +4034,11 @@ techniques:
   - Description: If an adversary redirects to their own server, they can access the
       uplink and downlink data of the subscriber, who will not be aware that the traffic
       is being intercepted.
-    Name: User uplink & downlink data intercept
+    Name: Subscriber uplink & downlink data intercept
   preconditions:
   - Description: An adversary must have control of the UPF IP address or a UPF
     Name: Acquire UPF IP address/control
-  - Description: An adversary must first control the SMF, NEF, or AF
+  - Description: An adversary must first control the SMF or NEF, or AF
     Name: Control SMF/NEF/AF
   procedureexamples:
   - Description: "An adversary controlling the SMF can redirect existing uplink UE\
@@ -4046,18 +4046,16 @@ techniques:
       \ another UPF- or, by sending to UPF another \u201CRedirect server\u201D [which\
       \ the adversary controls] in the FAR in the N4 session (\u201CThe UPF reports\
       \ to the SMF whether it supports traffic redirection enforcement in the UPF\
-      \ through the UPFunction Features IE.\u201D [7]) Clause 5.8.2.3.3 of [6]\n\n\
+      \ through the UPFunction Features IE.\u201D [6]) Clause 5.8.2.3.3 of [5]\n\n\
       Similarly, the SMF can send a session modification request to the UPF and redirect\
-      \ UE traffic (downlink) \u2014 See clauses 4.4.1.2 & 4.4.1.3 of [5].\n\nTo accomplish\
-      \ this, the SMF needs to know the IP address of the UPF, and to change the IP\
-      \ address in the Outer Header Creation Field. [4]"
+      \ UE traffic (downlink) \u2014 See clauses 4.4.1.2 & 4.4.1.3 of [4]."
     Name: Rogue or misconfigured SMF
   - Description: "The \u201CApplication Function influence on traffic routing\u201D\
       \ service is designed for MEC applications for local processing of data traffic\
       \ in order to reduce latency. However, this capability can be misused by rogue\
       \ AF or rogue/misconfigured NEF. The traffic redirection occurs after the NEF\
       \ takes action that affects the UPF behavior. Clause 5.6.7 Table 5.6.7-1 first\
-      \ row \u201CTraffic Description\u201D of [6], clause 4.3.6 of [5]."
+      \ row \u201CTraffic Description\u201D of [5], clause 4.3.6 of [4]."
     Name: Rogue AF or rogue/misconfigured NEF
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
@@ -4067,7 +4065,6 @@ techniques:
   - "[\u201CBhadra framework\u201D: S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat\
     \ modeling framework for mobile communication systems\u201D](https://arxiv.org/abs/2005.05110v1\
     \ )"
-  - "[Positive Technologies, (2020). \u201C5G SA Core Security Research\u201D.](https://positive-tech.com/knowledgebase/research/5g-sa-core-security-research/)"
   - "[3GPP TS 23.502 \u201CTechnical Specification Group Services and System Aspects;\
     \ Procedures for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23502.htm)"
   - "[3GPP TS 23.501 \u201CTechnical Specification Group Services and System Aspects;\
@@ -4127,10 +4124,15 @@ techniques:
       enabled between two gNBs (Xn).
     Name: Weaken integrity within RAN
   - Description: An adversary may disable TLS between two NFs or between one or more
-      NFs and the Service Communication Proxy (SCP).
+      NFs and the Service Communication Proxy (SCP) if deployed by MNO.
     Name: Weaken integrity within SBI
-  - Description: An adversary may disable or weaken integrity protection of the communications
-      between SEPPs (which use JWS for example).
+  - Description: 'An adversary may disable or weaken integrity protection of the communications
+      between SEPPs (N32 which uses JWS for example) or between visited PLMN UPF and
+      home PLMN UPF (N9).
+
+
+      An adversary may weaken integrity protection on N26 interface between MME and
+      AMF.'
     Name: Weaken integrity on the roaming/interconnect
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
@@ -4140,8 +4142,9 @@ techniques:
   - TA0005
   typecode: fight_technique
 - architecture-segment: RAN
-  bluf: Adversary alters network signaling so as to enable the NULL integrity algorithm
-    thus allowing for manipulation of user data or signaling over the radio interface.
+  bluf: An adversary may alter or spoof network signaling so as to enable the NULL
+    integrity algorithm thus allowing for manipulation of user data or signaling over
+    the radio interface, for example to redirect traffic.
   criticalassets:
   - Description: UE signaling and subscriber (user plane) data integrity.
     Name: UE data
@@ -4149,13 +4152,12 @@ techniques:
     \ the NULL integrity algorithm thus allowing for manipulation of user data or\
     \ signaling over the radio interface, for example to redirect traffic. \r\n\r\n\
     Several procedures and interfaces can be implemented incorrectly or misused by\
-    \ an adversary in control over a gNB or NF, and may result in a configuration\
-    \ that calls for the NULL integrity algorithm to protect data sent over the radio\
-    \ interface. The data sent is user signaling -- Non-Access Stratum (NAS) or Access\
-    \ Stratum (AS) Control Plane (CP) -- or subscriber data -- AS User Plane (UP)).\
-    \ These actions can be followed by another adversarial behavior whereby data and\
-    \ signaling sent over the radio interface is manipulated or tampered with.  \r\
-    \n\r\n"
+    \ an adversary in control over a gNB or NF and may result in a configuration that\
+    \ calls for the NULL integrity algorithm to protect data sent over the radio interface.\
+    \ The data sent is user signaling -- Non-Access Stratum (NAS) or Access Stratum\
+    \ (AS) Control Plane (CP) -- or subscriber data -- AS User Plane (UP)). These\
+    \ actions can be followed by another adversarial behavior whereby data and signaling\
+    \ sent over the radio interface is manipulated or tampered with.  \r\n\r\n"
   detections:
   - detects: Check configuration changes in gNB, SMF, AMF. Configuration audits by
       OSS/BSS
@@ -4192,11 +4194,11 @@ techniques:
   object-type: technique
   platforms: 5G Radio
   postconditions:
-  - Description: "Control Plane (CP): All UE signaling data may be tampered if both\
-      \ NAS and AS CP (i.e., RRC) algorithms are weakened. \n\nUser Plane (UP): Subscriber\
-      \ (user) data may be tampered if AS UP algorithms are weakened.\n\nAs a result,\
-      \ subscriber data session does not get setup (DoS attack) or gets interrupted\
-      \ during an active session."
+  - Description: "Control Plane (CP): All UE signaling data may be tampered with if\
+      \ both NAS and AS CP (i.e., RRC) algorithms are weakened. \n\nUser Plane (UP):\
+      \ Subscriber (user) data may be tampered with if AS UP algorithms are weakened.\n\
+      \nAs a result, subscriber data session does not get setup (DoS attack) or gets\
+      \ interrupted during an active session."
     Name: UE data not integrity protected on air interface
   preconditions:
   - Description: "A rogue gNB may be required to change the UE\u2019s CP & UP supported\
@@ -4205,7 +4207,7 @@ techniques:
       \ configured to do these additional checks, then control over a rogue gNB is\
       \ sufficient.\nThis attack is possible with only control over the AMF, in which\
       \ case the algorithm for CP and UP protection may be changed to NULL."
-    Name: Rogue or misconfigured AMF or SMF or gNB
+    Name: Rogue or misconfigured AMF or SMF or gNB or MME
   procedureexamples:
   - Description: "Adversary (e.g. with fake gNB) intentionally configures NULL integrity\
       \ algorithm to have highest priority in gNB. These algorithms are sent to the\
@@ -4215,8 +4217,8 @@ techniques:
       \nAdversary with control over a legitimate gNB, and who currently serves the\
       \ UE, tells the SMF that the UE Control Plane (CP) and User Plane (UP) policy\
       \ is NULL integrity, and the (legit but not correctly implemented) SMF doesn\u2019\
-      t check that against the locally-configured UE UP policy and lets the CP and\
-      \ UP data use NULL integrity. Section 6.6.1 of [2]"
+      t check that against the locally-configured UE CP & UP policy and lets the CP\
+      \ and UP data use NULL integrity. Section 6.6.1 of [2]"
     Name: Fake or misconfigured base station
   - Description: 'Adversary makes the unauthorized change in the SMF CP & UP local
       policy to enable NULL integrity for CP & UP traffic.
@@ -4367,10 +4369,10 @@ techniques:
       weak IPSec integrity algorithm on N4 interface. Then it can launch other attacks.
       Clause 9.9 of [2]
     Name: Compromised or misconfigured SMF
-  - Description: 'A rogue or misconfigured AMF can disable the TLS integrity or use
-      a weak TLS integrity algorithm to another NF including the SCP. Then it can
-      launch other attacks to gain unauthorized access to network services. Clause
-      13.1 of [2]
+  - Description: 'A rogue or misconfigured NF can disable the TLS integrity or use
+      a weak TLS integrity algorithm to another NF including the SCP (if deployed).
+      Then it can launch other attacks to gain unauthorized access to network services.
+      Clause 13.1 of [2]
 
 
       If SCP is rogue or misconfigured, it can force TLS connections to all NFs to
@@ -4511,9 +4513,8 @@ techniques:
     \ sent whenever a user (which is e.g. part of a group subscribed to a third party\
     \ service) enters a certain geographical perimeter (e.g. a mall or campus), since\
     \ the operator keeps track of the base stations to which devices are connected.\r\
-    \n\r\nA malicious Access Function (AF) with a fraudulent (stolen, altered, or\
-    \ constructed) access token may invoke the NEF services arbitrarily. \r\n\r\n\r\
-    \n"
+    \n\r\nA malicious AF with a fraudulent (stolen, altered, or constructed) access\
+    \ token may invoke the NEF services arbitrarily. \r\n\r\n\r\n"
   detections:
   - detects: Logs or registration attempts to NEF
     fgdsid: DS0015
@@ -4878,23 +4879,23 @@ techniques:
   bluf: 'An adversary uses a legitimate access token for a shared Network Function
     (NF) to get location info of a user of a different slice. '
   criticalassets:
-  - Description: UE/User geographical location, coarse or fine-grained
+  - Description: UE/Subscriber geographical location, coarse or fine-grained
     Name: UE location
   description: " An adversary may use a legitimate access token for a shared Network\
     \ Function (NF) to get location info of a user of a different slice.\r\n\r\nAn\
     \ adversary controlling a slice or a NF in a slice obtains an access token for\
-    \ a shared 5G Core NF (e.g. AMF) and uses it to get location info for an IMSI/SUPI\
+    \ a shared 5G core NF (e.g., AMF) and uses it to get location info for an SUPI\
     \ of a user belonging to a different slice but still served by same NF.\r\n\r\n"
   detections:
   - detects: Regularly audit applications and interface messaging logs. Check logs
-      of requests/responses at the shared NF. E.g., each entry should contain IMSI,
+      of requests/responses at the shared NF. E.g., each entry should contain SUPI,
       NF consumer that requested it, slice IDs of both.
     fgdsid: DS0015
     name: Application Log
   id: FGT5012.005
   mitigations:
   - fgmid: FGM5012
-    mitigates: Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI)
+    mitigates: Cross check requested SUPI is served by (belongs to) the slice ID (NSSAI)
       of the consumer NF (and presented in the authorization Token). That is, this
       attack could be mitigated if the shared network function (NF service producer)
       checks the SUPI in a service request and the requesting NF service consumer
@@ -4907,26 +4908,28 @@ techniques:
   postconditions:
   - Description: Target slice information is leaked, slice confidentiality is breached
       due to sharing the NF between slices.
-    Name: UE in the target slice is tracked by the adversary with control over a different
-      slice.
+    Name: "UE\u2019s location is tracked by rogue NF"
   preconditions:
-  - Description: 'The following core NFs can legitimately ask for or obtain directly
-      the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The
-      following core NFs can only get limited/coarse location: SMF, UPF, PCF.'
-    Name: Two slices share one common NF that is able to get UE location info. Adversary
-      has control of one slice or at least a NF in that slice -- where said NF is
-      allowed to talk to the AMF.
+  - Description: 'Two slices share one common NF that is able to get UE location info.
+      Adversary has control of one slice or at least a NF in that slice -- where said
+      NF is allowed to talk to the AMF.
+
+
+      The following core NFs can legitimately ask for or obtain directly the location
+      of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core
+      NFs can only get limited/coarse location: SMF, UPF, PCF.'
+    Name: Access shared NF in a different slice
   procedureexamples:
   - Description: Malicious NF of a compromised slice gets access token for a shared
       AMF, but then asks AMF for the location of a UE in the target slice. The AMF
       checks that the authorization (OAuth) token is ok, which it is, but does not
       check that the UE ID is served by target slice, while the requester NF is from
-      compromised slice.
+      compromised slice. Section 3.1.5 of [1].
     Name: Malicious NF belonging to compromised Network Slice gets an access token
       for the target AMF, which serves both target slice and compromised slice.
   references:
   - '[AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks",
-    17032021-v1.00, March 2021, section 3.1.5](https://info.adaptivemobile.com/network-slicing-security
+    17032021-v1.00, March 2021.](https://info.adaptivemobile.com/network-slicing-security
     )'
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5012
@@ -4938,21 +4941,21 @@ techniques:
   architecture-segment: RAN, Control Plane
   bluf: An adversary may geolocate a UE by modifying Non-Access Stratum (NAS) signaling.
   criticalassets:
-  - Description: UE/User geographical location, coarse or fine-grained
+  - Description: UE/Subscriber geographical location, coarse or fine-grained
     Name: UE location
   description: " An adversary may geolocate a UE using modified Non-Access Stratum\
     \ (NAS) signaling. \r\n\r\nNAS is signaling that is exchanged for registration\
     \ and authentication between the UE and the Access and Mobility Function (AMF),\
     \ via the gNB as a pass-through. Adversary uses a fake gNB to intercept, modify\
     \ and/or replay NAS messages to probe for UE presence in a that cell, which leads\
-    \ to coarse location.  The victim UE tried to connect to a nearby gNB, and adversary\
-    \ then lured UEs to connect to it (e.g. by increasing the transmission power of\
-    \ the fake gNB). \r\n\r\n"
+    \ to coarse location. The victim UE tried to connect to a nearby gNB, and adversary\
+    \ then lured UEs to connect to it (e.g., by increasing the transmit power of the\
+    \ fake gNB). \r\n\r\n"
   detections:
   - detects: Operator standard means to detect presence of fake gNBs. gNB radio signals
       (sent to all UEs to enable them to select gNB and connect) are received and
       reported by UEs to the operator, who can then run cross checks with the signals
-      that the UEs should have received if all gNBs nearby were legitimate..
+      that the UEs should have received if all gNBs nearby were legitimate.
     fgdsid: FGDS5002
     name: UE signal measurements
   id: FGT5012.006
@@ -4967,12 +4970,13 @@ techniques:
   - Description: Adversary must acquire a fake UE to achieve the NAS SMC attack.
     Name: Control of fake UE  in the NAS SMC attack.
   procedureexamples:
-  - Description: Adversary eavesdrops one NAS message from the legitimate network
-      (the Auth_Req (R, AUTN), or the NAS Security Mode Command (SMC)), then replays
-      that NAS message whenever it wants to check whether the victim UE is nearby,
-      since the type of error (or response, in the case of SMC) received from the
-      responder indicates whether it's the victim UE or not. Thus, adversary can probe
-      for UE presence in a that cell, which leads to coarse location data. See [1].
+  - Description: "Adversary eavesdrops one NAS message from the legitimate network\
+      \ (the Auth_Req (R, AUTN), or the NAS Security Mode Command (SMC)), then replays\
+      \ that NAS message whenever it wants to check whether the victim UE is nearby,\
+      \ since the type of error (or response, in the case of SMC) received from the\
+      \ responder indicates whether it's the victim UE or not. Thus, adversary can\
+      \ probe for UE\u2019s presence in a that cell, which leads to coarse location\
+      \ data. See [1]."
     Name: Replay of NAS message
   references:
   - "[X. Hu et.al. \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
@@ -5063,7 +5067,7 @@ techniques:
   - TA0009
   typecode: fight_technique
 - access-required: User/NPE/Administrative access
-  architecture-segment: NONE
+  architecture-segment: 5G
   bluf: 'An adversary running a malicious VNF may identify network resources co-resident
     on the same physical host.
 
@@ -5332,8 +5336,8 @@ techniques:
     access to physical assets such as infrastructure, hardware, or interconnection,
     affecting QoS or service availability. '
   criticalassets:
-  - Description: "Radio access units \n\nICT equipment \n\nLight data center \n\n\
-      Cloud data center \n\nEdge Computing Facilities"
+  - Description: "Radio access units, \n\nICT equipment, \n\nLight data center, \n\
+      \nCloud data center, \n\nEdge Computing Facilities"
     Name: Physical infrastructure
   description: " An adversary aims to destroy, expose, alter, disable, steal, or gain\
     \ unauthorized access to physical assets such as infrastructure, hardware, or\
@@ -5376,7 +5380,7 @@ techniques:
       \ and equipment sited in partners\u2019 or users\u2019 premises.\n\nImproper\
       \ physical security of physically isolated operation areas.\n\nInadequate /\
       \ defective security devices."
-    Name: gNB Component infrastructure
+    Name: gNB component infrastructure
   - Description: 'Improper physical security of telecommunications equipment rooms.
 
 
@@ -5706,7 +5710,7 @@ techniques:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
     \ for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Baars, J. \u201CTelecom Sites Physical Security White Paper\u201D, December\
+  - "[Baars, J. \u201CWhite Paper - Telecom Sites Physical Security\u201D, December\
     \ 2019, Asentria](https://www.asentria.com/blog/telecom-sites-physical-security-white-paper/.\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
@@ -7472,7 +7476,7 @@ techniques:
   - TA0005
   typecode: fight_subtechnique_to_attack_technique
 - access-required: Service Account
-  architecture-segment: NONE
+  architecture-segment: 5G
   bluf: Adversaries may gain unauthorized access to a Hardware Security Module (HSMs)
     to sign  keys and/or other derived key material that can be used to achieve additional
     goals.
@@ -8674,12 +8678,12 @@ techniques:
   description: " An adversary may obtain software to configure a fake base station\
     \ (gNB or gNB emulator) or WiFi access point in order to enable other Radio Access\
     \ Network (RAN) follow-on behaviors against UEs such as adversary in the middle,\
-    \ denial of service.\r\n\r\nA fake base station is programmable for nefarious\
-    \ activities: the base station should have its broadcast configuration adjustable\
-    \ so that it can broadcast the local PLMN Identifier, a particular cell ID, etc.\r\
-    \nIt also should have its power adjustable so that it will be higher than the\
-    \ legitimate base stations nearby it, so as to succeed in luring UEs to connect\
-    \ to it.\r\n\r\n\r\n"
+    \ denial of service.\r\n\r\nAn adversary enables the programmability of a fake\
+    \ base station, for example its broadcast configuration is adjustable so that\
+    \ it can broadcast the local PLMN Identifier, a particular cell ID, etc. In addition,\
+    \ the transmit power of the base station \r\nis adjustable so that it will be\
+    \ higher than the legitimate base stations nearby it, so as to succeed in luring\
+    \ UEs to connect to it.\r\n\r\n\r\n"
   detections:
   - detects: UE measurements of received power levels from all base stations nearby,
       and their identifiers. Reference clause 6.24 of [2]
@@ -8687,7 +8691,7 @@ techniques:
     name: SIEM
   id: FGT1608.501
   mitigations: []
-  name: Set up Configurability of Fake Base Station or Access Point
+  name: Configurability of Fake Base Station or Access Point
   object-type: technique
   platforms: 5G radio
   procedureexamples:
@@ -8855,7 +8859,7 @@ techniques:
   tactics:
   - TA0004
   typecode: fight_subtechnique_to_attack_technique
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may exfiltrate data, such as sensitive documents, through the
     use of automated processing after being gathered during Collection.
   description: "Adversaries may exfiltrate data, such as sensitive documents, through\
@@ -8873,7 +8877,7 @@ techniques:
   - TA0007
   - TA0010
   typecode: attack_technique_with_subs_with_addendums
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may obtain and abuse credentials of existing accounts as a means
     of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.
   description: "Adversaries may obtain and abuse credentials of existing accounts\
@@ -8893,7 +8897,7 @@ techniques:
   - TA0004
   - TA0001
   typecode: attack_technique_with_subs_with_addendums
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may insert, delete, or manipulate data in order to manipulate
     external outcomes or hide activity.
   description: "Adversaries may insert, delete, or manipulate data in order to manipulate\
@@ -8909,7 +8913,7 @@ techniques:
   tactics:
   - TA0040
   typecode: attack_technique_with_subs_with_addendums
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may breach or otherwise leverage organizations who have access
     to intended victims.
   description: "Adversaries may breach or otherwise leverage organizations who have\
@@ -8926,7 +8930,7 @@ techniques:
   - TA0001
   - TA0040
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may perform Network Denial of Service (DoS) attacks to degrade
     or block the availability of targeted resources to users.
   description: "Adversaries may perform Network Denial of Service (DoS) attacks to\
@@ -8943,7 +8947,7 @@ techniques:
   tactics:
   - TA0040
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may abuse Pre-OS Boot mechanisms as a way to establish persistence
     on a system.
   description: "Adversaries may abuse Pre-OS Boot mechanisms as a way to establish\
@@ -8960,7 +8964,7 @@ techniques:
   - TA0003
   - TA0005
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may search for common password storage locations to obtain user
     credentials.
   description: "Adversaries may search for common password storage locations to obtain\
@@ -8976,7 +8980,7 @@ techniques:
   tactics:
   - TA0006
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may attempt to position themselves between two or more networked
     devices using an adversary-in-the-middle (AiTM) technique to support follow-on
     behaviors such as [Network Sniffing](https://attack.mitre.org/techniques/T1040)
@@ -8998,7 +9002,7 @@ techniques:
   - TA0009
   - TA0006
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may maliciously modify components of a victim environment in order
     to hinder or disable defensive mechanisms.
   description: "Adversaries may maliciously modify components of a victim environment\
@@ -9015,7 +9019,7 @@ techniques:
   tactics:
   - TA0005
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may gather information about the victim's hosts that can be used
     during targeting.
   description: "Adversaries may gather information about the victim's hosts that can\
@@ -9031,7 +9035,7 @@ techniques:
   tactics:
   - TA0043
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: "Adversaries may compromise a network device\u2019s encryption capability\
     \ in order to bypass encryption that would otherwise protect data communications."
   description: "Adversaries may compromise a network device\u2019s encryption capability\
@@ -9048,7 +9052,7 @@ techniques:
   tactics:
   - TA0005
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may upload, install, or otherwise set up capabilities that can
     be used during targeting.
   description: "Adversaries may upload, install, or otherwise set up capabilities\
@@ -9064,7 +9068,7 @@ techniques:
   tactics:
   - TA0042
   typecode: attack_technique_with_fight_subs
-- architecture-segment: NONE
+- architecture-segment: 5G
   bluf: Adversaries may abuse a container administration service to execute commands
     within a container.
   description: "Adversaries may abuse a container administration service to execute\

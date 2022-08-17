@@ -4,12 +4,10 @@ Architecture Segment:  User plane
 ----------------------------------------
 Procedure Examples
 ----------------------------------------
-Rogue or misconfigured SMF: An adversary controlling the SMF can redirect existing uplink UE traffic by sending to UPF a N4 Session Modification Request (or: selecting another UPF- or, by sending to UPF another “Redirect server” [which the adversary controls] in the FAR in the N4 session (“The UPF reports to the SMF whether it supports traffic redirection enforcement in the UPF through the UPFunction Features IE.” [7]) Clause 5.8.2.3.3 of [6]
+Rogue or misconfigured SMF: An adversary controlling the SMF can redirect existing uplink UE traffic by sending to UPF a N4 Session Modification Request (or: selecting another UPF- or, by sending to UPF another “Redirect server” [which the adversary controls] in the FAR in the N4 session (“The UPF reports to the SMF whether it supports traffic redirection enforcement in the UPF through the UPFunction Features IE.” [6]) Clause 5.8.2.3.3 of [5]
 
-Similarly, the SMF can send a session modification request to the UPF and redirect UE traffic (downlink) — See clauses 4.4.1.2 & 4.4.1.3 of [5].
-
-To accomplish this, the SMF needs to know the IP address of the UPF, and to change the IP address in the Outer Header Creation Field. [4]
-Rogue AF or rogue/misconfigured NEF: The “Application Function influence on traffic routing” service is designed for MEC applications for local processing of data traffic in order to reduce latency. However, this capability can be misused by rogue AF or rogue/misconfigured NEF. The traffic redirection occurs after the NEF takes action that affects the UPF behavior. Clause 5.6.7 Table 5.6.7-1 first row “Traffic Description” of [6], clause 4.3.6 of [5].
+Similarly, the SMF can send a session modification request to the UPF and redirect UE traffic (downlink) — See clauses 4.4.1.2 & 4.4.1.3 of [4].
+Rogue AF or rogue/misconfigured NEF: The “Application Function influence on traffic routing” service is designed for MEC applications for local processing of data traffic in order to reduce latency. However, this capability can be misused by rogue AF or rogue/misconfigured NEF. The traffic redirection occurs after the NEF takes action that affects the UPF behavior. Clause 5.6.7 Table 5.6.7-1 first row “Traffic Description” of [5], clause 4.3.6 of [4].
 ----------------------------------------
 Mitigations
 ----------------------------------------
@@ -20,7 +18,7 @@ FGM5019: Authorize all API calls by external AFs to NEF
 Pre-Conditions
 ----------------------------------------
 Acquire UPF IP address/control: An adversary must have control of the UPF IP address or a UPF
-Control SMF/NEF/AF: An adversary must first control the SMF, NEF, or AF
+Control SMF/NEF/AF: An adversary must first control the SMF or NEF, or AF
 ----------------------------------------
 Critical Assets
 ----------------------------------------
@@ -32,14 +30,13 @@ DS0015: Monitor AF to NEF APIs for illegitimate traffic redirection requests. Mo
 ----------------------------------------
 Post-Conditions
 ----------------------------------------
-User uplink & downlink data intercept: If an adversary redirects to their own server, they can access the uplink and downlink data of the subscriber, who will not be aware that the traffic is being intercepted.
+Subscriber uplink & downlink data intercept: If an adversary redirects to their own server, they can access the uplink and downlink data of the subscriber, who will not be aware that the traffic is being intercepted.
 ----------------------------------------
 References
 ----------------------------------------
 European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 ENISA “Threat Landscape for 5G Networks Report”, Nov 2019.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks
 “Bhadra framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”: https://arxiv.org/abs/2005.05110v1 
-Positive Technologies, (2020). “5G SA Core Security Research”.: https://positive-tech.com/knowledgebase/research/5g-sa-core-security-research/
 3GPP TS 23.502 “Technical Specification Group Services and System Aspects; Procedures for the 5G System (5GS)”.: https://www.3gpp.org/DynaReport/23502.htm
 3GPP TS 23.501 “Technical Specification Group Services and System Aspects; System architecture for the 5G System (5GS)”.: https://www.3gpp.org/DynaReport/23501.htm
 UCC 5G UPF Configuration and Administration Guide: https://www.cisco.com/c/en/us/td/docs/wireless/ucc/upf/Ultra-Cloud-Core-5G-UPF-Config-Guide.html

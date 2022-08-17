@@ -649,7 +649,7 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
             if only_whitespace_re.match(all_platforms_str) or not all_archsegs_str:
                 all_platforms_str = "NONE"
         else:
-            all_archsegs_str = "NONE"
+            all_archsegs_str = "5G"
         print(f"{tid} architectures: {all_archsegs_str}")
         technique = {
             "description": description,

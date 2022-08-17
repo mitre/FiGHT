@@ -23,7 +23,7 @@ Improper isolation of physical secure perimeter between tenants.
 Improper environmental protection controls.
 
 Inadequate / defective security devices.
-gNB Component infrastructure: Improper physical security of telecommunications equipment rooms and equipment sited in partners’ or users’ premises.
+gNB component infrastructure: Improper physical security of telecommunications equipment rooms and equipment sited in partners’ or users’ premises.
 
 Improper physical security of physically isolated operation areas.
 
@@ -44,13 +44,13 @@ Insecure service environment.
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-Physical infrastructure: Radio access units 
+Physical infrastructure: Radio access units, 
 
-ICT equipment 
+ICT equipment, 
 
-Light data center 
+Light data center, 
 
-Cloud data center 
+Cloud data center, 
 
 Edge Computing Facilities
 ----------------------------------------

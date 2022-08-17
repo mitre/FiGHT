@@ -27,14 +27,16 @@ T1499,Interworking Denial of Service,API credentials,Adversary may need to obtai
 FGT5012.001,Passive radio signals observation,Line-of-sight,Attacker must have radio line-of-sight to target for most accurate geolocation.
 T1555.501,Hardware Security Module Key Signing,Obtain service account credentials,Adversary acquires credentials with legitimate privileges to conduct operations using the HSM. Adversary has a position to initiate transactions with the HSM.
 FGT5009.002,Network Interfaces,Rogue or misconfigured AMF or SMF or gNB or UPF or SEPP or MME or any other core NF,Adversary must have access to the network components to cause the attacks
-FGT5012.005,Shared network function in slice,Two slices share one common NF that is able to get UE location info. Adversary has control of one slice or at least a NF in that slice -- where said NF is allowed to talk to the AMF.,"The following core NFs can legitimately ask for or obtain directly the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core NFs can only get limited/coarse location: SMF, UPF, PCF."
+FGT5012.005,Shared network function in slice,Access shared NF in a different slice,"Two slices share one common NF that is able to get UE location info. Adversary has control of one slice or at least a NF in that slice -- where said NF is allowed to talk to the AMF.
+
+The following core NFs can legitimately ask for or obtain directly the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core NFs can only get limited/coarse location: SMF, UPF, PCF."
 FGT5006.001,Layer 2 Redirection of Encrypted DNS,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
 T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Credential and Access,Privileged Access to VNF or VNF managers via direct login or thru Control Plane APIs
 FGT5018.004,Theft of assets,Improper security monitoring of remote/shared facilities,"Remote/shared sites have to be integrated in the network-wide Security Incident and Monitoring System, but with additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider -level monitoring mechanisms. Failure to do so may leave advanced or sustained threats undetected, as well as technical failures or malfunctions of local resources."
 FGT5018.001,Cabling and junction boxes,Unprotected cables,"Fibers routed between pieces of equipment without proper protection are susceptible to damage, which can critically affect network reliability. The fiber cable management system should therefore ensure that every fiber is protected from physical damage."
 FGT5018.001,Cabling and junction boxes, Unprotected junction boxes,"Lack of protection of junction boxes / splice closures. Improper cable routing also causes increased congestion in the termination panel and the cableways, increasing the possibility of bend radius violations and long-term failure."
 FGT5008,Redirection of traffic via user plane network function,Acquire UPF IP address/control,An adversary must have control of the UPF IP address or a UPF
-FGT5008,Redirection of traffic via user plane network function,Control SMF/NEF/AF,"An adversary must first control the SMF, NEF, or AF"
+FGT5008,Redirection of traffic via user plane network function,Control SMF/NEF/AF,"An adversary must first control the SMF or NEF, or AF"
 FGT5029,Exploit Semi-public Facing Application,Vulnerability Identified,Adversary must have identified a vulnerability susceptible to the specially crafted message that results in an ability to use additional techniques.
 T1199.501,MNO Roaming Partners,Compromised partner,"An adversary must already have compromised a trusted VPLMN or one of their service providers, e.g. IPX, VAS, etc."
 T1199.501,MNO Roaming Partners,Compromised credentials,An adversary may need compromised legitimate credentials that could be used to obtain information from the MNO
@@ -42,7 +44,7 @@ T1199.501,MNO Roaming Partners,Identified vulnerability,An adversary may need to
 T1565.002,Network Interfaces,Weakened or disabled integrity protection,See [FGT5009.002](/techniques/FGT5009.002)
 FGT5006.003,DNS Poisoning,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
 FGT5004,Network Flow Manipulation,Credential and Access to SDN Controller and network elements,Privileged Access to SDN controller and Network elements
-FGT5009.001,Radio Interface,Rogue or misconfigured AMF or SMF or gNB,"A rogue gNB may be required to change the UE’s CP & UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
+FGT5009.001,Radio Interface,Rogue or misconfigured AMF or SMF or gNB or MME,"A rogue gNB may be required to change the UE’s CP & UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
 This attack is possible with only control over the AMF, in which case the algorithm for CP and UP protection may be changed to NULL."
 FGT5009,Weaken Integrity,Adversary controlling end point,Adversary gets hold of an end point such as gNB to manipulate signaling
 FGT5001,Network-side SMS collection,Malware developed,Adversary must first develop the malware to achieve the procedures herein.
@@ -69,7 +71,7 @@ Improper isolation of physical secure perimeter between tenants.
 Improper environmental protection controls.
 
 Inadequate / defective security devices."
-FGT5018,Vandalism of network infrastructure,gNB Component infrastructure,"Improper physical security of telecommunications equipment rooms and equipment sited in partners’ or users’ premises.
+FGT5018,Vandalism of network infrastructure,gNB component infrastructure,"Improper physical security of telecommunications equipment rooms and equipment sited in partners’ or users’ premises.
 
 Improper physical security of physically isolated operation areas.
 

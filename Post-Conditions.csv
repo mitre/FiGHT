@@ -18,23 +18,23 @@ FGT5012.001,Passive radio signals observation,Subsequent attack,"Geolocation can
 T1555.501,Hardware Security Module Key Signing,Adversary is able to perform crypto operations fraudulenty.,Adversary would have the ability to perform signing and cryptographic operations that would permit the adversary to masquerade as a legitimate authorized user and perform operations against NFs.
 FGT5009.002,Network Interfaces,UE at risk of data manipulation,UE signaling with network and user plane data may be impacted. This can be used to cause DoS attack.
 FGT5009.002,Network Interfaces,Network signaling at risk of data manipulation,Network communication within core network or on the non-SBI interfaces or on roaming interface may be impacted.
-FGT5012.005,Shared network function in slice,UE in the target slice is tracked by the adversary with control over a different slice.,"Target slice information is leaked, slice confidentiality is breached due to sharing the NF between slices."
+FGT5012.005,Shared network function in slice,UE’s location is tracked by rogue NF,"Target slice information is leaked, slice confidentiality is breached due to sharing the NF between slices."
 FGT5006.001,Layer 2 Redirection of Encrypted DNS,DNS control,Adversary has redirected the end user to their own DNS system and can now conduct adversary-in-the-middle attacks.
 T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Unexpected and unusual VNF behavior,VNF compromise can lead to DOS or change in the traffic pattern and paths.
 FGT5018.004,Theft of assets,Service unavailability,Theft of these assets may cause an unavailability of resources.
 FGT5018.004,Theft of assets,Increased maintenance costs,Theft of these assets may cause an increase in maintenance costs for the operator.
 FGT5018.001,Cabling and junction boxes,Service unavailability,Destruction or damage of these assets may cause an unavailability of resources.
 FGT5018.001,Cabling and junction boxes,Information destruction,Destruction or damage of these assets may cause information destruction
-FGT5008,Redirection of traffic via user plane network function,User uplink & downlink data intercept,"If an adversary redirects to their own server, they can access the uplink and downlink data of the subscriber, who will not be aware that the traffic is being intercepted."
+FGT5008,Redirection of traffic via user plane network function,Subscriber uplink & downlink data intercept,"If an adversary redirects to their own server, they can access the uplink and downlink data of the subscriber, who will not be aware that the traffic is being intercepted."
 T1498.501,Flooding core network component,AMF service will not be available to legitimate users during attack.,"If AMF services are down, all services for the existing UEs which use NAS layer will not be available. For example: mobility, session management (QoS etc.), PDU session set up / tear down, SMS over NAS, location management. [Section 8.2.2.1 of [2]"
-T1565.002,Network Interfaces,UE data manipulation,Both UE signaling and subscriber user plane data communication with network will be impacted. This can cause DoS attack for legitimate subscribers.
+T1565.002,Network Interfaces,UE data manipulation,Both UE signaling and user plane data communication with network will be impacted. This can cause DoS attack for legitimate subscribers.
 FGT5006.003,DNS Poisoning,Billing Fraud,Attacker will be able to route traffic through DNS channels to use the network free of charge.
 FGT5006.003,DNS Poisoning,Command and Control Network,Attacker can route command and control traffic through DNS to control botnets or other entities.
 FGT5006.003,DNS Poisoning,Exfiltration Route,Attacker has a route to exfiltrate stolen data disguised as DNS packets.
 FGT5004,Network Flow Manipulation,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
-FGT5009.001,Radio Interface,UE data not integrity protected on air interface,"Control Plane (CP): All UE signaling data may be tampered if both NAS and AS CP (i.e., RRC) algorithms are weakened. 
+FGT5009.001,Radio Interface,UE data not integrity protected on air interface,"Control Plane (CP): All UE signaling data may be tampered with if both NAS and AS CP (i.e., RRC) algorithms are weakened. 
 
-User Plane (UP): Subscriber (user) data may be tampered if AS UP algorithms are weakened.
+User Plane (UP): Subscriber (user) data may be tampered with if AS UP algorithms are weakened.
 
 As a result, subscriber data session does not get setup (DoS attack) or gets interrupted during an active session."
 FGT5009,Weaken Integrity,Subscriber data session impact,"Subscriber data session does not get setup (DoS attack) or gets interrupted, spoofed or redirected during an active session."

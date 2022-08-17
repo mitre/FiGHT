@@ -133,7 +133,7 @@ FGT5009.002,Network Interfaces,M1051,Network element security safeguards for gNB
 FGT5009.002,Network Interfaces,M1046,Network element security safeguards for gNB and all core NFs
 FGT5009.002,Network Interfaces,M1031,Implement network intrusion prevention methods
 FGT5009.002,Network Interfaces,M1043,Implement credential access protection methods
-FGT5012.005,Shared network function in slice,FGM5012,"Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token). That is, this attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)"
+FGT5012.005,Shared network function in slice,FGM5012,"Cross check requested SUPI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token). That is, this attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)"
 T1014,Unauthorized software in NFVI,M1046,Boot integrity
 T1014,Unauthorized software in NFVI,M1045,Code Signing
 T1014,Unauthorized software in NFVI,M1051,Update Software

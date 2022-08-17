@@ -54,7 +54,7 @@ FGT5024,SIM boxing,FGDS5005,"Keeping track of SIM cards with strange usage patte
 T1078.004,Container Management- Unbounded admin access,DS0028,Monitor for suspicious account behavior across cloud services that share account.  Logon session logs and meta data helps determine if the session was an authorized activity.
 T1078.004,Container Management- Unbounded admin access,DS0002,"Monitor user account authentication activity.  Monitor the activity of cloud accounts to detect abnormal or malicious behavior, such as accessing information outside of the normal function of the account or account usage at atypical hours.  Repeated attempts may be indictive of password guessing or brute force password cracking.  Password policies supporting lockout requiring administrative reset may help."
 FGT5015,Device database manipulation,FGDS5009,Difficult to detect unauthorized changes. Inspect logs of what changes were made and by whom in the EIR
-FGT5012.006,NAS exploit,FGDS5002,"Operator standard means to detect presence of fake gNBs. gNB radio signals (sent to all UEs to enable them to select gNB and connect) are received and reported by UEs to the operator, who can then run cross checks with the signals that the UEs should have received if all gNBs nearby were legitimate.."
+FGT5012.006,NAS exploit,FGDS5002,"Operator standard means to detect presence of fake gNBs. gNB radio signals (sent to all UEs to enable them to select gNB and connect) are received and reported by UEs to the operator, who can then run cross checks with the signals that the UEs should have received if all gNBs nearby were legitimate."
 FGT5026,SIM cloning,FGDS5005,Investigate unusual SIM card patterns.
 T1499,Interworking Denial of Service,DS0015,Monitor application logs for unusual requests or rate of requests
 T1499,Interworking Denial of Service,DS0029,Monitor for unusual volumes or sources of requests to the service
@@ -66,7 +66,7 @@ T1555.501,Hardware Security Module Key Signing,DS0029,Monitor for activity from 
 FGT5009.002,Network Interfaces,DS0029,Inspect network traffic and watch for unauthorized changes as the packets move through the interfaces.
 FGT5009.002,Network Interfaces,DS0015,"Check configuration changes in gNB, NFs, SEPP and MME.
 Run configuration audits by OSS/BSS."
-FGT5012.005,Shared network function in slice,DS0015,"Regularly audit applications and interface messaging logs. Check logs of requests/responses at the shared NF. E.g., each entry should contain IMSI, NF consumer that requested it, slice IDs of both."
+FGT5012.005,Shared network function in slice,DS0015,"Regularly audit applications and interface messaging logs. Check logs of requests/responses at the shared NF. E.g., each entry should contain SUPI, NF consumer that requested it, slice IDs of both."
 T1014,Unauthorized software in NFVI,DS0022,File changes of any sort that cannot be traced back to authorized change.
 T1014,Unauthorized software in NFVI,DS0007,Software image inconsistency.  Signature and checksum mismatch
 T1014,Unauthorized software in NFVI,DS0008,Kernel executing unknow processes or unauthorized processes not typical of the host.
@@ -110,6 +110,7 @@ FGT5004,Network Flow Manipulation,DS0015,Periodically audit SDN and Network elem
 FGT5004,Network Flow Manipulation,DS0029,Periodically audit network flow tables to detect unauthorized changes to flow data
 FGT5007,Registration of malicious network functions,DS0015,Detections for T1610. Monitor application logs of core NFs.
 FGT5007,Registration of malicious network functions,DS0032,Detections for T1610--Deploy Container. Applicable only in the case that the NF is deployed as a container.
+T1608.501,Configurability of Fake Base Station or Access Point,FGDS5012,"UE measurements of received power levels from all base stations nearby, and their identifiers. Reference clause 6.24 of [2]"
 FGT5009.001,Radio Interface,DS0029,"Radio traffic content
 Inspect radio traffic and watch for unauthorized changes as the packets move through the interfaces."
 FGT5009.001,Radio Interface,DS0015,"Check configuration changes in gNB, SMF, AMF. Configuration audits by OSS/BSS"
@@ -123,7 +124,6 @@ T1599.503,Network Slice Application Resource Hijacking,DS0015,"Audit logs - Audi
 T1599.503,Network Slice Application Resource Hijacking,DS0013,Monitor systems performance
 T1599.503,Network Slice Application Resource Hijacking,DS0029,Monitor network flows
 FGT5019.003,Obtain subscriber identifier by NF,DS0015,Logging of AF inquiries for UEs that they don’t serve. Post process the logs to detect fraudulent API calls by rogue AF or NF.
-T1608.501,Set up configurability of Fake Base Station or Access Point,FGDS5012,"UE measurements of received power levels from all base stations nearby, and their identifiers. Reference clause 6.24 of [2]"
 FGT5018.003,Edge Servers,FGDS5012,"Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed. Additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider-level monitoring mechanisms."
 FGT5019.002,Intercept Bid-Down IMSI,FGDS5010,UE transitions to less secure service
 FGT5021,Tunnel ID uniqueness failure,DS0029,"Packet inspection over the N3 interface. If two packets are seen to have the same TEID on the RAN to UPF interface, then it can be verified that they indeed belong to the same UE. It may be difficult to detect as it is per UE and per PDU session."

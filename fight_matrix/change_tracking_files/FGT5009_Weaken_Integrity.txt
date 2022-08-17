@@ -7,8 +7,10 @@ Procedure Examples
 Weaken integrity over radio interface: An adversary may manipulate gNB signaling to enable NULL integrity over the radio interface (Uu)
 Weaken integrity within the RAN to core connections: An adversary may change network configuration so that IPSec is not enabled between gNB and UPF (N3) or between gNB and AMF (N2).
 Weaken integrity within RAN: An adversary may change network configuration so that IPSec is not enabled between two gNBs (Xn).
-Weaken integrity within SBI: An adversary may disable TLS between two NFs or between one or more NFs and the Service Communication Proxy (SCP).
-Weaken integrity on the roaming/interconnect: An adversary may disable or weaken integrity protection of the communications between SEPPs (which use JWS for example).
+Weaken integrity within SBI: An adversary may disable TLS between two NFs or between one or more NFs and the Service Communication Proxy (SCP) if deployed by MNO.
+Weaken integrity on the roaming/interconnect: An adversary may disable or weaken integrity protection of the communications between SEPPs (N32 which uses JWS for example) or between visited PLMN UPF and home PLMN UPF (N9).
+
+An adversary may weaken integrity protection on N26 interface between MME and AMF.
 ----------------------------------------
 Mitigations
 ----------------------------------------

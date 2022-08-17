@@ -4,7 +4,7 @@ Architecture Segment:
 ----------------------------------------
 Procedure Examples
 ----------------------------------------
-Malware loaded into a Linux running SMSC server: A data miner program may be loaded by an installation script. The script targets and saves SMS messages (the contents, the IMSI and the source and destination phone number). This is highly targeted to given IMSI numbers (e.g., proponents of movements against the Chinese gov’t). (note: Call Data Records (CDRs) were also targeted for certain IMSIs, the info therein is call metadata, i.e. time, duration, phone numbers). [1], [2].
+Malware loaded into a Linux running SMSC server: A data miner program may be loaded by an installation script. The script targets and saves SMS messages (the contents, the IMSI and the source and destination phone number). This is highly targeted to given IMSI numbers (e.g., proponents of movements against the Chinese gov’t). (note: Call Data Records (CDRs) were also targeted for certain IMSIs, the info therein is called metadata, i.e. time, duration, phone numbers). [1], [2].
 ----------------------------------------
 Mitigations
 ----------------------------------------

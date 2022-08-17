@@ -64,6 +64,7 @@ FGT5032.003,rApps,N,N,N,Y,N,N,Y
 FGT5006.003,DNS_Poisoning,Y,Y,Y,Y,Y,Y,Y
 FGT5004,Network_Flow_Manipulation,N,Y,Y,Y,Y,Y,Y
 FGT5007,Registration_of_malicious_network_functions,Y,Y,N,Y,Y,N,Y
+T1608.501,Configurability_of_Fake_Base_Station_or_Access_Point,Y,N,N,N,Y,N,Y
 FGT5009.001,Radio_Interface,Y,Y,Y,Y,Y,Y,Y
 T1599.501,Malicious_co-tenancy__exploit_of_NFVI_(Network_Slice),Y,Y,N,Y,Y,N,Y
 FGT5009,Weaken_Integrity,Y,Y,Y,Y,Y,Y,Y
@@ -71,7 +72,6 @@ FGT5001,Network-side_SMS_collection,Y,Y,Y,Y,N,N,Y
 T1599.503,Network_Slice_Application_Resource_Hijacking,N,Y,N,Y,Y,N,Y
 FGT5019.003,Obtain_subscriber_identifier_by_NF,Y,Y,Y,Y,Y,Y,Y
 FGT5010,Fraudulent_AMF_registration_for_UE_in_UDM,Y,Y,Y,Y,N,Y,Y
-T1608.501,Set_up_configurability_of_Fake_Base_Station_or_Access_Point,Y,N,N,N,Y,N,Y
 T1588,IMSI_Catcher,N,Y,N,N,N,N,Y
 FGT5019.001,Intercept_Home_Network_via_SUCI,Y,Y,Y,Y,N,Y,Y
 FGT5018.003,Edge_Servers,Y,Y,Y,Y,Y,Y,Y

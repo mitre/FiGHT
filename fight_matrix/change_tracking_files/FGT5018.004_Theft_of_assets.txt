@@ -33,4 +33,4 @@ Increased maintenance costs: Theft of these assets may cause an increase in main
 References
 ----------------------------------------
 European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, page 202, December 2020.: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-Baars, J. “Telecom Sites Physical Security White Paper”, December 2019, Asentria: https://www.asentria.com/blog/telecom-sites-physical-security-white-paper/. 
+Baars, J. “White Paper - Telecom Sites Physical Security”, December 2019, Asentria: https://www.asentria.com/blog/telecom-sites-physical-security-white-paper/. 

@@ -5,7 +5,7 @@ Architecture Segment:  Control plane, Slice
 Procedure Examples
 ----------------------------------------
 Access token abuse: A malicious NF can abuse access token issued by the NRF for one slice to access another shared NF in a different slice. Clause H.2.2.1 of [2]
-Access token hijack: Access tokens can be hijacked by a compromised intermediate reverse proxy server such as SCP (if deployed by operator). This attack can be followed by re-direct or replay or access tokens. Section 3.9 of [3]
+Access token hijack: Access tokens can be hijacked by a compromised intermediate proxy such as SCP (if deployed by operator). This attack can be followed by re-direct or replay of access tokens. Clause 3.9 of [3]
 ----------------------------------------
 Mitigations
 ----------------------------------------

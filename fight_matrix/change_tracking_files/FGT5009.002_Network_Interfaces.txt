@@ -8,7 +8,7 @@ Compromised or misconfigured gNB: A rogue or misconfigured gNB can disable IPSec
 Compromised or misconfigured AMF: A rogue or misconfigured AMF can disable IPSec integrity or use a weak IPSec integrity algorithm on N2 and N26 interfaces. Then it can launch other attacks. Clause K.2.1 of [1], clause 5.5.2  of [2]
 Compromised or misconfigured UPF: A rogue or misconfigured UPF can disable IPSec integrity or use a weak IPSec integrity algorithm on N3, N4 and N9 interfaces. Then it can launch other attacks. Clause L.2.1 of [1]
 Compromised or misconfigured SMF: A rogue or misconfigured SMF can disable IPSec integrity or use a weak IPSec integrity algorithm on N4 interface. Then it can launch other attacks. Clause 9.9 of [2]
-Compromised or misconfigured NF: A rogue or misconfigured AMF can disable the TLS integrity or use a weak TLS integrity algorithm to another NF including the SCP. Then it can launch other attacks to gain unauthorized access to network services. Clause 13.1 of [2]
+Compromised or misconfigured NF: A rogue or misconfigured NF can disable the TLS integrity or use a weak TLS integrity algorithm to another NF including the SCP (if deployed). Then it can launch other attacks to gain unauthorized access to network services. Clause 13.1 of [2]
 
 If SCP is rogue or misconfigured, it can force TLS connections to all NFs to be unencrypted or use weak integrity for all. Clause 5.9.2.4 of [2]
 Compromised or misconfigured SEPP or IPX component: A rogue or misconfigured SEPP can disable TLS integrity or use a weak TLS integrity algorithm on N32-c interface or N32-f interface or both.
