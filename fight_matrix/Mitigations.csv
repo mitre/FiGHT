@@ -1,154 +1,301 @@
-T1555.501,Hardware Security Module Key Signing,M1018,Restrict users of HSM to minimal privileges from only permitted NFs
-T1555.501,Hardware Security Module Key Signing,M1026,"Ensure administrative accounts for HSM are carefully managed to minimize potential admin credential compromise. This may include use of privileged access workstations, privileged account management solutions, separation of duties approaches, etc"
-FGT5019,Identify UE,Depends on sub-technique,
-FGT5029,Exploit Semi-public Facing Application or System,M1050,Use of a Web Application Firewall may only allow properly formatted service communication.
-FGT5029,Exploit Semi-public Facing Application or System,M1048,
-FGT5029,Exploit Semi-public Facing Application or System,FGM5010,Redeploy SEPP regularly to prevent dwell time aka use use non-persistence
-FGT5029,Exploit Semi-public Facing Application or System,M1051,Aggressive patching may reduce window of vulnerability if a known vulnerability
-T1040,Non-SBI,M1041,"Use encryption (IPSec) on all F1-U, F1-C, E1, E2, N2, N3, N4, N9 and Xn interfaces. Sections 9.2, 9.3, 9.4, 9.8, 9.9 of [2], section 4.1 of [3], section 5.1 of [4]"
-T1499.501,Consume data allocation to deny or degrade service,Unlimited data plan,Attack is mitigated with a true unlimited data plan
-T1499.501,Consume data allocation to deny or degrade service,Monitor installed applications for data usage.,Monitor installed applications for data usage.
-T1557.504,Gather data on the interconnect,M1054,Ensure for MNO services that serve roaming partners that the minimum acceptable configuration is adequate and complies with TS 33.501 clause 13.2.4.9.
-T1557.504,Gather data on the interconnect,M1040,Monitor to ensure configurations do not change from acceptable options
+T1557.504,Service Based Interface,FGM5095,"TLS certificate thorough checking. Ensure that all certificates received over a connection are valid for the current server endpoint, and abort the handshake if they are not. In some usages, it may be simplest to refuse any change of certificates during renegotiation"
+T1557.504,Service Based Interface,FGM1557,Use TLS 1.3 or TLS 1.2 with only strong ciphersuites.
+T1557.504,Service Based Interface,M1041,Use TLS 1.3 or TLS 1.2 with only strong ciphersuites
+T1557.504,Service Based Interface,M1047,"Audit NF configuration for interfaces, e.g. what version of TLS."
+T1499.501,Consume data allocation to deny or degrade service,FGM5007,Unlimited data plan. Attack is mitigated with a true unlimited data plan
+T1499.501,Consume data allocation to deny or degrade service,FGM5008,Monitor installed applications for data usage.
 FGT5003,Network Function Service Discovery,FGM5003,"Ensure cross-layer checks at the NRF, between the certificate presented to it at the TLS connection setup stage and the identity and authorization requested presented to it at the OAuth Token request stage.
 Ensure the consumer is authorized to ask about this service.
 
 Authorization follows need-to-know rules, such as:
 1. a NF can not query for NFs in other network slices
 2. a NF can only query for NFs that it needs to communicate with."
-FGT5019.003,Obtain subscriber identifier by NF,FGM5019,NEF should check that UE in question is subscribed to services of the AF
-T1498.501,Flooding core network component,"
-FGM1498","Employ a firewall or other rate control box on the N2 interface [from RAN to AMF]
+FGT5003,Network Function Service Discovery,FGM5501,Inspect proxy servers such as SCP (if deployed) for any suspicious use of access tokens such as unauthorized re-direct or replay of tokens
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,M1033,VNF Access Rights -Restricted Permissions to add images to VNFs (Network Element) for person and non-person accounts
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,M1047,Logs from VNFs must be corelated with other OA&M and Security monitoring tools to ensure unauthorize activity is reported. SEIM like system should be deployed to correlate events.
+T1599.504,Manipulate Virtual Network Function (VNF) Configuration,M1053,Configuration back ups -All VNF Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations as well as comparison between configuration catalogue and running instance
+FGT5009,Weaken Integrity,M1047,Monitor periodically if integrity protection algorithm is enabled
+T1499,Public Function Denial of Service,M1016,Vulnerability scanning of public APIs
+T1499,Public Function Denial of Service,M1050,Use WAF to minimize potential exploit of vulnerabilities
+T1499,Public Function Denial of Service,M1037,Use of network based DDoS mitigation capabilities to filter traffic upstream
+FGT5019.003,Obtain subscriber identifier by NF,FGM5019,"NEF should check that UE in question is subscribed to services of the AF. This way, unauthorized access by external rogue AFs can be avoided."
+T1498.502,Shared Slice Resource exhaustion,Resource Policy enforcement,"Create and enforce resource policy; policy can include SLA, quotas, QOS etc."
+T1498.502,Shared Slice Resource exhaustion,Horizontal Elastic Scale,
+T1498.502,Shared Slice Resource exhaustion,M1030,"Implementing segmentation policy at granular level, network and compute resources can prevent some co-residency threats when mapped to SLAs, Users, and Resource policies"
+T1498.502,Shared Slice Resource exhaustion,Physical separation,"Hardware, network, and point of presence can be separated to provide additional isolation"
+T1555.501,Hardware Security Module Key Signing,M1018,Restrict users of HSM to minimal privileges from only permitted NFs
+T1555.501,Hardware Security Module Key Signing,M1026,"Ensure administrative accounts for HSM are carefully managed to minimize potential admin credential compromise. This may include use of privileged access workstations, privileged account management solutions, separation of duties approaches, etc."
+T1498.501,Flooding core network component,FGM5498,"Employ a firewall or other rate control box on the N2 interface [from RAN to AMF]
 
-(May not be available in the market). NAS-MM (Non-access stratum Mobility Mgmt) app layer proxy with UE request rate limiting capability.
-In addition, SCP can act as load balancer between the service consumer (AMF) and service producer (UDM). [Annex E of 23.501]"
-FGT5022,Alteration of subscriber  profile charging parameters,Secure subscriber repositories,
-FGT5028,Discover network slice identifier,NRF not respond to requests after a given number of failed NSSAI lookups (See detections),NRF protection against brute-force attacks.
-FGT5012.002,Self Location Measurement,FGM5097,Restrictive user security profile. Do not use unencrypted systems. Set user security profile to prohibit bidding down to less secure service.
+(May not be available in the market). Employ a NAS-MM (Non-access stratum Mobility Mgmt) application layer proxy at the edge of the network, having the capability to limit UE request rate.
+In addition, SCP can act as load balancer between the service consumer (AMF) and service producer (UDM). (Annex E of [2])"
+T1609.501,Accessing Terminated VNF,M1038,"Use read-only containers, read-only file systems, and minimal images when possible to prevent the execution of commands."
+T1609.501,Accessing Terminated VNF,M1035,Limit communications with the container service to local Unix sockets or remote access via SSH. Require secure port access to communicate with the APIs over TLS by disabling unauthenticated access to the Docker API and Kubernetes API Server
+T1609.501,Accessing Terminated VNF,M1026,"In Kubernetes environments, consider defining a Pod Security Policy that prevents pods from running privileged containers"
+T1609.501,Accessing Terminated VNF,M1018,Enforce authentication and role-based access control on the container service to restrict users to the least privileges required.
+FGT5028,Discover network slice identifier,FGM5499,NRF protection against brute-force attacks. NRF should not respond to requests after a given number of failed NSSAI lookups (See detections)
+FGT5012.002,Self Location Measurement,FGM5006,Restrictive subscriber security profile. Do not use unencrypted systems. Set subscriber security profile to prohibit bidding down to less secure service.
 FGT5012.002,Self Location Measurement,FGM5096,Disable location on UE device. This is only a partial mitigation because location parameters can still be available from UE.
-FGT5035.001,DOS a UE via fake cellular base station,Restrictive user security profile,Set user security profile to prohibit bidding down to less secure service
-FGT5035.001,DOS a UE via fake cellular base station,Power cycle UE,Power cycle UE
-FGT5019.002,Intercept Bid-Down IMSI,Restrictive user security profile,Prevent bidding-down in user security profile.
-T1499.002,UDM DOS via SUCI replay,FGM1499,Rate limiting at NFs. SEAF or AUSF (NFs upstream from SIDF) can do rate limiting if they receive the same SUCI multiple times within a short period.
-T1046,Core-network scanning,Network tools (?),
-T1600.501,Radio interface,M1041,Ensure gNB implementation and SMF implementations are both checking the CP & UP security policy against the most trustworthy source and taking action to not enable NULL encryption except for emergency calls
-T1600.501,Radio interface,"M1018
-M1031
-M1043","Network element security safeguards for gNBs, AMFs and SMFs."
-T1021,Remote Services, Multi-factor Authentication,Use multi-factor authentication on remote service logons where possible.
-T1021,Remote Services, User Account Management,"Limit the accounts that may use remote services. Limit the permissions for accounts that are at higher risk of compromise; for example, configure SSH so users can only run specific programs."
-FGT5004.001,Network Flow Manipulation,SDN Controller Access Rights,Restricted Permissions to add images to SDN Controller for person and non-person accounts
-FGT5004.001,Network Flow Manipulation,Log analysis,Logs from SDN Controller must be corelated to ensure unauthorize activity is reported.
-FGT5004.001,Network Flow Manipulation,Configuration back ups,All SDN Controller Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations
-T1437,Control plane signaling disguise for C2,Employ TLS proxies with DPI firewalls,"TLS proxy/firewall can employ DPI to decrypt the packets and send them off to their destination, but only after logging what the packet contains."
-T1437,Control plane signaling disguise for C2,Employ SIEMs to correlated messaging intelligence.,The firewalls/proxies connect to a SIEM whose data is being kept up to date with current threats.
-FGT5015,Device database manipulation,Secure EIR function,
-FGT5004.002,Network Flow Manipulation,SDN vSwitch Access Rights,Restricted Permissions to add images to SDN vSwitch (Network Element) for person and non-person accounts
-FGT5004.002,Network Flow Manipulation,Log analysis,Logs from SDN Controller and vSwitch must be corelated to ensure unauthorize activity is reported.
-FGT5004.002,Network Flow Manipulation,Configuration back ups,All SDN vSwitch Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations as well as comparison between Controller and vSwitch.
-FGT5033,Retrieve UE subscription data,FGM5033,"Standard 5G enterprise/core network security functionality
-E.g. Zero trust principles for OA&M. Monitor logs."
-FGT5026,SIM cloning,"M1017
-M1018
-M1022
-M1035",Only accept SIM cards from reputable manufacturers (MNOs)
-FGT5035,Fake cellular Base Station,"UE measurements of received power levels from all base stations nearby, and their identifiers","Reference [2], section 6.24"
+FGT5012.002,Self Location Measurement,M1041,Avoid systems that employ null encryption. De-register when only NULL encryption is offered
+FGT5019.002,Intercept Bid-Down IMSI,FGM5006,Restrictive user security profile can dictate that the UE will refuse to networks that are not 5G. The prevention of bidding-down is achieved via user security profile stored in the UE.
+T1499.002,UDM DOS via SUCI replay,FGM5499,Rate limiting at NFs. SEAF or AUSF (NFs upstream from SIDF) can do rate limiting if they receive the same SUCI multiple times within a short period.
+T1046,Core-network scanning,M1042,Ensure that unnecessary ports and services are closed to prevent risk of discovery and potential exploitation.
+T1046,Core-network scanning,M1031,Use network intrusion detection/prevention systems to detect and prevent remote service scans.
+T1046,Core-network scanning,M1030,Ensure proper network segmentation is followed to protect critical servers and devices.
+FGT5009.002,Network Interfaces,FGM1557,"Use strong integrity protection on all non-SBI, SBI and roaming/interconnect interfaces. That is, TLS should be used in all SBI, N32-c and N32-f and PRINS in N32-f when TLS is not used."
+FGT5009.002,Network Interfaces,M1018,Network element security safeguards for gNB and all core NFs
+FGT5009.002,Network Interfaces,M1051,Network element security safeguards for gNB and all core NFs
+FGT5009.002,Network Interfaces,M1046,Network element security safeguards for gNB and all core NFs
+FGT5009.002,Network Interfaces,M1031,Implement network intrusion prevention methods
+FGT5009.002,Network Interfaces,M1043,Implement credential access protection methods
+T1583.501,Fake Cellular Base Station or Access Point,M1056,This technique cannot be easily mitigated with preventive controls since it is based on behaviors performed outside of the scope of the mobile network operator
+T1600.501,Radio interface,M1041,Ensure gNB implementation and SMF implementations are both checking the UE CP and UP security policy against the most trustworthy source and taking action to not enable NULL encryption except for emergency calls
+T1600.501,Radio interface,M1018,"Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)"
+T1600.501,Radio interface,M1051,"Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)"
+T1600.501,Radio interface,M1046,"Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in clause 5.3.4 of [2] for gNBs (e.g. software updates, OA&M access security, secure boot)"
+T1600.501,Radio interface,M1031,Implement network intrusion prevention methods
+T1600.501,Radio interface,M1043,Implement credential access protection methods
+T1583,Access to Cloud Infra or MEC,M1030,Network isolation. Deployment architecture should consider physical and virtual isolation from other tenants
+T1583,Access to Cloud Infra or MEC,M1041,Any traffic going from a security zone to another security zone must be protected with encryption.  Key based user and resource authentication and authorization
+T1583,Access to Cloud Infra or MEC,FGM5504,"Cloud compute, cloud storage and any serverless activity should be isolated from other tenants"
+T1583,Access to Cloud Infra or MEC,FGM5505,Hardware mediated  execution environment
+T1020.001,Network traffic duplication,,Encrypt sensitive data flows for Control plane and User plane traffic
+T1048,Control plane signaling exfiltration,M1037,Filter and inspect network traffic coming out of SEPP and NEF
+T1437,Control plane signaling disguise for C2,FGM5501,"Employ TLS proxies with DPI firewalls. TLS proxy/firewall can employ DPI to decrypt the packets and send them off to their destination, but only after logging what the packet contains. 
+The firewalls/proxies connect to a SIEM whose data is being kept up to date with current threats."
+FGT5015,Device database manipulation,FGM5020,Secure EIR function
+FGT5022,Alter Subscriber Profile,FGM5020,Secure subscriber repositories
+FGT5026,SIM cloning,M1017,Only accept SIM cards from reputable manufacturers (MNOs)
+FGT5026,SIM cloning,M1018,User accounts management at the operator side
+FGT5026,SIM cloning,M1022,"Restrict access to subscriber repository, which would allow SIM card changes"
+T1499.502,Trigger Fraud Alert to Deny Service,FGM5093,"UDM/SIDF checks the freshness parameter of SUCI received from the same UE (having the same SUPI). If replayed by adversary within a short period of time, freshness test will fail."
+T1464,UE or gNB Jamming,FGM5099,Move user equipment closer to base station to overpower jamming signal.
+T1464,UE or gNB Jamming,FGM5100,Increase height of User Equipment to avoid jamming signal
+T1464,UE or gNB Jamming,FGM5001,Disable jamming source
+T1599,Network Boundary Bridging,M1043,Credential Access Protection
+T1599,Network Boundary Bridging,M1037,Filter Network Traffic
+T1599,Network Boundary Bridging,M1026,Privileged Account Management
+T1599,Network Boundary Bridging,M1032,Multi-factor Authentication
+T1599,Network Boundary Bridging,M1027,Password Policies - NIST Guidelines.  This may also include token policies if security tokens are used.
+T1557.502,Roaming and Interconnection,M1037,Ensure only traffic from expected sources can reach the SEPP
+T1557.502,Roaming and Interconnection,M1035,Minimize access to vSEPP from limited locations such as a privileged access workstation
+T1557.502,Roaming and Interconnection,M1030,Limit network exposure of vSEPP from other core services in hPLMN
+T1565.002,Network Interfaces,FGM1557,"Use integrity (IPSec) on all non-SBI interfaces, TLS 1.3 on all SBI interfaces including roaming interfaces (e.g. N32)."
+T1195,Supply Chain Compromise,M1051,Update Software regularly
+T1195,Supply Chain Compromise,M1016,Vulnerability Scanning of software before it is brought into MNO environment as well as regular scans to detect abnormal behavior
+FGT5023,Charging fraud via NF control,FGM1506,Periodic authentication / authorization of NF consumer e.g. SMF/PCF/CHF/NEF/AF by NRF will help detect rogue NFs.
+FGT5023,Charging fraud via NF control,FGM5094,Rigorous checks of unique mapping of charging ID to PDU session (applicable to the SMF case). Management system (OSS/BSS) can generate alert for possible intervention
+FGT5018.004,Theft of assets,FGM5005,"Implement physical and environmental controls
+Shared/Remote sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters. Failure to do so may lead to unauthorized access, destruction of assets and impairment of operations."
 FGT5024,SIM boxing,M1040,"Several tools exist to tag such SIM cards and reject calls from them.
 Analyze and monitor call patterns, mobility patterns, and detect anomalies. See [4]"
-FGT5025,Falsify interconnect invoice,Employ home-routing instead of local breakout for user traffic (but this means more delay and lower quality of service),
-T1557.507,Non-SBI,FGM1557,"Use integrity (IPSec) on all N2, N3 and Xn interfaces"
-FGT5012.004,Core network function signaling,Filter out request messages that come from external (to the operator) sources,To guard against SS7 attacks
-FGT5012.004,Core network function signaling,NEF authorizes 3rd party AFs for location service using policy.,Nnef_Location API called by AF should be authorized properly. AF uses GPSI as UE identity. [Section 5.2.6.21 of TS23.502]
-FGT5012.004,Core network function signaling,Periodic authentication / authorization of NF consumer e.g. AMF by NRF will help detect rogue AMFs.,"Not currently in 3GPP specs, but it can be enhanced."
-FGT5031,Call Detail Record (CDR) collection,Isolate CDR databases from the rest of the IT systems/NOC resources,
-FGT5031,Call Detail Record (CDR) collection,Personnel check,CDR database admin users periodically re-checked
-T1464,Jamming or Denial of Service,FGM5xxx Move user equipment,Move user equipment closer to base station. Increase height of User Equipment.
-T1464,Jamming or Denial of Service,FGM5xxx Disable malicious transmitter,Detect and locate jammer with special equipment. Disable malicious transmitter.
-FGT5021,Tunnel ID uniqueness failure,"M1022
-M1035
-M1047","Ensure UPF and gNB/NG-eNB check for uniqueness for every new TEID they allocate locally. The newly assigned TEID must not have been in use in the past given certain amount of time (which should be set to the reasonable maximum tunnel lifetimes observed).
-The UPF and g/eNB must keep a log of the TEIDs currently in use (which they assigned), and purge TEIDs once the tunnel is torn down. This log must be checked every time a new TEID is allocated."
-T1499.503,DOS a UE via gNB or NF signaling,Implement industry standard core and edge network function security protection,
-T1040.502,Middlebox Service Based Interface,M1041,"Encrypt using TLS all links between NFs. (if the SCP is compromised, then encrypting between NF and SCP won’t work)"
-FGT5018.002,Radio access hardware,Implement physical and environmental controls,"Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against vandalism."
-FGT5012.003,5G-GUTI reuse,,Ensure AMF implementation allocates new 5G-GUTI every time possible.
-FGT5018.003,Edge Servers,Implement physical and environmental controls,"Edge sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters. Failure to do so may lead to unauthorized access, destruction of assets and impairment of operations."
-FGT5018.001,Cabling and junction boxes, Compliance with cable standards,"Raceway / conduit is one of the easiest ways to protect any cable, fiber optic included. These hollow pieces of plastic act like a protective outer shell."
-FGT5018.001,Cabling and junction boxes, Secure junction boxes,Optical fiber junction boxes / splice closures shall be accessible to maintenance personnel and maintenance vehicles. A closure should be located away from high traffic or conditions that could cause damage to the closure or injury to personnel.
-FGT5018.001,Cabling and junction boxes,Implement physical and environmental controls,"Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters"
-FGT5018.001,Cabling and junction boxes,"
-Plan for continuity of power supplies","Power supply facilities in the isolated area such as mobile base stations should preferably provide an uninterruptible power supply with capacity for all loading and capable of withstanding primary power supply failures for the duration of likely outages. If that is impossible, a mechanism to provide uninterruptible power to critical equipment should be installed. Batteries may need to be augmented with a private electric generator, especially in isolated areas."
-FGT5027,Spoof network slice identifier,"FGM5027
-M1020",The attack can be mitigated if the NRF performs additional checks. The NRF authorizes the NF service consumer to obtain tokens only for authorized slice(s). (3GPP SA3 investigating). A cross check with the TLS certificate of requester should be performed as well at the NRF.
-T1599.504,Manipulate Virtual Network Function (VNF) Configuration,SDN vSwitch Access Rights,Restricted Permissions to add images to SDN vSwitch (Network Element) for person and non-person accounts
-T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Log analysis,Logs from SDN Controller and vSwitch must be corelated to ensure unauthorize activity is reported.
-T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Configuration back ups,All SDN vSwitch Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations as well as comparison between Controller and vSwitch.
-T1199.501,Trusted MNO Relationship,M1030,Minimize exposure of functions to only those partner functions that need to access.  For so
-T1199.501,Trusted MNO Relationship,M1018,Management of credentials used by partners to be scoped to the least privilege can minimize potential abuse.  Does not mitigate misuse within allowed privileges.
-T1199.501,Trusted MNO Relationship,M1037,"Ensure communication with functions such as a SEPP is constrained to necessary addresses, ports, and protocols."
-T1199.501,Trusted MNO Relationship,M1054,Validation of credentials properly can mitigate some MITM attacks and ensure revoked/expired credentials are not allowed.
-FGT5010,Fraudulent AMF registration for UE in UDM,Correctly implement UE authentication status updates in UDM.,"Implement security as per clause 6.1.9 of 3GPP TS 29.503, namely OAuth2.0"
-FGT5010,Fraudulent AMF registration for UE in UDM,Cross check whether the requesting AMF is likely to be the one serving that UE now.,E.g. check geography of where UE actually may be vs. the area that the requester AMF is supposed to serve.
-FGT5010,Fraudulent AMF registration for UE in UDM,Periodic authentication / authorization of NF consumer e.g. AMF by NRF will help detect rogue AMFs.,"Not currently in 3GPP/GSMA (?) specs, but it can be enhanced. It’s process management (OA&M)"
+T1078.003,Infrastructure local account,M1027,Passwords Policies to ensure secure local accounts across all devices that necessitate local accounts
+T1078.003,Infrastructure local account,M1026,Privileged account management
+FGT5025,Falsify interconnect invoice,FGM5503,Employ home-routing instead of local breakout for user traffic (but this means more delay and lower quality of service)
+FGT5012.004,Core network function signaling,M1037,Filter out request messages that come from external (to the operator) sources to guard against SS7 attacks
+FGT5012.004,Core network function signaling,FGM5019,NEF authorizes 3rd party AFs for location service using policy. Nnef_Location API called by AF should be authorized properly. AF uses GPSI as UE identity.
+FGT5012.004,Core network function signaling,FGM1506,"Periodic authentication / authorization of NF consumer e.g. AMF by NRF will help detect rogue AMFs. Not currently in 3GPP specs, but it can be enhanced."
+FGT5013,Malicious VNF Instantiation,M1047,"Scan images before deployment, and block those that are not in compliance with security policies. In Kubernetes environments, the admission controller can be used to validate images after a container deployment request is authenticated but before the container is deployed."
+FGT5013,Malicious VNF Instantiation,M1035,"Limit communications with the container service to local Unix sockets or remote access via SSH. Require secure port access to communicate with the APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes API Server, and container orchestration web applications."
+FGT5013,Malicious VNF Instantiation,M1030,"Deny direct remote access to internal systems through the use of network proxies, gateways, and firewalls."
+FGT5013,Malicious VNF Instantiation,M1018,Enforce the principle of least privilege by limiting container dashboard access to only the necessary users.
+T1190,Exploit Public-Facing Network Function,M1016,Vulnerability scanning of public APIs
+T1190,Exploit Public-Facing Network Function,M1050,Use WAF to minimize potential exploit of vulnerabilities
+T1611.501,Malicious privileged container VNF Shared Resource Accesss,M1047,"Scan images before deployment, and block those that are not in compliance with security policies. In Kubernetes environments, the admission controller can be used to validate images after a container deployment request is authenticated but before the container is deployed."
+T1611.501,Malicious privileged container VNF Shared Resource Accesss,M1035,"Limit communications with the container service to local Unix sockets or remote access via SSH. Require secure port access to communicate with the APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes API Server, and container orchestration web applications."
+T1611.501,Malicious privileged container VNF Shared Resource Accesss,M1030,"Deny direct remote access to internal systems through the use of network proxies, gateways, and firewalls.  Segment execution environment with node and network."
+T1611.501,Malicious privileged container VNF Shared Resource Accesss,M1018,Enforce the principle of least privilege by limiting container dashboard access to only the necessary users.
+T1542.501,Unauthorized software in NFVI,M1046,Boot integrity
+T1542.501,Unauthorized software in NFVI,M1045,Code Signing
+T1542.501,Unauthorized software in NFVI,M1051,Update Software
+T1542.501,Unauthorized software in NFVI,M1018,"User Account Management, active monitoring of access attempts to CI/CD tools"
+T1542.501,Unauthorized software in NFVI,M1047,System audits can reveal anomalous behavior that may be caused by rootkits.  Audits of software repositories
+T1562.501,Bid down UE,FGM5002,"UE should discard RRC redirection that is  not integrity protected, and go search for other gNBs. UE should only accept to register to networks that require mutual auth and strong encryption, also integrity protection of user plane.
+[reference](https://www.scribd.com/document/350156530/forcing-targeted-lte-cellphone-into-unsafe-network)"
+T1562.501,Bid down UE,FGM5092,"UE warns user of lower security network (and the user can take action to limit data or type of data, or to disconnect)."
+T1562.501,Bid down UE,FGM5097,Set security profile to prohibit bidding down to less secure service.
+FGT5021,Tunnel ID uniqueness failure,FGM5094,Ensure UPF and gNB/NG-eNB check for uniqueness for every new TEID they allocate locally. The newly assigned TEID must not have been in use in the past given certain amount of time (which should be set to the reasonable maximum tunnel lifetimes observed).
+FGT5021,Tunnel ID uniqueness failure,M1035,Limit Access to Resource Over Network
+FGT5021,Tunnel ID uniqueness failure,M1047,"The UPF and g/eNB must keep a log of the TEIDs currently in use (which they assigned), and purge TEIDs once the tunnel is torn down. This log must be checked every time a new TEID is allocated."
+FGT5006.002,DNS Encapsulation,FGM1557,Use strong data integrity protection algorithms
+T1014,Unauthorized software in NFVI,M1046,Boot integrity
+T1014,Unauthorized software in NFVI,M1045,Code Signing
+T1014,Unauthorized software in NFVI,M1051,Update Software
+T1014,Unauthorized software in NFVI,M1018,User Account Management
+T1014,Unauthorized software in NFVI,M1047,System audits can reveal anomalous behavior that may be caused by rootkits.
+T1499.503,DOS a UE via gNB or NF signaling,M1030,Implement industry standard core and edge network function security protection
+T1499.503,DOS a UE via gNB or NF signaling,FGM1506,Periodically authenticate NFs in the network to assess whether they have been compromised
+T1199.501,MNO Roaming Partners,M1030,Minimize exposure of functions to only those partner functions that need to access.
+T1199.501,MNO Roaming Partners,M1018,Management of credentials used by partners to be scoped to the least privilege can minimize potential abuse.  Does not mitigate misuse within allowed privileges.
+T1199.501,MNO Roaming Partners,M1037,"Ensure communication with functions such as a SEPP is constrained to necessary addresses, ports, and protocols."
+T1199.501,MNO Roaming Partners,M1054,Validation of credentials properly can mitigate some MITM attacks and ensure revoked/expired credentials are not allowed.
+T1439,Lawful Intercept Abuse,M1035,"Limit access to resource over network. Limit the Point of Interception to only UPF, UDM, AMD and SMF"
+T1439,Lawful Intercept Abuse,M1047,"Monitor MDF activity, monitor configuration changes (Default and active)"
+T1439,Lawful Intercept Abuse,M1022,Limit file and permission changes
+T1557.503,Non-SBI,FGM1557,Use integrity (IPSec) on all non-SBI interfaces
+T1557.503,Non-SBI,M1041,Use encryption (IPSec) on all non-SBI interfaces
+FGT5018.002,Radio access hardware,FGM5005,"Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against vandalism."
+FGT5020,Retrieve UE subscription data,FGM5033,"Standard 5G enterprise/core network security functionality
+E.g. Zero trust principles for OA&M."
+FGT5012.003,5G-GUTI reuse,FGM5094,Ensure AMF implementation allocates new 5G-GUTI every time possible.
+FGT5018.003,Edge Servers,FGM5005,"Edge sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters. Failure to do so may lead to unauthorized access, destruction of assets and impairment of operations."
+T1048.003,DNS Queries,M1037,Filter public network lookups to limit exfiltration destinations. Potential use of protective DNS services.
+FGT5018.001,Cabling and junction boxes, FGM5005,"Compliance with cable standards.
+Raceway / conduit is one of the easiest ways to protect any cable, fiber optic included. These hollow pieces of plastic act like a protective outer shell."
+FGT5018.001,Cabling and junction boxes,FGM5005,"Implement physical and environmental controls.
+Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters"
+FGT5018.001,Cabling and junction boxes,FGM5540,"Power supply facilities in the isolated area such as mobile base stations should preferably provide an uninterruptible power supply with capacity for all loading and capable of withstanding primary power supply failures for the duration of likely outages. If that is impossible, a mechanism to provide uninterruptible power to critical equipment should be installed. Batteries may need to be augmented with a private electric generator, especially in isolated areas."
+FGT5027,Spoof network slice identifier,FGM5003,The attack can be mitigated if the NRF performs additional checks. The NRF authorizes the NF service consumer to obtain tokens only for authorized slice(s). (3GPP SA3 investigating as of early 2022). A cross check with the TLS certificate of requester should be performed as well at the NRF.
+FGT5027,Spoof network slice identifier,M1020,Inspect TLS layer encryption
+T1611,VM and Container Breakout,M1048,"Consider utilizing seccomp, seccomp-bpf, or a similar solution that restricts certain system calls such as mount. In Kubernetes environments, consider defining a Pod Security Policy that limits container access to host process namespaces, the host network, and the host file system"
+T1611,VM and Container Breakout,M1038,"Use read-only containers, read-only file systems, and minimal images when possible, to prevent the running of commands."
+T1611,VM and Container Breakout,M1026,"Rootless containers: Ensure containers are not running as root by default. In Kubernetes environments, consider defining a Pod Security Policy that prevents pods from running privileged containers."
+FGT5010,Fraudulent AMF registration for UE in UDM,FGM5013,"Implement security as per clause 6.1.9 of 3GPP TS 29.503, namely OAuth2.0"
+FGT5010,Fraudulent AMF registration for UE in UDM,FGM5014,"Cross check whether the requesting AMF is likely to be the one serving that UE now. Validate the expected geography of where UE actually may be, in comparison to the area that the requester AMF is supposed to serve."
+FGT5010,Fraudulent AMF registration for UE in UDM,FGM1506,"Periodic authentication / authorization of NF consumer e.g. AMF by NRF will help detect rogue AMFs. 
+Not currently in 3GPP/GSMA (TBC) specs, but it can be enhanced. It’s process management (OA&M)"
+FGT5001,Network-side SMS collection,M1049,Check telecom servers for malware or use endpoint security solution. Implement the latest patches in Linux systems and use strong anti-virus software to detect malware.
 FGT5016,Abuse of Inter-operator Interfaces,M1041,Block or limit cipher choices used for JWS. Use of weak JWS ciphers could allow unauthorized disclosure
-FGT5016,Abuse of Inter-operator Interfaces,M1054,Block unauthorized IE modifications by IPX .Allow only communication where authorized IpxId is not NULL
-FGT5016,Abuse of Inter-operator Interfaces,M1056,Avoid using PRINS and use direct SEPP-SEPP  with HTTP/s.  Use of the SEPP to SEPP solution instead of allowing an IPX to potentially observe and manipulate information avoids the problem. A future SEPP hub solution may also mitigate this risk by providing a more scalable SEPP to SEPP solution..
-T1190.501,Application or System Exploitation,M1050,Use of a Web Application Firewall may only allow properly formatted service communication.
-T1190.501,Application or System Exploitation,M1048,
-T1190.501,Application or System Exploitation,FGM5010,Redeploy SEPP regularly to prevent dwell time aka use use non-persistence
-T1190.501,Application or System Exploitation,M1051,Aggressive patching may reduce window of vulnerability if a known vulnerability
-FGT5006.001,Layer 2 Proxy,Authenticate encryption for the user data plane.,"This mitigation prevents the ALTER attacks. There are several different means for preventing attacks, but the most"
-T1557.505,Service Based Interface,FGM1557,"TLS certificate thorough checking. Ensure that all certificates received over a connection are valid for the current server endpoint, and abort the handshake if they are not. In some usages, it may be simplest to refuse any change of certificates during renegotiation"
-FGT5030,Network-side SMS collection,M1049,Check telecom servers for malware or use endpoint security solution. Implement the latest patches in Linux systems and use strong anti-virus software to detect malware.
+FGT5016,Abuse of Inter-operator Interfaces,M1054,Block unauthorized IE modifications by IPX. Allow only communication where authorized IpxId is not NULL
+FGT5016,Abuse of Inter-operator Interfaces,M1056,Avoid using PRINS and use direct SEPP-SEPP with HTTP/s.  Use of the SEPP to SEPP solution instead of allowing an IPX to potentially observe and manipulate information avoids the problem. A future SEPP hub solution may also mitigate this risk by providing a more scalable SEPP to SEPP solution.
+T1078.004,Container Management- Unbounded admin access,M1032,"Use multi-factor authentication for cloud and virtualization OSS accounts used for VNF deployments, especially privileged accounts."
+T1078.004,Container Management- Unbounded admin access,M1027,"Ensure that cloud accounts, particularly privileged accounts, have complex, unique passwords across all systems on the network. Passwords and access keys should be rotated regularly. This limits the amount of time credentials can be used to access resources if a credential is compromised without your knowledge. Rotate access keys regularly."
+T1078.004,Container Management- Unbounded admin access,M1026,Review privileged cloud account permission levels routinely to look for those that could allow an adversary to gain wide access.  Unbound administrative access to accounts should be be discouraged when creating account policies.
+T1078.004,Container Management- Unbounded admin access,M1018,Periodically review user accounts and remove those that are inactive or unnecessary. Limit the ability for user accounts to create additional accounts.
+T1078.004,Container Management- Unbounded admin access,M1017,Applications may send push notifications to verify a login as a form of multi-factor authentication (MFA). Train users to only accept valid push notifications and to report suspicious push notifications.
+T1599.502,Network Slice infrastructure  resource hijacking,M1026,Least Privilege Access Control Policy - Access control policies should be granular to allow for optimal access to service requirements.
+T1599.502,Network Slice infrastructure  resource hijacking,M1035,"Resource Policy enforcement -Create and enforce resource policy; policy can include SLA, quotas, QOS etc."
+T1599.502,Network Slice infrastructure  resource hijacking,M1030,"Security and Trust zones -Security and trust zones can help isolate resources and can be mapped to business needs.
+Micro and Nano segmentation- Implementing segmentation policy at granular level, network and compute resources can prevent some co-residency threats when mapped to SLAs, Users, and Resource policies.
+
+Physical separation- Hardware, network, and point of presence can be separated to provide additional isolation."
+T1599.502,Network Slice infrastructure  resource hijacking,FGM5505,"Hardware Mediated Execution Environment -Employ secure, hardware- based execution integrity as part of host/server design"
+T1599.502,Network Slice infrastructure  resource hijacking,M1041,Encryption can be used to protect data at rest and in transit
+T1599.502,Network Slice infrastructure  resource hijacking,FGM5506,"Use of Network Slice Templates -Use of templates for network slicing can enforce baseline security and isolation requirements.  These templates can be created for networks, compute and 5G slice functions deployments."
+FGT5004.002,vSwitch,M1022,"Restricted Permissions to add application images to SDN vSwitch for person and non-person accounts.
+
+Restricted permissions for person and non-person accounts to prevent flow rule insertion or modification directly on the vSwitch"
+FGT5004.002,vSwitch,FGM5091,Mutual authentication between SDN controller and vSwitch can prevent unauthorized access
+FGT5004.002,vSwitch,FGM1557,Strong integrity protection method should be employed on APIs carrying control plane traffic between Controller and network element as well as controller and vSwitch to avoid adversary in the middle threats
+FGT5004.002,vSwitch,M1041,Strong encryption should be used on APIs carrying control plane traffic between Controller and network element as well as controller and vSwitch to avoid adversary in the middle threats
+FGT5004.002,vSwitch,FGM5090,Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity is reported. Similarly flow rules change log should be reviewed and reconciled with authorized changes.
+FGT5004.002,vSwitch,M1053,SDN vSwitch configurations should be backed up and periodically audited to see differences between running configuration and back up configurations
+FGT5004.002,vSwitch,M1054,Keep baseline configuration up to date to avoid loopholes due to stale configuration or configuration drift.
+FGT5004.002,vSwitch,M1030,Physical and logical segmentation can prevent lateral movements. Segmentation techniques in the hosts and network will reduce the chances of lateral movement to the control.
+FGT5008,Redirection of traffic via user plane network function,M1040,Monitor internal API calls between NFs for suspicious activities
+FGT5008,Redirection of traffic via user plane network function,M1047,Audit insecure NF configurations
+FGT5008,Redirection of traffic via user plane network function,FGM5019,Authorize all API calls by external AFs to NEF
 FGT5012.001,Passive radio signals observation,FGM5099,Move UE closer to base station and/or reduce height of UE above terrain and/or move indoors or into multipath environment.
 FGT5012.001,Passive radio signals observation,FGM5098,Reduce usage. Use UE only when needed. Turn UE off if not needed for period of time.
-T1040.501,Network function Service Based Interface,M1020,Encrypt using TLS all links between NFs and between NF and SCP
-FGT5006,DNS Manipulation,Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token).,This attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)
-FGT5006,DNS Manipulation,Authenticate encryption for the user data plane.,"This mitigation prevents the ALTER attacks. There are several different means for preventing attacks, but the most"
-FGT5002,Bypass home routing,Correctly configure SS7 firewall in home network, .
-FGT5011,Unauthorized access to NEF via token fraud,"M1040
-FGM5003","Ensure NEF checks AF credentials across layers (TLS, OAuth2.0), and has a list (provided out of band) with all the allowed AF by unique identifier (or type of AF), and to which service they are allowed access (this access may be general, not per UE)."
-FGT5034,Charging fraud via NF control,Periodic authentication / authorization of NF consumer e.g. SMF/PCF/CHF/NEF/AF by NRF will help detect rogue NFs.,"Not currently in 3GPP specs, but it can be enhanced."
-FGT5034,Charging fraud via NF control,Rigorous checks of unique mapping of charging ID to PDU session,Management system (OSS/BSS) can generate alert for possible intervention
-T1565,Non-SBI,FGM1557,"Use integrity (IPSec ) on all N2, N3, Xn and N9 interfaces"
-FGT5005,Memory Scrapping,SDN Access Rights,Restricted Permissions to add software to SDN Controller and Network Elements for person and non-person accounts
-FGT5005,Memory Scrapping,Log analysis,"Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity (file transfer, patch installs, process init) is reported."
-FGT5005,Memory Scrapping,Run time Software scans,SDN controllers and network elements scanned for file changes and processes.
-FGT5018.004,Theft of physical assets,Implement physical and environmental controls,"Shared/Remote sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters. Failure to do so may lead to unauthorized access, destruction of assets and impairment of operations."
+T1040,Network Elements,M1041,"Non-SBI: Use encryption (IPSec) on these interfaces. Sections 9.2, 9.3, 9.4, 9.8, 9.9 of [2], and for N26 interfaces, see 4.3.1. of [3].
+
+SBI: Encrypt using TLS all links between NFs and between NF and SCP if one is deployed. TLS must use certificates for both client and server, and the certificate must include the SBA node type and must be checked against what the expectation is for that other party. The TLS profile should adhere to those in TS 33.210 [9]. IPSec can be optionally used to protect TLS traffic further at a lower layer. Section 13.1.0 of [2] and also [8], [9].
+
+Roaming: For SEPP, see sections 4.2.3.3, 4.3., 4.4. of [4], and sections 13.1 and 13.2 of [2]."
+T1040,Network Elements,M1054,Ensure for MNO services that serve roaming partners that the minimum acceptable configuration is adequate and complies with [2] TS 33.501 clause 13.2.4.9.
+T1040,Network Elements,M1040,Monitor to ensure configurations do not change from acceptable options
+T1040,Network Elements,FGM5033,Use zero trust for NF protection
+T1040,Network Elements,M1020,Encrypt using TLS all links between NFs and between NF and SCP
+FGT5029,Exploit Semi-public Facing Application,M1050,Use of a Web Application Firewall may only allow properly formatted service communication.
+FGT5029,Exploit Semi-public Facing Application,FGM5010,Redeploy SEPP regularly to prevent dwell time aka use non-persistence
+FGT5029,Exploit Semi-public Facing Application,M1051,Aggressive patching may reduce window of vulnerability if a known vulnerability
+FGT5006,DNS Manipulation,FGM1557,Use strong data integrity protection algorithms
+FGT5002,Bypass home routing,FGM5004,Correctly configure SS7 firewall in home network https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html .
+FGT5011,Unauthorized access to NEF via token fraud,M1040,Prevent suspicious API calls
+FGT5011,Unauthorized access to NEF via token fraud,FGM5003,"Ensure NEF checks AF credentials across layers (TLS, OAuth2.0), and has a list (provided out of band) with all the allowed AF by unique identifier (or type of AF), and to which service they are allowed access (this access may be general, not per UE)."
+FGT5011,Unauthorized access to NEF via token fraud,FGM5019,"NEF should authorize API calls from external AFs for all service accesses, via OAuth token verification."
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),M1026,Least Privilege Access Control Policy - Access control policies should be granular to allow for optimal access to service requirements.
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),M1035,"Resource Policy enforcement -Create and enforce resource policy; policy can include SLA, quotas, QOS etc."
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),M1030,"Security and Trust zones -Security and trust zones can help isolate resources and can be mapped to business needs.
+Micro and Nano segmentation- Implementing segmentation policy at granular level, network and compute resources can prevent some co-residency threats when mapped to SLAs, Users, and Resource policies.
+
+Physical separation- Hardware, network, and point of presence can be separated to provide additional isolation."
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),FGM5505,"Hardware Mediated Execution Environment -Employ secure, hardware- based execution integrity as part of host/server design"
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),M1041,Encryption can be used to protect data at rest and in transit
+T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),FGM5506,"Use of Network Slice Templates -Use of templates for network slicing can enforce baseline security and isolation requirements.  These templates can be created for networks, compute and 5G slice functions deployments."
+T1600.502,Network interfaces,M1041,"Ensure strong encryption is used in all non-SBI, SBI and roaming/interconnect interfaces. That is, TLS should be used in all SBI, N32-c and N32-f and PRINS in N32-f when TLS is not used."
+T1600.502,Network interfaces,M1018,Network element security safeguards for gNB and all core NFs
+T1600.502,Network interfaces,M1051,Network element security safeguards for gNB and all core NFs
+T1600.502,Network interfaces,M1046,Network element security safeguards for gNB and all core NFs
+T1600.502,Network interfaces,M1031,Implement network intrusion prevention methods
+T1600.502,Network interfaces,M1043,Implement credential access protection methods
+T1599.503,Network Slice Application Resource Hijacking,M1026,Least Privilege Access Control Policy - Access control policies should be granular to allow for optimal access to service requirements.
+T1599.503,Network Slice Application Resource Hijacking,M1035,"Resource Policy enforcement -Create and enforce resource policy; policy can include SLA, quotas, QOS etc."
+T1599.503,Network Slice Application Resource Hijacking,M1030,"Security and Trust zones -Security and trust zones can help isolate resources and can be mapped to business needs.
+Micro and Nano segmentation- Implementing segmentation policy at granular level, network and compute resources can prevent some co-residency threats when mapped to SLAs, Users, and Resource policies.
+
+Physical separation- Hardware, network, and point of presence can be separated to provide additional isolation."
+T1599.503,Network Slice Application Resource Hijacking,FGM5505,"Hardware Mediated Execution Environment -Employ secure, hardware- based execution integrity as part of host/server design (M1041)."
+T1599.503,Network Slice Application Resource Hijacking,M1041,Encryption can be used to protect data at rest and in transit
+T1599.503,Network Slice Application Resource Hijacking,FGM5506,"Use of Network Slice Templates -Use of templates for network slicing can enforce baseline security and isolation requirements.  These templates can be created for networks, compute and 5G slice functions deployments."
+FGT5005,Memory Scrapping,M1033,Restricted Permissions to add software to SDN Controller and Network Elements for person and non-person accounts
+FGT5005,Memory Scrapping,FGM5090,"Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity (file transfer, patch installs, process init) is reported."
+FGT5005,Memory Scrapping,M1047,SDN controllers and network elements scanned for file changes and processes.
+T1021,VNF Access Services,M1032,Use multi-factor authentication on remote service logons where possible.
+T1021,VNF Access Services,M1018,"Limit the accounts that may use remote services. Limit the permissions for accounts that are at higher risk of compromise; for example, configure SSH so users can only run specific programs."
+T1040.501,Radio Interface,FGM5006,Set security profile to prohibit bidding down to less secure service.
+T1040.501,Radio Interface,M1041,Avoid systems that employ null encryption. De-register when only NULL encryption is offered.
 T1195.501,SIM credential theft,M1017,"Personnel security: Train personnel in SIM card OEMs to be wary of social engineering and other attempts of unauthorized parties to gain access to any relevant resource, and to report suspicious activities"
 T1195.501,SIM credential theft,M1030,"Physical and cyber security of IT systems, servers."
-T1195.501,SIM credential theft,FGM1195,"Secure SIM data by strong encryption
-Protect the files where data is stored by encryption and integrity protection
-Securely transfer those files between SIM vendor and MNO by physical or digital transmission
-[2]"
-T1195.501,SIM credential theft,M1022,
-T1195.501,SIM credential theft,M1041,
-T1195.501,SIM credential theft,FGM1557,
-T1018,Core-network scanning,Network tools (?),
-T1557.502,Interception via Visited SEPP,M1037,Ensure only traffic from expected sources can reach the SEPP
-T1557.502,Interception via Visited SEPP,M1035,Minimize access to VSEPP from limited locations such as a privileged access workstation
-T1557.502,Interception via Visited SEPP,M1030,Limit network exposure of VSEPP from other core services
-FGT5007,Registration of malicious network functions,FGM5003,Cross check newly registered NFs. Out of band mechanism for cross checking new NFs that are registered in NRF are as expected by network administrator.
+T1195.501,SIM credential theft,M1022,Restrict access to files exchanged between SIM vendor and MNO
+T1195.501,SIM credential theft,M1041,Protect the files where SIM data is stored by encryption
+T1195.501,SIM credential theft,FGM1557,Protect the files where SIM data is stored by integrity protection
+T1018,Core-network scanning,M1042,Ensure that unnecessary ports and services are closed to prevent risk of discovery and potential exploitation.
+T1018,Core-network scanning,M1031,Use network intrusion detection/prevention systems to detect and prevent remote service scans.
+T1018,Core-network scanning,M1030,Ensure proper network segmentation is followed to protect critical servers and devices.
+FGT5017,Call Detail Record (CDR) collection,FGM5101,Isolate CDR databases from the rest of the IT systems/NOC resources
+FGT5017,Call Detail Record (CDR) collection,M1043,CDR database admin users periodically re-checked
+FGT5007,Registration of malicious network functions,FGM1506,Cross check newly registered NFs. Out of band mechanism for cross checking new NFs that are registered in NRF are as expected by network administrator.
 FGT5007,Registration of malicious network functions,M1018,User account access
 FGT5007,Registration of malicious network functions,M1030,Network segmentation
-FGT5012.005,Shared network function in slice,FGM5012,Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token). This attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)
-FGT5001,Exploitation of Interconnect Edge Application Programming Interfaces,"Sophisticated, dynamic access control controls on the SEPP, N3IWF, TNGF, W-AGF, TWIF","These NFs must have appropriate API permissions, authentication and input validation applied"
-FGT5001,Exploitation of Interconnect Edge Application Programming Interfaces,"SEPP, N3IWF, TNGF, W-AGF, TWIF shall use input validation",The NF applications should be written with security in mind
-T1592.501,Internal resource search,Control access to IR.21 files in GSMA.,Host/application hosting this file should guard against such leak.
-FGT5006.002,Billing Evasion,Cross check requested IMSI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token).,This attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)
-FGT5006.002,Billing Evasion,Authenticate encryption for the user data plane.,"This mitigation prevents the ALTER attacks. There are several different means for preventing attacks, but the most"
-T1557.506,Air Interface,Restrictive user security profile.,Set security profile to prohibit bidding down to less secure service.
-FGT5018,Vandalism of network infrastructure,"Employ proper physical security of:
-Communication centers","Communication centers should provide a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters."
-FGT5018,Vandalism of network infrastructure,,"Telecommunications equipment room 
-Telecom equipment rooms should provide a risk-calibrated set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters."
-T1557.501,Bid down UE,"UE should discard RRC redirection that's not integrity protected, and go search for other gNBs;","UE should only accept to register to networks that require mutual auth and strong encryption, also integrity protection of user plane."
-T1557.501,Bid down UE,Warn user of lower security network,
-FGT5004,Network Flow Manipulation,SDN Access Rights,Restricted Permissions to add images to SDN Controller and Network Elements for person and non-person accounts
-FGT5004,Network Flow Manipulation,Log analysis,Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity is reported.
-FGT5004,Network Flow Manipulation,Configuration back ups,All SDN Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations
-T1525,Compromised image,Repository Acces Rights,Restricted Permissions to add images to repositories for person and non-person accounts
-T1525,Compromised image,Image Singing,Manual or automated image creation and storage must include image hash
-T1525,Compromised image,Log analysis,Logs from tools and repository must be corelated to ensure unauthorize activity is reported.
-T1525,Compromised image,Deployment tools verify image hash,"In addition to image name, deployment tools must use hash and verify image during deployment"
-FGT5019.001,Intercept Home Network via SUCI,Proxy home network,Employ proxy mobile network operators.
+FGT5012.005,Shared network function in slice,FGM5012,"Cross check requested SUPI is served by (belongs to) the slice ID (NSSAI) of the consumer NF (and presented in the authorization Token). That is, this attack could be mitigated if the shared network function (NF service producer) checks the SUPI in a service request and the requesting NF service consumer are being served by the same slice. (3GPP SA3 is investigating if 3GPP specifications allow for such check)"
+FGT5006.001,Layer 2 Redirection of Encrypted DNS,FGM1557,Use strong data integrity protection algorithms
+FGT5006.001,Layer 2 Redirection of Encrypted DNS,M1020,Break and inspect SSL/TLS sessions to look at encrypted web traffic for adversary activity.
+FGT5009.001,Radio Interface,FGM1557,Ensure gNB implementation and SMF implementations are both checking the UE CP and UP security policy against the most trustworthy source and taking action to not enable NULL integrity except for emergency calls
+FGT5009.001,Radio Interface,FGM5006,UE should refuse to set up a PDU connection without integrity
+FGT5009.001,Radio Interface,M1018,"Network element security safeguards for gNBs, AMFs and SMFs. Includes measures in section 5.3.4 of [2] (e.g. software updates, OA&M access security, secure boot)"
+FGT5009.001,Radio Interface,M1031,Implement network intrusion prevention methods
+FGT5009.001,Radio Interface,M1043,Implement credential access protection methods
+T1592.501,Internal resource search,FGM5500,Control access to IR.21 files in GSMA. Host/application hosting this file should guard against such leak.
+FGT5004.001,Controller,M1022,"Restricted Permissions to add application images to SDN Controller for person and non-person accounts.
+
+Restricted permissions for person and non-person accounts to prevent flow rule insertion or modification"
+FGT5004.001,Controller,FGM5091,"Mutual authentication between SDN controller and network elements, SDN controller and SDN application can prevent unauthorized access"
+FGT5004.001,Controller,FGM1557,Strong integrity protection method should be employed on APIs carrying control plane traffic between Controller and network element as well as controller and SDN application to avoid adversary in the middle threats
+FGT5004.001,Controller,M1041,Strong encryption should be used on APIs carrying control plane traffic between Controller and network element as well as controller and SDN application to avoid adversary in the middle threats
+FGT5004.001,Controller,FGM5090,Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity is reported. Similarly flow rules change log should be reviewed and reconciled with authorized changes.
+FGT5004.001,Controller,M1053,SDN controller configurations should be backed up and periodically audited to see differences between running configuration and back up configurations
+FGT5004.001,Controller,M1054,Keep baseline configuration up to date to avoid loopholes due to stale configuration or configuration drift.
+FGT5004.001,Controller,M1030,Physical and logical segmentation can prevent lateral movements. Segmentation techniques in the hosts and network will reduce the chances of lateral movement to the control.
+FGT5006.003,DNS Poisoning,FGM1557,Use strong data integrity protection algorithms
+T1072,5G Orchestration and Deployment Tools,M1018,"User Account Management, limited and least privileged user accounts"
+T1072,5G Orchestration and Deployment Tools,M1051,Update Software regularly to eliminate persistence
+T1072,5G Orchestration and Deployment Tools,M1029,"Remote Data Storage, restrict access and monitor repository activity"
+T1072,5G Orchestration and Deployment Tools,,"Privileged Account Management, unique, least privileged accounts and regularly audit access attempts audits"
+T1072,5G Orchestration and Deployment Tools,M1027,"Password Policies, no credential sharing, create traceability"
+T1072,5G Orchestration and Deployment Tools,M1030,"Network Segmentation allows limit movements, insert application aware firewalls between segments"
+T1072,5G Orchestration and Deployment Tools,M1032,Multi-factor Authentication adds additional layer of security for compromised credentials as well as increased accountability
+T1588,IMSI Catcher,M1056,This technique cannot be easily mitigated with preventive controls since it is based on behaviors performed outside of the scope of .
+FGT5018,Vandalism of network infrastructure,FGM5005,"Communications Centers.
+Communication centers should provide a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters."
+FGT5014,Shared resource discovery,M1047,"Scan images before deployment, and block those that are not in compliance with security policies. In Kubernetes environments, the admission controller can be used to validate images after a container deployment request is authenticated but before the container is deployed."
+FGT5014,Shared resource discovery,M1035,"Limit communications with the container service to local Unix sockets or remote access via SSH. Require secure port access to communicate with the APIs over TLS by disabling unauthenticated access to the Docker API, Kubernetes API Server, and container orchestration web applications."
+FGT5014,Shared resource discovery,M1030,"Deny direct remote access to internal systems through the use of network proxies, gateways, and firewalls.  Segment execution environment with node and network."
+FGT5014,Shared resource discovery,M1018,Enforce the principle of least privilege by limiting container dashboard access to only the necessary users.
+FGT5004,Network Flow Manipulation,M1022,"Restricted Permissions to add images to SDN Controller and Network Elements for person and non-person accounts.
+
+Restrict permissions for person and non-person accounts to prevent flow rule insertion or modification"
+FGT5004,Network Flow Manipulation,FGM5091,Mutual authentication between the SDN controller and network elements.  The SDN controller and SDN application can be used to prevent unauthorized access
+FGT5004,Network Flow Manipulation,FGM1557,Strong integrity protection method should be employed on APIs carrying control plane traffic between Controller and network element as well as controller and SDN application to avoid adversary in the middle threats
+FGT5004,Network Flow Manipulation,M1041,Strong encryption should be used on APIs carrying control plane traffic between Controller and network element as well as controller and SDN application to avoid adversary in the middle threats
+FGT5004,Network Flow Manipulation,FGM5090,"Logs from SDN Controller and network elements must be corelated to ensure unauthorize activity is reported. Similarly, flow rules change log should be reviewed and reconciled with authorized changes."
+FGT5004,Network Flow Manipulation,M1053,All SDN Configurations should be backed up and periodically audited to see differences between running configuration and back up configurations
+FGT5004,Network Flow Manipulation,M1054,Keep baseline configurations up to date to avoid loopholes due to stale configuration or configuration drift.
+FGT5004,Network Flow Manipulation,M1030,Physical and logical segmentation can prevent lateral movements.
+T1525,Compromised image,M1043,Restricted Permissions to add images to repositories for person and non-person accounts
+T1525,Compromised image,M1049,Manual or automated image creation and storage must include image hash
+T1525,Compromised image,FGM5090,Logs from tools and repository must be corelated to ensure unauthorized activity is reported.
+T1525,Compromised image,FGM5089,"In addition to image name, deployment tools must use hash and verify image during deployment"
+T1525,Compromised image,FGM5088,Development and production repositories should be separated to avoid access and image slipovers. Production repositories should be access controlled for accounts responsible for deployments and operations accounts only.
+T1525,Compromised image,M1035,Access to repositories should be restricted to known networks from where any authorized actions need be executed.
+FGT5019.001,Intercept Home Network via SUCI,FGM1505,"When the subscriber affiliation is reflected in the home network identifier (part of subscriber identifier), and would benefit from not being sent in the clear, the subscriber's provider (home network) should be a proxy mobile network operator - whose identifier does not reveal the true affiliation of the subscriber."

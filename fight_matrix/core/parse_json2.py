@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+
+NOTICE
+This software was produced for the U. S. Government under Basic Contract No. W56KGU-18-D-0004, and
+is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software 
+Documentation Clause 252.227-7014 (FEB 2012). Copyright (c) 2022 The MITRE Corporation.
+
+This copyright notice must not be removed from this software, 
+absent MITRE's express written permission.
+
+"""
 import re
 import json
 from .Technique2 import Technique, TechniqueSet

@@ -1288,7 +1288,7 @@ tactics:
   name: Reconnaissance
   object-type: tactic
 - description: "The adversary is trying to establish resources they can use to support\
-    \ operations.\r\n[View Here at MITRE ATT&CK](https://attack.mitre.org/tactics/TA0043/) "
+    \ operations.\r\n[View Here at MITRE ATT&CK](https://attack.mitre.org/tactics/TA0042/) "
   id: TA0042
   name: Resource Development
   object-type: tactic
@@ -1351,7 +1351,8 @@ tactics:
   id: TA0040
   name: Impact
   object-type: tactic
-- description: Obtain service without contractually paying for it
+- description: The adversary is trying to obtain service without contractually paying
+    for it
   id: TA5001
   name: Fraud
   object-type: tactic
@@ -1427,7 +1428,7 @@ techniques:
     name: Update Software
   name: Rootkit
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - '[ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April
     26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)'
@@ -1526,7 +1527,7 @@ techniques:
   mitigations: []
   name: Traffic Duplication
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - '[3GPP TR 33.848 Security Impacts of Virtualization,
 
@@ -1591,7 +1592,7 @@ techniques:
     name: Multi-factor Authentication
   name: Remote Services
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - "[Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service for Network\
     \ Function \u201C, Retrieved April 28 2022](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
@@ -1897,7 +1898,7 @@ techniques:
     name: Filter Network Traffic
   name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: "Operator environment must permit DNS queries either directly or\
       \ recursively for domains the operator doesn\u2019t directly control."
@@ -1981,7 +1982,7 @@ techniques:
     name: Update Software
   name: Software Deployment Tools
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: "\_has used RAdmin, a remote software tool used to remotely control\
       \ workstations and ATMs"
@@ -2047,7 +2048,7 @@ techniques:
     name: Password Policies
   name: Local Accounts
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - "[ENISA \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
     , Jan. 2016, Table 1, and 2](https://www.enisa.europa.eu/publications/sdn-threat-landscape)"
@@ -2166,7 +2167,7 @@ techniques:
     name: Multi-factor Authentication
   name: Cloud Accounts
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: Peirates is a post-exploitation Kubernetes exploitation framework
       with a focus on gathering service account tokens for lateral movement and privilege
@@ -2222,7 +2223,7 @@ techniques:
     name: Exploit Protection
   name: Exploit Public-Facing Application
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Adversary may need to identify vulnerabilities in the API to obtain
       initial-access, unauthorized information, or perform a denial of service
@@ -2328,7 +2329,7 @@ techniques:
     name: Update Software
   name: Supply Chain Compromise
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - "[ETSI NFV SEC001, \u201CNetwork Functions Virtualization (NFV); NFV Security;\
     \ Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
@@ -2461,7 +2462,7 @@ techniques:
     name: Audit
   name: Eavesdrop on Insecure Network Communication
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
     \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
@@ -2799,7 +2800,7 @@ techniques:
     name: Antivirus/Antimalware
   name: Implant Internal Image
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: A compromised image deployed in the production can lead to variety
       of adversarial activities depending on what capabilities were added/deleted
@@ -3084,7 +3085,7 @@ techniques:
     name: Credential Access Protection
   name: Network Boundary Bridging
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: If network boundaries are breached, monitoring system may detect
       unusual network flow
@@ -3279,7 +3280,7 @@ techniques:
     name: Correctly configure SS7 firewall
   name: Bypass home routing
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Access to a host that could pass as belonging to a different operator
       (roaming partner)
@@ -3463,7 +3464,7 @@ techniques:
     name: Software Configuration
   name: Network Flow Manipulation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Network flow compromise can lead to DOS, or change the traffic pattern
       and paths.  Adversary may change the path for network sniffing or for MiTM activity.
@@ -3563,7 +3564,7 @@ techniques:
     name: Software Configuration
   name: 'Controller '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Network flow compromise can lead to DOS, or change the traffic pattern
       and paths.  Adversary may change the path for network sniffing or for MiTM activity.
@@ -3667,7 +3668,7 @@ techniques:
     name: Software Configuration
   name: vSwitch
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Network flow compromise can lead to DOS, or change the traffic pattern
       and paths.  Adversary may change the path for network sniffing or for MiTM activity.
@@ -3738,7 +3739,7 @@ techniques:
     name: Audit
   name: Memory Scraping
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Privileged Access to SDN controller and Network elements to transfer
       and install malware to the target host.
@@ -3792,7 +3793,7 @@ techniques:
     name: Integrity protection of data communication
   name: DNS Manipulation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: The end user does not have the capability to validate whether it
       is communicating with a malicious DNS or a valid one.
@@ -3846,7 +3847,7 @@ techniques:
     name: SSL/TLS Inspection
   name: Layer 2 Redirection of Encrypted DNS
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Adversary has redirected the end user to their own DNS system and
       can now conduct adversary-in-the-middle attacks.
@@ -3975,7 +3976,7 @@ techniques:
     name: Network Segmentation
   name: Registration of malicious network functions
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: 'Rogue NF calls Nnrf_NFManagement API to register one of these functions:
       AMF, SMF, UDM, AUSF, NEF, PCF, SMSF, NSSF, UPF, etc. Clause 5.2.7 of [3]'
@@ -4105,7 +4106,7 @@ techniques:
     name: Audit
   name: Weaken Integrity
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Subscriber data session does not get setup (DoS attack) or gets interrupted,
       spoofed or redirected during an active session.
@@ -4454,7 +4455,7 @@ techniques:
     name: UE location plausibility
   name: Fraudulent AMF registration for UE in UDM
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: A rogue AMF could mount other attacks on the victim UE, but the UE
       is not currently registered on the network
@@ -4621,7 +4622,7 @@ techniques:
     name: Move UE close to gNB
   name: Passive radio signals observation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Geolocation can make electronic attack for degradation of service
       more effective, bidding down to defeat ID and traffic confidentiality more effective,
@@ -4683,7 +4684,7 @@ techniques:
     name: Encrypt Sensitive Information
   name: Self Location Measurement
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Geolocation can make electronic attack for degradation of service
       more effective, bidding down to defeat ID and traffic confidentiality more effective,
@@ -4800,7 +4801,7 @@ techniques:
     name: Filter Network Traffic
   name: Core Network Function Signaling
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Adversary may pretend to be an operator supporting only older generations
     Name: Access to SS7 network
@@ -5047,7 +5048,7 @@ techniques:
     name: Audit
   name: Malicious VNF Instantiation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: "Peirates can deploy a pod that mounts its node\u2019s root file\
       \ system, then execute a command to create a reverse shell on the node"
@@ -5177,7 +5178,7 @@ techniques:
     name: Secure subscriber repositories
   name: Device Database Manipulation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: 'Reference [1], DC-003, calls for the MNOs to employ an EIR. The
       rest of the attack is theoretical: an adversary may modify some of the entries
@@ -5305,7 +5306,7 @@ techniques:
     name: Credential Access Protection
   name: 'Call Detail Record (CDR) collection '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Exposure of subscriber sensitive information such as call/data/text.
     Name: Leakage of subscriber data
@@ -5363,7 +5364,7 @@ techniques:
     name: Physical and environmental protection
   name: Vandalism of Network Infrastructure
   object-type: technique
-  platforms: NONE
+  platforms: Physical
   postconditions:
   - Description: Destruction or damage of these assets may cause an unavailability
       of resources.
@@ -5772,7 +5773,7 @@ techniques:
     name: Proxy home network
   name: Intercept Home Network via SUCI
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: When home network is unusual (e.g., US home network in Afghanistan),
       allows attacker to identify UE as target of interest for geolocation, degradation
@@ -5886,7 +5887,7 @@ techniques:
     name: Authorize external API calls
   name: Obtain subscriber identifier via NF
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: If SUPI is obtained, many other subsequent attacks are possible such
       as subscriber identity spoofing and location tracking.
@@ -6107,7 +6108,7 @@ techniques:
     name: Secure subscriber repositories
   name: Alter Subscriber Profile
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: 'AMF/SMF can use Nudm_UECM_Update to modify UE context in the UDM.
       AMF or SMF can change some parameters in the UE context (which is like a subscriber
@@ -6168,7 +6169,7 @@ techniques:
     name: Allocate new 5G identifiers judiciously
   name: Charging fraud via NF control
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: "An adversary may control the SMF and assign the same SMF Charging\
       \ Identifier to a device data flow as that of an existing victim device, to\
@@ -6260,7 +6261,7 @@ techniques:
     name: Behavior Prevention on Endpoint
   name: SIM boxing
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Adversary purchases a SIM box, SIM cards, and obtains an Internet
       connection
@@ -6322,7 +6323,7 @@ techniques:
     name: Increase control of home network for user plane
   name: Falsify interconnect invoice
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: Signaling fraud may be undertaken by a partner operator, via false
       charging over international signaling interconnection. In [1] section 5.3. Reference
@@ -6492,7 +6493,7 @@ techniques:
     name: Rate limiting by producer NF
   name: 'Discover network slice identifier '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Now the adversary knows the SD of a given slice it is not authorized
       to contact.
@@ -6645,7 +6646,7 @@ techniques:
   mitigations: []
   name: gNodeB Component Manipulation
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   status: This is a theoretical behavior
   tactics:
   - TA0002
@@ -6907,7 +6908,7 @@ techniques:
 
     '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: 'Allegedly: the UK agency GHCQ planted malware on Gemalto servers
       to obtain SIM credentials. The number of keys obtained were in the order of
@@ -6950,7 +6951,7 @@ techniques:
   mitigations: []
   name: Compromise Service Supply Chain
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - '[3GPP TS 23.501, sec 4.2.4, 5.13,]( https://www.3gpp.org/DynaReport/23501.htm)'
   - '[3GPP TS 23.558](https://www.3gpp.org/DynaReport/23558.htm)'
@@ -7027,7 +7028,7 @@ techniques:
     name: Software Configuration
   name: MNO Roaming Partners
   object-type: technique
-  platforms: NONE
+  platforms: SEPP
   preconditions:
   - Description: An adversary must already have compromised a trusted VPLMN or one
       of their service providers, e.g. IPX, VAS, etc.
@@ -7173,7 +7174,7 @@ techniques:
     name: Network Segmentation
   name: Shared slice common control network function resource exhaustion
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - '[ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.3, Accessed
     6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)'
@@ -7257,7 +7258,7 @@ techniques:
     name: SUCI freshness parameter
   name: Trigger fraud alert to deny service
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Denial of service continues until service provider is convinced there
       is no fraud.
@@ -7313,7 +7314,7 @@ techniques:
     name: Network Segmentation
   name: ' DOS a UE via gNB or NF signaling'
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   preconditions:
   - Description: Adversary needs access to a fake or compromised gNB or a compromised
       NF.
@@ -7465,7 +7466,7 @@ techniques:
 
     '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - '[ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April
     26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)'
@@ -7520,7 +7521,7 @@ techniques:
     name: Privileged Account Management
   name: Hardware Security Module Key Signing
   object-type: technique
-  platforms: 5G
+  platforms: HSM
   postconditions:
   - Description: Adversary would have the ability to perform signing and cryptographic
       operations that would permit the adversary to masquerade as a legitimate authorized
@@ -7577,7 +7578,7 @@ techniques:
   mitigations: []
   name: Radio interface
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Transient technique. Works only as long as adversary-in-the-middle
       is able to retain connection.
@@ -7727,7 +7728,7 @@ techniques:
     name: Encrypt Sensitive Information
   name: 'Non-SBI '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: Both UE signaling and normal data communication with network will
       be impacted.
@@ -8107,7 +8108,7 @@ techniques:
 
     '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: A legitimate tenant 1 uses the Os-ma-nfvo interface to read the NS
       information of another tenant 2 sharing the NFVO. The tenant 1 may get sensitive
@@ -8213,7 +8214,7 @@ techniques:
 
     '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: If a service provider uses network slicing and creates two slice
       subnets by creating network service instances on the same NFV environment (i.e.
@@ -8313,7 +8314,7 @@ techniques:
 
     '
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   references:
   - "[Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service for Network\
     \ Function, accessed April 28, 2021](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
@@ -8376,7 +8377,7 @@ techniques:
     name: Data Backup
   name: Manipulate Virtual Network Function (VNF) Configuration
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: VNF compromise can lead to DOS or change in the traffic pattern and
       paths.
@@ -8462,7 +8463,7 @@ techniques:
     name: Update Software
   name: Radio Interface
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: 'Control Plane: All UE signaling data may be revealed if both NAS
       and AS CP (RRC) algorithms are weakened.
@@ -8605,7 +8606,7 @@ techniques:
     name: Update Software
   name: Network Interfaces
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   postconditions:
   - Description: "Control Plane: All UE signaling data may be revealed if IPSec and\
       \ TLS are disabled.\n\nUser Plane: Subscriber (user plane) data may be revealed\
@@ -8761,7 +8762,7 @@ techniques:
     name: Execution Prevention
   name: Accessing Terminated VNF
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: Peirates can use kubectl or the Kubernetes API to run commands.
     Name: S0683
@@ -8838,7 +8839,7 @@ techniques:
     name: Audit
   name: Malicious privileged container VNF Shared Resource Access
   object-type: technique
-  platforms: NONE
+  platforms: 5G
   procedureexamples:
   - Description: "Peirates can deploy a pod that mounts its node\u2019s root file\
       \ system, then execute a command to create a reverse shell on the node"

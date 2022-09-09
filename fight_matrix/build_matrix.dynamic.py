@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+"""
+
+NOTICE
+This software was produced for the U. S. Government under Basic Contract No. W56KGU-18-D-0004, and
+is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software 
+Documentation Clause 252.227-7014 (FEB 2012). Copyright (c) 2022 The MITRE Corporation.
+
+This copyright notice must not be removed from this software, 
+absent MITRE's express written permission.
+
+"""
 import pprint
 import core.parse_json2 as parse_json2
 import traceback
@@ -12,7 +23,7 @@ from word_importer import get_drafts, dump_tables
 import logging
 
 pp = pprint.PrettyPrinter(indent=4)
-only_whitespace_re = re.compile("^\w+$")
+only_whitespace_re = re.compile("^\s+$")
 
 tactics_ordered = [
     "reconnaissance",
@@ -44,7 +55,7 @@ tactics_dict = [
               "id": "TA0042",
               "name": "Resource Development",
               "myname": "resource-development",
-              "description": "The adversary is trying to establish resources they can use to support operations.\r\n[View Here at MITRE ATT&CK](https://attack.mitre.org/tactics/TA0043/) ",
+              "description": "The adversary is trying to establish resources they can use to support operations.\r\n[View Here at MITRE ATT&CK](https://attack.mitre.org/tactics/TA0042/) ",
               "object-type": "tactic"
           },
           {
@@ -135,7 +146,7 @@ tactics_dict = [
               "id": "TA5001",
               "name": "Fraud",
               "myname": "fraud",
-              "description": "Obtain service without contractually paying for it",
+              "description": "The adversary is trying to obtain service without contractually paying for it",
               "object-type": "tactic"
           }
 ]
@@ -647,7 +658,7 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
         if architectures:
             all_archsegs_str = ", ".join(architectures)
             if only_whitespace_re.match(all_platforms_str) or not all_archsegs_str:
-                all_platforms_str = "NONE"
+                all_platforms_str = "5G"
         else:
             all_archsegs_str = "5G"
         print(f"{tid} architectures: {all_archsegs_str}")

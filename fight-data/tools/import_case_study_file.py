@@ -1,3 +1,17 @@
+"""
+NOTICE
+This software was produced for the U. S. Government under Basic Contract No. W56KGU-18-D-0004, and
+is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software 
+Documentation Clause 252.227-7014 (FEB 2012). Copyright (c) 2022 The MITRE Corporation.
+
+FiGHT Object Core is a MITRE funded and developed Python library for importing
+data from STIX, CSV, and Word to produce FiGHT data, including STIX Bundles and YAML
+for website support.
+
+This copyright notice must not be removed from this software, 
+absent MITRE's express written permission.
+"""
+
 from argparse import ArgumentParser
 from functools import partial
 from pathlib import Path

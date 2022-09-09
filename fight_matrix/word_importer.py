@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 """
-Copyright (c) 2022 The MITRE Corporation. ALL RIGHTS RESERVED.
 
-FiGHT Object Core is a MITRE funded and developed Python library for data 
-conversions to and from ATTACK Json.
+NOTICE
+This software was produced for the U. S. Government under Basic Contract No. W56KGU-18-D-0004, and
+is subject to the Rights in Noncommercial Computer Software and Noncommercial Computer Software 
+Documentation Clause 252.227-7014 (FEB 2012). Copyright (c) 2022 The MITRE Corporation.
 
 This copyright notice must not be removed from this software, 
 absent MITRE's express written permission.
-"""
 
+"""
 from os import listdir
 from os.path import isfile, join
 import sys
