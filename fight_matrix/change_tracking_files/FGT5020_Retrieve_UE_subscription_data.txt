@@ -5,7 +5,7 @@ Architecture Segment:
 Procedure Examples
 ----------------------------------------
 AMF retrieves subscription data from UDM.: An AMF can extract subscription data (including NSSAIs) for any given UE SUPI by asking the UDM (uses Nudm_SDM_Get service  (SDM=SubscriberDataManagement)). The UDM does not check that that AMF is the one serving the UE, i.e. the AMF does not need to register itself first as serving the UE, via the Nudm_UECM_Registration Request. Table 5.2.3.1-1 of [1]
-AMF in visited PLMN retrieves UE information during 5GS to EPC roaming.: A rogue AMF in visited PLMN can retrieve the UE’s sensitive information during 5GS to EPC roaming.. AMF calls Nsmf_PDUSession_ContextRequest API to v/hSMF. SMF sends the UE SM context in response which can reveal the following UE information: SUPI, S-NSSAI, DNN, UE IP address etc. Section 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1]
+AMF in visited PLMN retrieves UE information during 5GS to EPC roaming.: A rogue AMF in visited PLMN can retrieve the UE’s sensitive information during 5GS to EPC roaming. AMF calls Nsmf_PDUSession_ContextRequest API to v/hSMF. SMF sends the UE SM context in response which can reveal the following UE information: SUPI, S-NSSAI, DNN, UE IP address etc. Clause 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1]
 SMF retrieves subscription data from UDM: The SMF can send to UDM a Nudm-sdm message and retrieve “Session mgmt subscription data”, i.e. DNN configuration for all network slices.
 UDM can look up any UE (in UDR if one is employed).: The UDM can legitimately get UE subscription data from UDR.
 SMSF retrieves UE subscription data from UDM: The SMSF can get the UE subscription data via Nudm_sdm API.
@@ -18,7 +18,7 @@ E.g. Zero trust principles for OA&M.
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------
-SUPI or GPSI: Adversary must know the value of the SUPI or GPSI identifiers for the UE
+SUPI or GPSI: Adversary must know the SUPI or GPSI of victim UE
 ----------------------------------------
 Critical Assets
 ----------------------------------------

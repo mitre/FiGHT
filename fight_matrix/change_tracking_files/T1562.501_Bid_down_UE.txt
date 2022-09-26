@@ -9,7 +9,7 @@ RRCRelease message sent without integrity (so UE can’t check), has the instruc
 ----------------------------------------
 Mitigations
 ----------------------------------------
-FGM5002: UE should discard RRC redirection that is  not integrity protected, and go search for other gNBs. UE should only accept to register to networks that require mutual auth and strong encryption, also integrity protection of user plane.
+FGM5002: UE should discard RRC redirection that is not integrity protected, and go search for other gNBs. UE should only accept to register to networks that require mutual auth and strong encryption, also integrity protection of user plane.
 [reference](https://www.scribd.com/document/350156530/forcing-targeted-lte-cellphone-into-unsafe-network)
 FGM5092: UE warns user of lower security network (and the user can take action to limit data or type of data, or to disconnect).
 FGM5097: Set security profile to prohibit bidding down to less secure service.

@@ -110,7 +110,7 @@ FGT5004,Network Flow Manipulation,DS0015,Periodically audit SDN and Network elem
 FGT5004,Network Flow Manipulation,DS0029,Periodically audit network flow tables to detect unauthorized changes to flow data
 FGT5007,Registration of malicious network functions,DS0015,Detections for T1610. Monitor application logs of core NFs.
 FGT5007,Registration of malicious network functions,DS0032,Detections for T1610--Deploy Container. Applicable only in the case that the NF is deployed as a container.
-T1608.501,Configurability of Fake Base Station or Access Point,FGDS5012,"UE measurements of received power levels from all base stations nearby, and their identifiers. Reference clause 6.24 of [2]"
+T1608.501,Configurability of Fake Base Station or Access Point,FGDS5012,"UE measurements of received power levels from all base stations nearby, and their identifiers. Refer clause 6.24 of [2]."
 FGT5009.001,Radio Interface,DS0029,"Radio traffic content
 Inspect radio traffic and watch for unauthorized changes as the packets move through the interfaces."
 FGT5009.001,Radio Interface,DS0015,"Check configuration changes in gNB, SMF, AMF. Configuration audits by OSS/BSS"
@@ -127,7 +127,7 @@ FGT5019.003,Obtain subscriber identifier by NF,DS0015,Logging of AF inquiries fo
 FGT5018.003,Edge Servers,FGDS5012,"Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed. Additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider-level monitoring mechanisms."
 FGT5019.002,Intercept Bid-Down IMSI,FGDS5010,UE transitions to less secure service
 FGT5021,Tunnel ID uniqueness failure,DS0029,"Packet inspection over the N3 interface. If two packets are seen to have the same TEID on the RAN to UPF interface, then it can be verified that they indeed belong to the same UE. It may be difficult to detect as it is per UE and per PDU session."
-FGT5021,Tunnel ID uniqueness failure,FGDS5003,Charging system reports anomaly of subscriber CDRs. Periodic CDR audits can detect anomaly
+FGT5021,Tunnel ID uniqueness failure,FGDS5003,Charging system reports anomaly of subscriber CDRs. Periodic CDR audits can detect anomaly.
 T1021,VNF Access Services,DS0017,Audit command logs
 T1021,VNF Access Services,DS0028,"5G NFs have defined interfaces, any other session establishment activity may be unauthorized.  Monitor traffic patterns and session sources along with blocked/denied activity."
 T1021,VNF Access Services,DS0029,Monitor network traffic for expected and unexpected attempted and established connections
@@ -153,12 +153,12 @@ T1599.502,Network Slice infrastructure  resource hijacking,DS0013,Monitor system
 T1599.502,Network Slice infrastructure  resource hijacking,DS0029,Monitor network flows
 FGT5005,Memory Scrapping,DS0015,Analyze logs to detect unauthorized activity
 FGT5005,Memory Scrapping,DS0029,All inbound and outbound connections should be audited for unauthorized activity
-T1583.501,Fake Cellular Base Station or Access Point,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers. Reference [2], section 6.24"
+T1583.501,Fake Cellular Base Station or Access Point,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers. Clause 6.24 of [2]"
 T1562.501,Bid down UE,FGDS5013,"At the UE side, the UE can tell that there is a 5G cell site that it can hear, but if it eventually gets connected to a 4G cell site, then it may have suffered a bidding down attack"
-FGT5002,Bypass home routing,DS0015,"Logs of externally received messages requesting location of user or, logs of outgoing responses to such messages can detect anomalies. Logs are on the NF or functions which interface SMS home router such as MAP IWF or SMSC. [Figure 27 of [3]."
+FGT5002,Bypass home routing,DS0015,"Logs of externally received messages requesting location of user or, logs of outgoing responses to such messages can detect anomalies. Logs are on the NF or functions which interface SMS home router such as MAP IWF or SMSC. See figure 27 of [3]."
 T1557.501,Radio Interface,FGDS5012,"UE measurements of received power levels from all base stations nearby, and their identifiers Reference clause 6.24 of [3]"
 T1592.501,Internal resource search,FGDS5009,Access to IR.21 file should be logged.
-T1592.501,Internal resource search,FGDS5008,Leaking this information in the Internet is obvious
+T1592.501,Internal resource search,FGDS5008,Leaking this information on the Internet is obvious
 FGT5012.002,Self Location Measurement,FGDS5010,Subscriber transitions to less secure service.
 FGT5028,Discover network slice identifier,DS0015,"Logs at the NRF of failed NSSAI lookups. If a NF asks for NSSAIs that do not exist, then flag that or take action"
 FGT5023,Charging fraud via NF control,FGDS5003,Management system (OSS/BSS) checks uniqueness of charging ID for all new PDU sessions in non-roaming scenario and existing PDU sessions in handover and roaming scenario

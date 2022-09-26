@@ -3,7 +3,7 @@ FGT5018.002,Radio access hardware,Information destruction,Destruction or damage 
 FGT5006.002,DNS Encapsulation,Billing Fraud,Attacker will be able to route traffic through DNS channels to use the network free of charge.
 FGT5006.002,DNS Encapsulation,Command and Control Network,Attacker can route command and control traffic through DNS to control botnets or other entities.
 FGT5006.002,DNS Encapsulation,Exfiltration Route,Attacker has a route to exfiltrate stolen data disguised as DNS packets.
-T1018,Core-network scanning,"Identifier of some network nodes is known and thus can be spoofed, DOSed, etc.","Adversary now knows identifiers of some network nodes, and so these nodes can now be spoofed or targeted for Denial of Service."
+T1018,Core-network scanning,Identifier of some network nodes is known,"Adversary now knows identifiers of some network nodes, and so these nodes can now be spoofed or targeted for Denial of Service."
 T1499.501,Consume data allocation to deny or degrade service,Sustained degraded communication until additional data is purchased.,Sustained degraded communication until additional data is purchased.
 FGT5004.001,Controller,Network flow compromise,"Network flow compromise can lead to DOS, or change the traffic pattern and paths.  Adversary may change the path for network sniffing or for MiTM activity."
 T1046,Core-network scanning,Identifier of some network nodes revealed,"Adversary now knows identifiers of some network nodes, and so these nodes can now be spoofed or targeted for Denial of Service."
@@ -45,7 +45,7 @@ FGT5018.003,Edge Servers,Service unavailability,"Destruction of assets, unauthor
 FGT5018.003,Edge Servers,Information destruction,Destruction or damage of these assets may cause information destruction
 FGT5019.002,Intercept Bid-Down IMSI,Target association,"Allows an adversary to identify UE as target of interest for geolocation, degradation of service, loss of traffic confidentiality, or physical attack."
 FGT5021,Tunnel ID uniqueness failure,UE data disruption,UE user plane data gets disrupted
-FGT5021,Tunnel ID uniqueness failure,Incorrect charging,Incorrect subscribers' charging
+FGT5021,Tunnel ID uniqueness failure,Incorrect charging,Incorrect subscribers' charging records are generated
 T1599,Network Boundary Bridging,Unusual network traffic flows,"If network boundaries are breached, monitoring system may detect unusual network flow"
 T1599,Network Boundary Bridging,Network mapping activity,Adversary may attempt to discover networks and live hosts on the networks
 T1599,Network Boundary Bridging,Connection attempts from unusual hosts,Adversary may attempt connect to hosts in the target network after profiling hosts and network mapping.

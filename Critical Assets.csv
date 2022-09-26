@@ -5,8 +5,8 @@ FGT5006.002,DNS Encapsulation,DNS Servers,"Whoever controls the DNS Servers cont
 FGT5025,Falsify interconnect invoice,Operator revenue,Operator loses revenue
 T1020.001,Network traffic duplication,Virtual elements,"Virtual switch, Virtual Router, Virtual Firewalls, Virtual Load Balancers, SDN Controllers"
 FGT5020,Retrieve UE subscription data,UDM and subscriber/UE data,"Subscriber data can be permanent (not updateable) or updateable (like the current serving PLMN, AMF etc)"
-T1499.503,DOS a UE via gNB or NF signaling,Network services,Communications is denied
-T1018,Core-network scanning,MNO core network component data.,"Data (IPaddress,  ports) relating to network nodes"
+T1499.503,DOS a UE via gNB or NF signaling,Network services,Communications is denied to legitimate UEs
+T1018,Core-network scanning,MNO core network component data.,"Data (IP address or FQDN,  ports) relating to network nodes"
 T1040,Network Elements,UE data on roaming signaling interface,"Sensitive User signaling such as authentication data, user location for the N32 interface"
 T1040,Network Elements,UE data on roaming user plane interface,User data for the N9 interface
 T1040,Network Elements,"UP, CP Data","Signaling data, provisioning data, service discovery"
@@ -28,7 +28,7 @@ T1557.502,Roaming and Interconnection,SEPP function,Adversary would target the S
 FGT5016,Abuse of Inter-operator Interfaces,SEPP,Adversaries may need to compromise a vSEPP to perform certain activities to ensure they look legitimate.
 FGT5016,Abuse of Inter-operator Interfaces,NFs in the vPLMN,Adversaries may need to compromise a vPLMN NF to perform certain activities to ensure they look legitimate
 FGT5016,Abuse of Inter-operator Interfaces,IPX signing keys,Adversary will need to compromise keys used to sign IE modifications at IPX
-T1046,Core-network scanning,MNO core network component data.,"Data (IPaddress,  ports) relating to network nodes"
+T1046,Core-network scanning,MNO core network component data.,"Data (IP address or FQDN,  ports) relating to network nodes"
 T1609.501,Accessing Terminated VNF,Container and Container engines,Container and container engine may expose privileged information to adversary directly from process  or thru container engine.
 T1609.501,Accessing Terminated VNF,Container Management Controller system,In Container management architecture ( Kubernetes for example) adversary may use Kublet commands or API proxy to gain access to information and control of the container.
 T1072,5G Orchestration and Deployment Tools,CI/CD Tools,Software development and deployment tools in MNO (and supplier) environments
@@ -43,12 +43,12 @@ FGT5004.002,vSwitch,"SDN vSwitch, operations, and security tools","Adversary may
 FGT5004.002,vSwitch,SDN vSwitch Configuration file,Adversary may target configuration to manipulate vSwitch and network behavior
 FGT5004.002,vSwitch,SDN vSwitch flow table,"Network flows are stored in Network Flow tables, usually refer to as route or switch tables that vSwitch uses to decide which packet forwarding port to use for incoming packets"
 FGT5012.004,Core network function signaling,Operator network components,"NEF, AMF, SMF, UPF, NWDAF, GMLC, LMF"
-FGT5012.004,Core network function signaling,UE location,UE/User geographical location
+FGT5012.004,Core network function signaling,UE location,UE/Subscriber geographical location
 T1611,VM and Container Breakout,"VNF, CNF",Any capabilities deployed as VNF or CNF
 T1611,VM and Container Breakout,"VM, Contianer host","Host OS, VM host server becomes a bridging device between tenant VMs and Containers if compromised"
 T1611,VM and Container Breakout,Credentials,"In addition to application data exposure, credential exposure is usually a key target for adversary to open the doors for many other exploits."
-T1557.503,Non-SBI,UE data,UE data integrity and confidentiality
-T1557.503,Non-SBI,UE signaling,UE signaling integrity and confidentiality
+T1557.503,Non-SBI,UE user plane data,UE user plane data integrity and confidentiality
+T1557.503,Non-SBI,UE signaling data,UE signaling data integrity and confidentiality
 FGT5024,SIM boxing,Operator revenue,Revenue loss from international calls appearing as if they are domestic (often subsidized)
 FGT5024,SIM boxing,"Operator resources for SMS, voice calls’ quality of service is impacted","A lot of calls are redirected to under provisioned cells, causing bad quality calls for legitimate subscribers"
 T1078.004,Container Management- Unbounded admin access,Containerized network functions,RAN and Core CNFs
@@ -62,12 +62,12 @@ T1499,Interworking Denial of Service,SEPP,Security Edge Protection Proxy functio
 T1499,Interworking Denial of Service,UPF,User Plane Function which provides roaming interface for user plane traffic to roaming partner (MNO) networks
 T1499,Interworking Denial of Service,AMF,Access and Mobility Function which provides roaming interface for signaling traffic to 4G networks via N26 interface
 T1195.501,SIM credential theft,Privacy of subscriber data and voice traffic,Adversary is after getting the keys to decrypt cellular communications for those sets of SIMs whose credentials it captured.
-T1048,Control plane signaling exfiltration,User signaling data,
-T1048,Control plane signaling exfiltration,Operator resource identifiers,
+T1048,Control plane signaling exfiltration,Subscriber signaling data,Sensitive information in subscriber signaling data
+T1048,Control plane signaling exfiltration,Operator resource identifiers,"Core NF identifiers (e.g. IP address, FQDN) such as AMF, SMF, UDM etc."
 FGT5022,Alter Subscriber Profile,UE call/data records,UE voice and data records accuracy
 FGT5022,Alter Subscriber Profile,UE static profile,The UE static profile data
 FGT5012.001,Passive radio signals observation,UE location,UE/subscriber geographical location
-T1557.504,Service Based Interface,"5G Core network services, control plane (provisioning) data, service discovery.",There are many procedures that can be impacted if an adversary gets in the middle of a TLS connection between two functions on the SBI.
+T1557.504,Service Based Interface,"5G Core network services, control plane (provisioning) data, service discovery.",There are many procedures that can be impacted if an adversary gets in the middle of a TLS connection between two network functions on the SBI.
 T1555.501,Hardware Security Module Key Signing,HSM,"A physical computing device that safeguards and manages digital key material, performs operations such as encryption and decryption, signature generation."
 FGT5009.002,Network Interfaces,UE data,Any of the subscriber data sourced or destined to the UE
 FGT5009.002,Network Interfaces,UE signaling,Any of the signaling traffic between UE and network
@@ -124,13 +124,13 @@ T1599.503,Network Slice Application Resource Hijacking,Slice Control and User Pl
 T1599.503,Network Slice Application Resource Hijacking,"VNF application data, VNF sensitive parameters,",
 FGT5019.003,Obtain subscriber identifier by NF,UE permanent identity (SUPI),"If SUPI is stolen, many other subsequent attacks are possible such as subscriber identity spoofing and location tracking."
 FGT5010,Fraudulent AMF registration for UE in UDM,UDM functionality,Functionality of this core network function
-FGT5010,Fraudulent AMF registration for UE in UDM,UE data,Data (user or control) belonging to the UE
+FGT5010,Fraudulent AMF registration for UE in UDM,UE data,Data (user plane or signaling) belonging to the UE
 FGT5010,Fraudulent AMF registration for UE in UDM,UE location,Physical geo-location (course or fine) of the UE
 FGT5019.001,Intercept Home Network via SUCI,UE privacy,Home network is broadcast unconcealed over the air per standard. No attack on assets is necessary.
 FGT5018.003,Edge Servers,Edge facility equipment,"Destruction of edge computing facilities, unauthorized access at system level as an entry point to all hosted resources, theft of data on local storage, vandalism and/or sabotage of equipment."
 FGT5019.002,Intercept Bid-Down IMSI,UE identifier,Unique and non-transient user identity
-FGT5021,Tunnel ID uniqueness failure,UE billing data,UE’s billing data of legitimate UE
-FGT5021,Tunnel ID uniqueness failure,UE data,UE’s reception of its data is disrupted.
+FGT5021,Tunnel ID uniqueness failure,UE billing data,Billing data of legitimate UE
+FGT5021,Tunnel ID uniqueness failure,UE data interruption,UE’s reception of its data is disrupted.
 T1021,VNF Access Services,Network functions,5G or RAN Network functions including VNF and PNFs
 T1021,VNF Access Services,"Hosts, VMs, or Infrastructure elements",Virtualized 5G environment relies on underlying compute and SDN network elements which may be of interest to adversary
 T1599,Network Boundary Bridging,Devices enforcing segmentation controls,"Devices enforcing network segmentation and creating perimeter for applications may include firewalls, SDN controllers, or Proxies."
@@ -175,9 +175,9 @@ FGT5032.001,Radio Intelligent Controller (RIC),ORAN RIC,RIC and Configuration an
 T1592.501,Internal resource search,"Mobile network topology, interconnects.","Information on the IP addresses of the mobile network, along with those of the interconnect/roaming nodes."
 T1592.501,Internal resource search,IP addresses of core NFs,Hostnames and IP addresses of core network functions like subscriber databases and functions involved in roaming exchanges (e.g. Access and Mobility Function (AMF)).
 FGT5012.002,Self Location Measurement,UE location,UE/Subscriber geographical location
-T1437,Control plane signaling disguise for C2,Operator resource identifiers and signaling,IP addresses and TLS connections of operator NFs are used for nefarious purposes
+T1437,Control plane signaling disguise for C2,Operator resource identifiers and signaling,IP addresses. FQDNs and TLS connections of core NFs are used for nefarious purposes
 FGT5028,Discover network slice identifier,Slice-specific resources,Confidentiality of slice specific resources
-FGT5028,Discover network slice identifier,AMF and UDM,AMF and UDM have NSSAI information.  AMF requests and UDM responds.
+FGT5028,Discover network slice identifier,AMF and UDM,AMF and UDM have NSSAI information. AMF requests and UDM responds.
 FGT5023,Charging fraud via NF control,UE call/data records accuracy,Communications is denied
 FGT5027,Spoof network slice identifier,Confidentiality of slice-specific resources,UE (served by that slice) related information. Slice specific configuration – e.g. what NFs are part of it and SLAs of the slice.
 FGT5027,Spoof network slice identifier,Core NFs,"The functionality of any core NF that is shared between slices (AMF, SMF, PCF,.. )"

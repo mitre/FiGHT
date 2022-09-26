@@ -4,7 +4,7 @@ Architecture Segment:
 ----------------------------------------
 Procedure Examples
 ----------------------------------------
-IR.21 accessible from the Internet: Claro Americas, and Vivo telecom, had their IR.21 database accessible from an internet in 2016 (References [2], [3] no longer accessible).
+IR.21 accessible from the Internet: Claro Americas, and Vivo telecom, had their IR.21 database accessible from an internet in 2016 (no reference available)
 ----------------------------------------
 Mitigations
 ----------------------------------------
@@ -22,7 +22,7 @@ IP addresses of core NFs: Hostnames and IP addresses of core network functions l
 Detection
 ----------------------------------------
 FGDS5009: Access to IR.21 file should be logged.
-FGDS5008: Leaking this information in the Internet is obvious
+FGDS5008: Leaking this information on the Internet is obvious
 ----------------------------------------
 Post-Conditions
 ----------------------------------------
@@ -31,5 +31,3 @@ Discovered IP addresses: IP addresses of core network functions known
 References
 ----------------------------------------
 S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020: https://arxiv.org/abs/2005.05110v1 
-Claro Americas IR.21 Data, Accessed 30-June-2016: http://www.claro.com.br/sites/files/contratos/arquivos/orpa_roam_claro_001-2015_-_anexo_4-apend_a-roaming_nacional_-_ir_21_0.pdf   
-Vivo Brazil IR.21 Data, Accessed 30-June-2016.: https://www.vivo.com.br/portalweb/ShowPropertyServlet?nodeId=/UCMRepository/CONTRIB_093689  

@@ -15,8 +15,8 @@ Pre-Conditions
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-User signaling data: 
-Operator resource identifiers: 
+Subscriber signaling data: Sensitive information in subscriber signaling data
+Operator resource identifiers: Core NF identifiers (e.g. IP address, FQDN) such as AMF, SMF, UDM etc.
 ----------------------------------------
 Detection
 ----------------------------------------
@@ -27,4 +27,4 @@ Post-Conditions
 ----------------------------------------
 References
 ----------------------------------------
-R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021: https://arxiv.org/abs/2108.11206 
+R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021: https://arxiv.org/abs/2108.11206 

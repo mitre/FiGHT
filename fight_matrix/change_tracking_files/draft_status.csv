@@ -11,7 +11,7 @@ T1040,Network_Elements,Y,Y,N,Y,Y,N,Y
 T1195,Supply_Chain_Compromise,N,Y,N,Y,Y,N,Y
 FGT5032,gNodeB_Component_Manipulation,N,N,N,Y,N,N,N
 T1499.501,Consume_data_allocation_to_deny_or_degrade_service,Y,Y,Y,Y,Y,Y,Y
-T1583.502,Programmable_UE_devices,Y,N,N,N,N,N,Y
+T1583.502,Programmable_UE_devices,Y,Y,N,N,N,N,Y
 FGT5004.001,Controller,N,Y,Y,Y,Y,Y,Y
 T1439,Lawful_Intercept_Abuse,N,Y,N,Y,Y,N,Y
 T1048.003,DNS_Queries,N,Y,Y,Y,Y,N,Y

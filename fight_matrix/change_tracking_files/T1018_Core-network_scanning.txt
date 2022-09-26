@@ -18,7 +18,7 @@ Access to scanning tool: Adversaries need access to such tools
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-MNO core network component data.: Data (IPaddress,  ports) relating to network nodes
+MNO core network component data.: Data (IP address or FQDN,  ports) relating to network nodes
 ----------------------------------------
 Detection
 ----------------------------------------
@@ -26,7 +26,7 @@ DS0029: SIEM tools using network firewalls. Detect port scanners
 ----------------------------------------
 Post-Conditions
 ----------------------------------------
-Identifier of some network nodes is known and thus can be spoofed, DOSed, etc.: Adversary now knows identifiers of some network nodes, and so these nodes can now be spoofed or targeted for Denial of Service.
+Identifier of some network nodes is known: Adversary now knows identifiers of some network nodes, and so these nodes can now be spoofed or targeted for Denial of Service.
 ----------------------------------------
 References
 ----------------------------------------

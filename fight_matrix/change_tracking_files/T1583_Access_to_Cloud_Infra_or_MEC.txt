@@ -9,9 +9,9 @@ Locate cloud resources of target: [2] is a university research showing how an at
 Mitigations
 ----------------------------------------
 M1030: Network isolation. Deployment architecture should consider physical and virtual isolation from other tenants
-M1041: Any traffic going from a security zone to another security zone must be protected with encryption.  Key based user and resource authentication and authorization
+M1041: Any traffic going from a security zone to another security zone must be protected with encryption. Key based user and resource authentication and authorization should be used
 FGM5504: Cloud compute, cloud storage and any serverless activity should be isolated from other tenants
-FGM5505: Hardware mediated  execution environment
+FGM5505: Hardware mediated execution environment
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------

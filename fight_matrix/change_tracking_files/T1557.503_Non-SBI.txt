@@ -14,12 +14,12 @@ M1041: Use encryption (IPSec) on all non-SBI interfaces
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------
-Compromised or misconfigured switches/routers: Malware or wrong configuration in switches/routers between RAN and core and between gNBs
+Compromised or misconfigured switches/routers or gNB: Malware or wrong configuration in switches/routers between RAN and core, between gNBs and in gNB itself.
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-UE data: UE data integrity and confidentiality
-UE signaling: UE signaling integrity and confidentiality
+UE user plane data: UE user plane data integrity and confidentiality
+UE signaling data: UE signaling data integrity and confidentiality
 ----------------------------------------
 Detection
 ----------------------------------------

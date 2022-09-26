@@ -14,7 +14,7 @@ M1022: Restrict access to subscriber repository, which would allow SIM card chan
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------
-Access to SIM card: Adversary needs physical access to SIM card.
+Access to SIM card: Adversary needs physical access to SIM card during manufacturing of SIMs or during transport to MNOs.
 ----------------------------------------
 Critical Assets
 ----------------------------------------

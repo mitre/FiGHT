@@ -577,7 +577,6 @@ mitigations:
   object-type: mitigation
   techniques:
   - FGT5018
-  - FGT5018.001
   - FGT5018.002
   - FGT5018.003
   - FGT5018.004
@@ -1444,14 +1443,14 @@ techniques:
     \ such as point codes (like IP addresses for SS7 protocols, point to point) and\
     \ Global Titles. Examples are GTScan, SigPloit, SCTPScan and GTPScan. \r\n\r\n\
     Note: This is scanning for 3G, 4G and 5G core components address info (part of\
-    \ 5G non-standalone deployments).  This is scanning for open ports to determine\
+    \ 5G non-standalone deployments). This is scanning for open ports to determine\
     \ protocol use without compromising the host/NF.\r\n\r\n"
   architecture-segment: OA&M
   bluf: Adversaries may attempt to get a listing of other systems by IP address, hostname,
     or other logical identifier on a network that may be used for Lateral Movement
     from the current system.
   criticalassets:
-  - Description: Data (IPaddress,  ports) relating to network nodes
+  - Description: Data (IP address or FQDN,  ports) relating to network nodes
     Name: MNO core network component data.
   description: "Adversaries may attempt to get a listing of other systems by IP address,\
     \ hostname, or other logical identifier on a network that may be used for Lateral\
@@ -1481,8 +1480,7 @@ techniques:
   postconditions:
   - Description: Adversary now knows identifiers of some network nodes, and so these
       nodes can now be spoofed or targeted for Denial of Service.
-    Name: Identifier of some network nodes is known and thus can be spoofed, DOSed,
-      etc.
+    Name: Identifier of some network nodes is known
   preconditions:
   - Description: Adversaries need access to such tools
     Name: Access to scanning tool
@@ -1759,13 +1757,13 @@ techniques:
     \ such as point codes (like IP addresses for SS7 protocols, point to point) and\
     \ Global Titles. Examples are GTScan, SigPloit, SCTPScan and GTPScan. \r\n\r\n\
     Note: This is scanning for 3G, 4G and 5G core components address info (part of\
-    \ 5G nonstandalone deployments).  This is scanning for open ports to determine\
+    \ 5G nonstandalone deployments). This is scanning for open ports to determine\
     \ protocol use without compromising the host/NF.\r\n\r\n"
   architecture-segment: OA&M
   bluf: Adversaries may attempt to get a listing of services running on remote hosts,
     including those that may be vulnerable to remote software exploitation.
   criticalassets:
-  - Description: Data (IPaddress,  ports) relating to network nodes
+  - Description: Data (IP address or FQDN,  ports) relating to network nodes
     Name: MNO core network component data.
   description: "Adversaries may attempt to get a listing of services running on remote\
     \ hosts, including those that may be vulnerable to remote software exploitation.\r\
@@ -1822,15 +1820,15 @@ techniques:
     \ fabric). This channel can be used by an adversary to exfiltrate data originating\
     \ at a compromised NF inside the operator network and ending up at the external\
     \ node (AF, IPX node). For example, HTTP/2 optional parameters may be used to\
-    \ communicate between a core NF and an external server via NEF or SEPP.\r\n\r\n\
-    \r\n"
+    \ communicate between a core NF and an external server via NEF or SEPP.\r\n\r\n"
   architecture-segment: Control Plane, Roaming
   bluf: Adversaries may steal data by exfiltrating it over a different protocol than
     that of the existing command and control channel.
   criticalassets:
-  - Description: ''
-    Name: User signaling data
-  - Description: ''
+  - Description: Sensitive information in subscriber signaling data
+    Name: Subscriber signaling data
+  - Description: Core NF identifiers (e.g. IP address, FQDN) such as AMF, SMF, UDM
+      etc.
     Name: Operator resource identifiers
   description: "Adversaries may steal data by exfiltrating it over a different protocol\
     \ than that of the existing command and control channel.\r\n[To read more, please\
@@ -1855,7 +1853,7 @@ techniques:
     Name: HTTP/2 optional parameters
   references:
   - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
     \ )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
@@ -2342,7 +2340,7 @@ techniques:
 - access-required: NF Service Account credentials
   addendums:
   - "#### Addendum Name: Control plane signaling disguise for C2\r\n##### Architecture\
-    \ Segments: Control Plane\r\n An adversary may use Control Plane signaling  between\
+    \ Segments: Control Plane\r\n An adversary may use Control Plane signaling between\
     \ Network Functions (NFs) of the Service Based Architecture to disguise adversary\u2019\
     s C2 communication.\r\n\r\nThe 5G NFs may implement TLS and HTTP/2 for their communications\
     \ (e.g. via Service Based Interfaces), which means the traffic will be encrypted.\
@@ -2364,8 +2362,8 @@ techniques:
     on Android and iOS respectively that would blend in with routine device traffic
     and are difficult for enterprises to inspect.'
   criticalassets:
-  - Description: IP addresses and TLS connections of operator NFs are used for nefarious
-      purposes
+  - Description: IP addresses. FQDNs and TLS connections of core NFs are used for
+      nefarious purposes
     Name: Operator resource identifiers and signaling
   description: "Adversaries may communicate using a common, standardized application\
     \ layer protocol such as HTTP, HTTPS, SMTP, or DNS to avoid detection by blending\
@@ -2382,7 +2380,8 @@ techniques:
     mitigates: "Employ TLS proxies with DPI firewalls. TLS proxy/firewall can employ\
       \ DPI to decrypt the packets and send them off to their destination, but only\
       \ after logging what the packet contains. \nThe firewalls/proxies connect to\
-      \ a SIEM whose data is being kept up to date with current threats."
+      \ a SIEM whose data is being kept up to date with current threats. Service communication\
+      \ proxy (SCP) can be also used for this purpose."
     name: TLS proxy/firewalls with DPI on the SBA
   name: Standard Application Layer Protocol
   object-type: technique
@@ -2390,15 +2389,15 @@ techniques:
   procedureexamples:
   - Description: 'The signaling AF to NEF to UDM and back from UDM to NEF to AF is
       used in several procedures ([1]). Example: NIDD (non-IP data delivery) (see
-      section 4.25 of [2]), or VN (Virtual Network) group management  (see section
-      4.15.6 of [2]).'
+      clause 4.25 of [2]), or VN (Virtual Network) group management. See clause 4.15.6
+      of [2].'
     Name: Third party app (AF) to Network Exposure Function (NEF) to Core NF used
       as a data exfiltration channel
   references:
   - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TS 23.502, \u201CProcedures for the\
+  - "[3rd Generation Partnership Project (3GPP) TS 23.502, \u201CProcedures for the\
     \ 5G System (5GS); Stage 2 (Release 17)\u201D, Technical Specification, v17.4.0,\
     \ March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
   status: This is a theoretical behavior in context of 5G systems.
@@ -2993,9 +2992,9 @@ techniques:
     \ OA&M, MEC\r\n An adversary may purchase access to cloud infrastructure or Multi-access\
     \ Edge Computing (MEC) resources that will also be hosting the operator\u2019\
     s infrastructure.\r\n\r\nMobile Network Operators are looking to commercial cloud\
-    \ and MEC providers to deploy 5G Core and RAN functions.  Similar resources may\
-    \ also be utilized to offer compute services for time latency sensitive enterprise/user\
-    \ applications.  Adversaries may attempt to target victims by creating co-residency\
+    \ and MEC providers to deploy 5G Core and RAN functions. Similar resources may\
+    \ also be utilized to offer compute services for time sensitive enterprise/user\
+    \ applications. Adversaries may attempt to target victims by creating co-residency\
     \ in cloud or MEC resources for bridging network, or lateral movements by using\
     \ software and configuration vulnerabilities. These are sometimes referred to\
     \ as colocation attacks.\r\n\r\n\r\n"
@@ -3013,7 +3012,7 @@ techniques:
       isolated from other tenants
     name: Resource Isolation in virtualization environment
   - fgmid: FGM5505
-    mitigates: Hardware mediated  execution environment
+    mitigates: Hardware mediated execution environment
     name: Hardware mediated  execution environment
   - fgmid: M1030
     mitigates: Network isolation. Deployment architecture should consider physical
@@ -3021,8 +3020,8 @@ techniques:
     name: Network Segmentation
   - fgmid: M1041
     mitigates: Any traffic going from a security zone to another security zone must
-      be protected with encryption.  Key based user and resource authentication and
-      authorization
+      be protected with encryption. Key based user and resource authentication and
+      authorization should be used
     name: Encrypt Sensitive Information
   name: Acquire Infrastructure
   object-type: technique
@@ -3258,25 +3257,25 @@ techniques:
     \ location query that will bypass the SMS home router of another operator, allowing\
     \ the adversary to get the location of the user device.\r\n\r\nSMS home routing\
     \ bypassing is a technique that exploits incorrect implementation or configuration.\
-    \  An adversary sends an SMS delivery location query that does not get intercepted\
+    \ An adversary sends an SMS delivery location query that does not get intercepted\
     \ by the SMS home router, so it receives a response by providing the location\
     \ of the adversary\u2019s target UE. \r\n \r\nThis technique is applicable to\
     \ 3G, 4G, and 5G, since 5G systems still need to interconnect with SS7 networks.\
-    \ This technique is also applicable to 5G Phase 1, which has no SMSF (SMS Function),\
-    \ so the route for SMS is still from SMSC (Short Message Service Center) to STP\
-    \ (Signaling Transfer Point)  to IP-SM-GW (IP Short Message Gateway).\r\n\r\n"
+    \ 5G supports both SMS over IP and SMS over NAS. The routes for SMS are still\
+    \ from SMSC (Short Message Service Center) to STP (Signaling Transfer Point) to\
+    \ either IP-SM-GW (IP Short Message Gateway) for SMS over IP or SMSF (SMS Function)\
+    \ for regular SMS. Refer section 7.2 of [3].\r\n\r\n"
   detections:
   - detects: Logs of externally received messages requesting location of user or,
       logs of outgoing responses to such messages can detect anomalies. Logs are on
       the NF or functions which interface SMS home router such as MAP IWF or SMSC.
-      [Figure 27 of [3].
+      See figure 27 of [3].
     fgdsid: DS0015
     name: Application Log
   id: FGT5002
   mitigations:
   - fgmid: FGM5004
-    mitigates: Correctly configure SS7 firewall in home network https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html
-      .
+    mitigates: Correctly configure SS7 firewall in home network. [4]
     name: Correctly configure SS7 firewall
   name: Bypass home routing
   object-type: technique
@@ -3296,11 +3295,13 @@ techniques:
   - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
     \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
   - "[European Union Agency for Cybersecurity (ENISA), \u201CSignaling security in\
-    \ telecom SS7/Diameter/5G\u201D,  March 2018](https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g\
+    \ telecom SS7/Diameter/5G\u201D, March 2018](https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g\
     \ )"
   - "[GSM Association, \u201COfficial Document NG.111 - SMS Evolution\u201D, v2.0,\
     \ Nov. 2020](https://www.gsma.com/newsroom/wp-content/uploads//NG.111-v2.0.pdf\
     \ )"
+  - "[Kirill Puzankov: \u201CHidden Agendas: bypassing GSMA recommendations on SS7\
+    \ networks\u201D](https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0005
@@ -4414,7 +4415,7 @@ techniques:
   criticalassets:
   - Description: Functionality of this core network function
     Name: UDM functionality
-  - Description: Data (user or control) belonging to the UE
+  - Description: Data (user plane or signaling) belonging to the UE
     Name: UE data
   - Description: Physical geo-location (course or fine) of the UE
     Name: UE location
@@ -4425,7 +4426,7 @@ techniques:
     \ and data of an UE. An adversary can exploit an incorrectly implemented UDM that\
     \ does not update the authentication status of a UE upon a de-registration event,\
     \ or the authentication status is incorrect. This flaw allows a malicious AMF\
-    \ to register itself in UDM (via Nudm_UECM_Registration Request API call).  An\
+    \ to register itself in UDM (via Nudm_UECM_Registration Request API call). An\
     \ adversary controlling an AMF can register that AMF Identifier in the UDM as\
     \ the current AMF which is serving the UE. \r\n\r\nThis technique also applies\
     \ to the SMF and SMSF (SMS Function), not just AMF, using the same API to the\
@@ -4433,10 +4434,11 @@ techniques:
     \ this procedure (a 3GPP contribution mentions \u201Cstealing data from the UDM\u201D\
     ; while \u201Cfraud\u201D is hinted at in a GSMA document, so it is imaginable\
     \ that an AMF may claim to serve the roaming UE when in fact it is not.)\r\n\r\
-    \nFor an adversary to achieve this, a UDM must be incorrectly implemented.  The\
+    \nFor an adversary to achieve this, a UDM must be incorrectly implemented. The\
     \ improperly configured UDM needs to be able to perform all of the basic functions,\
-    \ except that it does not mark a UE as de-registered when it powers off or is\
-    \ legitimately (or illegitimately) de-registered by the network.\r\n \r\n"
+    \ except that it does not mark a UE as de-registered when it powers off or goes\
+    \ to airplane mode or is legitimately (or illegitimately) de-registered by the\
+    \ network.\r\n \r\n"
   detections: []
   id: FGT5010
   mitigations:
@@ -4446,7 +4448,7 @@ techniques:
       \ but it can be enhanced. It\u2019s process management (OA&M)"
     name: Periodic authentication/authorization of NFs
   - fgmid: FGM5013
-    mitigates: Implement security as per clause 6.1.9 of 3GPP TS 29.503, namely OAuth2.0
+    mitigates: Implement security as per clause 6.1.9 of [5], namely OAuth2.0
     name: Timely updates to UE status
   - fgmid: FGM5014
     mitigates: Cross check whether the requesting AMF is likely to be the one serving
@@ -4478,11 +4480,11 @@ techniques:
     Name: Adversary registers an AMF it controls as the one serving a given UE that
       just de-registered
   references:
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.926: \u201CSecurity Assurance\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
     \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
     , Technical Report, v17.3.0, Dec. 2021, clause E.2.2.3](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.846,\u201D Study on authentication\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.846,\u201D Study on authentication\
     \ enhancements in the 5G System (5GS)\u201D, Technical Report, v17.0.0, December\
     \ 2021, clause 5.3.1.2](https://www.3gpp.org/DynaReport/33846.htm )"
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
@@ -4490,6 +4492,8 @@ techniques:
     \ )"
   - '[3GPP contribution (2019)](https://www.3gpp.org/ftp/Meetings_3GPP_SYNC/SA3/Inbox/Drafts/draft_S3-194673_was_S3-194189_Resolving%20the%20ENs%20in%20KI%233.1_V3.docx
     )'
+  - "[3GPP TS 29.503: \u201C5G System; Unified Data Management Services; Stage 3\u201D\
+    ](https://www.3gpp.org/DynaReport/29503.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -4567,7 +4571,7 @@ techniques:
   - Description: UE/User geographical location, coarse or fine-grained
     Name: UE location
   description: " An adversary may obtain the UE location using radio access or core\
-    \ network.\r\nAdversary may employ various means to obtain UE location (course,\
+    \ network.\r\nAdversary may employ various means to obtain UE location (coarse,\
     \ fine) using radio access or core network. \r\n\r\n"
   detections: []
   id: FGT5012
@@ -4659,11 +4663,9 @@ techniques:
   description: " An adversary may elicit location reports from UE that is bid down\
     \ to less secure format or may passively observe location reports from UE employing\
     \ null encryption.\r\n\r\nAn adversary may eavesdrop messages exchanged between\
-    \ the UE and the network, if encryption for the radio interface is not employed\
-    \ \u2013 either because the UE was downgraded from 5G to 4G, or because encryption\
-    \ was turned off by the network. These messages of interest contain location reports\
-    \ that the UE sends to the network upon (legitimate) request from the network.\
-    \ \r\n\r\n"
+    \ the UE and the network, if encryption for the radio interface is not employed.\
+    \ These messages of interest contain location reports that the UE sends to the\
+    \ network upon (legitimate) request from the network. \r\n\r\n"
   detections:
   - detects: Subscriber transitions to less secure service.
     fgdsid: FGDS5010
@@ -4710,7 +4712,7 @@ techniques:
   - TA0007
   - TA0009
   typecode: fight_subtechnique
-- access-required: air interface
+- access-required: Air interface
   architecture-segment: ICAM, RAN
   bluf: Adversary can track a device (get cell-level location) by listening for the
     same device ID being sent to the network.
@@ -4724,11 +4726,11 @@ techniques:
     \ registration, a 5G Globally Unique Temporary Identifier (5G-GUTI) is assigned\
     \ to the UE, so as to protect the UE permanent identifier. The UE sends this identifier\
     \ in the clear to the network as part of service procedures it initiates, and\
-    \ so this identifier can be eavesdropped by any UE nearby.\r\n\r\nThis is a passive\
-    \ attack. If AMF doesn't allocate a new 5G-GUTI in certain registration scenarios,\
-    \ an adversary could keep on tracking the user using the old 5G-GUTI after these\
-    \ registration procedures. This attack has been observed in 4G where the UE were\
-    \ allocated the same GUTI. \r\n\r\n"
+    \ so this identifier can be eavesdropped by any UE  or wireless sniffer nearby.\r\
+    \n\r\nThis is a passive attack. If AMF doesn't allocate a new 5G-GUTI in certain\
+    \ registration scenarios, an adversary could keep on tracking the user using the\
+    \ old 5G-GUTI after these registration procedures. This attack has been observed\
+    \ in 4G where the UE were allocated the same GUTI. \r\n\r\n"
   detections: []
   id: FGT5012.003
   mitigations:
@@ -4744,18 +4746,18 @@ techniques:
       \ pattern, as in [1], [2]. \nExact 5G-GUTI refresh mechanism is left to implementation.\
       \ Mandatory refresh of 5G-GUTI is to be done by AMF for initial registration,\
       \ mobility registration update and network-initiated service request message\
-      \ due to paging, see section 6.12.3 of [3]\nIt is not necessary for the adversary\
+      \ due to paging, see clause 6.12.3 of [3]\nIt is not necessary for the adversary\
       \ to have a UE to listen, a simpler listening device suffices."
     Name: Listen in for re-used 5G-GUTIs to determine UE presence in that area.
   references:
   - "[B. Hong, S. Bae, Y. Kim, \u201CGUTI Reallocation Demystified: Cellular Location\
     \ Tracking with Changing Temporary Identifier\u201D, NDSS Symposium, 2018.](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_02A-4_Hong_paper.pdf\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.926: \u201CSecurity Assurance\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
     \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
     , Technical Report, v17.3.0, December. 2021, clause K.2.7.1](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.501: \u201CSecurity architecture\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.501: \u201CSecurity architecture\
     \ and procedures for 5G system\u201D, Technical Specification, v17.5.0, March\
     \ 2022](https://www.3gpp.org/DynaReport/33501.htm )"
   status: This a behavior that has been observed in the wild in 5G systems
@@ -4773,7 +4775,7 @@ techniques:
   criticalassets:
   - Description: NEF, AMF, SMF, UPF, NWDAF, GMLC, LMF
     Name: Operator network components
-  - Description: UE/User geographical location
+  - Description: UE/Subscriber geographical location
     Name: UE location
   description: " An adversary in the core network exploits signaling protocols to\
     \ obtain the location of the UE. \r\n\r\nUser location tracking is part of normal\
@@ -4803,7 +4805,7 @@ techniques:
   object-type: technique
   platforms: 5G
   preconditions:
-  - Description: Adversary may pretend to be an operator supporting only older generations
+  - Description: Adversary may pretend to be an operator supporting only earlier generations
     Name: Access to SS7 network
   - Description: Adversary has to gain control of one core NF, or UPF or NEF.
     Name: "Access to operator\u2019s network function"
@@ -4816,14 +4818,14 @@ techniques:
       \ the attacker can also eavesdrop on user data."
     Name: Adversary uses SS7 interconnect (IWF) to a 5G network without protection
       (firewalls, etc). to obtain UE location information
-  - Description: The AMF gets UE location legitimately from LMF (Nlmf-loc API). [Section
+  - Description: The AMF gets UE location legitimately from LMF (Nlmf-loc API). [Clause
       8.3 of TS 23.273]. In addition, an adversary can modify AMF behavior so that
       it doesn't allocate a new 5G-GUTI to a given UE, so that that UE can be tracked
       via listening devices in the area, see [FGT5012.003](/techniques/FGT5012.003)
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       AMF case'
   - Description: Incorrect implementation/configuration in NEF can allow a rogue application
-      function (AF) to access UE location information using LMF services. [Section
+      function (AF) to access UE location information using LMF services. [Clause
       6.1.2 of TS23.273]
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       AF case'
@@ -4831,11 +4833,11 @@ techniques:
       \ update request:  Nsmf_PDUSession_UpdateSMContextRequest (which contains UE\
       \ location info, which can be: E-UTRA or NR cell id, location timestamp, \u201C\
       geographicalInformation\u201D in hex format as in TS 23.032, only ellipsoid\
-      \ point with uncertainty circle.) [section 5.2.8.2.6 of TS23.502]"
+      \ point with uncertainty circle.) [clause 5.2.8.2.6 of TS23.502]"
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       SMF case'
   - Description: The UDM can legitimately ask the AMF for the location of a UE using
-      Namf_Location service. [5.2.2.1 of TS23.502]
+      Namf_Location service. [clause 5.2.2.1 of TS23.502]
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       UDM case'
   - Description: The UPF has access to serving cell ID for UEs that are actively sending
@@ -4845,19 +4847,19 @@ techniques:
   - Description: 'The NEF can legitimately ask AMF Namf_EventExposure or ask GMLC
       directly - then GMLC gives the NEF a location report (Note: NEFs serve as location
       proxies to internal and external AFs in the same way GMLCs serve as proxies
-      to external LCS clients). [5.2.2.1 of TS23.502]'
+      to external LCS clients). [clause 5.2.2.1 of TS23.502]'
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       NEF case'
-  - Description: The  NWDAF can get coarse UE location by subscribing to events from
-      AMF. [5.2.2.1 of TS23.502]
+  - Description: The NWDAF can get coarse UE location by subscribing to events from
+      AMF. [clause 5.2.2.1 of TS23.502]
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       NWDAF case'
   - Description: The GMLC can legitimately ask the AMF for the location of a given
-      UE using Namf_Location service. [5.2.2.1 of TS23.502]
+      UE using Namf_Location service. [clause 5.2.2.1 of TS23.502]
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       GMLC case'
-  - Description: The LMF can initiate location procedure with the UE. [6.11.1, 6.11.2,
-      6.11.3 of TS23.273]
+  - Description: The LMF can initiate location procedure with the UE. [clauses 6.11.1,
+      6.11.2, 6.11.3 of TS23.273]
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       LMF case'
   references:
@@ -5160,7 +5162,7 @@ techniques:
     Name: User equipment status integrity
   description: " An adversary may compromise\_the Equipment Identity Register (EIR)\
     \ function and\_adds new equipment, modifies status (ok vs. stolen or prohibited)\
-    \ of mobile device.\r\n \r\nEIR is an optional NF (applicable to 3G, 4G, 5G) storing\
+    \ of mobile device.\r\n\r\nEIR is an optional NF (applicable to 3G, 4G, 5G) storing\
     \ the status of a mobile equipment and optionally which SIM/SUPI is allowed to\
     \ use it. Compromising it can allow an adversary to modify status of devices (e.g.\
     \ \"stolen\", \"prohibited'). \r\n\r\nNote: Modifying the EIR does not affect\
@@ -5315,9 +5317,9 @@ techniques:
     Name: SMSC is compromised
   procedureexamples:
   - Description: "Malware \u201Cinteracts with CDR databases\u201D (possibly from\
-      \ the SMSC, which this malware infects). Data miner loaded by installation script.\
-      \ The script collects CDR s for certain IMSIs, the info therein is voice call\
-      \ metadata, i.e. time, duration, phone numbers."
+      \ the SMSC, which this malware infects). Data miner is loaded by installation\
+      \ script. The script collects CDR s for certain IMSIs/SUPI, the info therein\
+      \ is voice call metadata, i.e. time, duration, phone numbers."
     Name: Attack on CDR database
   references:
   - '[Techradar.com news article Dec. 31, 2020, "T-Mobile data breach sees phone numbers
@@ -5434,8 +5436,8 @@ techniques:
     Name: Power cables
   description: " An adversary targets unprotected cables and junction boxes in order\
     \ to disrupt service.\r\n \r\nFibers routed between pieces of equipment without\
-    \ proper protection are susceptible to damage, which can critically affect network\
-    \ reliability.\r\n\r\n"
+    \ proper physical protection are susceptible to damage, which can critically affect\
+    \ network reliability.\r\n\r\n"
   detections:
   - detects: 'Security Incident and event monitoring
 
@@ -5448,13 +5450,6 @@ techniques:
     name: SIEM
   id: FGT5018.001
   mitigations:
-  - fgmid: FGM5005
-    mitigates: 'Implement physical and environmental controls.
-
-      Sites should be provided with a full set of physical and environmental controls
-      aimed to assure access control, monitoring, continuity of operations and protection
-      against environmental disasters'
-    name: Physical and environmental protection
   - fgmid: FGM5540
     mitigates: Power supply facilities in the isolated area such as mobile base stations
       should preferably provide an uninterruptible power supply with capacity for
@@ -5728,8 +5723,9 @@ techniques:
     \ IMSI (International Subscriber Identifier) in the clear over the radio interface.\
     \ \r\nThe 5G UE sends an encrypted permanent identifier (called Subscriber Concealed\
     \ Identifier (SUCI)) over the radio interface as part of the initial registration\
-    \ to the 5G network. Some non-UE specific information is part of the SUPI and\
-    \ is not encrypted (e.g., home network name). \r\n\r\n"
+    \ to the 5G network. Some non-UE specific information is part of the Subscriber\
+    \ Permanent Identifier or SUPI and is not encrypted (e.g., home network name).\
+    \ \r\n\r\n"
   detections: []
   id: FGT5019
   mitigations: []
@@ -5759,9 +5755,9 @@ techniques:
     \ Instead, a SUCI (Subscriber Concealed Identifier) is sent when the UE goes through\
     \ initial registration to the serving network procedures; this de-concealment\
     \ operation can only be done by the UE\u2019s home network. However, the Home\
-    \ Network identifier is sent unencrypted, so that the serving network knows where\
-    \ to get the information to authenticate this UE. The home network may constitute\
-    \ sensitive information in some special cases.  \r\n\r\n"
+    \ Network identifier part of the SUCI is sent unencrypted, so that the serving\
+    \ network knows where to get the information to authenticate this UE. The home\
+    \ network may constitute sensitive information in some special cases.  \r\n\r\n"
   detections: []
   id: FGT5019.001
   mitigations:
@@ -5814,8 +5810,8 @@ techniques:
     \ the bidding down of the cellular protocol from 5G to 4G or 3G or WiFi an adversary\
     \ can take advantage of this. The adversary first denies service to 5G and bids\
     \ down victim UE to less secure protocol, for example by using a fake base station.\
-    \ Then, the adversary  actively interrogates or passively intercepts unencrypted\
-    \ International Mobile Subscriber Identifier (IMSI)  for 2G/3G/4G or Media Access\
+    \ Then, the adversary actively interrogates or passively intercepts unencrypted\
+    \ International Mobile Subscriber Identifier (IMSI) for 2G/3G/4G or Media Access\
     \ Control (MAC) for WiFi.\r\n\r\n"
   detections:
   - detects: UE transitions to less secure service
@@ -5902,19 +5898,19 @@ techniques:
       \ AF uses legitimate SBA API to retrieve subscriber identifier of victim UE\
       \ (SUPI) from their phone number. \n\nThe API that the AF calls is Nnef_ApplyPolicy_Create\
       \ API, it is sent to NEF with UE's GPSI/phone number. NEF retrieves the SUPI\
-      \ from UDM by using Nudm_SDM_Get API. See Section 4.15.6.8 of [1].\n\nAlternatively,\
+      \ from UDM by using Nudm_SDM_Get API. See clause 4.15.6.8 of [1].\n\nAlternatively,\
       \ Rogue NEF retrieves SUPI from GPSI/phone number using Nudm_SDM_Get API towards\
-      \ the UDM, See section 4.13.2.2 of [1]."
+      \ the UDM, See clause 4.13.2.2 of [1]."
     Name: Retrieve UE SUPI via API
   - Description: "The AMF can obtain some sensitive information about a UE it serves\
-      \ (or claims to serve). A rogue AMF in visited PLMN retrieves UE\u2019s sensitive\
-      \ information from the home PLMN by calling an API when UE roams from 5GS to\
-      \ EPC.\n\nAMF asks the SMF for UE Session Management context, and thus can obtain\
-      \ the following sensitive information: Permanent identifier (SUPI), the names\
-      \ of the slices the UE is subscribed to (S-NSSAIs), the name of the data network\
-      \ the UE is connected to, and the IP address of the UE. (The AMF API call to\
-      \ SMF is Nsmf_PDUSession_ContextRequest API, see Section 4.11.1.2.1 & Table\
-      \ 5.2.8.2.10-1 of [1])"
+      \ (or claims to serve). An example for roaming scenarios is that a rogue AMF\
+      \ in visited PLMN retrieves UE\u2019s sensitive information from the home PLMN\
+      \ by calling an API when UE roams from 5GS to EPC.\n\nAMF asks the SMF for UE\
+      \ Session Management context, and thus can obtain the following sensitive information:\
+      \ Permanent identifier (SUPI), the names of the slices the UE is subscribed\
+      \ to (S-NSSAIs), the name of the data network the UE is connected to, and the\
+      \ IP address of the UE. (The AMF API call to SMF is Nsmf_PDUSession_ContextRequest\
+      \ API, see clause 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1])"
     Name: "Retrieve UE\u2019s sensitive information via rogue NF"
   references:
   - "[3rd Generation Partnership Project (3GPP) TS 23.502, \u201CProcedures for the\
@@ -5957,8 +5953,7 @@ techniques:
   object-type: technique
   platforms: 5G Core Network
   preconditions:
-  - Description: Adversary must know the value of the SUPI or GPSI identifiers for
-      the UE
+  - Description: Adversary must know the SUPI or GPSI of victim UE
     Name: SUPI or GPSI
   procedureexamples:
   - Description: An AMF can extract subscription data (including NSSAIs) for any given
@@ -5968,9 +5963,9 @@ techniques:
       Request. Table 5.2.3.1-1 of [1]
     Name: AMF retrieves subscription data from UDM.
   - Description: "A rogue AMF in visited PLMN can retrieve the UE\u2019s sensitive\
-      \ information during 5GS to EPC roaming.. AMF calls Nsmf_PDUSession_ContextRequest\
+      \ information during 5GS to EPC roaming. AMF calls Nsmf_PDUSession_ContextRequest\
       \ API to v/hSMF. SMF sends the UE SM context in response which can reveal the\
-      \ following UE information: SUPI, S-NSSAI, DNN, UE IP address etc. Section 4.11.1.2.1\
+      \ following UE information: SUPI, S-NSSAI, DNN, UE IP address etc. Clause 4.11.1.2.1\
       \ & Table 5.2.8.2.10-1 of [1]"
     Name: AMF in visited PLMN retrieves UE information during 5GS to EPC roaming.
   - Description: "The SMF can send to UDM a Nudm-sdm message and retrieve \u201CSession\
@@ -5993,10 +5988,10 @@ techniques:
   bluf: An adversary controlling a user-plane function (gNB or UPF) disrupts user
     traffic by assigning the new traffic a TEID already in use.
   criticalassets:
-  - Description: "UE\u2019s billing data of legitimate UE"
+  - Description: Billing data of legitimate UE
     Name: UE billing data
   - Description: "UE\u2019s reception of its data is disrupted."
-    Name: UE data
+    Name: UE data interruption
   description: " An adversary controlling a user-plane function (gNB or UPF) may disrupt\
     \ user traffic by assigning the new traffic a TEID already in use.\r\n\r\nThe\
     \ Tunnel Identifier, TEID, is part of the Core Network Tunnel information and\
@@ -6017,7 +6012,7 @@ techniques:
     fgdsid: DS0029
     name: Network Traffic
   - detects: Charging system reports anomaly of subscriber CDRs. Periodic CDR audits
-      can detect anomaly
+      can detect anomaly.
     fgdsid: FGDS5003
     name: Charging anomaly
   id: FGT5021
@@ -6042,7 +6037,7 @@ techniques:
   postconditions:
   - Description: UE user plane data gets disrupted
     Name: UE data disruption
-  - Description: Incorrect subscribers' charging
+  - Description: Incorrect subscribers' charging records are generated
     Name: Incorrect charging
   preconditions:
   - Description: Faulty implementation at gNB or UPF ; or, control over gNB, and UPF
@@ -6092,7 +6087,7 @@ techniques:
     \ UDM legitimately by certain NF such as AMF and SMF.\r\n\r\nAn adversary in the\
     \ core network (e.g. in control of a core NF such as AMF, UDM or PCF) can retrieve\
     \ subscriber profile from the repository UDM/UDR, and may be able to alter at\
-    \ least part of it, e.g., AMF can update the serving AMF entry.  The UDM can naturally\
+    \ least part of it, e.g., AMF can update the serving AMF entry. The UDM can naturally\
     \ alter any portion of the profile.\r\n\r\nAn OA&M based attack (adversary has\
     \ access to the provisioning interface) on the UDM/UDR would allow all changes\
     \ to the UE profile (e.g., change from post-paid to pre-paid or vice-versa).\r\
@@ -6112,17 +6107,16 @@ techniques:
   procedureexamples:
   - Description: 'AMF/SMF can use Nudm_UECM_Update to modify UE context in the UDM.
       AMF or SMF can change some parameters in the UE context (which is like a subscriber
-      profile, but valid only for a session; Section 5.2.3.2.5 of [3]. The parameters
+      profile, but valid only for a session; Clause 5.2.3.2.5 of [3]. The parameters
       are: PEI (Permanent Equipment Identifier), analyticsID (for NWDAF), UE capabilities,
       Intersystem continuity context, SMF FQDN'
-    Name: AMF or SMF modify UE context.
+    Name: AMF or SMF modifies UE context.
   - Description: "Rogue AF/NEF via UDM can modify UE\u2019s configuration for a given\
       \ external service (e.g. pay for video for a game today). When the victim UE\
       \ changes state from idle mode to connected mode, it will receive the modified\
       \ services which may be inferior to the services originally provisioned. Example:\
       \ NEF can use Nudm_ParameterProvision update service to update UE subscription\
-      \ data. Section 5.6.2.2 of TS29.503 & sections 4.15.6.2, 4.15.6.3, 4.15.6.3a\
-      \ of TS23.502."
+      \ data. Clause 5.6.2.2 of [4] & clauses 4.15.6.2, 4.15.6.3, 4.15.6.3a of [3]."
     Name: "Rogue AF/NEF modifies UE\u2019s configuration for a given external service."
   - Description: Compromised GUI or CLI based attack on subscriber database in UDR
     Name: Compromised OA&M can modify subscriber profile data in UDR
@@ -6135,6 +6129,8 @@ techniques:
   - "[3GPP TS 23.502, \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D\
     , Technical Specification, v17.4.0, March 2022.\_section 4.11.1.2.2](https://www.3gpp.org/DynaReport/23502.htm\_\
     )"
+  - "[3GPP TS 29.503, \u201C5G System; Unified Data Management Services; Stage 3\u201D\
+    ](https://www.3gpp.org/DynaReport/29503.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA5001
@@ -6173,14 +6169,14 @@ techniques:
   procedureexamples:
   - Description: "An adversary may control the SMF and assign the same SMF Charging\
       \ Identifier to a device data flow as that of an existing victim device, to\
-      \ cause charging errors. \n (section 5.1.4 & annex A.1 of 3GPP TS 32.255).\n\
+      \ cause charging errors. \n (clause 5.1.4 & annex A.1 of 3GPP TS 32.255).\n\
       The SMF can also pause charging for a given UE (even though not warranted),\
-      \ section 4.4.4. of 3GPP TS 23.502.\nThe SMF can also misreport 5G data used\
+      \ clause 4.4.4. of 3GPP TS 23.502.\nThe SMF can also misreport 5G data used\
       \ by a given UE."
     Name: SMF control
   - Description: An adversary with control over the PCF can change policy so that
-      UE is allowed to consume a service it was not subscribed to- but it will still
-      be traceable to that UE. Section 4.3.2 of TS 23.503.
+      UE is allowed to consume a service it was not subscribed to - but it will still
+      be traceable to that UE. Clause 4.3.2 of TS 23.503.
     Name: PCF control
   - Description: An adversary with control over the CHF can ignore when PCF tells
       it that the spending limit for this subscriber has been reached, or can ignore
@@ -6189,8 +6185,8 @@ techniques:
     Name: CHF control
   - Description: "Adversary on AF can attack a weak NEF. Or, the NEF can be compromised\
       \ and conduct this attack without even an AF. \nAn AF can ask the NEF to change\
-      \ the \u201Cchargeable party\u201D (3GPP TS 29.522 section 4.4.8, 3GPP TS 29.122\
-      \ section 4.4.4). This is meant to support the AF being the chargeable party,\
+      \ the \u201Cchargeable party\u201D (3GPP TS 29.522 clause 4.4.8, 3GPP TS 29.122\
+      \ clause 4.4.4). This is meant to support the AF being the chargeable party,\
       \ but it\u2019s imaginable how the AF can put a different AF as chargeable:\
       \ it has to send the AF identifier, UE IP address, Sponsor ID, ASP ID, etc.\
       \ even AppID"
@@ -6224,7 +6220,10 @@ techniques:
     \ In this attack the adversary uses IP networks and so called \"SIM boxes\" to\
     \ avoid termination fees between interconnected MNOs (so that international calls\
     \ appear to be local calls). SIM boxing can also be used to offer very cheap SMS\
-    \ rates to customers. \r\n\r\n(Note: SIM boxes have a legitimate use by operators.\
+    \ rates to customers by private persons  posing as legitimate MNOs. The adversary\
+    \ places the SIM box in a 5G cell but does not use the regular roaming (e.g. IP\
+    \ Exchange /IPX) interconnect, instead, tunnels voice data over the top- i.e.\
+    \ over the Internet. \r\n\r\n(Note: SIM boxes have a legitimate use by operators.\
     \ In fraudulent use, they are placed in the range of a given base station so they\
     \ can act as that set of UEs connecting to the base station and can be physically\
     \ moved periodically to avoid being detected). \r\n\r\n"
@@ -6326,7 +6325,7 @@ techniques:
   platforms: 5G
   procedureexamples:
   - Description: Signaling fraud may be undertaken by a partner operator, via false
-      charging over international signaling interconnection. In [1] section 5.3. Reference
+      charging over international signaling interconnection. Clause 5.3 of [1]. Reference
       [2] mentions service fraud.
     Name: False charging
   references:
@@ -6334,7 +6333,7 @@ techniques:
     \ for 5G Networks\u201D Report, section 5.2, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
     \ )"
   - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
@@ -6378,7 +6377,8 @@ techniques:
       \ be used for unauthorized access to 5G network."
     Name: Access to user credentials
   preconditions:
-  - Description: Adversary needs physical access to SIM card.
+  - Description: Adversary needs physical access to SIM card during manufacturing
+      of SIMs or during transport to MNOs.
     Name: Access to SIM card
   procedureexamples:
   - Description: Adversary gets physical access to the victim SIM card and then uses
@@ -6465,7 +6465,7 @@ techniques:
   criticalassets:
   - Description: Confidentiality of slice specific resources
     Name: Slice-specific resources
-  - Description: AMF and UDM have NSSAI information.  AMF requests and UDM responds.
+  - Description: AMF and UDM have NSSAI information. AMF requests and UDM responds.
     Name: AMF and UDM
   description: " An adversary may guess the identifier of a different network slice,\
     \ which allows for follow-on behaviors against that slice that require that identifier.\r\
@@ -6510,12 +6510,13 @@ techniques:
       \ token (Nnrf_NFDiscovery and Nnrf_AccessToken). For the Discovery service,\
       \ in the GET NF instances, the parameters can be included \u201Cplmn-specific-snssai-list\u201D\
       , which contains the S-NSSAIs that are served by the NF supposedly being discovered.\
-      \ Then the 200OK result contains the NFProfile, which includes the S-NSSAIs."
+      \ Then the 200OK result contains the NFProfile, which includes the S-NSSAIs.\
+      \ Section 3.1.3 of [1]."
     Name: An adversary in control of a network function asks the NRF for a token for
       a guessed SD until a legitimate response is received.
   references:
   - '[AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks",
-    17032021-v1.00, section 3.1.3](https://www.adaptivemobile.com/products/5g-security)'
+    17032021-v1.00.](https://www.adaptivemobile.com/products/5g-security)'
   - "[3rd Generation Partnership Project (3GPP) TS 29.510, \u201C; Network function\
     \ repository services; Stage 3\u201D, v17.4.0, Dec 2021.](https://www.3gpp.org/DynaReport/29510.htm)"
   status: This is a theoretical behavior in context of 5G systems.
@@ -6847,21 +6848,21 @@ techniques:
       \ the UE to transmit with no or weak encryption, acts as an adversary-in-the-middle\
       \ to intercept communication, and relays communication to and from intended\
       \ recipient. \nSubscriber location can be derived from measurement reports by\
-      \ rogue gNB. Reference [2] and section 6.7.4 of [3], and [4]."
+      \ rogue gNB. Reference [2] and clause 6.7.4 of [3], and [4]."
     Name: Eavesdrop on air interface for a given UE
   - Description: Alternatively, if the 5G system employs null encryption, subscriber
-      data traffic can be collected in the clear ([1]). Subscriber location can be
-      sent by the UE to the network or vice versa
+      data traffic can be collected in the clear. Clause 4.4 of [1]. Subscriber location
+      can be sent by the UE to the network or vice versa.
     Name: Eavesdrop on air interface for any UE
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020. Section 4.4](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
   - "[Hu, X. et al. : \u201CA Systematic Analysis Method for 5G Non-Access Stratum\
     \ Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \  )"
   - "[3GPP TS33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    , Section 6.7.4](https://www.3gpp.org/DynaReport/33501.htm)"
+    .](https://www.3gpp.org/DynaReport/33501.htm)"
   - "[Zaenab D. Shakir, J. Zec, I. Kostanic, \u201CPosition location based on measurement\
     \ reports in LTE cellular networks\u201D, 2018 IEEE 19th Wireless and Microwave\
     \ Technology Conference (WAMICON), 2018.](https://ieeexplore.ieee.org/document/8363501\
@@ -6910,7 +6911,7 @@ techniques:
   object-type: technique
   platforms: 5G
   procedureexamples:
-  - Description: 'Allegedly: the UK agency GHCQ planted malware on Gemalto servers
+  - Description: 'Allegedly: the UK agency GCHQ planted malware on Gemalto servers
       to obtain SIM credentials. The number of keys obtained were in the order of
       millions. [1]'
     Name: "Infiltrate SIM vendor\u2019s network."
@@ -7209,7 +7210,7 @@ techniques:
       plan
     name: Unlimited data plan
   - fgmid: FGM5008
-    mitigates: Monitor installed applications for data usage.
+    mitigates: Monitor installed applications on UE for data usage.
     name: Monitor installed applications for data usage
   name: Consume data allocation to deny or degrade service
   object-type: technique
@@ -7243,8 +7244,9 @@ techniques:
     \ for a given UE.\r\n\r\nAn adversary might deny RAN access to a UE by triggering\
     \ a fraud alert through attempting simultaneous registrations at geographically\
     \ impossible locations. When the UE security profile allows, the adversary can\
-    \ illegitimately use a known IMSI/SUPI or, if a valid Subscriber Concealed Identity\
-    \ (SUCI) is known, use a legitimate SUCI for false registrations. \r\n\r\n"
+    \ illegitimately use a known Subscription Permanent Identifier (SUPI) or, if a\
+    \ valid Subscription Concealed Identifier (SUCI) is known, use a legitimate SUCI\
+    \ for false registrations. \r\n\r\n"
   detections:
   - detects: Subscriber contacts service provider to determine why service is denied.
     fgdsid: FGDS5011
@@ -7266,7 +7268,7 @@ techniques:
   preconditions:
   - Description: There are several methods to achieve this by capturing over the air
       messages using a wireless sniffer.
-    Name: A valid IMSI/SUPI or SUCI must be intercepted by attacker.
+    Name: A valid SUPI or SUCI must be intercepted by attacker.
   procedureexamples:
   - Description: "Adversary may capture a registration attempt for a given UE, then\
       \ replay it right away to a gNB much further away \u2013 so that the network\
@@ -7285,15 +7287,15 @@ techniques:
   bluf: An adversary controlling a gNB or control plane or user plane Network Function
     (NF) may manipulate signaling to result in DOS on one or more UEs
   criticalassets:
-  - Description: Communications is denied
+  - Description: Communications is denied to legitimate UEs
     Name: Network services
   description: " An adversary controlling a gNB or control plane or user plane Network\
     \ Function (NF) may manipulate signaling to result in DOS on one or more UEs.\
     \ \r\n\r\nAdversary may use a fake base station to deny service to a User Equipment\
     \ (UE) that has been bid down to less secure Radio Access Network. Victim UE is\
     \ either actively or passive bid down to less secure protocol. Adversary acts\
-    \ as a man-in-the middle to deny service to 5G by (1) issuing registration reject\
-    \ messages or other orders to deny radio access, or (2) posing as a legitimate\
+    \ as a adversary-in-the middle to deny service to 5G by (1) issuing registration\
+    \ reject messages or other orders to deny radio access, or (2) posing as a legitimate\
     \ base station, but not relaying traffic to or from the intended recipient.\r\n\
     \r\nAdversary may compromise a NF and thus manipulate signaling for the UE registration\
     \ or session management procedures, in order to deny service to that UE.\r\n\r\
@@ -7330,21 +7332,16 @@ techniques:
       \ with fake UE can try to register as the victim UE, and when the victim UE\
       \ tries to RRC connect again, it will be rejected. See [2]"
     Name: DOS via gNB control (or fake UE)
-  - Description: 'Adversary controlling AMF can cause authentication to fail or deny
-      SMS service by deactivating SMS for a given SUPI [1]. Control of AMF can give
-      an adversary the power to manipulate the AKA procedure between the AMF and any
-      other UE, so that (at the simplest) the UE fails authentication and cannot get
-      services.
-
-      Rogue or misconfigured NF modifies the registration accept message for legitimate
-      subscribers to deny access to some or all services that are configured in their
-      profile.'
-    Name: DOS via AMF control
-  - Description: Adversary controlling SEAF may change the parameters exchanged back
-      to the home network
-    Name: DOS via SEAF control
+  - Description: "Adversary controlling AMF can cause authentication to fail or deny\
+      \ SMS service by deactivating SMS for a given SUPI [1]. Control of AMF/SEAF\
+      \ can give an adversary the power to manipulate the AKA procedure (e.g. change\
+      \ parameters exchanged) between the AMF and any other UE, so that (at the simplest)\
+      \ the UE fails authentication and cannot get services. \nRogue or misconfigured\
+      \ NF modifies the registration accept message for legitimate subscribers to\
+      \ deny access to some or all services that are configured in their profile."
+    Name: DOS via AMF/SEAF control
   - Description: Adversary controlling SMF can release an existing PDU session or
-      not create a new one; or send a  N4 Session Release request to UPF
+      not create a new one; or send a N4 Session Release request to UPF
     Name: DOS via SMF control
   - Description: Adversary controlling UPF can send a report of PDU session inactivity,
       which results in de-activating the UE session. Or alter secondary authentication
@@ -7355,7 +7352,7 @@ techniques:
     Name: DOS via AUSF control
   - Description: 'Adversary controlling UDM: fail the SUPI de-concealing operation,
       UE key will be different and NAS SMC will fail (e.g., responding to SUCI deconcealment
-      with an incorrect SUPI). See [3].'
+      with an incorrect SUPI). See clause E.2.2.1 of [3].'
     Name: DOS via UDM control
   - Description: "Adversary controlling ARPF can\nAlter the root key (K) or provide\
       \ wrong root key for the UE\nGenerate wrong authentication vector (AV) during\
@@ -7391,11 +7388,11 @@ techniques:
   - "[Hu, X. et al: \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
     \ Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.926: \u201CSecurity Assurance\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
     \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
-    , Technical Report, v17.3.0, December. 2021, clauses E.2.2.1](https://www.3gpp.org/DynaReport/33926.htm\
+    , Technical Report, v17.3.0, December. 2021.](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TS 33.501: \u201CSecurity architecture\
+  - "[3rd Generation Partnership Project (3GPP) TS 33.501: \u201CSecurity architecture\
     \ and procedures for 5G System\u201D, Technical Specification, v17.6.0, June 2022](https://www.3gpp.org/DynaReport/33501.htm\
     \ )"
   status: This is a theoretical behavior
@@ -7694,21 +7691,21 @@ techniques:
     nodes (including routers/switches/load balancers) may position themselves in order
     to eavesdrop or manipulate user plane and control plane traffic.
   criticalassets:
-  - Description: UE data integrity and confidentiality
-    Name: UE data
-  - Description: UE signaling integrity and confidentiality
-    Name: UE signaling
+  - Description: UE user plane data integrity and confidentiality
+    Name: UE user plane data
+  - Description: UE signaling data integrity and confidentiality
+    Name: UE signaling data
   description: " An adversary with access to Non-Service Based Interfaces (Non-SBI)\
     \ network nodes (including routers/switches/load balancers) may position themselves\
     \ in order to eavesdrop or manipulate user plane and control plane traffic.\r\n\
     \r\n\u201CNon-SBI\u201D network interfaces are within 5G core and RAN, and between\
     \ the RAN and the 5G Core (e.g. N2, N3, Xn). \r\n\r\nIf the gNB does not provide\
-    \ confidentiality or integrity protection for control plane packets on the non-SBI\
-    \ interfaces, then an AITM attack is possible. \r\n\r\nNote that the NAS packets\
-    \ sent on N2 are already integrity/confidentiality protected between the UE and\
-    \ the AMF. However, unlike radio communications, operator RAN to core communications\
-    \ are not always employing the confidentiality or integrity protection mandated\
-    \ by 3GPP standards.\r\n\r\n"
+    \ confidentiality or integrity protection for control plane and user plane packets\
+    \ on the non-SBI interfaces, then an AITM attack is possible. \r\n\r\nNote that\
+    \ the NAS packets sent on N2 are already integrity/confidentiality protected between\
+    \ the UE and the AMF. However, unlike radio communications, operator RAN to core\
+    \ communications are not always employing the confidentiality or integrity protection\
+    \ mandated by 3GPP standards.\r\n\r\n"
   detections:
   - detects: Check configuration changes in all switches/routers. Configuration audits
       by OSS/BSS
@@ -7735,8 +7732,8 @@ techniques:
     Name: Both CP and UP data are eavesdropped or modified by AiTM attack
   preconditions:
   - Description: Malware or wrong configuration in switches/routers between RAN and
-      core and between gNBs
-    Name: Compromised or misconfigured switches/routers
+      core, between gNBs and in gNB itself.
+    Name: Compromised or misconfigured switches/routers or gNB
   procedureexamples:
   - Description: Integrity or confidentiality protection can be disabled on N2 interface
       for CP, N3 interface for UP and Xn interface for CP and UP. Clauses 9.2, 9.3
@@ -7764,7 +7761,7 @@ techniques:
     the Service Based Interfaces (SBI).
   criticalassets:
   - Description: There are many procedures that can be impacted if an adversary gets
-      in the middle of a TLS connection between two functions on the SBI.
+      in the middle of a TLS connection between two network functions on the SBI.
     Name: 5G Core network services, control plane (provisioning) data, service discovery.
   description: " An adversary who has compromised a proxy or middlebox may sniff or\
     \ tamper with network traffic between Network Functions (NFs) that are communicating\
@@ -7773,7 +7770,7 @@ techniques:
     \ may compromise a proxy on the SBI, such as the Service Communication Proxy (SCP),\
     \ API proxy, or a load-balancer. Then an adversary may also exploit improper TLS\
     \ configuration (including weaker cipher, profile) of the SBI connections, which\
-    \ may arise for example due to the use of TLS profiles forbidden in TS 33.310\
+    \ may arise for example due to the use of TLS profiles forbidden in 3GPP TS 33.310\
     \ for NF mutual authentication and NF transport layer protection. The end result\
     \ is UE sensitive information or data being disclosed or tampered or both.\r\n\
     \r\n\r\n"
@@ -7787,13 +7784,14 @@ techniques:
     mitigates: TLS certificate thorough checking. Ensure that all certificates received
       over a connection are valid for the current server endpoint, and abort the handshake
       if they are not. In some usages, it may be simplest to refuse any change of
-      certificates during renegotiation
+      certificates during renegotiation.
     name: TLS certificate check
   - fgmid: M1041
-    mitigates: Use TLS 1.3 or TLS 1.2 with only strong ciphersuites
+    mitigates: Use TLS 1.3 or TLS 1.2 with only strong ciphersuites.
     name: Encrypt Sensitive Information
   - fgmid: M1047
-    mitigates: Audit NF configuration for interfaces, e.g. what version of TLS.
+    mitigates: Audit NF configuration for interfaces, e.g. if TLS is disabled or what
+      version of TLS is being used.
     name: Audit
   name: 'Service Based Interface '
   object-type: technique
@@ -7802,25 +7800,25 @@ techniques:
   - Description: '(2014): if a TLS client connects to a malicious server and presents
       a client credential, the server can then impersonate the client at any other
       server that accepts the same credential. Concretely, the malicious server performs
-      a man-in-the-middle attack on three successive handshakes between the honest
-      client and server, and succeeds in impersonating the client on the third handshake.
-      See e.g. [3SHAKE](/https://mitls.org/pages/attacks/3SHAKE)'
+      an adversary-in-the-middle attack on three successive handshakes between the
+      honest client and server, and succeeds in impersonating the client on the third
+      handshake. See [5], clause 4.2.2.2 of [2].'
     Name: Triple Handshake
-  - Description: An adversary in control of SCP can eavesdrop or alter data and signaling
-      between e.g. AMF and UDM.
-    Name: SCP proxy as  AITM
+  - Description: An adversary in control of SCP can eavesdrop or alter user plane
+      data and signaling data between two NFs e.g. AMF and UDM.
+    Name: SCP as AITM
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
-    \ )"
+    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
   - "[3rd Generation Partnership Project (3GPP) TS 33.117, \u201CCatalogue of general\
-    \ security assurance requirements (Release 17)\u201D, v17.0.0, June 2021, clause\
-    \ 4.2.2.2](https://www.3gpp.org/DynaReport/33117.htm  )"
+    \ security assurance requirements (Release 17)\u201D, v17.0.0, June 2021.](https://www.3gpp.org/DynaReport/33117.htm\
+    \  )"
   - "[3GPP TS 33.310 \u201CNetwork Domain Security (NDS); Authentication Framework\
     \ (AF)\u201D](https://www.3gpp.org/DynaReport/33310.htm )"
-  - '[G. Koien, "On Threats to the 5G Service Based Architecture", 2021.](https://www.researchgate.net/journal/Wireless-Personal-Communications-1572-834X/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture/links/6030a03a4585158939b7bcae/On-Threats-to-the-5G-Service-Based-Architecture.pdf
-    )'
-  status: This is a theoretical behavior in context of 5G systems.
+  - '[G. Koien, "On Threats to the 5G Service Based Architecture", 2021.](https://www.researchgate.net/journal/Wireless-Personal-Communications-1572-834X/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture/links/6030a03a4585158939b7bcae/On-Threats-to-the-5G-Service-Based-Architecture.pdf)'
+  - "[3SHAKE: \u201CTriple Handshakes Considered Harmful: Breaking and Fixing Authentication\
+    \ over TLS\u201D](https://mitls.org/pages/attacks/3SHAKE)"
+  status: This is a theoretical behavior
   subtechnique-of: FGT1557
   tactics:
   - TA0009
@@ -7859,7 +7857,7 @@ techniques:
   id: FGT1562.501
   mitigations:
   - fgmid: FGM5002
-    mitigates: 'UE should discard RRC redirection that is  not integrity protected,
+    mitigates: 'UE should discard RRC redirection that is not integrity protected,
       and go search for other gNBs. UE should only accept to register to networks
       that require mutual auth and strong encryption, also integrity protection of
       user plane.
@@ -7914,7 +7912,7 @@ techniques:
     \ in order to avoid detection.  \r\n\r\n\r\n"
   detections:
   - detects: UE measurements of received power levels from all base stations nearby,
-      and their identifiers. Reference [2], section 6.24
+      and their identifiers. Clause 6.24 of [2]
     fgdsid: FGDS5002
     name: UE signal measurements
   id: FGT1583.501
@@ -7931,7 +7929,7 @@ techniques:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
     \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.809: \u201CStudy on  5G security\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.809: \u201CStudy on 5G security\
     \ enhancements against False Base Stations (FBS)\u201D, Technical Report, v0.18.0,\
     \ February 2022.](https://www.3gpp.org/DynaReport/33809.htm )"
   status: This is a theoretical behavior
@@ -7966,6 +7964,7 @@ techniques:
   - "[Hu, X. et al: \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
     \ Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
+  - "[Ericsson: \u201CDetecting false base stations in mobile networks\u201D](https://www.ericsson.com/en/blog/2018/6/detecting-false-base-stations-in-mobile-networks)"
   status: This is a theoretical behavior
   subtechnique-of: FGT1583
   tactics:
@@ -7993,7 +7992,7 @@ techniques:
     \ insider attacks have occurred, and thus this information can be and has been\
     \ used by adversaries in their discovery tactics.\r\n\r\n"
   detections:
-  - detects: Leaking this information in the Internet is obvious
+  - detects: Leaking this information on the Internet is obvious
     fgdsid: FGDS5008
     name: Search Internet for leaks
   - detects: Access to IR.21 file should be logged.
@@ -8016,13 +8015,11 @@ techniques:
     Name: Access to GSMA account; in some cases, none.
   procedureexamples:
   - Description: Claro Americas, and Vivo telecom, had their IR.21 database accessible
-      from an internet in 2016 (References [2], [3] no longer accessible).
+      from an internet in 2016 (no reference available)
     Name: IR.21 accessible from the Internet
   references:
   - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
     \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - '[Claro Americas IR.21 Data, Accessed 30-June-2016](http://www.claro.com.br/sites/files/contratos/arquivos/orpa_roam_claro_001-2015_-_anexo_4-apend_a-roaming_nacional_-_ir_21_0.pdf   )'
-  - '[Vivo Brazil IR.21 Data, Accessed 30-June-2016.](https://www.vivo.com.br/portalweb/ShowPropertyServlet?nodeId=/UCMRepository/CONTRIB_093689  )'
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1592
   tactics:
@@ -8687,7 +8684,7 @@ techniques:
     \ UEs to connect to it.\r\n\r\n\r\n"
   detections:
   - detects: UE measurements of received power levels from all base stations nearby,
-      and their identifiers. Reference clause 6.24 of [2]
+      and their identifiers. Refer clause 6.24 of [2].
     fgdsid: FGDS5012
     name: SIEM
   id: FGT1608.501
@@ -8702,13 +8699,13 @@ techniques:
       point.
   - Description: Adversary installs an illegitimate complete gNB and configures the
       power so as to appear strongest to a given UE in a particular location, see
-      [2]
+      [2].
     Name: Configure fake gNB to appear strongest
   references:
   - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
     \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP)  TR 33.809: \u201CStudy on  5G security\
+  - "[3rd Generation Partnership Project (3GPP) TR 33.809: \u201CStudy on  5G security\
     \ enhancements against False Base Stations (FBS)\u201D, Technical Report, v0.18.0,\
     \ February 2022.](https://www.3gpp.org/DynaReport/33809.htm )"
   status: This is a theoretical behavior

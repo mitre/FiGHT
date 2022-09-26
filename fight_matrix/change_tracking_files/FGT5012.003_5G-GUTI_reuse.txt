@@ -5,7 +5,7 @@ Architecture Segment:
 Procedure Examples
 ----------------------------------------
 Listen in for re-used 5G-GUTIs to determine UE presence in that area.: Reportedly several operators do not re-allocate GUTI with every UE registration, or they do not re-allocate often enough or they use predictable pattern, as in [1], [2]. 
-Exact 5G-GUTI refresh mechanism is left to implementation. Mandatory refresh of 5G-GUTI is to be done by AMF for initial registration, mobility registration update and network-initiated service request message due to paging, see section 6.12.3 of [3]
+Exact 5G-GUTI refresh mechanism is left to implementation. Mandatory refresh of 5G-GUTI is to be done by AMF for initial registration, mobility registration update and network-initiated service request message due to paging, see clause 6.12.3 of [3]
 It is not necessary for the adversary to have a UE to listen, a simpler listening device suffices.
 ----------------------------------------
 Mitigations
@@ -28,5 +28,5 @@ Post-Conditions
 References
 ----------------------------------------
 B. Hong, S. Bae, Y. Kim, “GUTI Reallocation Demystified: Cellular Location Tracking with Changing Temporary Identifier”, NDSS Symposium, 2018.: https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_02A-4_Hong_paper.pdf 
-3rd Generation Partnership Project (3GPP)  TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, December. 2021, clause K.2.7.1: https://www.3gpp.org/DynaReport/33926.htm 
-3rd Generation Partnership Project (3GPP)  TR 33.501: “Security architecture and procedures for 5G system”, Technical Specification, v17.5.0, March 2022: https://www.3gpp.org/DynaReport/33501.htm 
+3rd Generation Partnership Project (3GPP) TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, December. 2021, clause K.2.7.1: https://www.3gpp.org/DynaReport/33926.htm 
+3rd Generation Partnership Project (3GPP) TR 33.501: “Security architecture and procedures for 5G system”, Technical Specification, v17.5.0, March 2022: https://www.3gpp.org/DynaReport/33501.htm 

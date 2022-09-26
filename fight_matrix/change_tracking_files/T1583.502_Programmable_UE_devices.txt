@@ -9,6 +9,7 @@ Fake UE acquisition: In [1], it is mentioned that the adversary must “forge a 
 ----------------------------------------
 Mitigations
 ----------------------------------------
+UE assisted false gNB detection: Legitimate UEs send measurement reports to network periodically. Network determines anomalies in those measurement reports for presence of fake base stations. See [2].
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------
@@ -25,3 +26,4 @@ Post-Conditions
 References
 ----------------------------------------
 Hu, X. et al: “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
+Ericsson: “Detecting false base stations in mobile networks”: https://www.ericsson.com/en/blog/2018/6/detecting-false-base-stations-in-mobile-networks

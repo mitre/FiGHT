@@ -6,12 +6,12 @@ Procedure Examples
 ----------------------------------------
 Retrieve UE SUPI via API: The NEF stores the UE data – including SUPI-- in UDR and responds to API requests from various AFs. An adversary in control of an (external) AF uses legitimate SBA API to retrieve subscriber identifier of victim UE (SUPI) from their phone number. 
 
-The API that the AF calls is Nnef_ApplyPolicy_Create API, it is sent to NEF with UE's GPSI/phone number. NEF retrieves the SUPI from UDM by using Nudm_SDM_Get API. See Section 4.15.6.8 of [1].
+The API that the AF calls is Nnef_ApplyPolicy_Create API, it is sent to NEF with UE's GPSI/phone number. NEF retrieves the SUPI from UDM by using Nudm_SDM_Get API. See clause 4.15.6.8 of [1].
 
-Alternatively, Rogue NEF retrieves SUPI from GPSI/phone number using Nudm_SDM_Get API towards the UDM, See section 4.13.2.2 of [1].
-Retrieve UE’s sensitive information via rogue NF: The AMF can obtain some sensitive information about a UE it serves (or claims to serve). A rogue AMF in visited PLMN retrieves UE’s sensitive information from the home PLMN by calling an API when UE roams from 5GS to EPC.
+Alternatively, Rogue NEF retrieves SUPI from GPSI/phone number using Nudm_SDM_Get API towards the UDM, See clause 4.13.2.2 of [1].
+Retrieve UE’s sensitive information via rogue NF: The AMF can obtain some sensitive information about a UE it serves (or claims to serve). An example for roaming scenarios is that a rogue AMF in visited PLMN retrieves UE’s sensitive information from the home PLMN by calling an API when UE roams from 5GS to EPC.
 
-AMF asks the SMF for UE Session Management context, and thus can obtain the following sensitive information: Permanent identifier (SUPI), the names of the slices the UE is subscribed to (S-NSSAIs), the name of the data network the UE is connected to, and the IP address of the UE. (The AMF API call to SMF is Nsmf_PDUSession_ContextRequest API, see Section 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1])
+AMF asks the SMF for UE Session Management context, and thus can obtain the following sensitive information: Permanent identifier (SUPI), the names of the slices the UE is subscribed to (S-NSSAIs), the name of the data network the UE is connected to, and the IP address of the UE. (The AMF API call to SMF is Nsmf_PDUSession_ContextRequest API, see clause 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1])
 ----------------------------------------
 Mitigations
 ----------------------------------------

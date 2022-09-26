@@ -22,18 +22,18 @@ Control or misconfiguration of gNB or UPF: Faulty implementation at gNB or UPF ;
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-UE billing data: UE’s billing data of legitimate UE
-UE data: UE’s reception of its data is disrupted.
+UE billing data: Billing data of legitimate UE
+UE data interruption: UE’s reception of its data is disrupted.
 ----------------------------------------
 Detection
 ----------------------------------------
 DS0029: Packet inspection over the N3 interface. If two packets are seen to have the same TEID on the RAN to UPF interface, then it can be verified that they indeed belong to the same UE. It may be difficult to detect as it is per UE and per PDU session.
-FGDS5003: Charging system reports anomaly of subscriber CDRs. Periodic CDR audits can detect anomaly
+FGDS5003: Charging system reports anomaly of subscriber CDRs. Periodic CDR audits can detect anomaly.
 ----------------------------------------
 Post-Conditions
 ----------------------------------------
 UE data disruption: UE user plane data gets disrupted
-Incorrect charging: Incorrect subscribers' charging
+Incorrect charging: Incorrect subscribers' charging records are generated
 ----------------------------------------
 References
 ----------------------------------------

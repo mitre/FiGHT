@@ -9,7 +9,7 @@ Malicious data consumption application: Convince user to download or maliciously
 Mitigations
 ----------------------------------------
 FGM5007: Unlimited data plan. Attack is mitigated with a true unlimited data plan
-FGM5008: Monitor installed applications for data usage.
+FGM5008: Monitor installed applications on UE for data usage.
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------

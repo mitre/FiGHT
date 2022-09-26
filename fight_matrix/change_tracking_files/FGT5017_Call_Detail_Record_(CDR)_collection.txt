@@ -4,7 +4,7 @@ Architecture Segment:
 ----------------------------------------
 Procedure Examples
 ----------------------------------------
-Attack on CDR database: Malware “interacts with CDR databases” (possibly from the SMSC, which this malware infects). Data miner loaded by installation script. The script collects CDR s for certain IMSIs, the info therein is voice call metadata, i.e. time, duration, phone numbers.
+Attack on CDR database: Malware “interacts with CDR databases” (possibly from the SMSC, which this malware infects). Data miner is loaded by installation script. The script collects CDR s for certain IMSIs/SUPI, the info therein is voice call metadata, i.e. time, duration, phone numbers.
 ----------------------------------------
 Mitigations
 ----------------------------------------

@@ -10,7 +10,11 @@ Mitigations
 ----------------------------------------
  FGM5005: Compliance with cable standards.
 Raceway / conduit is one of the easiest ways to protect any cable, fiber optic included. These hollow pieces of plastic act like a protective outer shell.
-FGM5005: Implement physical and environmental controls.
+
+Secure junction boxes.
+Optical fiber junction boxes / splice closures shall be accessible to maintenance personnel and maintenance vehicles. A closure should be located away from high traffic or conditions that could cause damage to the closure or injury to personnel. [2] 11.2.3 advocates for cabling security
+
+Implement physical and environmental controls.
 Sites should be provided with a full set of physical and environmental controls aimed to assure access control, monitoring, continuity of operations and protection against environmental disasters
 FGM5540: Power supply facilities in the isolated area such as mobile base stations should preferably provide an uninterruptible power supply with capacity for all loading and capable of withstanding primary power supply failures for the duration of likely outages. If that is impossible, a mechanism to provide uninterruptible power to critical equipment should be installed. Batteries may need to be augmented with a private electric generator, especially in isolated areas.
 ----------------------------------------

@@ -18,7 +18,7 @@ Access to scanning tool: Adversaries need access to such tools
 ----------------------------------------
 Critical Assets
 ----------------------------------------
-MNO core network component data.: Data (IPaddress,  ports) relating to network nodes
+MNO core network component data.: Data (IP address or FQDN,  ports) relating to network nodes
 ----------------------------------------
 Detection
 ----------------------------------------

@@ -5,13 +5,13 @@ Architecture Segment:
 Procedure Examples
 ----------------------------------------
 SMF control: An adversary may control the SMF and assign the same SMF Charging Identifier to a device data flow as that of an existing victim device, to cause charging errors. 
- (section 5.1.4 & annex A.1 of 3GPP TS 32.255).
-The SMF can also pause charging for a given UE (even though not warranted), section 4.4.4. of 3GPP TS 23.502.
+ (clause 5.1.4 & annex A.1 of 3GPP TS 32.255).
+The SMF can also pause charging for a given UE (even though not warranted), clause 4.4.4. of 3GPP TS 23.502.
 The SMF can also misreport 5G data used by a given UE.
-PCF control: An adversary with control over the PCF can change policy so that UE is allowed to consume a service it was not subscribed to- but it will still be traceable to that UE. Section 4.3.2 of TS 23.503.
+PCF control: An adversary with control over the PCF can change policy so that UE is allowed to consume a service it was not subscribed to - but it will still be traceable to that UE. Clause 4.3.2 of TS 23.503.
 CHF control: An adversary with control over the CHF can ignore when PCF tells it that the spending limit for this subscriber has been reached, or can ignore the SMS records from the SMSF (SMSF uses POST to put in data), or the SMF itself for 5G data it reports. 3GPP TS 32.24]
 NEF control or Application Function (AF) control exploiting weak NEF: Adversary on AF can attack a weak NEF. Or, the NEF can be compromised and conduct this attack without even an AF. 
-An AF can ask the NEF to change the “chargeable party” (3GPP TS 29.522 section 4.4.8, 3GPP TS 29.122 section 4.4.4). This is meant to support the AF being the chargeable party, but it’s imaginable how the AF can put a different AF as chargeable: it has to send the AF identifier, UE IP address, Sponsor ID, ASP ID, etc. even AppID
+An AF can ask the NEF to change the “chargeable party” (3GPP TS 29.522 clause 4.4.8, 3GPP TS 29.122 clause 4.4.4). This is meant to support the AF being the chargeable party, but it’s imaginable how the AF can put a different AF as chargeable: it has to send the AF identifier, UE IP address, Sponsor ID, ASP ID, etc. even AppID
 ----------------------------------------
 Mitigations
 ----------------------------------------

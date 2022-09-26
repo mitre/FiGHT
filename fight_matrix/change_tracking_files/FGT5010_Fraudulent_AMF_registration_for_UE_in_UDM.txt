@@ -9,7 +9,7 @@ Note that the UDM does not communicate with the AMF based on OAuth tokens. Since
 ----------------------------------------
 Mitigations
 ----------------------------------------
-FGM5013: Implement security as per clause 6.1.9 of 3GPP TS 29.503, namely OAuth2.0
+FGM5013: Implement security as per clause 6.1.9 of [5], namely OAuth2.0
 FGM5014: Cross check whether the requesting AMF is likely to be the one serving that UE now. Validate the expected geography of where UE actually may be, in comparison to the area that the requester AMF is supposed to serve.
 FGM1506: Periodic authentication / authorization of NF consumer e.g. AMF by NRF will help detect rogue AMFs. 
 Not currently in 3GPP/GSMA (TBC) specs, but it can be enhanced. It’s process management (OA&M)
@@ -21,7 +21,7 @@ Faulty UDM implementation: If the UDM does not store the authentication status o
 Critical Assets
 ----------------------------------------
 UDM functionality: Functionality of this core network function
-UE data: Data (user or control) belonging to the UE
+UE data: Data (user plane or signaling) belonging to the UE
 UE location: Physical geo-location (course or fine) of the UE
 ----------------------------------------
 Detection
@@ -33,7 +33,8 @@ A rogue AMF could perform other hostile action on the victim UE: A rogue AMF cou
 ----------------------------------------
 References
 ----------------------------------------
-3rd Generation Partnership Project (3GPP)  TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, Dec. 2021, clause E.2.2.3: https://www.3gpp.org/DynaReport/33926.htm 
-3rd Generation Partnership Project (3GPP)  TR 33.846,” Study on authentication enhancements in the 5G System (5GS)”, Technical Report, v17.0.0, December 2021, clause 5.3.1.2: https://www.3gpp.org/DynaReport/33846.htm 
+3rd Generation Partnership Project (3GPP) TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, Dec. 2021, clause E.2.2.3: https://www.3gpp.org/DynaReport/33926.htm 
+3rd Generation Partnership Project (3GPP) TR 33.846,” Study on authentication enhancements in the 5G System (5GS)”, Technical Report, v17.0.0, December 2021, clause 5.3.1.2: https://www.3gpp.org/DynaReport/33846.htm 
 European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020: https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 3GPP contribution (2019): https://www.3gpp.org/ftp/Meetings_3GPP_SYNC/SA3/Inbox/Drafts/draft_S3-194673_was_S3-194189_Resolving%20the%20ENs%20in%20KI%233.1_V3.docx 
+3GPP TS 29.503: “5G System; Unified Data Management Services; Stage 3”: https://www.3gpp.org/DynaReport/29503.htm

@@ -13,7 +13,7 @@ FGM5093: UDM/SIDF checks the freshness parameter of SUCI received from the same 
 ----------------------------------------
 Pre-Conditions
 ----------------------------------------
-A valid IMSI/SUPI or SUCI must be intercepted by attacker.: There are several methods to achieve this by capturing over the air messages using a wireless sniffer.
+A valid SUPI or SUCI must be intercepted by attacker.: There are several methods to achieve this by capturing over the air messages using a wireless sniffer.
 ----------------------------------------
 Critical Assets
 ----------------------------------------

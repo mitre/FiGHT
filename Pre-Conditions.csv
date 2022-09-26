@@ -1,6 +1,6 @@
 FGT5018.002,Radio access hardware,Improper physical security of radio access hardware,"Despite the virtualized structure of the 5G network and all involved network functions, there will be a strong dependency on the physical infrastructure, especially in the initial migration/hybrid 5G deployments."
 FGT5006.002,DNS Encapsulation,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
-FGT5020,Retrieve UE subscription data,SUPI or GPSI,Adversary must know the value of the SUPI or GPSI identifiers for the UE
+FGT5020,Retrieve UE subscription data,SUPI or GPSI,Adversary must know the SUPI or GPSI of victim UE
 T1499.503,DOS a UE via gNB or NF signaling,Compromise gNB or NF,Adversary needs access to a fake or compromised gNB or a compromised NF.
 T1018,Core-network scanning,Access to scanning tool,Adversaries need access to such tools
 T1499.501,Consume data allocation to deny or degrade service,A malicious app or set of apps have to have been installed on the UE,There are several methods to achieve this
@@ -14,14 +14,14 @@ T1525,Compromised image,Credential and Access to repository and or image creatio
 T1600.501,Radio interface,Rogue or misconfigured AMF or SMF or gNB,"A rogue gNB may be required to change the UE’s CP and UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
 This attack is possible with only control over the AMF, in which case the algorithm for CP and UP protection is changed to NULL."
 FGT5004.002,vSwitch,Credential and Access to SDN vSwitch,Privileged Access to SDN vSwitch via direct login or through SDN control plane APIs
-FGT5012.004,Core network function signaling,Access to SS7 network,Adversary may pretend to be an operator supporting only older generations
+FGT5012.004,Core network function signaling,Access to SS7 network,Adversary may pretend to be an operator supporting only earlier generations
 FGT5012.004,Core network function signaling,Access to operator’s network function,"Adversary has to gain control of one core NF, or UPF or NEF."
 FGT5012.004,Core network function signaling,Knowledge of the UE SUPI or 5G-GUTI of target UE,UE identifier required for all Core network function abuse
-T1557.503,Non-SBI,Compromised or misconfigured switches/routers,Malware or wrong configuration in switches/routers between RAN and core and between gNBs
+T1557.503,Non-SBI,Compromised or misconfigured switches/routers or gNB,"Malware or wrong configuration in switches/routers between RAN and core, between gNBs and in gNB itself."
 FGT5024,SIM boxing,SIM box equipment,"Adversary purchases a SIM box, SIM cards, and obtains an Internet connection"
 FGT5012.006,NAS exploit,Control of fake gNB in the area where the victim UE may be located.,Adversary must install a fake gNB that it can control what messages it sends to UEs.
 FGT5012.006,NAS exploit,Control of fake UE  in the NAS SMC attack.,Adversary must acquire a fake UE to achieve the NAS SMC attack.
-FGT5026,SIM cloning,Access to SIM card,Adversary needs physical access to SIM card.
+FGT5026,SIM cloning,Access to SIM card,Adversary needs physical access to SIM card during manufacturing of SIMs or during transport to MNOs.
 T1499,Interworking Denial of Service,API vulnerability,"Adversary may need to identify vulnerabilities in the API to obtain initial-access, unauthorized information, or perform a denial of service"
 T1499,Interworking Denial of Service,API credentials,Adversary may need to obtain credentials to collect unauthorized information
 FGT5012.001,Passive radio signals observation,Line-of-sight,Attacker must have radio line-of-sight to target for most accurate geolocation.
@@ -89,7 +89,7 @@ FGT5018,Vandalism of network infrastructure,MEC host,"Improper physical and envi
 Improper security monitoring of edge computing facilities
 
 Insecure service environment."
-T1499.502,Trigger Fraud Alert to Deny Service,A valid IMSI/SUPI or SUCI must be intercepted by attacker.,There are several methods to achieve this by capturing over the air messages using a wireless sniffer.
+T1499.502,Trigger Fraud Alert to Deny Service,A valid SUPI or SUCI must be intercepted by attacker.,There are several methods to achieve this by capturing over the air messages using a wireless sniffer.
 T1600.502,Network interfaces,Rogue or misconfigured AMF or SMF or gNB or UPF or SEPP or MME or any other core NF,Adversary must have access to the network components to cause the attacks
 FGT5005,Memory Scrapping,Credential and Access to SDN Controller and network elements,Privileged Access to SDN controller and Network elements to transfer and install malware to the target host.
 T1190,Exploit Public-Facing Network Function,API vulnerability,"Adversary may need to identify vulnerabilities in the API to obtain initial-access, unauthorized information, or perform a denial of service"
