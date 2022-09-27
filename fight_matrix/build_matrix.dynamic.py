@@ -170,6 +170,7 @@ tid_re = re.compile("(^T\d\d\d\d)")
 stid_re = re.compile("(^T\d\d\d\d).(\d\d\d)")
 
 
+
 subtechlabels = [
     "##### This is a FiGHT Technique\r\n",  # 0
     "##### This is a FiGHT Subtechnique\r\n",  # 1
@@ -286,6 +287,15 @@ subtechnique_cell_template = """
 
 attack_tid_re = re.compile("(T\d\d\d\d)")
 attack_stid_re = re.compile("(T\d\d\d\d).(\d\d\d)")
+ref_num_re = re.compile("\[(\d+)\]")
+ref_re = re.compile("(\[\d+\])")
+
+def link_refs(text):
+    p = r'\[(\d+)\]'
+    r = r'[\[\1\]](#\1)'
+    newtext = re.sub(p, r, text)
+    return newtext
+            
 
 def log_traceback(ex, ex_traceback=None):
     if ex_traceback is None:
@@ -603,8 +613,10 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
                 if draft_type == fight_types[3] or draft_type == fight_types[4]:
                     tid_url = tid.replace(".", "/")
                     description = f"{bluf}\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/{tid_url})\r\n"
+
                     addendum_name = draft.get_name()
-                    addendums.append(f"#### Addendum Name: {addendum_name}\r\n##### Architecture Segments: {architectures_str}\r\n{draft.get_description()}")
+                    desc = link_refs(draft.get_description())
+                    addendums.append(f"#### Addendum Name: {addendum_name}\r\n##### Architecture Segments: {architectures_str}\r\n{desc}")
                     proc_examples += draft.get_procedure_examples_dict()
                     pre_conditions += draft.get_pre_conditions_dict()
                     post_conditions += draft.get_post_conditions_dict()
@@ -612,7 +624,7 @@ def write_yaml(fight, drafts, mitigations=None, datasources=None):
                 else:
                     if num_drafts > 1:
                         logging.warning(f"CAUTION!  MULTIPLE DRAFTS FOUND FOR TID {tid} - {fight_name} | {draft_name}.docx")
-                    description =  draft.get_description()
+                    description =  link_refs(draft.get_description())
                     proc_examples += draft.get_procedure_examples_dict()
                     pre_conditions += draft.get_pre_conditions_dict()
                     post_conditions += draft.get_post_conditions_dict()

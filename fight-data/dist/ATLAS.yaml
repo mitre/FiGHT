@@ -1429,8 +1429,8 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - '[ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April
-    26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)'
+  - \[1\] <a name="1"> [ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP)
+    v006, retrieved April 26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)
   status: This is a theoretical behavior
   tactics:
   - TA0005
@@ -1489,8 +1489,9 @@ techniques:
       SCTPScan and GTPScan.
     Name: Use of pen testing tools.
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0007
@@ -1527,7 +1528,7 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - '[3GPP TR 33.848 Security Impacts of Virtualization,
+  - '\[1\] <a name="1"> [3GPP TR 33.848 Security Impacts of Virtualization,
 
     Section 5.15.2](https://www.3gpp.org/DynaReport/33848.htm)'
   status: This is a theoretical behavior in context of 5G systems.
@@ -1592,8 +1593,8 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - "[Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service for Network\
-    \ Function \u201C, Retrieved April 28 2022](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
+  - "\\[1\\] <a name=\"1\"> [Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service\
+    \ for Network Function \u201C, Retrieved April 28 2022](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
   status: This is a theoretical behavior
   tactics:
   - TA0008
@@ -1701,19 +1702,20 @@ techniques:
       N9) not using encryption can monitor traffic exchange and obtain UE information
       such as user identifiers, serving network identifiers, and location info. Non-SBI
       interfaces may not be encrypted for at least user plane or for control plane
-      packets. See sections D.2.2., L.2.2., L.2.3 of [1]
+      packets. See sections D.2.2., L.2.2., L.2.3 of [\[1\]](#1)
     Name: Non-SBI compromise
   - Description: The adversary with access to the SBI links, for example, with control
       over the 5G Service Communication Proxy (SCP) or a network infrastructure node
       (proxy, router, switch), may eavesdrop signaling messages if TLS encryption
       is not enabled. This leads to disclosure of UE authentication and authorization
-      information, and NF IP addresses and other topology information. See [6], [7].
+      information, and NF IP addresses and other topology information. See [\[6\]](#6),
+      [\[7\]](#7).
     Name: SBI node compromise
   - Description: 'Adversary positioned on an IPX node can observe UE data if in the
       clear or easily decrypted: If a SEPP has not properly removed clear text information
       elements (IE) when replacing them with encrypted versions consistent with the
       previously negotiated protection policy or if the SEPP used a weak cipher for
-      JWE encryption. See section G.2.4 of [1].'
+      JWE encryption. See section G.2.4 of [\[1\]](#1).'
     Name: IPX node compromise
   - Description: The adversary positioned on a SEPP, can observe information elements
       on the N32c interface including cipher suites used, keys, protection policies
@@ -1723,26 +1725,30 @@ techniques:
       of follow-on techniques.
     Name: SEPP compromise
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D, March 2022](https://www.3gpp.org/DynaReport/33926.htm)"
-  - "[3rd Generation Partnership Project (3GPP), \u201CSecurity Architecture and Procedures\
-    \ for 5G System\u201D, TS 33.501 v16.10.0 Release 16, March 2022](https://www.3gpp.org/DynaReport/33501.htm)"
-  - "[3GPP TS 23.501 \u201CSystem architecture for the 5G System (5GS)\u201D, March\
-    \ 2022](https://www.3gpp.org/DynaReport/23501.htm)"
-  - "[3rd Generation Partnership Project (3GPP), \u201C5G Security Assurance Specification\
-    \ (SCAS) for the Security Edge Protection Proxy (SEPP) network product class\u201D\
-    , TS 33.517, ver. 17.0.0, Jun. 2021](https://www.3gpp.org/DynaReport/33517.htm)"
-  - "[G. Green, \u201C5G Security when Roaming \u2013 Part 2,\u201D Mpirical, Lancaster,\
-    \ UK, May 21,2021](https://www.mpirical.com/blog/5g-security-when-roaming-part-2)"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
-  - '[G. Koien, "On Threats to the 5G Service Based Architecture", 2021.](https://www.researchgate.net/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture)'
-  - "[\u201CThe Transport Layer Security (TLS) Protocol\u201D, Version 1.2. RFC 5246](https://www.ietf.org/rfc/rfc5246.txt)"
-  - "[3GPP TS 33.210 \u201CNetwork Domain Security (NDS); IP network layer security\u201D\
-    ](https://www.3gpp.org/DynaReport/33210.htm)"
-  - "[3GPP TR 33.848 \u201CStudy on Security Impacts of Virtualization\u201D. (WIP)\
-    \ Section 5.15.2](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3574)"
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D, March\
+    \ 2022](https://www.3gpp.org/DynaReport/33926.htm)"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP), \u201CSecurity\
+    \ Architecture and Procedures for 5G System\u201D, TS 33.501 v16.10.0 Release\
+    \ 16, March 2022](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.501 \u201CSystem architecture for the 5G System\
+    \ (5GS)\u201D, March 2022](https://www.3gpp.org/DynaReport/23501.htm)"
+  - "\\[4\\] <a name=\"4\"> [3rd Generation Partnership Project (3GPP), \u201C5G Security\
+    \ Assurance Specification (SCAS) for the Security Edge Protection Proxy (SEPP)\
+    \ network product class\u201D, TS 33.517, ver. 17.0.0, Jun. 2021](https://www.3gpp.org/DynaReport/33517.htm)"
+  - "\\[5\\] <a name=\"5\"> [G. Green, \u201C5G Security when Roaming \u2013 Part\
+    \ 2,\u201D Mpirical, Lancaster, UK, May 21,2021](https://www.mpirical.com/blog/5g-security-when-roaming-part-2)"
+  - "\\[6\\] <a name=\"6\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
+  - \[7\] <a name="7"> [G. Koien, "On Threats to the 5G Service Based Architecture",
+    2021.](https://www.researchgate.net/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture)
+  - "\\[8\\] <a name=\"8\"> [\u201CThe Transport Layer Security (TLS) Protocol\u201D\
+    , Version 1.2. RFC 5246](https://www.ietf.org/rfc/rfc5246.txt)"
+  - "\\[9\\] <a name=\"9\"> [3GPP TS 33.210 \u201CNetwork Domain Security (NDS); IP\
+    \ network layer security\u201D](https://www.3gpp.org/DynaReport/33210.htm)"
+  - "\\[10\\] <a name=\"10\"> [3GPP TR 33.848 \u201CStudy on Security Impacts of Virtualization\u201D\
+    . (WIP) Section 5.15.2](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3574)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0007
@@ -1802,8 +1808,9 @@ techniques:
       SCTPScan and GTPScan.
     Name: Use of pen testing tools.
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0007
@@ -1852,9 +1859,9 @@ techniques:
       NF and an external server (AF, IPX node) via NEF or SEPP.
     Name: HTTP/2 optional parameters
   references:
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
+  - "\\[1\\] <a name=\"1\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0010
@@ -1902,9 +1909,9 @@ techniques:
       \ recursively for domains the operator doesn\u2019t directly control."
     Name: External DNS Resolution
   references:
-  - "[\u201CBhadra framework\u201D: S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat\
-    \ modeling framework for mobile communication systems,\u201D Retrieved April 28,\
-    \ 2022](https://arxiv.org/pdf/2005.05110.pdf)"
+  - "\\[1\\] <a name=\"1\"> [\u201CBhadra framework\u201D: S.P. Rao, S. Holtmanns,\
+    \ T. Aura, \u201CThreat modeling framework for mobile communication systems,\u201D\
+    \ Retrieved April 28, 2022](https://arxiv.org/pdf/2005.05110.pdf)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1048
   tactics: []
@@ -1990,12 +1997,12 @@ techniques:
       \ the\_\_malware"
     Name: ''
   references:
-  - "[ETSI NFV SEC001, \u201CNetwork Functions Virtualization (NFV); NFV Security;\
-    \ Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
+  - "\\[1\\] <a name=\"1\"> [ETSI NFV SEC001, \u201CNetwork Functions Virtualization\
+    \ (NFV); NFV Security; Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,\_ October\
-    \ 2021](https://arxiv.org/abs/2108.11206\_\_)"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,\_ October 2021](https://arxiv.org/abs/2108.11206\_\_)"
   status: This is a theoretical behavior
   tactics:
   - TA0001
@@ -2048,11 +2055,11 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - "[ENISA \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
-    , Jan. 2016, Table 1, and 2](https://www.enisa.europa.eu/publications/sdn-threat-landscape)"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,\_ October\
-    \ 2021](https://arxiv.org/abs/2108.11206\_\_)"
+  - "\\[1\\] <a name=\"1\"> [ENISA \u201CThreat Landscape and Good Practice Guide\
+    \ for Software Defined Networks/5G\u201D, Jan. 2016, Table 1, and 2](https://www.enisa.europa.eu/publications/sdn-threat-landscape)"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,\_ October 2021](https://arxiv.org/abs/2108.11206\_\_)"
   status: This is a theoretical behavior
   subtechnique-of: FGT1078
   tactics:
@@ -2172,8 +2179,9 @@ techniques:
       escalation. The tool is written in GoLang and publicly available on GitHub
     Name: S0683
   references:
-  - '[ETSI NFV SEC023, Container Security Spec, section 5.4.4, Accessed 6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec/NFV-SEC023v005.zip)'
-  - '[ETSI NFV SEC023, Container Security Spec, section 5.4.4
+  - \[1\] <a name="1"> [ETSI NFV SEC023, Container Security Spec, section 5.4.4, Accessed
+    6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec/NFV-SEC023v005.zip)
+  - '\[1\] <a name="1"> [ETSI NFV SEC023, Container Security Spec, section 5.4.4
 
     , Accessed 6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec/NFV-SEC023v005.zip)'
   status: This is a theoretical behavior
@@ -2234,14 +2242,14 @@ techniques:
       use legitimate signaling to obtain sensitive UE or network data.
     Name: Sensitive data exposure
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
-  - '[TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
-    )'
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
+  - \[3\] <a name="3"> [TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
+    )
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0040
@@ -2329,8 +2337,8 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - "[ETSI NFV SEC001, \u201CNetwork Functions Virtualization (NFV); NFV Security;\
-    \ Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
+  - "\\[1\\] <a name=\"1\"> [ETSI NFV SEC001, \u201CNetwork Functions Virtualization\
+    \ (NFV); NFV Security; Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
     \ )"
   status: This is a theoretical behavior
   tactics:
@@ -2388,18 +2396,18 @@ techniques:
   platforms: 5G Network
   procedureexamples:
   - Description: 'The signaling AF to NEF to UDM and back from UDM to NEF to AF is
-      used in several procedures ([1]). Example: NIDD (non-IP data delivery) (see
-      clause 4.25 of [2]), or VN (Virtual Network) group management. See clause 4.15.6
-      of [2].'
+      used in several procedures ([\[1\]](#1)). Example: NIDD (non-IP data delivery)
+      (see clause 4.25 of [\[2\]](#2)), or VN (Virtual Network) group management.
+      See clause 4.15.6 of [\[2\]](#2).'
     Name: Third party app (AF) to Network Exposure Function (NEF) to Core NF used
       as a data exfiltration channel
   references:
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
-  - "[3rd Generation Partnership Project (3GPP) TS 23.502, \u201CProcedures for the\
-    \ 5G System (5GS); Stage 2 (Release 17)\u201D, Technical Specification, v17.4.0,\
-    \ March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
+  - "\\[1\\] <a name=\"1\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TS 23.502,\
+    \ \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D, Technical\
+    \ Specification, v17.4.0, March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0011
@@ -2463,12 +2471,12 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -2511,7 +2519,7 @@ techniques:
   platforms: 5G radio access
   procedureexamples:
   - Description: Jammer device is used to perform noise jamming of the radio interface,
-      See [1]
+      See [\[1\]](#1)
     Name: Noise jamming via jammer device
   - Description: Fake UE sends false synchronization signals to the gNB
     Name: False synchronization signals
@@ -2519,15 +2527,16 @@ techniques:
       from gNB or towards gNB
     Name: Replay legitimate signals
   references:
-  - "[Y. Arjoune and S. Faruque, \u201CSmart Jamming Attacks in 5G New Radio: A Review\u201D\
-    \ (2020), 10th Annual Computing and Communication Workshop and Conference (CCWC)](https://ieeexplore.ieee.org/abstract/document/9031175/\
+  - "\\[1\\] <a name=\"1\"> [Y. Arjoune and S. Faruque, \u201CSmart Jamming Attacks\
+    \ in 5G New Radio: A Review\u201D (2020), 10th Annual Computing and Communication\
+    \ Workshop and Conference (CCWC)](https://ieeexplore.ieee.org/abstract/document/9031175/\
     \ )"
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[2\\] <a name=\"2\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Lichtman, et al. \u201C5G NR Jamming, Spoofing, and Sniffing: Threat Assessment\
-    \ and Mitigation\u201D (2018), 2018 IEEE International Conference on Communications\
-    \ Workshops](https://arxiv.org/pdf/1803.03845.pdf)"
+  - "\\[3\\] <a name=\"3\"> [Lichtman, et al. \u201C5G NR Jamming, Spoofing, and Sniffing:\
+    \ Threat Assessment and Mitigation\u201D (2018), 2018 IEEE International Conference\
+    \ on Communications Workshops](https://arxiv.org/pdf/1803.03845.pdf)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0040
@@ -2637,22 +2646,22 @@ techniques:
       availability of the NF
     Name: Volumetric attack
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
+  - \[3\] <a name="3"> [TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
+    )
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - '[TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
-    )'
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
-    \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
-  - '[TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
-    )'
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
+  - \[3\] <a name="3"> [TOP 7 REST API Security Threats, blog January 2019](https://blog.restcase.com/top-7-rest-api-security-threats/
+    )
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0040
@@ -2731,15 +2740,15 @@ techniques:
 
       UDM needs to process repeated SUCI messages from the same UE which will eventually
       drain resources of UDM and cause DoS attack on legitimate UE. Sections 5.2.2.1.2
-      & 5.2.2.2.2 of [1]'
+      & 5.2.2.2.2 of [\[1\]](#1)'
     Name: SUCI replay
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.846: \u201CStudy on Authentication\
-    \ Enhancements in the 5G System\u201D, Technical Report, v17.0.0, Dec. 2021.](https://www.3gpp.org/DynaReport/33846.htm\
-    \ )"
+  - "\\[1\\] <a name=\"1\"> [3rd Generation Partnership Project (3GPP) TR 33.846:\
+    \ \u201CStudy on Authentication Enhancements in the 5G System\u201D, Technical\
+    \ Report, v17.0.0, Dec. 2021.](https://www.3gpp.org/DynaReport/33846.htm )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1499
   tactics:
@@ -2810,9 +2819,9 @@ techniques:
       have same impact.  Privileged Access to tool or repo is required.
     Name: Credential and Access to repository and or image creation tools (i.e. Docker)
   references:
-  - '[ENISA THREAT LANDSCAPE FOR 5G NETWORKS, December 2020, section 6.2. Accessed
-    April 13, 2021](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks/)'
-  - '[Docker Documentation, Security, Content in Trust](https://docs.docker.com/engine/security/trust/)'
+  - \[1\] <a name="1"> [ENISA THREAT LANDSCAPE FOR 5G NETWORKS, December 2020, section
+    6.2. Accessed April 13, 2021](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks/)
+  - \[2\] <a name="2"> [Docker Documentation, Security, Content in Trust](https://docs.docker.com/engine/security/trust/)
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0003
@@ -2846,7 +2855,7 @@ techniques:
     \ an AiTM may manipulate data over the N32 interface while a UE is roaming.\r\n\
     \r\nSimilarly, if the EPC interworking interface N26 for non-roaming is not integrity\
     \ protected, all subscriber signaling data may be manipulated by adversary. Refer\
-    \ Clause 4.3.1 of [3].\r\n\r\n"
+    \ Clause 4.3.1 of [\\[3\\]](#3).\r\n\r\n"
   - "#### Addendum Name: Radio Interface\r\n##### Architecture Segments: Control Plane,\
     \ User Plane\r\n Adversary with access to radio interface manipulates user and\
     \ control plane traffic received on that interface without integrity protection,\
@@ -2925,41 +2934,43 @@ techniques:
     Name: Malware or incorrect configuration in gNB.
   procedureexamples:
   - Description: 'If gNB is compromised or misconfigured, CP and UP data can be manipulated
-      by adversary on N2, N3 and Xn interfaces. Clause D.2.2 of [1], 5.3.3 of [2]
+      by adversary on N2, N3 and Xn interfaces. Clause D.2.2 of [\[1\]](#1), 5.3.3
+      of [\[2\]](#2)
 
 
       If AMF or SMF is compromised or misconfigured, CP data can be manipulated by
-      adversary on N2 and N4 interfaces. Clauses 5.5.2 & 9.9 of [2]
+      adversary on N2 and N4 interfaces. Clauses 5.5.2 & 9.9 of [\[2\]](#2)
 
 
       If UPF is compromised or misconfigured, UP data can be manipulated by adversary
-      on N3 interface. Clause D.2.2 of [1], 9.3 of [2]'
+      on N3 interface. Clause D.2.2 of [\[1\]](#1), 9.3 of [\[2\]](#2)'
     Name: Data manipulation on the non-SBI
   - Description: "If NF is compromised or misconfigured, CP data can be manipulated\
-      \ on SBI interface. Clause 13.1 of [2] (DoS attack) \n\nIf SCP is compromised\
-      \ or misconfigured, CP data can be manipulated on SBI. Clause 5.9.2.4 of [2]\
-      \ (DoS attack)\n\nAn access token may be manipulated to gain unauthorized access\
-      \ to another NF. [FGT5011](/techniques/FGT5011)\_\n\nA rogue or misconfigured\
-      \ AMF can obtain the temporary UE ID (5G-GUTI or 5G-S-TMSI) during UE registration\
-      \ and service request and later use the ID to spoof signaling messages to retrieve\
-      \ sensitive subscriber information. Clauses 4.2.2.2.2 & 4.2.3.2 of [4]. (Unauthorized\
-      \ access)\n\nNote: This attack is possible in both non-roaming and roaming scenarios."
+      \ on SBI interface. Clause 13.1 of [\\[2\\]](#2) (DoS attack) \n\nIf SCP is\
+      \ compromised or misconfigured, CP data can be manipulated on SBI. Clause 5.9.2.4\
+      \ of [\\[2\\]](#2) (DoS attack)\n\nAn access token may be manipulated to gain\
+      \ unauthorized access to another NF. [FGT5011](/techniques/FGT5011)\_\n\nA rogue\
+      \ or misconfigured AMF can obtain the temporary UE ID (5G-GUTI or 5G-S-TMSI)\
+      \ during UE registration and service request and later use the ID to spoof signaling\
+      \ messages to retrieve sensitive subscriber information. Clauses 4.2.2.2.2 &\
+      \ 4.2.3.2 of [\\[4\\]](#4). (Unauthorized access)\n\nNote: This attack is possible\
+      \ in both non-roaming and roaming scenarios."
     Name: Data manipulation on the SBI
   - Description: 'If SEPP or IPX component is compromised or misconfigured, CP data
-      can be manipulated by adversary on N32 interface. Clauses 13.1, 13.2 of [2]
+      can be manipulated by adversary on N32 interface. Clauses 13.1, 13.2 of [\[2\]](#2)
 
 
       If UPF is compromised or misconfigured, UP data can be manipulated by adversary
-      on N9 interface. Clause 9.9 of [2]
+      on N9 interface. Clause 9.9 of [\[2\]](#2)
 
 
       If AMF or MME is compromised or misconfigured, CP data can be manipulated by
-      adversary on N26 interface. Clause K.2.1 of [1], 8.4 of [2]'
+      adversary on N26 interface. Clause K.2.1 of [\[1\]](#1), 8.4 of [\[2\]](#2)'
     Name: Data manipulation on roaming/interconnect
-  - Description: '[3] describes an attack on 4G but applicable to 5G where radio interface
-      integrity is not applied, whereby an adversary changes the DNS request sent
-      by the victim UE over the radio interface so as to redirect to its own DNS server.
-      See [FGT5006.001](/techniques/FGT5006.001)'
+  - Description: '[\[3\]](#3) describes an attack on 4G but applicable to 5G where
+      radio interface integrity is not applied, whereby an adversary changes the DNS
+      request sent by the victim UE over the radio interface so as to redirect to
+      its own DNS server. See [FGT5006.001](/techniques/FGT5006.001)'
     Name: Altering DNS requests not integrity protected over the radio interface.
   - Description: See [FGT5012.006](/techniques/FGT5012.006)
     Name: Replay NAS messages to get UE location
@@ -2968,20 +2979,22 @@ techniques:
       of an existing data session which can cause disruption or termination of session.
     Name: DoS attack by data manipulation
   references:
-  - "[3GPP TR33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes.\u201D](https://www.3gpp.org/DynaReport/33926.htm)"
-  - "[3GPP TS33.501 \u201CSecurity architecture and procedures for 5G System.\u201D\
-    ](https://www.3gpp.org/DynaReport/33501.htm)"
-  - "[3GPP TS 23.501 \u201CSystem architecture for the 5G System (5GS)\u201D](https://www.3gpp.org/DynaReport/23501.htm)"
-  - "[3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D](https://www.3gpp.org/DynaReport/23502.htm)"
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes.\u201D](https://www.3gpp.org/DynaReport/33926.htm)"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System.\u201D](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.501 \u201CSystem architecture for the 5G System\
+    \ (5GS)\u201D](https://www.3gpp.org/DynaReport/23501.htm)"
+  - "\\[4\\] <a name=\"4\"> [3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D\
+    ](https://www.3gpp.org/DynaReport/23502.htm)"
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
     \  )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    .](https://www.3gpp.org/DynaReport/33501.htm  )"
-  - "[D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201CBreaking LTE on Layer\
-    \ two\u201D,  in Proc. IEEE Symposium on Security and Privacy (SP), 2019, pp.\
-    \ 1-16.](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D.](https://www.3gpp.org/DynaReport/33501.htm  )"
+  - "\\[3\\] <a name=\"3\"> [D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201C\
+    Breaking LTE on Layer two\u201D,  in Proc. IEEE Symposium on Security and Privacy\
+    \ (SP), 2019, pp. 1-16.](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1565
   tactics:
@@ -3027,19 +3040,19 @@ techniques:
   object-type: technique
   platforms: 5G Network
   procedureexamples:
-  - Description: "[2] is a university research showing how an attacker can locate\
-      \ an entity\u2019s systems in the cloud and work to instantiate profiling and\
-      \ other malicious hosts on the same physical platform."
+  - Description: "[\\[2\\]](#2) is a university research showing how an attacker can\
+      \ locate an entity\u2019s systems in the cloud and work to instantiate profiling\
+      \ and other malicious hosts on the same physical platform."
     Name: Locate cloud resources of target
   references:
-  - "[S. Sahoo, S. K. Mishra, B. Sahoo & A. K. Turuk, \u201CCo-resident Attack in\
-    \ Cloud Computing: An Overview\u201D, Encyclopedia of Big Data Technologies, March\
-    \ 2018](https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_322-1.pdf\
+  - "\\[1\\] <a name=\"1\"> [S. Sahoo, S. K. Mishra, B. Sahoo & A. K. Turuk, \u201C\
+    Co-resident Attack in Cloud Computing: An Overview\u201D, Encyclopedia of Big\
+    \ Data Technologies, March 2018](https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_322-1.pdf\
     \ )"
-  - "[T. Ristenpart, E. Tromer, H. Shacham, S. Savage, \u201CHey, you, get off of\
-    \ my cloud: exploring information leakage in third-party compute clouds\u201D\
-    , In CCS '09: Proceedings of the 16th ACM conference on Computer and communications\
-    \ security, November 2009 Pages 199\u2013212](https://dl.acm.org/doi/10.1145/1653662.1653687\
+  - "\\[2\\] <a name=\"2\"> [T. Ristenpart, E. Tromer, H. Shacham, S. Savage, \u201C\
+    Hey, you, get off of my cloud: exploring information leakage in third-party compute\
+    \ clouds\u201D, In CCS '09: Proceedings of the 16th ACM conference on Computer\
+    \ and communications security, November 2009 Pages 199\u2013212](https://dl.acm.org/doi/10.1145/1653662.1653687\
     \ )"
   status: This is a theoretical behavior
   tactics:
@@ -3099,11 +3112,12 @@ techniques:
   - Description: Privileged access to device implementing the network separation controls
     Name: Privileged access
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
     \ )"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior
   tactics:
   - TA0005
@@ -3187,14 +3201,14 @@ techniques:
       of victim machine
     Name: G0139
   references:
-  - '[ETSI NFV SEC023, Container security spec (WIP) v004.](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec)'
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+  - \[1\] <a name="1"> [ETSI NFV SEC023, Container security spec (WIP) v004.](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec)
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
+  - "\\[3\\] <a name=\"3\"> [Github, \u201CAwesome VM exploit\u201D](https://github.com/WinMin/awesome-vm-exploit\
     \ )"
-  - "[Github, \u201CAwesome VM exploit\u201D](https://github.com/WinMin/awesome-vm-exploit\
-    \ )"
-  - '[Project Zero](https://googleprojectzero.blogspot.com/2021/06/an-epyc-escape-case-study-of-kvm.html
-    )'
+  - \[4\] <a name="4"> [Project Zero](https://googleprojectzero.blogspot.com/2021/06/an-epyc-escape-case-study-of-kvm.html
+    )
   status: This is a theoretical behavior
   tactics:
   - TA0008
@@ -3234,13 +3248,15 @@ techniques:
       \ and destination phone number). This is highly targeted to given IMSI numbers\
       \ (e.g., proponents of movements against the Chinese gov\u2019t). (note: Call\
       \ Data Records (CDRs) were also targeted for certain IMSIs, the info therein\
-      \ is called metadata, i.e. time, duration, phone numbers). [1], [2]."
+      \ is called metadata, i.e. time, duration, phone numbers). [\\[1\\]](#1), [\\\
+      [2\\]](#2)."
     Name: Malware loaded into a Linux running SMSC server
   references:
-  - "[Dynamic Ciso.com \u201CNew Malware Discovered by FireEye APT41, Infects SMS\
-    \ Servers Within Telecoms\u201D, Nov 1, 2019, retrieved March 4, 2022.](https://dynamicciso.com/new-malware-discovered-by-fireeye-apt41infects-sms-servers-within-telecoms)"
-  - "[Leong, Raymond, Perez, Dan & Dean, Tyler, \u201CMESSAGETAP: Who\u2019s Reading\
-    \ Your Text Messages\u201D FireEye. 31 Oct 2019.](https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages)"
+  - "\\[1\\] <a name=\"1\"> [Dynamic Ciso.com \u201CNew Malware Discovered by FireEye\
+    \ APT41, Infects SMS Servers Within Telecoms\u201D, Nov 1, 2019, retrieved March\
+    \ 4, 2022.](https://dynamicciso.com/new-malware-discovered-by-fireeye-apt41infects-sms-servers-within-telecoms)"
+  - "\\[2\\] <a name=\"2\"> [Leong, Raymond, Perez, Dan & Dean, Tyler, \u201CMESSAGETAP:\
+    \ Who\u2019s Reading Your Text Messages\u201D FireEye. 31 Oct 2019.](https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0009
@@ -3264,7 +3280,7 @@ techniques:
     \ 5G supports both SMS over IP and SMS over NAS. The routes for SMS are still\
     \ from SMSC (Short Message Service Center) to STP (Signaling Transfer Point) to\
     \ either IP-SM-GW (IP Short Message Gateway) for SMS over IP or SMSF (SMS Function)\
-    \ for regular SMS. Refer section 7.2 of [3].\r\n\r\n"
+    \ for regular SMS. Refer section 7.2 of [\\[3\\]](#3).\r\n\r\n"
   detections:
   - detects: Logs of externally received messages requesting location of user or,
       logs of outgoing responses to such messages can detect anomalies. Logs are on
@@ -3289,19 +3305,20 @@ techniques:
   procedureexamples:
   - Description: Incorrect implementation/configuration or compromised home SMS router
       can allow bypass of the SMS location query messages. Deployed SMS router as
-      in Section 7.2.2 of [3]
+      in Section 7.2.2 of [\[3\]](#3)
     Name: Send SMS location query via SS7 or Diameter
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - "[European Union Agency for Cybersecurity (ENISA), \u201CSignaling security in\
-    \ telecom SS7/Diameter/5G\u201D, March 2018](https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g\
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
     \ )"
-  - "[GSM Association, \u201COfficial Document NG.111 - SMS Evolution\u201D, v2.0,\
-    \ Nov. 2020](https://www.gsma.com/newsroom/wp-content/uploads//NG.111-v2.0.pdf\
+  - "\\[2\\] <a name=\"2\"> [European Union Agency for Cybersecurity (ENISA), \u201C\
+    Signaling security in telecom SS7/Diameter/5G\u201D, March 2018](https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g\
     \ )"
-  - "[Kirill Puzankov: \u201CHidden Agendas: bypassing GSMA recommendations on SS7\
-    \ networks\u201D](https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html)"
+  - "\\[3\\] <a name=\"3\"> [GSM Association, \u201COfficial Document NG.111 - SMS\
+    \ Evolution\u201D, v2.0, Nov. 2020](https://www.gsma.com/newsroom/wp-content/uploads//NG.111-v2.0.pdf\
+    \ )"
+  - "\\[4\\] <a name=\"4\"> [Kirill Puzankov: \u201CHidden Agendas: bypassing GSMA\
+    \ recommendations on SS7 networks\u201D](https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0005
@@ -3369,21 +3386,22 @@ techniques:
     Name: Access to SCP
   procedureexamples:
   - Description: A malicious NF can abuse access token issued by the NRF for one slice
-      to access another shared NF in a different slice. Clause H.2.2.1 of [2]
+      to access another shared NF in a different slice. Clause H.2.2.1 of [\[2\]](#2)
     Name: Access token abuse
   - Description: Access tokens can be hijacked by a compromised intermediate proxy
       such as SCP (if deployed by operator). This attack can be followed by re-direct
-      or replay of access tokens. Clause 3.9 of [3]
+      or replay of access tokens. Clause 3.9 of [\[3\]](#3)
     Name: Access token hijack
   references:
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
-  - "[3GPP Technical Report 33.926, \u201CSecurity Assurance Specification (SCAS)\
-    \ threats and critical assets in 3GPP network product classes\u201D, Release 17.](https://www.3gpp.org/DynaReport/33926.htm\
-    \ )"
-  - "[Internet Engineering Task Force (IETF) \u201COAuth 2.0 Security Best Current\
-    \ Practice\u201D, draft-ietf-oauth-security-topics-05, June 2022.](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19)"
+  - "\\[1\\] <a name=\"1\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
+  - "\\[2\\] <a name=\"2\"> [3GPP Technical Report 33.926, \u201CSecurity Assurance\
+    \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
+    , Release 17.](https://www.3gpp.org/DynaReport/33926.htm )"
+  - "\\[3\\] <a name=\"3\"> [Internet Engineering Task Force (IETF) \u201COAuth 2.0\
+    \ Security Best Current Practice\u201D, draft-ietf-oauth-security-topics-05, June\
+    \ 2022.](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0007
@@ -3474,14 +3492,16 @@ techniques:
   - Description: Privileged Access to SDN controller and Network elements
     Name: Credential and Access to SDN Controller and network elements
   references:
-  - "[ENISA, \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
-    , Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape )"
-  - "[Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201CSDN Security: A Survey\u201D\
-    . 2013 IEEE SDN for Future. Networks and Services (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702c553&tag=1\
+  - "\\[1\\] <a name=\"1\"> [ENISA, \u201CThreat Landscape and Good Practice Guide\
+    \ for Software Defined Networks/5G\u201D, Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206\
+  - "\\[2\\] <a name=\"2\"> [Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201C\
+    SDN Security: A Survey\u201D. 2013 IEEE SDN for Future. Networks and Services\
+    \ (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702c553&tag=1\
     \ )"
+  - "\\[3\\] <a name=\"3\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -3575,14 +3595,16 @@ techniques:
       control plane APIs
     Name: Credential and Access to SDN Controller
   references:
-  - "[ENISA, \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
-    , Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape )"
-  - "[Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201CSDN Security: A Survey\u201D\
-    . 2013 IEEE SDN for Future. Networks and Services (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702553&tag=1\
+  - "\\[1\\] <a name=\"1\"> [ENISA, \u201CThreat Landscape and Good Practice Guide\
+    \ for Software Defined Networks/5G\u201D, Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
+  - "\\[2\\] <a name=\"2\"> [Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201C\
+    SDN Security: A Survey\u201D. 2013 IEEE SDN for Future. Networks and Services\
+    \ (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702553&tag=1\
     \ )"
+  - "\\[3\\] <a name=\"3\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5004
   tactics:
@@ -3679,14 +3701,16 @@ techniques:
       control plane APIs
     Name: Credential and Access to SDN vSwitch
   references:
-  - "[ENISA, \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
-    , Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape )"
-  - "[Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201CSDN Security: A Survey\u201D\
-    . 2013 IEEE SDN for Future. Networks and Services (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702553&tag=1\
+  - "\\[1\\] <a name=\"1\"> [ENISA, \u201CThreat Landscape and Good Practice Guide\
+    \ for Software Defined Networks/5G\u201D, Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
+  - "\\[2\\] <a name=\"2\"> [Scott-Hayward, S., O'Callaghan, G., & Sezer, S. \u201C\
+    SDN Security: A Survey\u201D. 2013 IEEE SDN for Future. Networks and Services\
+    \ (SDN4FNS) (pp. 1-7)](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702553&tag=1\
     \ )"
+  - "\\[3\\] <a name=\"3\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5004
   tactics:
@@ -3746,22 +3770,24 @@ techniques:
       and install malware to the target host.
     Name: Credential and Access to SDN Controller and network elements
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, section 6.2, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, section 6.2, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[ENISA, \u201CThreat Landscape and Good Practice Guide for Software Defined Networks/5G\u201D\
-    , Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape )"
-  - "[ETSI GS NFV-SEC 009 V1.1.1 , \u201CNFV Security;\nReport on use cases and technical\
-    \ approaches for multi-layer host administration\u201D , December 2015](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/009/01.01.01_60/gs_nfv-sec009v010101p.pdf\
+  - "\\[2\\] <a name=\"2\"> [ENISA, \u201CThreat Landscape and Good Practice Guide\
+    \ for Software Defined Networks/5G\u201D, Jan. 2016](https://www.enisa.europa.eu/publications/sdn-threat-landscape\
     \ )"
-  - '[PoS RAM Scraper Malware](https://www.wired.com/wp-content/uploads/2014/09/wp-pos-ram-scraper-malware.pdf
-    )'
-  - "[J. Hizver, \u201CTaxonomic Modeling of Security Threats in Software Defined\
-    \ Networking\u201D, Blackhat Conference, Aug. 2015](https://www.blackhat.com/docs/us-15/materials/us-15-Hizver-Taxonomic-Modeling-Of-Security-Threats-In-Software-Defined-Networking-wp.pdf\
+  - "\\[3\\] <a name=\"3\"> [ETSI GS NFV-SEC 009 V1.1.1 , \u201CNFV Security;\nReport\
+    \ on use cases and technical approaches for multi-layer host administration\u201D\
+    \ , December 2015](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/009/01.01.01_60/gs_nfv-sec009v010101p.pdf\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
+  - \[4\] <a name="4"> [PoS RAM Scraper Malware](https://www.wired.com/wp-content/uploads/2014/09/wp-pos-ram-scraper-malware.pdf
+    )
+  - "\\[5\\] <a name=\"5\"> [J. Hizver, \u201CTaxonomic Modeling of Security Threats\
+    \ in Software Defined Networking\u201D, Blackhat Conference, Aug. 2015](https://www.blackhat.com/docs/us-15/materials/us-15-Hizver-Taxonomic-Modeling-Of-Security-Threats-In-Software-Defined-Networking-wp.pdf\
     \ )"
+  - "\\[6\\] <a name=\"6\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0009
@@ -3804,11 +3830,11 @@ techniques:
       ensure that the contents of the packets are actually DNS requests.
     Name: Unmonitored DNS Traffic
   references:
-  - "[D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201CBreaking LTE on Layer\
-    \ Two\u201D https://alter-attack.net](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
-  - "[ S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D](https://arxiv.org/pdf/2005.05110.pdf)"
-  - '[Mobile Data Charging: New Attacks and Countermeasures](https://dl.acm.org/doi/pdf/10.1145/2382196.2382220)'
+  - "\\[1\\] <a name=\"1\"> [D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201C\
+    Breaking LTE on Layer Two\u201D https://alter-attack.net](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
+  - "\\[2\\] <a name=\"2\"> [ S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D](https://arxiv.org/pdf/2005.05110.pdf)"
+  - '\[3\] <a name="3"> [Mobile Data Charging: New Attacks and Countermeasures](https://dl.acm.org/doi/pdf/10.1145/2382196.2382220)'
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0001
@@ -3864,8 +3890,8 @@ techniques:
       in 5G when the user data integrity algorithm is set to NULL.
     Name: Adversary employs the aLTEr procedure
   references:
-  - "[D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201CBreaking LTE on Layer\
-    \ Two\u201D https://alter-attack.net](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
+  - "\\[1\\] <a name=\"1\"> [D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, \u201C\
+    Breaking LTE on Layer Two\u201D https://alter-attack.net](https://alter-attack.net/media/breaking_lte_on_layer_two.pdf)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5006
   tactics:
@@ -3922,14 +3948,16 @@ techniques:
       only the destination port (or plus protocol ID), thus exposing a vulnerability.
     Name: Free fake DNS loophole
   references:
-  - "[\u201CBadhra Framework\u201D: S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat\
-    \ modeling framework for mobile communication systems\u201D](https://arxiv.org/pdf/2005.05110.pdf)"
-  - '[Mobile Data Charging: New Attacks and Countermeasures](https://dl.acm.org/doi/pdf/10.1145/2382196.2382220)'
-  - "[Merve Sahin, Aurelien Francillon, Payas Gupta, and Mustaque Ahamad. 2017. \n\
-    \u201CSok: Fraud in telephony networks\u201D. In 2017 IEEE European Symposium\
-    \ on Security\nand Privacy (EuroS&P). IEEE, p235\u2013250](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7961983&tag=1)"
-  - "[Kui Xu, Patrick Butler, Sudip Saha, Danfeng (Daphni) Yao in DNS CC Journal,\
-    \ \u201CDNS for Massive-Scale Command and Control\u201D](https://people.cs.vt.edu/~danfeng/papers/DNS-CC-JOURNAL.pdf)"
+  - "\\[1\\] <a name=\"1\"> [\u201CBadhra Framework\u201D: S.P. Rao, S. Holtmanns,\
+    \ T. Aura, \u201CThreat modeling framework for mobile communication systems\u201D\
+    ](https://arxiv.org/pdf/2005.05110.pdf)"
+  - '\[2\] <a name="2"> [Mobile Data Charging: New Attacks and Countermeasures](https://dl.acm.org/doi/pdf/10.1145/2382196.2382220)'
+  - "\\[3\\] <a name=\"3\"> [Merve Sahin, Aurelien Francillon, Payas Gupta, and Mustaque\
+    \ Ahamad. 2017. \n\u201CSok: Fraud in telephony networks\u201D. In 2017 IEEE European\
+    \ Symposium on Security\nand Privacy (EuroS&P). IEEE, p235\u2013250](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7961983&tag=1)"
+  - "\\[4\\] <a name=\"4\"> [Kui Xu, Patrick Butler, Sudip Saha, Danfeng (Daphni)\
+    \ Yao in DNS CC Journal, \u201CDNS for Massive-Scale Command and Control\u201D\
+    ](https://people.cs.vt.edu/~danfeng/papers/DNS-CC-JOURNAL.pdf)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5006
   tactics:
@@ -3980,18 +4008,18 @@ techniques:
   platforms: 5G
   procedureexamples:
   - Description: 'Rogue NF calls Nnrf_NFManagement API to register one of these functions:
-      AMF, SMF, UDM, AUSF, NEF, PCF, SMSF, NSSF, UPF, etc. Clause 5.2.7 of [3]'
+      AMF, SMF, UDM, AUSF, NEF, PCF, SMSF, NSSF, UPF, etc. Clause 5.2.7 of [\[3\]](#3)'
     Name: Unauthorized use of API
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
+  - "\\[2\\] <a name=\"2\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TS 23.502, \u201CProcedures for the\
-    \ 5G System (5GS); Stage 2 (Release 17)\u201D, Technical Specification, v17.4.0,\
-    \ March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
+  - "\\[3\\] <a name=\"3\"> [3rd Generation Partnership Project (3GPP) TS 23.502,\
+    \ \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D, Technical\
+    \ Specification, v17.4.0, March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0002
@@ -4048,30 +4076,33 @@ techniques:
       \ another UPF- or, by sending to UPF another \u201CRedirect server\u201D [which\
       \ the adversary controls] in the FAR in the N4 session (\u201CThe UPF reports\
       \ to the SMF whether it supports traffic redirection enforcement in the UPF\
-      \ through the UPFunction Features IE.\u201D [6]) Clause 5.8.2.3.3 of [5]\n\n\
-      Similarly, the SMF can send a session modification request to the UPF and redirect\
-      \ UE traffic (downlink) \u2014 See clauses 4.4.1.2 & 4.4.1.3 of [4]."
+      \ through the UPFunction Features IE.\u201D [\\[6\\]](#6)) Clause 5.8.2.3.3\
+      \ of [\\[5\\]](#5)\n\nSimilarly, the SMF can send a session modification request\
+      \ to the UPF and redirect UE traffic (downlink) \u2014 See clauses 4.4.1.2 &\
+      \ 4.4.1.3 of [\\[4\\]](#4)."
     Name: Rogue or misconfigured SMF
   - Description: "The \u201CApplication Function influence on traffic routing\u201D\
       \ service is designed for MEC applications for local processing of data traffic\
       \ in order to reduce latency. However, this capability can be misused by rogue\
       \ AF or rogue/misconfigured NEF. The traffic redirection occurs after the NEF\
       \ takes action that affects the UPF behavior. Clause 5.6.7 Table 5.6.7-1 first\
-      \ row \u201CTraffic Description\u201D of [5], clause 4.3.6 of [4]."
+      \ row \u201CTraffic Description\u201D of [\\[5\\]](#5), clause 4.3.6 of [\\\
+      [4\\]](#4)."
     Name: Rogue AF or rogue/misconfigured NEF
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[ENISA \u201CThreat Landscape for 5G Networks Report\u201D, Nov 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks)"
-  - "[\u201CBhadra framework\u201D: S.P. Rao, S. Holtmanns, T. Aura, \u201CThreat\
-    \ modeling framework for mobile communication systems\u201D](https://arxiv.org/abs/2005.05110v1\
-    \ )"
-  - "[3GPP TS 23.502 \u201CTechnical Specification Group Services and System Aspects;\
-    \ Procedures for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23502.htm)"
-  - "[3GPP TS 23.501 \u201CTechnical Specification Group Services and System Aspects;\
-    \ System architecture for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23501.htm)"
-  - '[UCC 5G UPF Configuration and Administration Guide](https://www.cisco.com/c/en/us/td/docs/wireless/ucc/upf/Ultra-Cloud-Core-5G-UPF-Config-Guide.html)'
+  - "\\[2\\] <a name=\"2\"> [ENISA \u201CThreat Landscape for 5G Networks Report\u201D\
+    , Nov 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks)"
+  - "\\[3\\] <a name=\"3\"> [\u201CBhadra framework\u201D: S.P. Rao, S. Holtmanns,\
+    \ T. Aura, \u201CThreat modeling framework for mobile communication systems\u201D\
+    ](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[4\\] <a name=\"4\"> [3GPP TS 23.502 \u201CTechnical Specification Group Services\
+    \ and System Aspects; Procedures for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23502.htm)"
+  - "\\[5\\] <a name=\"5\"> [3GPP TS 23.501 \u201CTechnical Specification Group Services\
+    \ and System Aspects; System architecture for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23501.htm)"
+  - \[6\] <a name="6"> [UCC 5G UPF Configuration and Administration Guide](https://www.cisco.com/c/en/us/td/docs/wireless/ucc/upf/Ultra-Cloud-Core-5G-UPF-Config-Guide.html)
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0040
@@ -4137,8 +4168,8 @@ techniques:
       AMF.'
     Name: Weaken integrity on the roaming/interconnect
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
   status: This is a theoretical behavior
   tactics:
   - TA0005
@@ -4215,12 +4246,12 @@ techniques:
       \ algorithm to have highest priority in gNB. These algorithms are sent to the\
       \ UE in the Access Stratum (AS) Security Mode Command (SMC). Normally the activation\
       \ of algorithms for the AS is done by the gNB based on that policy received\
-      \ from the SMF, but a fake gNB can ignore the SMF. Sections 6.7.3 & D.1 of [2].\n\
-      \nAdversary with control over a legitimate gNB, and who currently serves the\
-      \ UE, tells the SMF that the UE Control Plane (CP) and User Plane (UP) policy\
-      \ is NULL integrity, and the (legit but not correctly implemented) SMF doesn\u2019\
-      t check that against the locally-configured UE CP & UP policy and lets the CP\
-      \ and UP data use NULL integrity. Section 6.6.1 of [2]"
+      \ from the SMF, but a fake gNB can ignore the SMF. Sections 6.7.3 & D.1 of [\\\
+      [2\\]](#2).\n\nAdversary with control over a legitimate gNB, and who currently\
+      \ serves the UE, tells the SMF that the UE Control Plane (CP) and User Plane\
+      \ (UP) policy is NULL integrity, and the (legit but not correctly implemented)\
+      \ SMF doesn\u2019t check that against the locally-configured UE CP & UP policy\
+      \ and lets the CP and UP data use NULL integrity. Section 6.6.1 of [\\[2\\]](#2)"
     Name: Fake or misconfigured base station
   - Description: 'Adversary makes the unauthorized change in the SMF CP & UP local
       policy to enable NULL integrity for CP & UP traffic.
@@ -4235,10 +4266,10 @@ techniques:
   - Description: "Adversary with control over AMF (or control over the configuration\
       \ of AMF) can affect UE procedures such as NAS Security Mode Command, such that\
       \ the UE's NAS data is not protected, i.e. prioritize NULL algorithm for either\
-      \ NAS encryption or integrity. Section K.2.3.3. of [1]. \nThis can be followed\
-      \ by another attack behavior whereby data manipulation can be done over the\
-      \ air interface for user plane and signaling data. Sections 5.3.2, 5.3.3 & 5.5.1,\
-      \ 5.5.2 of [2]"
+      \ NAS encryption or integrity. Section K.2.3.3. of [\\[1\\]](#1). \nThis can\
+      \ be followed by another attack behavior whereby data manipulation can be done\
+      \ over the air interface for user plane and signaling data. Sections 5.3.2,\
+      \ 5.3.3 & 5.5.1, 5.5.2 of [\\[2\\]](#2)"
     Name: Rogue or misconfigured AMF non-roaming
   - Description: "Compromised source AMF sends incorrect UE context information to\
       \ legitimate target AMF during\nInitial registration & roaming or\nHandover\
@@ -4246,8 +4277,8 @@ techniques:
       \ of the \u201CUEContextTransfer\u201D (initial registration & roaming) or \u201C\
       CreateUEContext\u201D (N2 handover) service request messages. All UE data will\
       \ be sent without integrity protection after registration or handover is completed.\
-      \ Sections 4.2.2.2.2, 4.9.1.3.1 & 5.2.2.1 of [3] The element in the UE context\
-      \ is the ueSecurityCapability which the rogue AMF sets to NULL only."
+      \ Sections 4.2.2.2.2, 4.9.1.3.1 & 5.2.2.1 of [\\[3\\]](#3) The element in the\
+      \ UE context is the ueSecurityCapability which the rogue AMF sets to NULL only."
     Name: Rogue or misconfigured AMF during roaming/handover
   - Description: "Compromised source MME/AMF sends incorrect UE context information\
       \ to legitimate target AMF during EPS to 5GS handover and roaming with and without\
@@ -4255,17 +4286,18 @@ techniques:
       \ part of the \u201CUEContextTransfer\u201D or \n\u201CRelocateUEContext\u201D\
       \ service request messages. All UE data will be sent without integrity protection\
       \  after roaming or handover is completed. Sections 4.11.1.2.2.2, 4.11.1.3.3,\
-      \ 4.11.2.3 & 5.2.2.1 of [3] The element in the UE context is the ueSecurityCapability\
+      \ 4.11.2.3 & 5.2.2.1 of [\\[3\\]](#3) The element in the UE context is the ueSecurityCapability\
       \ which the rogue AMF sets to NULL only."
     Name: Rogue or misconfigured AMF/MME during EPS roaming/handover
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D, v17.4.0, June 2022](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D, v17.4.0,\
+    \ June 2022](https://www.3gpp.org/DynaReport/33926.htm  )"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D, v 17.6.0, June 2022](https://www.3gpp.org/DynaReport/33501.htm\
     \  )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    , v 17.6.0, June 2022](https://www.3gpp.org/DynaReport/33501.htm  )"
-  - "[3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D, v17.5.0, June\
-    \ 2022](https://www.3gpp.org/DynaReport/23502.htm  )"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D\
+    , v17.5.0, June 2022](https://www.3gpp.org/DynaReport/23502.htm  )"
   status: This is a theoretical behavior
   subtechnique-of: FGT5009
   tactics:
@@ -4357,28 +4389,29 @@ techniques:
   procedureexamples:
   - Description: A rogue or misconfigured gNB can disable IPSec integrity or use a
       weak IPSec integrity algorithm on backhaul interfaces such as N2, N3 and Xn.
-      Then it can launch other attacks. Clause D.2.2 of [1], clause 5.3.3 of [2].
+      Then it can launch other attacks. Clause D.2.2 of [\[1\]](#1), clause 5.3.3
+      of [\[2\]](#2).
     Name: Compromised or misconfigured gNB
   - Description: A rogue or misconfigured AMF can disable IPSec integrity or use a
       weak IPSec integrity algorithm on N2 and N26 interfaces. Then it can launch
-      other attacks. Clause K.2.1 of [1], clause 5.5.2  of [2]
+      other attacks. Clause K.2.1 of [\[1\]](#1), clause 5.5.2  of [\[2\]](#2)
     Name: Compromised or misconfigured AMF
   - Description: A rogue or misconfigured UPF can disable IPSec integrity or use a
       weak IPSec integrity algorithm on N3, N4 and N9 interfaces. Then it can launch
-      other attacks. Clause L.2.1 of [1]
+      other attacks. Clause L.2.1 of [\[1\]](#1)
     Name: Compromised or misconfigured UPF
   - Description: A rogue or misconfigured SMF can disable IPSec integrity or use a
       weak IPSec integrity algorithm on N4 interface. Then it can launch other attacks.
-      Clause 9.9 of [2]
+      Clause 9.9 of [\[2\]](#2)
     Name: Compromised or misconfigured SMF
   - Description: 'A rogue or misconfigured NF can disable the TLS integrity or use
       a weak TLS integrity algorithm to another NF including the SCP (if deployed).
       Then it can launch other attacks to gain unauthorized access to network services.
-      Clause 13.1 of [2]
+      Clause 13.1 of [\[2\]](#2)
 
 
       If SCP is rogue or misconfigured, it can force TLS connections to all NFs to
-      be unencrypted or use weak integrity for all. Clause 5.9.2.4 of [2]'
+      be unencrypted or use weak integrity for all. Clause 5.9.2.4 of [\[2\]](#2)'
     Name: Compromised or misconfigured NF
   - Description: 'A rogue or misconfigured SEPP can disable TLS integrity or use a
       weak TLS integrity algorithm on N32-c interface or N32-f interface or both.
@@ -4386,22 +4419,22 @@ techniques:
 
       A rogue or misconfigured IPX component can disable JWS integrity or use a weak
       integrity algorithm when PRINS is used on N32-f. Then it can launch other attacks.
-      Clauses 13.1 and 13.2 of [2]'
+      Clauses 13.1 and 13.2 of [\[2\]](#2)'
     Name: Compromised or misconfigured SEPP or IPX component
   - Description: 'A rogue or misconfigured AMF/MME can disable IPSec integrity or
       use a weak IPSec integrity algorithm on N26 interface. Then it can launch other
-      attacks. Clause K.2.1 of [1], 8.4 of [2].
+      attacks. Clause K.2.1 of [\[1\]](#1), 8.4 of [\[2\]](#2).
 
 
       A rogue or misconfigured UPF can disable IPSec integrity or use a weak IPSec
       integrity algorithm on the N9 interface between home PLMN UPF and visited PLMN
-      UPF. See clause 9.9, 13.1 and 13.2 of [2]'
+      UPF. See clause 9.9, 13.1 and 13.2 of [\[2\]](#2)'
     Name: Compromised or misconfigured MME/AMF, or UPF.
   references:
-  - "[3GPP TR33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes.\u201D](https://www.3gpp.org/DynaReport/33926.htm)"
-  - "[3GPP TS33.501 \u201CSecurity architecture and procedures for 5G System.\u201D\
-    ](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[1\\] <a name=\"1\"> [3GPP TR33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes.\u201D](https://www.3gpp.org/DynaReport/33926.htm)"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System.\u201D](https://www.3gpp.org/DynaReport/33501.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5009
   tactics:
@@ -4480,20 +4513,21 @@ techniques:
     Name: Adversary registers an AMF it controls as the one serving a given UE that
       just de-registered
   references:
-  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
-    \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
-    , Technical Report, v17.3.0, Dec. 2021, clause E.2.2.3](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3rd Generation Partnership Project (3GPP) TR 33.926:\
+    \ \u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
+    \ 3GPP network product classes\u201D, Technical Report, v17.3.0, Dec. 2021, clause\
+    \ E.2.2.3](https://www.3gpp.org/DynaReport/33926.htm )"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TR 33.846,\u201D\
+    \ Study on authentication enhancements in the 5G System (5GS)\u201D, Technical\
+    \ Report, v17.0.0, December 2021, clause 5.3.1.2](https://www.3gpp.org/DynaReport/33846.htm\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.846,\u201D Study on authentication\
-    \ enhancements in the 5G System (5GS)\u201D, Technical Report, v17.0.0, December\
-    \ 2021, clause 5.3.1.2](https://www.3gpp.org/DynaReport/33846.htm )"
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[3\\] <a name=\"3\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - '[3GPP contribution (2019)](https://www.3gpp.org/ftp/Meetings_3GPP_SYNC/SA3/Inbox/Drafts/draft_S3-194673_was_S3-194189_Resolving%20the%20ENs%20in%20KI%233.1_V3.docx
-    )'
-  - "[3GPP TS 29.503: \u201C5G System; Unified Data Management Services; Stage 3\u201D\
-    ](https://www.3gpp.org/DynaReport/29503.htm)"
+  - \[4\] <a name="4"> [3GPP contribution (2019)](https://www.3gpp.org/ftp/Meetings_3GPP_SYNC/SA3/Inbox/Drafts/draft_S3-194673_was_S3-194189_Resolving%20the%20ENs%20in%20KI%233.1_V3.docx
+    )
+  - "\\[5\\] <a name=\"5\"> [3GPP TS 29.503: \u201C5G System; Unified Data Management\
+    \ Services; Stage 3\u201D](https://www.3gpp.org/DynaReport/29503.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -4552,13 +4586,14 @@ techniques:
   procedureexamples:
   - Description: An adversary may conduct OAuth2.0 attacks that are applicable to
       machine-to-machine communication (not email phishing type attacks). Fraudulent
-      token is mentioned in section I.2.2.2 of [1]. Other threats are listed in [2].
+      token is mentioned in section I.2.2.2 of [\[1\]](#1). Other threats are listed
+      in [\[2\]](#2).
     Name: OAuth 2.0 attacks
   references:
-  - '[3GPP TR 33.926 Security Assurance Specification (SCAS) threats and critical
-    assets in 3GPP network product classes.](https://www.3gpp.org/DynaReport/33926.htm)'
-  - "[Internet Engineering Task Force, IETF RFC 6819 \u201COAuth 2.0 Threat Model\
-    \ and Security Considerations\u201D, Jan. 2013.](https://datatracker.ietf.org/doc/html/rfc6819\
+  - \[1\] <a name="1"> [3GPP TR 33.926 Security Assurance Specification (SCAS) threats
+    and critical assets in 3GPP network product classes.](https://www.3gpp.org/DynaReport/33926.htm)
+  - "\\[2\\] <a name=\"2\"> [Internet Engineering Task Force, IETF RFC 6819 \u201C\
+    OAuth 2.0 Threat Model and Security Considerations\u201D, Jan. 2013.](https://datatracker.ietf.org/doc/html/rfc6819\
     \ )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
@@ -4587,11 +4622,12 @@ techniques:
       of locating a particular UE via RAN
     Name: Use core network signaling to locate UE
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[2\\] <a name=\"2\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA0007
@@ -4641,11 +4677,11 @@ techniques:
       of Arrival, Time-of-Arrival, and/or Frequency-of-Arrival of UE signal externals.
     Name: Externals geolocation
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[X. Hu et.al. \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
-    \ Security\u201D, IEEE Access, August 2019.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[2\\] <a name=\"2\"> [X. Hu et.al. \u201CA Systematic Analysis Method for 5G\
+    \ Non-Access Stratum Signalling Security\u201D, IEEE Access, August 2019.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT5012
@@ -4703,8 +4739,8 @@ techniques:
       observed or, if bid down, actively ordered through illegitimate signaling.
     Name: Self-location measurement
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5012
@@ -4743,23 +4779,25 @@ techniques:
   procedureexamples:
   - Description: "Reportedly several operators do not re-allocate GUTI with every\
       \ UE registration, or they do not re-allocate often enough or they use predictable\
-      \ pattern, as in [1], [2]. \nExact 5G-GUTI refresh mechanism is left to implementation.\
-      \ Mandatory refresh of 5G-GUTI is to be done by AMF for initial registration,\
-      \ mobility registration update and network-initiated service request message\
-      \ due to paging, see clause 6.12.3 of [3]\nIt is not necessary for the adversary\
-      \ to have a UE to listen, a simpler listening device suffices."
+      \ pattern, as in [\\[1\\]](#1), [\\[2\\]](#2). \nExact 5G-GUTI refresh mechanism\
+      \ is left to implementation. Mandatory refresh of 5G-GUTI is to be done by AMF\
+      \ for initial registration, mobility registration update and network-initiated\
+      \ service request message due to paging, see clause 6.12.3 of [\\[3\\]](#3)\n\
+      It is not necessary for the adversary to have a UE to listen, a simpler listening\
+      \ device suffices."
     Name: Listen in for re-used 5G-GUTIs to determine UE presence in that area.
   references:
-  - "[B. Hong, S. Bae, Y. Kim, \u201CGUTI Reallocation Demystified: Cellular Location\
-    \ Tracking with Changing Temporary Identifier\u201D, NDSS Symposium, 2018.](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_02A-4_Hong_paper.pdf\
+  - "\\[1\\] <a name=\"1\"> [B. Hong, S. Bae, Y. Kim, \u201CGUTI Reallocation Demystified:\
+    \ Cellular Location Tracking with Changing Temporary Identifier\u201D, NDSS Symposium,\
+    \ 2018.](https://www.ndss-symposium.org/wp-content/uploads/2018/02/ndss2018_02A-4_Hong_paper.pdf\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
-    \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
-    , Technical Report, v17.3.0, December. 2021, clause K.2.7.1](https://www.3gpp.org/DynaReport/33926.htm\
-    \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.501: \u201CSecurity architecture\
-    \ and procedures for 5G system\u201D, Technical Specification, v17.5.0, March\
-    \ 2022](https://www.3gpp.org/DynaReport/33501.htm )"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TR 33.926:\
+    \ \u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
+    \ 3GPP network product classes\u201D, Technical Report, v17.3.0, December. 2021,\
+    \ clause K.2.7.1](https://www.3gpp.org/DynaReport/33926.htm )"
+  - "\\[3\\] <a name=\"3\"> [3rd Generation Partnership Project (3GPP) TR 33.501:\
+    \ \u201CSecurity architecture and procedures for 5G system\u201D, Technical Specification,\
+    \ v17.5.0, March 2022](https://www.3gpp.org/DynaReport/33501.htm )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT5012
   tactics:
@@ -4812,10 +4850,10 @@ techniques:
   - Description: UE identifier required for all Core network function abuse
     Name: Knowledge of the UE SUPI or 5G-GUTI of target UE
   procedureexamples:
-  - Description: "From [3], there were recent successful attacks on SS7 whereby an\
-      \ attacker with access to the SS7 interconnection can find a user\u2019s location,\
-      \ as well as billing data and Short Message Service (SMS) messages. In addition,\
-      \ the attacker can also eavesdrop on user data."
+  - Description: "From [\\[3\\]](#3), there were recent successful attacks on SS7\
+      \ whereby an attacker with access to the SS7 interconnection can find a user\u2019\
+      s location, as well as billing data and Short Message Service (SMS) messages.\
+      \ In addition, the attacker can also eavesdrop on user data."
     Name: Adversary uses SS7 interconnect (IWF) to a 5G network without protection
       (firewalls, etc). to obtain UE location information
   - Description: The AMF gets UE location legitimately from LMF (Nlmf-loc API). [Clause
@@ -4863,14 +4901,16 @@ techniques:
     Name: 'Adversary gains control of a core NF to get location info for a given UE:
       LMF case'
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,\_ October\
-    \ 2021](https://arxiv.org/abs/2108.11206\_\_)"
-  - "[S. Holtmanns, S. P. Rao, I. Oliver, \u201CUser location tracking attacks for\
-    \ LTE networks using the interworking functionality\u201D, 2016 IFIP Networking\
-    \ Conference.](https://ieeexplore.ieee.org/document/7497239 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,\_ October 2021](https://arxiv.org/abs/2108.11206\_\_)"
+  - "\\[3\\] <a name=\"3\"> [S. Holtmanns, S. P. Rao, I. Oliver, \u201CUser location\
+    \ tracking attacks for LTE networks using the interworking functionality\u201D\
+    , 2016 IFIP Networking Conference.](https://ieeexplore.ieee.org/document/7497239\
+    \ )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5012
   tactics:
@@ -4927,12 +4967,12 @@ techniques:
       AMF, but then asks AMF for the location of a UE in the target slice. The AMF
       checks that the authorization (OAuth) token is ok, which it is, but does not
       check that the UE ID is served by target slice, while the requester NF is from
-      compromised slice. Section 3.1.5 of [1].
+      compromised slice. Section 3.1.5 of [\[1\]](#1).
     Name: Malicious NF belonging to compromised Network Slice gets an access token
       for the target AMF, which serves both target slice and compromised slice.
   references:
-  - '[AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks",
-    17032021-v1.00, March 2021.](https://info.adaptivemobile.com/network-slicing-security
+  - '\[1\] <a name="1"> [AdaptiveMobile Security, "A Slice in Time: Slicing Security
+    in 5G Core Networks", 17032021-v1.00, March 2021.](https://info.adaptivemobile.com/network-slicing-security
     )'
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5012
@@ -4979,11 +5019,11 @@ techniques:
       \ since the type of error (or response, in the case of SMC) received from the\
       \ responder indicates whether it's the victim UE or not. Thus, adversary can\
       \ probe for UE\u2019s presence in a that cell, which leads to coarse location\
-      \ data. See [1]."
+      \ data. See [\\[1\\]](#1)."
     Name: Replay of NAS message
   references:
-  - "[X. Hu et.al. \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
-    \ Security\u201D, IEEE Access, August 2019.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[1\\] <a name=\"1\"> [X. Hu et.al. \u201CA Systematic Analysis Method for 5G\
+    \ Non-Access Stratum Signalling Security\u201D, IEEE Access, August 2019.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5012
@@ -5061,7 +5101,8 @@ techniques:
       to facilitate execution.
     Name: G0139
   references:
-  - '[ETSI NFV SEC025, Secure End-to-End VNF and NS management specification
+  - '\[1\] <a name="1"> [ETSI NFV SEC025, Secure End-to-End VNF and NS management
+    specification
 
     Release 4, section 4.4.3, accessed 6/28/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_&_NS_management/NFV-SEC025v0012.zip)'
   status: This is a theoretical behavior
@@ -5140,7 +5181,7 @@ techniques:
       to facilitate execution.
     Name: G0139
   references:
-  - '[Network Functions Virtualisation (NFV) Release 4;
+  - '\[1\] <a name="1"> [Network Functions Virtualisation (NFV) Release 4;
 
     Security;Isolation and trust domain specification
 
@@ -5182,16 +5223,16 @@ techniques:
   object-type: technique
   platforms: 5G
   procedureexamples:
-  - Description: 'Reference [1], DC-003, calls for the MNOs to employ an EIR. The
-      rest of the attack is theoretical: an adversary may modify some of the entries
+  - Description: 'Reference [\[1\]](#1), DC-003, calls for the MNOs to employ an EIR.
+      The rest of the attack is theoretical: an adversary may modify some of the entries
       in the EIR database, e.g. device status (stolen, etc.)
 
       The AMF is the only function that checks the EIR based on permanent equipment
       id (PEI), upon UE registration (using the API N5g-eir_EquipmentIdentityCheck_Get).'
     Name: EIR database compromise
   references:
-  - "[GSM Association, \u201CGSM Association Official Document FS.31, Baseline Security\
-    \ Controls.\u201D, v2.0, Feb. 2020](https://www.gsma.com/security/resources/fs-31-gsma-baseline-security-controls\
+  - "\\[1\\] <a name=\"1\"> [GSM Association, \u201CGSM Association Official Document\
+    \ FS.31, Baseline Security Controls.\u201D, v2.0, Feb. 2020](https://www.gsma.com/security/resources/fs-31-gsma-baseline-security-controls\
     \ )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
@@ -5264,18 +5305,20 @@ techniques:
       (VAS), e.g. VAS providing SEPP to the VPLMN
     Name: Compromise SEPP and modify signaling it sends
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - "[\u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
-    \ 3GPP network product classes,\u201D 3rd Generation Partnership Project (3GPP),\
-    \ TR 33.926 ver.17.3.0, Dec. 2021, sec. G.2.4.1-G.2.4.2](https://www.3gpp.org/DynaReport/33926.htm)"
-  - "[G. Green, \u201C5G Security when Roaming \u2013 Part 2,\u201D Mpirical, Lancaster,\
-    \ UK, May 21, 2021](https://www.mpirical.com/blog/5g-security-when-roaming-part-2)"
-  - "[\u201CSecurity architecture and procedures for 5G System,\u201D 3GPP, TS 33.501\
-    \ ver. 16.3.0, July 2020, Sec. 13.1.2,13.2](https://www.3gpp.org/DynaReport/33501.htm)"
-  - "[\u201C5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,\u201D\
-    \ 3GPP, TS 29.573 ver.16.9.0, March 2022](https://www.3gpp.org/DynaReport/29573.htm)"
-  - "[P.Tommassen, \u201C5G Security When Roaming,\u201D iBasis, October 6, 2020](https://ibasis.com/5g-security-when-roaming/)"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
+  - "\\[2\\] <a name=\"2\"> [\u201CSecurity Assurance Specification (SCAS) threats\
+    \ and critical assets in 3GPP network product classes,\u201D 3rd Generation Partnership\
+    \ Project (3GPP), TR 33.926 ver.17.3.0, Dec. 2021, sec. G.2.4.1-G.2.4.2](https://www.3gpp.org/DynaReport/33926.htm)"
+  - "\\[3\\] <a name=\"3\"> [G. Green, \u201C5G Security when Roaming \u2013 Part\
+    \ 2,\u201D Mpirical, Lancaster, UK, May 21, 2021](https://www.mpirical.com/blog/5g-security-when-roaming-part-2)"
+  - "\\[4\\] <a name=\"4\"> [\u201CSecurity architecture and procedures for 5G System,\u201D\
+    \ 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[5\\] <a name=\"5\"> [\u201C5G System; Public Land Mobile Network (PLMN) Interconnection;\
+    \ Stage 3,\u201D 3GPP, TS 29.573 ver.16.9.0, March 2022](https://www.3gpp.org/DynaReport/29573.htm)"
+  - "\\[6\\] <a name=\"6\"> [P.Tommassen, \u201C5G Security When Roaming,\u201D iBasis,\
+    \ October 6, 2020](https://ibasis.com/5g-security-when-roaming/)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -5322,11 +5365,11 @@ techniques:
       \ is voice call metadata, i.e. time, duration, phone numbers."
     Name: Attack on CDR database
   references:
-  - '[Techradar.com news article Dec. 31, 2020, "T-Mobile data breach sees phone numbers
-    and call records leaked online", Retrieved March 4, 2022](https://www.techradar.com/news/t-mobile-data-breach-sees-phone-numbers-and-call-records-leaked-online
-    )'
-  - "[Leong, R, Perez, D. and Dean, T.: \u201CMESSAGETAP: Who\u2019s Reading Your\
-    \ Text Messages\u201D FireEye. 31 Oct 2019](https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages\
+  - \[1\] <a name="1"> [Techradar.com news article Dec. 31, 2020, "T-Mobile data breach
+    sees phone numbers and call records leaked online", Retrieved March 4, 2022](https://www.techradar.com/news/t-mobile-data-breach-sees-phone-numbers-and-call-records-leaked-online
+    )
+  - "\\[2\\] <a name=\"2\"> [Leong, R, Perez, D. and Dean, T.: \u201CMESSAGETAP: Who\u2019\
+    s Reading Your Text Messages\u201D FireEye. 31 Oct 2019](https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
@@ -5415,11 +5458,11 @@ techniques:
   - Description: unauthorized access, destruction of assets and impairment of operations
     Name: Equipment sited in other carrier's or partner's premises
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
+  - "\\[2\\] <a name=\"2\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
@@ -5482,12 +5525,12 @@ techniques:
   - Description: An adversary may damage cabling and junction boxes
     Name: Disrupt service via physical damage
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, page 210, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, page 210, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[ISO/IEC 27011:(2016), \u201CInformation technology \u2014 Security techniques\
-    \ \u2014 Code of practice for Information security controls based on ISO/IEC 27002\
-    \ for telecommunications organizations\u201D](https://www.iso.org/obp/ui/#iso:std:iso-iec:27011:ed-2:v1:en\
+  - "\\[2\\] <a name=\"2\"> [ISO/IEC 27011:(2016), \u201CInformation technology \u2014\
+    \ Security techniques \u2014 Code of practice for Information security controls\
+    \ based on ISO/IEC 27002 for telecommunications organizations\u201D](https://www.iso.org/obp/ui/#iso:std:iso-iec:27011:ed-2:v1:en\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT5018
@@ -5548,12 +5591,12 @@ techniques:
       and insider threat attacks may still occur.
     Name: Physical sabotage/vandalism of the network infrastructure
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[El-Shorbagy, A.-moniem. \u201C5G Technology and the Future of Architecture\u201D\
-    . Procedia Computer Science, (2021), volume 182, p121\u2013131.](https://doi.org/10.1016/j.procs.2021.02.017\
-    \ )"
+  - "\\[2\\] <a name=\"2\"> [El-Shorbagy, A.-moniem. \u201C5G Technology and the Future\
+    \ of Architecture\u201D. Procedia Computer Science, (2021), volume 182, p121\u2013\
+    131.](https://doi.org/10.1016/j.procs.2021.02.017 )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5018
   tactics:
@@ -5620,12 +5663,12 @@ techniques:
       damage to them.
     Name: Damage edge servers
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[ISO/IEC 27011:(2016), \u201CInformation technology \u2014 Security techniques\
-    \ \u2014 Code of practice for Information security controls based on ISO/IEC 27002\
-    \ for telecommunications organizations\u201D](https://www.iso.org/obp/ui/#iso:std:iso-iec:27011:ed-2:v1:en)"
+  - "\\[2\\] <a name=\"2\"> [ISO/IEC 27011:(2016), \u201CInformation technology \u2014\
+    \ Security techniques \u2014 Code of practice for Information security controls\
+    \ based on ISO/IEC 27002 for telecommunications organizations\u201D](https://www.iso.org/obp/ui/#iso:std:iso-iec:27011:ed-2:v1:en)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5018
   tactics:
@@ -5703,11 +5746,11 @@ techniques:
       markets and even in the rural areas of the developed markets.
     Name: ' Fuel Theft'
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, page 202, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Baars, J. \u201CWhite Paper - Telecom Sites Physical Security\u201D, December\
-    \ 2019, Asentria](https://www.asentria.com/blog/telecom-sites-physical-security-white-paper/.\
+  - "\\[2\\] <a name=\"2\"> [Baars, J. \u201CWhite Paper - Telecom Sites Physical\
+    \ Security\u201D, December 2019, Asentria](https://www.asentria.com/blog/telecom-sites-physical-security-white-paper/.\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT5018
@@ -5783,8 +5826,8 @@ techniques:
       , which is never concealed."
     Name: Intercept home network over the radio interface
   references:
-  - "[3GPP TS 23.003: \"Numbering, Addressing and Identification\u201D, Version 17.6.0,\
-    \ Section 2.2B](https://www.3gpp.org/DynaReport/23003.htm  )"
+  - "\\[1\\] <a name=\"1\"> [3GPP TS 23.003: \"Numbering, Addressing and Identification\u201D\
+    , Version 17.6.0, Section 2.2B](https://www.3gpp.org/DynaReport/23003.htm  )"
   status: This is a theoretical behavior
   subtechnique-of: FGT5019
   tactics:
@@ -5843,8 +5886,8 @@ techniques:
       been bid down from 5G.
     Name: Obtain permanent UE identifier IMSI from bid-down UE
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
   status: This is a theoretical behavior
   subtechnique-of: FGT5019
@@ -5898,9 +5941,9 @@ techniques:
       \ AF uses legitimate SBA API to retrieve subscriber identifier of victim UE\
       \ (SUPI) from their phone number. \n\nThe API that the AF calls is Nnef_ApplyPolicy_Create\
       \ API, it is sent to NEF with UE's GPSI/phone number. NEF retrieves the SUPI\
-      \ from UDM by using Nudm_SDM_Get API. See clause 4.15.6.8 of [1].\n\nAlternatively,\
-      \ Rogue NEF retrieves SUPI from GPSI/phone number using Nudm_SDM_Get API towards\
-      \ the UDM, See clause 4.13.2.2 of [1]."
+      \ from UDM by using Nudm_SDM_Get API. See clause 4.15.6.8 of [\\[1\\]](#1).\n\
+      \nAlternatively, Rogue NEF retrieves SUPI from GPSI/phone number using Nudm_SDM_Get\
+      \ API towards the UDM, See clause 4.13.2.2 of [\\[1\\]](#1)."
     Name: Retrieve UE SUPI via API
   - Description: "The AMF can obtain some sensitive information about a UE it serves\
       \ (or claims to serve). An example for roaming scenarios is that a rogue AMF\
@@ -5910,12 +5953,12 @@ techniques:
       \ Permanent identifier (SUPI), the names of the slices the UE is subscribed\
       \ to (S-NSSAIs), the name of the data network the UE is connected to, and the\
       \ IP address of the UE. (The AMF API call to SMF is Nsmf_PDUSession_ContextRequest\
-      \ API, see clause 4.11.1.2.1 & Table 5.2.8.2.10-1 of [1])"
+      \ API, see clause 4.11.1.2.1 & Table 5.2.8.2.10-1 of [\\[1\\]](#1))"
     Name: "Retrieve UE\u2019s sensitive information via rogue NF"
   references:
-  - "[3rd Generation Partnership Project (3GPP) TS 23.502, \u201CProcedures for the\
-    \ 5G System (5GS); Stage 2 (Release 17)\u201D, v17.4.0, March 2022.](https://www.3gpp.org/DynaReport/23502.htm\
-    \ )"
+  - "\\[1\\] <a name=\"1\"> [3rd Generation Partnership Project (3GPP) TS 23.502,\
+    \ \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D, v17.4.0,\
+    \ March 2022.](https://www.3gpp.org/DynaReport/23502.htm )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT5019
   tactics:
@@ -5960,13 +6003,13 @@ techniques:
       UE SUPI by asking the UDM (uses Nudm_SDM_Get service  (SDM=SubscriberDataManagement)).
       The UDM does not check that that AMF is the one serving the UE, i.e. the AMF
       does not need to register itself first as serving the UE, via the Nudm_UECM_Registration
-      Request. Table 5.2.3.1-1 of [1]
+      Request. Table 5.2.3.1-1 of [\[1\]](#1)
     Name: AMF retrieves subscription data from UDM.
   - Description: "A rogue AMF in visited PLMN can retrieve the UE\u2019s sensitive\
       \ information during 5GS to EPC roaming. AMF calls Nsmf_PDUSession_ContextRequest\
       \ API to v/hSMF. SMF sends the UE SM context in response which can reveal the\
       \ following UE information: SUPI, S-NSSAI, DNN, UE IP address etc. Clause 4.11.1.2.1\
-      \ & Table 5.2.8.2.10-1 of [1]"
+      \ & Table 5.2.8.2.10-1 of [\\[1\\]](#1)"
     Name: AMF in visited PLMN retrieves UE information during 5GS to EPC roaming.
   - Description: "The SMF can send to UDM a Nudm-sdm message and retrieve \u201CSession\
       \ mgmt subscription data\u201D, i.e. DNN configuration for all network slices."
@@ -5978,8 +6021,8 @@ techniques:
   - Description: The NEF can get the UE subscription data via Nudm_sdm API.
     Name: NEF retrieves some of the UE subscription data from UDM.
   references:
-  - "[3rd Generation Partnership Project (3GPP) 23.502 \u201CProcedures for the 5G\
-    \ System (5GS)\u201D, March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
+  - "\\[1\\] <a name=\"1\"> [3rd Generation Partnership Project (3GPP) 23.502 \u201C\
+    Procedures for the 5G System (5GS)\u201D, March 2022.](https://www.3gpp.org/DynaReport/23502.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0009
@@ -6045,22 +6088,23 @@ techniques:
   procedureexamples:
   - Description: 'Rogue or wrong configuration/implementation in gNB or UPF can cause
       existing TEID to be assigned to a new N3 reference point or PDU session. Clause
-      J.2.2.2 of [1]
+      J.2.2.2 of [\[1\]](#1)
 
 
       Duplicate TEID allocation can happen during EPS to 5GS handover or roaming.
 
 
       Duplicate TEID can cause traffic disruption, charging issues and eavesdropping
-      of legitimate subscriber data by adversary. Clause 5.8.2.3 of [2], clause 4.11.1.2.2
-      of [3]'
+      of legitimate subscriber data by adversary. Clause 5.8.2.3 of [\[2\]](#2), clause
+      4.11.1.2.2 of [\[3\]](#3)'
     Name: Rogue or misconfigured gNB or UPF
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D.](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3002)"
-  - "[3GPP TS 23.501 \u201CSystem architecture for the 5G System (5GS)\u201D.](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3144)"
-  - "[3GPP TS 23.502, \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D\
-    , Technical Specification, v17.4.0, March 2022.](https://www.3gpp.org/DynaReport/23502.htm\_\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D.](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3002)"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 23.501 \u201CSystem architecture for the 5G System\
+    \ (5GS)\u201D.](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3144)"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.502, \u201CProcedures for the 5G System (5GS);\
+    \ Stage 2 (Release 17)\u201D, Technical Specification, v17.4.0, March 2022.](https://www.3gpp.org/DynaReport/23502.htm\_\
     )"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
@@ -6107,30 +6151,32 @@ techniques:
   procedureexamples:
   - Description: 'AMF/SMF can use Nudm_UECM_Update to modify UE context in the UDM.
       AMF or SMF can change some parameters in the UE context (which is like a subscriber
-      profile, but valid only for a session; Clause 5.2.3.2.5 of [3]. The parameters
-      are: PEI (Permanent Equipment Identifier), analyticsID (for NWDAF), UE capabilities,
-      Intersystem continuity context, SMF FQDN'
+      profile, but valid only for a session; Clause 5.2.3.2.5 of [\[3\]](#3). The
+      parameters are: PEI (Permanent Equipment Identifier), analyticsID (for NWDAF),
+      UE capabilities, Intersystem continuity context, SMF FQDN'
     Name: AMF or SMF modifies UE context.
   - Description: "Rogue AF/NEF via UDM can modify UE\u2019s configuration for a given\
       \ external service (e.g. pay for video for a game today). When the victim UE\
       \ changes state from idle mode to connected mode, it will receive the modified\
       \ services which may be inferior to the services originally provisioned. Example:\
       \ NEF can use Nudm_ParameterProvision update service to update UE subscription\
-      \ data. Clause 5.6.2.2 of [4] & clauses 4.15.6.2, 4.15.6.3, 4.15.6.3a of [3]."
+      \ data. Clause 5.6.2.2 of [\\[4\\]](#4) & clauses 4.15.6.2, 4.15.6.3, 4.15.6.3a\
+      \ of [\\[3\\]](#3)."
     Name: "Rogue AF/NEF modifies UE\u2019s configuration for a given external service."
   - Description: Compromised GUI or CLI based attack on subscriber database in UDR
     Name: Compromised OA&M can modify subscriber profile data in UDR
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
-  - "[S. Holtmanns, I. Oliver and Y. Miche, \u201CMobile Subscriber Profile Data Privacy\
-    \ Breach via 4G Diameter Interconnection\u201D, 2017.](https://www.riverpublishers.com/journal_read_html_article.php?j=JICTS/6/3/4\
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
     \ )"
-  - "[3GPP TS 23.502, \u201CProcedures for the 5G System (5GS); Stage 2 (Release 17)\u201D\
-    , Technical Specification, v17.4.0, March 2022.\_section 4.11.1.2.2](https://www.3gpp.org/DynaReport/23502.htm\_\
-    )"
-  - "[3GPP TS 29.503, \u201C5G System; Unified Data Management Services; Stage 3\u201D\
-    ](https://www.3gpp.org/DynaReport/29503.htm)"
+  - "\\[2\\] <a name=\"2\"> [S. Holtmanns, I. Oliver and Y. Miche, \u201CMobile Subscriber\
+    \ Profile Data Privacy Breach via 4G Diameter Interconnection\u201D, 2017.](https://www.riverpublishers.com/journal_read_html_article.php?j=JICTS/6/3/4\
+    \ )"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.502, \u201CProcedures for the 5G System (5GS);\
+    \ Stage 2 (Release 17)\u201D, Technical Specification, v17.4.0, March 2022.\_\
+    section 4.11.1.2.2](https://www.3gpp.org/DynaReport/23502.htm\_)"
+  - "\\[4\\] <a name=\"4\"> [3GPP TS 29.503, \u201C5G System; Unified Data Management\
+    \ Services; Stage 3\u201D](https://www.3gpp.org/DynaReport/29503.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA5001
@@ -6192,12 +6238,12 @@ techniques:
       \ even AppID"
     Name: NEF control or Application Function (AF) control exploiting weak NEF
   references:
-  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
-    \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
-    , Technical Report, v17.3.0, December. 2021](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3rd Generation Partnership Project (3GPP) TR 33.926:\
+    \ \u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
+    \ 3GPP network product classes\u201D, Technical Report, v17.3.0, December. 2021](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[2\\] <a name=\"2\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
   status: This is a theoretical behavior
   tactics:
@@ -6269,27 +6315,29 @@ techniques:
   - Description: Adversary/fraudster/SIM boxers are effectively acting as an unlicensed
       and unregulated telecommunications carrier (pretends to be a legitimate telecom
       provider). Adversary intercepts call and routes it via the Internet as a VoIP
-      call, to the SIMbox (instead of via a regulated MNO interconnect). See [3],
-      [5]
+      call, to the SIMbox (instead of via a regulated MNO interconnect). See [\[3\]](#3),
+      [\[5\]](#5)
     Name: Adversary poses as legitimate carrier, to get to intercepts calls/ SMSs
       and re-route them.
   - Description: "Adversary offers discounted call rates directly to end consumers,\
       \ primarily through the sale of international calling cards. Such cards have\
       \ a number that the user must dial before she can dial the recipient\u2019s\
       \ number; this number will route to a number provided by a VoIP provider that\
-      \ points to the SIMbox in the recipient\u2019s country. See [3], [5]"
+      \ points to the SIMbox in the recipient\u2019s country. See [\\[3\\]](#3), [\\\
+      [5\\]](#5)"
     Name: Adversary sells fraudulent international calling cards.
   references:
-  - "[ENISA \u201CThreat Landscape for 5G Networks Report\u201D Nov 2019, section\
-    \ 5.2.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
-  - "[Masrub et. al.: \u201CSIM boxing Problem: ALMADAR ALJADID Case Study\u201D](https://ieeexplore.ieee.org/document/9249872)"
-  - "[Reaves et.al, \u201CBoxed Out: Blocking Cellular Interconnect Bypass Fraud at\
-    \ the Network Edge\u201D](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-reaves-boxed.pdf)"
-  - "[Anne Josiane Kouam, Aline Carneiro Viana, Alain Tchana. \u201CSIMBox bypass\
-    \ frauds in cellular networks: Strategies, evolution, detection, and future directions.\
-    \ Communications Surveys and Tutorials\u201D](https://hal.inria.fr/hal-03105845v4/document)"
-  - "[Mobile Ecosystem Forum, \u201CBusiness SMS, SIM Farms and the Data Protection\
-    \ Risk\u201D, whitepaper, 2020.](https://mobileecosystemforum.com/business-sms-sim-farms-and-the-data-protection-risk/)"
+  - "\\[1\\] <a name=\"1\"> [ENISA \u201CThreat Landscape for 5G Networks Report\u201D\
+    \ Nov 2019, section 5.2.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
+  - "\\[2\\] <a name=\"2\"> [Masrub et. al.: \u201CSIM boxing Problem: ALMADAR ALJADID\
+    \ Case Study\u201D](https://ieeexplore.ieee.org/document/9249872)"
+  - "\\[3\\] <a name=\"3\"> [Reaves et.al, \u201CBoxed Out: Blocking Cellular Interconnect\
+    \ Bypass Fraud at the Network Edge\u201D](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-reaves-boxed.pdf)"
+  - "\\[4\\] <a name=\"4\"> [Anne Josiane Kouam, Aline Carneiro Viana, Alain Tchana.\
+    \ \u201CSIMBox bypass frauds in cellular networks: Strategies, evolution, detection,\
+    \ and future directions. Communications Surveys and Tutorials\u201D](https://hal.inria.fr/hal-03105845v4/document)"
+  - "\\[5\\] <a name=\"5\"> [Mobile Ecosystem Forum, \u201CBusiness SMS, SIM Farms\
+    \ and the Data Protection Risk\u201D, whitepaper, 2020.](https://mobileecosystemforum.com/business-sms-sim-farms-and-the-data-protection-risk/)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA5001
@@ -6325,16 +6373,16 @@ techniques:
   platforms: 5G
   procedureexamples:
   - Description: Signaling fraud may be undertaken by a partner operator, via false
-      charging over international signaling interconnection. Clause 5.3 of [1]. Reference
-      [2] mentions service fraud.
+      charging over international signaling interconnection. Clause 5.3 of [\[1\]](#1).
+      Reference [\[2\]](#2) mentions service fraud.
     Name: False charging
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, section 5.2, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, section 5.2, November 2019.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks\
     \ )"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D, October 2021](https://arxiv.org/abs/2108.11206\
-    \ )"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    , October 2021](https://arxiv.org/abs/2108.11206 )"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA5001
@@ -6385,8 +6433,8 @@ techniques:
       smart card copying software to achieve duplication of the SIM card contents.
     Name: Duplicate captured SIM card
   references:
-  - "[Blog article, \u201CClone or Swap? SIM Card Vulnerabilities to Reckon With\u201D\
-    ](https://securityintelligence.com/posts/clone-or-swap-sim-card-vulnerabilities-to-reckon-with/)"
+  - "\\[1\\] <a name=\"1\"> [Blog article, \u201CClone or Swap? SIM Card Vulnerabilities\
+    \ to Reckon With\u201D](https://securityintelligence.com/posts/clone-or-swap-sim-card-vulnerabilities-to-reckon-with/)"
   status: This a behavior that has been observed in the wild in 5G systems
   tactics:
   - TA5001
@@ -6448,12 +6496,12 @@ techniques:
       \ NF that serves both the requester\u2019s slice and the targeted (victim) slice.\
       \ \nThis seems to be a poor approach to access control- one that relies on knowing\
       \ an identifier, and so access is given if that identifier\u2014presumably kept\
-      \ secret\u2014is found out. See section 3.1.3.1 of [1]."
+      \ secret\u2014is found out. See section 3.1.3.1 of [\\[1\\]](#1)."
     Name: Adversary NF in one slice uses guessed slice identifier of another slice
       to gain unauthorized access to resources in that slice.
   references:
-  - '[AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks",
-    17032021-v1.00](https://info.adaptivemobile.com/network-slicing-security)'
+  - '\[1\] <a name="1"> [AdaptiveMobile Security, "A Slice in Time: Slicing Security
+    in 5G Core Networks", 17032021-v1.00](https://info.adaptivemobile.com/network-slicing-security)'
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0005
@@ -6506,19 +6554,19 @@ techniques:
   procedureexamples:
   - Description: "Any \u201Cconsumer NF\u201D can ask the NRF for information with\
       \ a guessed slice identifier, until a non-error response is returned. The NRF\
-      \ services that are candidates for this operation are ([2]): discovery and Access\
-      \ token (Nnrf_NFDiscovery and Nnrf_AccessToken). For the Discovery service,\
-      \ in the GET NF instances, the parameters can be included \u201Cplmn-specific-snssai-list\u201D\
+      \ services that are candidates for this operation are ([\\[2\\]](#2)): discovery\
+      \ and Access token (Nnrf_NFDiscovery and Nnrf_AccessToken). For the Discovery\
+      \ service, in the GET NF instances, the parameters can be included \u201Cplmn-specific-snssai-list\u201D\
       , which contains the S-NSSAIs that are served by the NF supposedly being discovered.\
       \ Then the 200OK result contains the NFProfile, which includes the S-NSSAIs.\
-      \ Section 3.1.3 of [1]."
+      \ Section 3.1.3 of [\\[1\\]](#1)."
     Name: An adversary in control of a network function asks the NRF for a token for
       a guessed SD until a legitimate response is received.
   references:
-  - '[AdaptiveMobile Security, "A Slice in Time: Slicing Security in 5G Core Networks",
-    17032021-v1.00.](https://www.adaptivemobile.com/products/5g-security)'
-  - "[3rd Generation Partnership Project (3GPP) TS 29.510, \u201C; Network function\
-    \ repository services; Stage 3\u201D, v17.4.0, Dec 2021.](https://www.3gpp.org/DynaReport/29510.htm)"
+  - '\[1\] <a name="1"> [AdaptiveMobile Security, "A Slice in Time: Slicing Security
+    in 5G Core Networks", 17032021-v1.00.](https://www.adaptivemobile.com/products/5g-security)'
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TS 29.510,\
+    \ \u201C; Network function repository services; Stage 3\u201D, v17.4.0, Dec 2021.](https://www.3gpp.org/DynaReport/29510.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0007
@@ -6594,15 +6642,18 @@ techniques:
       specially crafted message that results in an ability to use additional techniques.
     Name: Vulnerability Identified
   references:
-  - "[\u201C5G Security Assurance Specification (SCAS) for the Security Edge Protection\
-    \ Proxy (SEPP) network product class,\u201C TS 33.517 ver. 17.0.0, 3rd Generation\
-    \ Partnership Project (3GPP), Sec. 4.2.3.3-4.4, Jun. 2021](https://www.3gpp.org/DynaReport/33517.htm)"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,  October 2021](https://arxiv.org/abs/2108.11206)"
-  - "[\u201CSecurity Edge Protection Proxy (SEPP),\u201D Broadforward, Amersfoort,\
-    \ Netherlands, Accessed: May 17, 2022](https://www.broadforward.com/security-edge-protection-proxy/)"
-  - "[ \u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
-    \ 3GPP network product classes,\u201C TR 33.926, 3GPP, Sec. 5.3.7.2.](https://www.3gpp.org/DynaReport/33926.htm)"
+  - "\\[1\\] <a name=\"1\"> [\u201C5G Security Assurance Specification (SCAS) for\
+    \ the Security Edge Protection Proxy (SEPP) network product class,\u201C TS 33.517\
+    \ ver. 17.0.0, 3rd Generation Partnership Project (3GPP), Sec. 4.2.3.3-4.4, Jun.\
+    \ 2021](https://www.3gpp.org/DynaReport/33517.htm)"
+  - "\\[2\\] <a name=\"2\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,  October 2021](https://arxiv.org/abs/2108.11206)"
+  - "\\[3\\] <a name=\"3\"> [\u201CSecurity Edge Protection Proxy (SEPP),\u201D Broadforward,\
+    \ Amersfoort, Netherlands, Accessed: May 17, 2022](https://www.broadforward.com/security-edge-protection-proxy/)"
+  - "\\[4\\] <a name=\"4\"> [ \u201CSecurity Assurance Specification (SCAS) threats\
+    \ and critical assets in 3GPP network product classes,\u201C TR 33.926, 3GPP,\
+    \ Sec. 5.3.7.2.](https://www.3gpp.org/DynaReport/33926.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   tactics:
   - TA0001
@@ -6684,19 +6735,19 @@ techniques:
   object-type: technique
   platforms: 5G Network
   references:
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019, O-RAN WG2:\
-    \ Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01,\
-    \ Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019, O-RAN WG2: Non-real- time\
-    \ RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification\
-    \ O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - '[Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed
-    June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)'
-  - "[O-RAN ALLIANCE, \u2018O-RAN Security Threat Modeling and Remediation Analysis\
-    \ 3.0\u2019\n, O-RAN SFG,, Technical Analysis O-RAN.SFG. O-RAN.SFG.Threat-Model\
-    \ -v03.00, July. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - "[O-RAN ALLIANCE, \u2018O-RAN RIC Architecture\n,ORAN WG3, Technical Specification\
-    \ O-RAN.WG3.RICARCH-v02.01\n,March 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - "\\[1\\] <a name=\"1\"> [O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019\
+    , O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - "\\[2\\] <a name=\"2\"> [O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019,\
+    \ O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - \[3\] <a name="3"> [Federal Office of Information Security, Study 5G RAN Risk
+    Analysis, Accessed June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
+  - "\\[4\\] <a name=\"4\"> [O-RAN ALLIANCE, \u2018O-RAN Security Threat Modeling\
+    \ and Remediation Analysis 3.0\u2019\n, O-RAN SFG,, Technical Analysis O-RAN.SFG.\
+    \ O-RAN.SFG.Threat-Model -v03.00, July. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - "\\[5\\] <a name=\"5\"> [O-RAN ALLIANCE, \u2018O-RAN RIC Architecture\n,ORAN WG3,\
+    \ Technical Specification O-RAN.WG3.RICARCH-v02.01\n,March 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
   status: This is a theoretical behavior
   subtechnique-of: FGT5032
   tactics:
@@ -6737,14 +6788,14 @@ techniques:
   object-type: technique
   platforms: 5G Network
   references:
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019, O-RAN WG2:\
-    \ Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01,\
-    \ Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019, O-RAN WG2: Non-real- time\
-    \ RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification\
-    \ O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - '[Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed
-    June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)'
+  - "\\[1\\] <a name=\"1\"> [O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019\
+    , O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - "\\[2\\] <a name=\"2\"> [O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019,\
+    \ O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - \[3\] <a name="3"> [Federal Office of Information Security, Study 5G RAN Risk
+    Analysis, Accessed June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
   status: This is a theoretical behavior
   subtechnique-of: FGT5032
   tactics:
@@ -6781,14 +6832,14 @@ techniques:
   object-type: technique
   platforms: 5G Network
   references:
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019, O-RAN WG2:\
-    \ Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01,\
-    \ Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - "[O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019, O-RAN WG2: Non-real- time\
-    \ RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification\
-    \ O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
-  - '[Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed
-    June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)'
+  - "\\[1\\] <a name=\"1\"> [O-RAN ALLIANCE, \u2018Non-RT RIC: Functional Architecture\u2019\
+    , O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - "\\[2\\] <a name=\"2\"> [O-RAN ALLIANCE, \u2018Non-RT RIC Architecture\u2019,\
+    \ O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup,\
+    \ Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022](https://orandownloadsweb.azurewebsites.net/specifications)"
+  - \[3\] <a name="3"> [Federal Office of Information Security, Study 5G RAN Risk
+    Analysis, Accessed June 2022, section 5.1](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
   status: This is a theoretical behavior
   subtechnique-of: FGT5032
   tactics:
@@ -6848,24 +6899,25 @@ techniques:
       \ the UE to transmit with no or weak encryption, acts as an adversary-in-the-middle\
       \ to intercept communication, and relays communication to and from intended\
       \ recipient. \nSubscriber location can be derived from measurement reports by\
-      \ rogue gNB. Reference [2] and clause 6.7.4 of [3], and [4]."
+      \ rogue gNB. Reference [\\[2\\]](#2) and clause 6.7.4 of [\\[3\\]](#3), and\
+      \ [\\[4\\]](#4)."
     Name: Eavesdrop on air interface for a given UE
   - Description: Alternatively, if the 5G system employs null encryption, subscriber
-      data traffic can be collected in the clear. Clause 4.4 of [1]. Subscriber location
-      can be sent by the UE to the network or vice versa.
+      data traffic can be collected in the clear. Clause 4.4 of [\[1\]](#1). Subscriber
+      location can be sent by the UE to the network or vice versa.
     Name: Eavesdrop on air interface for any UE
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Hu, X. et al. : \u201CA Systematic Analysis Method for 5G Non-Access Stratum\
-    \ Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[2\\] <a name=\"2\"> [Hu, X. et al. : \u201CA Systematic Analysis Method for\
+    \ 5G Non-Access Stratum Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \  )"
-  - "[3GPP TS33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    .](https://www.3gpp.org/DynaReport/33501.htm)"
-  - "[Zaenab D. Shakir, J. Zec, I. Kostanic, \u201CPosition location based on measurement\
-    \ reports in LTE cellular networks\u201D, 2018 IEEE 19th Wireless and Microwave\
-    \ Technology Conference (WAMICON), 2018.](https://ieeexplore.ieee.org/document/8363501\
+  - "\\[3\\] <a name=\"3\"> [3GPP TS33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D.](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[4\\] <a name=\"4\"> [Zaenab D. Shakir, J. Zec, I. Kostanic, \u201CPosition\
+    \ location based on measurement reports in LTE cellular networks\u201D, 2018 IEEE\
+    \ 19th Wireless and Microwave Technology Conference (WAMICON), 2018.](https://ieeexplore.ieee.org/document/8363501\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1040
@@ -6913,14 +6965,14 @@ techniques:
   procedureexamples:
   - Description: 'Allegedly: the UK agency GCHQ planted malware on Gemalto servers
       to obtain SIM credentials. The number of keys obtained were in the order of
-      millions. [1]'
+      millions. [\[1\]](#1)'
     Name: "Infiltrate SIM vendor\u2019s network."
   references:
-  - '[Daily Mail.com, news article 20 Feb 2015, "US and UK spies hacked SIM card manufacturer
-    to steal codes that allowed them to eavesdrop on mobile phones worldwide, according
-    to bombshell documents leaked by Ed Snowden".](https://www.dailymail.co.uk/news/article-2961314/US-UK-hacked-SIM-card-manufacturer-steal-codes-allowed-eavesdrop-mobile-phones-worldwide-according-bombshell-documents-leaked-Ed-Snowden.html    )'
-  - "[GSMA FS.28 \u201CSecurity Guidelines for Exchange of UICC Credentials\u201D\
-    , Version 1.0, November 2020.](https://www.gsma.com/security/resources/fs-28-security-guidelines-for-exchange-of-uicc-credentials/\
+  - \[1\] <a name="1"> [Daily Mail.com, news article 20 Feb 2015, "US and UK spies
+    hacked SIM card manufacturer to steal codes that allowed them to eavesdrop on
+    mobile phones worldwide, according to bombshell documents leaked by Ed Snowden".](https://www.dailymail.co.uk/news/article-2961314/US-UK-hacked-SIM-card-manufacturer-steal-codes-allowed-eavesdrop-mobile-phones-worldwide-according-bombshell-documents-leaked-Ed-Snowden.html    )
+  - "\\[2\\] <a name=\"2\"> [GSMA FS.28 \u201CSecurity Guidelines for Exchange of\
+    \ UICC Credentials\u201D, Version 1.0, November 2020.](https://www.gsma.com/security/resources/fs-28-security-guidelines-for-exchange-of-uicc-credentials/\
     \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1195
@@ -6954,9 +7006,9 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - '[3GPP TS 23.501, sec 4.2.4, 5.13,]( https://www.3gpp.org/DynaReport/23501.htm)'
-  - '[3GPP TS 23.558](https://www.3gpp.org/DynaReport/23558.htm)'
-  - '[3GPP TS 23.548](https://www.3gpp.org/DynaReport/23548.htm)'
+  - \[1\] <a name="1"> [3GPP TS 23.501, sec 4.2.4, 5.13,]( https://www.3gpp.org/DynaReport/23501.htm)
+  - \[2\] <a name="2"> [3GPP TS 23.558](https://www.3gpp.org/DynaReport/23558.htm)
+  - \[3\] <a name="3"> [3GPP TS 23.548](https://www.3gpp.org/DynaReport/23548.htm)
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1195
   tactics:
@@ -7049,15 +7101,15 @@ techniques:
       attempt additional techniques against the targeted MNO.
     Name: Partner insider
   references:
-  - '[5GS Roaming Guidelines Version 5.0 (non-confidential), NG.113-v5.0, GSMA, December
-    2021](https://www.gsma.com/newsroom/wp-content/uploads//NG.113-v5.0.pdf)'
-  - '[5G; Security Architecture and Procedures for 5G System, TS 33.501 v16.10.0 Release
-    16, Sections 9.9, 13.1, 13.2, 3GPP, March 2022](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3169)'
-  - "[ETSI White Paper No. 46 \u2013 MEC security: Status of standards support and\
-    \ future evolutions, 1st edition, ETSI, May 2021](https://www.etsi.org/images/files/ETSIWhitePapers/ETSI_WP_46-_MEC_security.pdf)"
-  - "[R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, \u201CTowards dynamic\
-    \ threat modelling in 5G core networks based on MITRE ATT&CK\u201D,\_ October\
-    \ 2021](https://arxiv.org/abs/2108.11206\_\_)"
+  - \[1\] <a name="1"> [5GS Roaming Guidelines Version 5.0 (non-confidential), NG.113-v5.0,
+    GSMA, December 2021](https://www.gsma.com/newsroom/wp-content/uploads//NG.113-v5.0.pdf)
+  - \[2\] <a name="2"> [5G; Security Architecture and Procedures for 5G System, TS
+    33.501 v16.10.0 Release 16, Sections 9.9, 13.1, 13.2, 3GPP, March 2022](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3169)
+  - "\\[3\\] <a name=\"3\"> [ETSI White Paper No. 46 \u2013 MEC security: Status of\
+    \ standards support and future evolutions, 1st edition, ETSI, May 2021](https://www.etsi.org/images/files/ETSIWhitePapers/ETSI_WP_46-_MEC_security.pdf)"
+  - "\\[4\\] <a name=\"4\"> [R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield,\
+    \ \u201CTowards dynamic threat modelling in 5G core networks based on MITRE ATT&CK\u201D\
+    ,\_ October 2021](https://arxiv.org/abs/2108.11206\_\_)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1199
   tactics:
@@ -7131,10 +7183,10 @@ techniques:
       \ repeat) creates a DoS condition."
     Name: Control plane signaling storm from (at least) one malicious UE
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - '[3GPP TS 23.501: System architecture for the 5G System (5GS)](https://www.3gpp.org/DynaReport/23501.htm  )'
+  - '\[2\] <a name="2"> [3GPP TS 23.501: System architecture for the 5G System (5GS)](https://www.3gpp.org/DynaReport/23501.htm  )'
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1498
   tactics:
@@ -7177,13 +7229,13 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - '[ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.3, Accessed
-    6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)'
-  - '[GSMA Official Document NG.126 - Cloud Infrastructure Reference Model_NG.126-v1.0-2,
-    Accessed 6/27/2022](https://www.gsma.com/newsroom/wp-content/uploads//NG.126-v1.0-2.pdf)'
-  - "[UKS: R. Pell et.al, \u201CTowards dynamic threat modelling in 5G core networks\
-    \ based on MITRE ATT&CK\u201D, Oct. 2021](https://arxiv.org/abs/2108.11206)"
-  - '[NGMN
+  - \[1\] <a name="1"> [ETSI NFV SEC026 Isolation and trust domain specification,
+    section 4.2.3, Accessed 6/27/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)
+  - \[2\] <a name="2"> [GSMA Official Document NG.126 - Cloud Infrastructure Reference
+    Model_NG.126-v1.0-2, Accessed 6/27/2022](https://www.gsma.com/newsroom/wp-content/uploads//NG.126-v1.0-2.pdf)
+  - "\\[3\\] <a name=\"3\"> [UKS: R. Pell et.al, \u201CTowards dynamic threat modelling\
+    \ in 5G core networks based on MITRE ATT&CK\u201D, Oct. 2021](https://arxiv.org/abs/2108.11206)"
+  - '\[4\] <a name="4"> [NGMN
 
     5G SECURITY RECOMMENDATIONS PACKAGE #2 : NETWORK SLICING, Accessed 6/27/2022](https://www.ngmn.org/publications/5g-security-recommendations-package-2-network-slicing.html)'
   status: This is a theoretical behavior in context of 5G systems.
@@ -7226,9 +7278,9 @@ techniques:
       consumes excessive data
     Name: Malicious data consumption application
   references:
-  - '[Android devices ensnared in DDoS botnet, Feb. 2021](https://www.zdnet.com/article/android-devices-ensnared-in-ddos-botnet/
-    )'
-  - '[Massive Android DDoS Botnet Derailed, Aug. 2017](https://www.darkreading.com/attacks-breaches/massive-android-ddos-botnet-derailed)'
+  - \[1\] <a name="1"> [Android devices ensnared in DDoS botnet, Feb. 2021](https://www.zdnet.com/article/android-devices-ensnared-in-ddos-botnet/
+    )
+  - \[2\] <a name="2"> [Massive Android DDoS Botnet Derailed, Aug. 2017](https://www.darkreading.com/attacks-breaches/massive-android-ddos-botnet-derailed)
   status: This is a theoretical behavior
   subtechnique-of: FGT1499
   tactics:
@@ -7330,15 +7382,16 @@ techniques:
       \ or other orders to deny radio access, or (2) posing as a legitimate base station,\
       \ but not relaying traffic to or from the intended recipient.\nOr, adversary\
       \ with fake UE can try to register as the victim UE, and when the victim UE\
-      \ tries to RRC connect again, it will be rejected. See [2]"
+      \ tries to RRC connect again, it will be rejected. See [\\[2\\]](#2)"
     Name: DOS via gNB control (or fake UE)
   - Description: "Adversary controlling AMF can cause authentication to fail or deny\
-      \ SMS service by deactivating SMS for a given SUPI [1]. Control of AMF/SEAF\
-      \ can give an adversary the power to manipulate the AKA procedure (e.g. change\
-      \ parameters exchanged) between the AMF and any other UE, so that (at the simplest)\
-      \ the UE fails authentication and cannot get services. \nRogue or misconfigured\
-      \ NF modifies the registration accept message for legitimate subscribers to\
-      \ deny access to some or all services that are configured in their profile."
+      \ SMS service by deactivating SMS for a given SUPI [\\[1\\]](#1). Control of\
+      \ AMF/SEAF can give an adversary the power to manipulate the AKA procedure (e.g.\
+      \ change parameters exchanged) between the AMF and any other UE, so that (at\
+      \ the simplest) the UE fails authentication and cannot get services. \nRogue\
+      \ or misconfigured NF modifies the registration accept message for legitimate\
+      \ subscribers to deny access to some or all services that are configured in\
+      \ their profile."
     Name: DOS via AMF/SEAF control
   - Description: Adversary controlling SMF can release an existing PDU session or
       not create a new one; or send a N4 Session Release request to UPF
@@ -7352,12 +7405,12 @@ techniques:
     Name: DOS via AUSF control
   - Description: 'Adversary controlling UDM: fail the SUPI de-concealing operation,
       UE key will be different and NAS SMC will fail (e.g., responding to SUCI deconcealment
-      with an incorrect SUPI). See clause E.2.2.1 of [3].'
+      with an incorrect SUPI). See clause E.2.2.1 of [\[3\]](#3).'
     Name: DOS via UDM control
   - Description: "Adversary controlling ARPF can\nAlter the root key (K) or provide\
       \ wrong root key for the UE\nGenerate wrong authentication vector (AV) during\
       \ UE authentication procedure using EAP-AKA\u2019 or 5G AKA.\nBoth will result\
-      \ in authentication failure for the UE.  [Section 6.1.3 of [4]]"
+      \ in authentication failure for the UE.  [Section 6.1.3 of [\\[4\\]](#4)]"
     Name: DOS via ARPF control
   - Description: Adversary controlling UDR may give UDM incorrect security parameters,
       or remove UE authentication status.
@@ -7382,19 +7435,19 @@ techniques:
       to deny access for a UE.
     Name: DOS via Home PLMN or visited PLMN SEPP
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Hu, X. et al: \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
-    \ Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[2\\] <a name=\"2\"> [Hu, X. et al: \u201CA Systematic Analysis Method for\
+    \ 5G Non-Access Stratum Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.926: \u201CSecurity Assurance\
-    \ Specification (SCAS) threats and critical assets in 3GPP network product classes\u201D\
-    , Technical Report, v17.3.0, December. 2021.](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[3\\] <a name=\"3\"> [3rd Generation Partnership Project (3GPP) TR 33.926:\
+    \ \u201CSecurity Assurance Specification (SCAS) threats and critical assets in\
+    \ 3GPP network product classes\u201D, Technical Report, v17.3.0, December. 2021.](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TS 33.501: \u201CSecurity architecture\
-    \ and procedures for 5G System\u201D, Technical Specification, v17.6.0, June 2022](https://www.3gpp.org/DynaReport/33501.htm\
-    \ )"
+  - "\\[4\\] <a name=\"4\"> [3rd Generation Partnership Project (3GPP) TS 33.501:\
+    \ \u201CSecurity architecture and procedures for 5G System\u201D, Technical Specification,\
+    \ v17.6.0, June 2022](https://www.3gpp.org/DynaReport/33501.htm )"
   status: This is a theoretical behavior
   subtechnique-of: FGT1499
   tactics:
@@ -7465,8 +7518,8 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - '[ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April
-    26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)'
+  - \[1\] <a name="1"> [ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP)
+    v006, retrieved April 26, 2021](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management)
   status: This is a theoretical behavior
   subtechnique-of: FGT1542
   tactics:
@@ -7537,8 +7590,9 @@ techniques:
       activities.
     Name: Credential compromise
   references:
-  - "[Baseline Security Controls\_\u2013NO-009, FS.31 version 2.0,GSMA, February 2020](https://www.gsma.com/security/wp-content/uploads/2020/02/FS.31-v2.0.pdf)"
-  - '[A New Trust Model For The 5G Era, Thales, October 2020](https://cpl.thalesgroup.com/sites/default/files/content/research_reports_white_papers/field_document/2020-10/New-Trust-Model-For-5G-Era-WP.pdf)'
+  - "\\[1\\] <a name=\"1\"> [Baseline Security Controls\_\u2013NO-009, FS.31 version\
+    \ 2.0,GSMA, February 2020](https://www.gsma.com/security/wp-content/uploads/2020/02/FS.31-v2.0.pdf)"
+  - \[2\] <a name="2"> [A New Trust Model For The 5G Era, Thales, October 2020](https://cpl.thalesgroup.com/sites/default/files/content/research_reports_white_papers/field_document/2020-10/New-Trust-Model-For-5G-Era-WP.pdf)
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1555
   tactics:
@@ -7596,21 +7650,22 @@ techniques:
       subscriber data traffic can be eavesdropped or modified in transit over the
       air interface
     Name: Adversary-in-the-Middle on air interface for any UE
-  - Description: "Reference [3] (appendix B) contains a taxonomy of attacks against\
-      \ 5G UEs, passive and active. One concerns message attacks (fake MIB/SIB \u2013\
-      \ Master Information Block/System Information Block)"
+  - Description: "Reference [\\[3\\]](#3) (appendix B) contains a taxonomy of attacks\
+      \ against 5G UEs, passive and active. One concerns message attacks (fake MIB/SIB\
+      \ \u2013 Master Information Block/System Information Block)"
     Name: Adversary uses a fake base station to broadcast spoofed configuration messages
       to UEs nearby
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, section 4.4, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, section 4.4, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[Hu, X. et al: \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
-    \ Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[2\\] <a name=\"2\"> [Hu, X. et al: \u201CA Systematic Analysis Method for\
+    \ 5G Non-Access Stratum Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.809: \u201CStudy on  5G security\
-    \ enhancements against False Base Stations (FBS)\u201D, Technical Report, v0.18.0,\
-    \ February 2022.](https://www.3gpp.org/DynaReport/33809.htm )"
+  - "\\[3\\] <a name=\"3\"> [3rd Generation Partnership Project (3GPP) TR 33.809:\
+    \ \u201CStudy on  5G security enhancements against False Base Stations (FBS)\u201D\
+    , Technical Report, v0.18.0, February 2022.](https://www.3gpp.org/DynaReport/33809.htm\
+    \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1557
   tactics:
@@ -7640,12 +7695,12 @@ techniques:
     \ is a roaming partner with connections to the HPLMN via one or more IPX providers\
     \ or the connection between VSEPP and HSEPP may be direct. The HPLMN trusts the\
     \ info from the VPLMN, but it is being sent fraudulently by the VPLMN. The SEPP\
-    \ may also be located at a VAS provider [1] where compromise of the VAS is a pre-condition\
-    \ instead of the VPLMN.\r\n\r\nThe adversary may possibly achieve an AITM position\
-    \ on an IP Exchange (IPX) used by either the home PLMN or the visited PLMN and\
-    \ through which the roaming traffic may flow. The adversary may attempt to control\
-    \ a device in the path or re-direct traffic to a device the adversary controls.\r\
-    \n\r\n"
+    \ may also be located at a VAS provider [\\[1\\]](#1) where compromise of the\
+    \ VAS is a pre-condition instead of the VPLMN.\r\n\r\nThe adversary may possibly\
+    \ achieve an AITM position on an IP Exchange (IPX) used by either the home PLMN\
+    \ or the visited PLMN and through which the roaming traffic may flow. The adversary\
+    \ may attempt to control a device in the path or re-direct traffic to a device\
+    \ the adversary controls.\r\n\r\n"
   detections:
   - detects: Monitor for access to SEPP application/appliance for unexpected access.
     fgdsid: DS0015
@@ -7674,12 +7729,13 @@ techniques:
       by a VAS
     Name: SEPP control
   references:
-  - "[P.Tommassen, \u201C5G Security When Roaming,\u201D iBasis, October 6, 2020](https://ibasis.com/5g-security-when-roaming/)"
-  - "[\u201C5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,\u201D\
-    \ 3GPP, TS 29.573 ver.16.9.0, March 2022](https://www.3gpp.org/DynaReport/29573.htm\_\
+  - "\\[1\\] <a name=\"1\"> [P.Tommassen, \u201C5G Security When Roaming,\u201D iBasis,\
+    \ October 6, 2020](https://ibasis.com/5g-security-when-roaming/)"
+  - "\\[2\\] <a name=\"2\"> [\u201C5G System; Public Land Mobile Network (PLMN) Interconnection;\
+    \ Stage 3,\u201D 3GPP, TS 29.573 ver.16.9.0, March 2022](https://www.3gpp.org/DynaReport/29573.htm\_\
     )"
-  - "[\u201CSecurity architecture and procedures for 5G System,\u201D 3GPP, TS 33.501\
-    \ ver. 16.3.0, July 2020, Sec. 13.1.2,13.2](https://www.3gpp.org/DynaReport/33501.htm)"
+  - "\\[3\\] <a name=\"3\"> [\u201CSecurity architecture and procedures for 5G System,\u201D\
+    \ 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2](https://www.3gpp.org/DynaReport/33501.htm)"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1557
   tactics:
@@ -7737,18 +7793,18 @@ techniques:
   procedureexamples:
   - Description: Integrity or confidentiality protection can be disabled on N2 interface
       for CP, N3 interface for UP and Xn interface for CP and UP. Clauses 9.2, 9.3
-      and 9.4 of [2]
+      and 9.4 of [\[2\]](#2)
     Name: Compromised or misconfigured switches or routers between RAN and core and
       between gNBs
   - Description: gNB does not provide protection on N2, N3, Xn interfaces, see clause
-      D.2.2. of [1]
+      D.2.2. of [\[1\]](#1)
     Name: Adversary configures the non-SBI interfaces to not use IPSec.
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
     \ )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    .](https://www.3gpp.org/DynaReport/33501.htm )"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D.](https://www.3gpp.org/DynaReport/33501.htm )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1557
   tactics:
@@ -7802,22 +7858,23 @@ techniques:
       server that accepts the same credential. Concretely, the malicious server performs
       an adversary-in-the-middle attack on three successive handshakes between the
       honest client and server, and succeeds in impersonating the client on the third
-      handshake. See [5], clause 4.2.2.2 of [2].'
+      handshake. See [\[5\]](#5), clause 4.2.2.2 of [\[2\]](#2).'
     Name: Triple Handshake
   - Description: An adversary in control of SCP can eavesdrop or alter user plane
       data and signaling data between two NFs e.g. AMF and UDM.
     Name: SCP as AITM
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
-  - "[3rd Generation Partnership Project (3GPP) TS 33.117, \u201CCatalogue of general\
-    \ security assurance requirements (Release 17)\u201D, v17.0.0, June 2021.](https://www.3gpp.org/DynaReport/33117.htm\
-    \  )"
-  - "[3GPP TS 33.310 \u201CNetwork Domain Security (NDS); Authentication Framework\
-    \ (AF)\u201D](https://www.3gpp.org/DynaReport/33310.htm )"
-  - '[G. Koien, "On Threats to the 5G Service Based Architecture", 2021.](https://www.researchgate.net/journal/Wireless-Personal-Communications-1572-834X/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture/links/6030a03a4585158939b7bcae/On-Threats-to-the-5G-Service-Based-Architecture.pdf)'
-  - "[3SHAKE: \u201CTriple Handshakes Considered Harmful: Breaking and Fixing Authentication\
-    \ over TLS\u201D](https://mitls.org/pages/attacks/3SHAKE)"
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks)"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TS 33.117,\
+    \ \u201CCatalogue of general security assurance requirements (Release 17)\u201D\
+    , v17.0.0, June 2021.](https://www.3gpp.org/DynaReport/33117.htm  )"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 33.310 \u201CNetwork Domain Security (NDS); Authentication\
+    \ Framework (AF)\u201D](https://www.3gpp.org/DynaReport/33310.htm )"
+  - \[4\] <a name="4"> [G. Koien, "On Threats to the 5G Service Based Architecture",
+    2021.](https://www.researchgate.net/journal/Wireless-Personal-Communications-1572-834X/publication/349455036_On_Threats_to_the_5G_Service_Based_Architecture/links/6030a03a4585158939b7bcae/On-Threats-to-the-5G-Service-Based-Architecture.pdf)
+  - "\\[5\\] <a name=\"5\"> [3SHAKE: \u201CTriple Handshakes Considered Harmful: Breaking\
+    \ and Fixing Authentication over TLS\u201D](https://mitls.org/pages/attacks/3SHAKE)"
   status: This is a theoretical behavior
   subtechnique-of: FGT1557
   tactics:
@@ -7887,8 +7944,9 @@ techniques:
       \ E-UTRA Absolute Radio Frequency Channel Number (E-ARFCN)"
     Name: Fake gNB redirects UE to 4G.
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1562
   tactics:
@@ -7926,12 +7984,13 @@ techniques:
   object-type: technique
   platforms: 5G radio
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.809: \u201CStudy on 5G security\
-    \ enhancements against False Base Stations (FBS)\u201D, Technical Report, v0.18.0,\
-    \ February 2022.](https://www.3gpp.org/DynaReport/33809.htm )"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TR 33.809:\
+    \ \u201CStudy on 5G security enhancements against False Base Stations (FBS)\u201D\
+    , Technical Report, v0.18.0, February 2022.](https://www.3gpp.org/DynaReport/33809.htm\
+    \ )"
   status: This is a theoretical behavior
   subtechnique-of: FGT1583
   tactics:
@@ -7956,15 +8015,16 @@ techniques:
   - Description: "Adversary uses Software-Defined-Radio (SDR) running OAI-5G (\u201C\
       OpenAirInterface\u201D) modified software"
     Name: Fake UE build
-  - Description: "In [1], it is mentioned that the adversary must \u201Cforge a malicious\
-      \ UE\u201D, which is then used to replay messages form the malicious (adversary\
-      \ controlled) gNB to the legitimate gNB"
+  - Description: "In [\\[1\\]](#1), it is mentioned that the adversary must \u201C\
+      forge a malicious UE\u201D, which is then used to replay messages form the malicious\
+      \ (adversary controlled) gNB to the legitimate gNB"
     Name: Fake UE acquisition
   references:
-  - "[Hu, X. et al: \u201CA Systematic Analysis Method for 5G Non-Access Stratum Signalling\
-    \ Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
+  - "\\[1\\] <a name=\"1\"> [Hu, X. et al: \u201CA Systematic Analysis Method for\
+    \ 5G Non-Access Stratum Signalling Security\u201D, August 2019](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957\
     \ )"
-  - "[Ericsson: \u201CDetecting false base stations in mobile networks\u201D](https://www.ericsson.com/en/blog/2018/6/detecting-false-base-stations-in-mobile-networks)"
+  - "\\[2\\] <a name=\"2\"> [Ericsson: \u201CDetecting false base stations in mobile\
+    \ networks\u201D](https://www.ericsson.com/en/blog/2018/6/detecting-false-base-stations-in-mobile-networks)"
   status: This is a theoretical behavior
   subtechnique-of: FGT1583
   tactics:
@@ -8018,8 +8078,9 @@ techniques:
       from an internet in 2016 (no reference available)
     Name: IR.21 accessible from the Internet
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This a behavior that has been observed in the wild in 5G systems
   subtechnique-of: FGT1592
   tactics:
@@ -8121,7 +8182,8 @@ techniques:
       resource cost of another tenant.
     Name: Manipulate network slices of another tenant
   references:
-  - '[ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.2](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)'
+  - \[1\] <a name="1"> [ETSI NFV SEC026 Isolation and trust domain specification,
+    section 4.2.2](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)
   status: This is a theoretical behavior
   subtechnique-of: FGT1599
   tactics:
@@ -8220,7 +8282,8 @@ techniques:
       of another slice.
     Name: Use of common virtual orchestrators and infrastructure managers
   references:
-  - '[ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.3](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)'
+  - \[1\] <a name="1"> [ETSI NFV SEC026 Isolation and trust domain specification,
+    section 4.2.3](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain)
   status: This is a theoretical behavior
   subtechnique-of: FGT1599
   tactics:
@@ -8313,8 +8376,8 @@ techniques:
   object-type: technique
   platforms: 5G
   references:
-  - "[Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service for Network\
-    \ Function, accessed April 28, 2021](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
+  - "\\[1\\] <a name=\"1\"> [Fraunhofer AISEC, \u201CThreat Analysis of Container-as-a-Service\
+    \ for Network Function, accessed April 28, 2021](https://www.aisec.fraunhofer.de/content/dam/aisec/Dokumente/Publikationen/Studien_TechReports/englisch/caas_threat_analysis_wp.pdf)"
   status: This is a theoretical behavior
   subtechnique-of: FGT1599
   tactics:
@@ -8392,8 +8455,9 @@ techniques:
       or re-instantiation
     Name: Stored or Coded configuration
   references:
-  - "[S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling framework for mobile\
-    \ communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1 )"
+  - "\\[1\\] <a name=\"1\"> [S.P. Rao, S. Holtmanns, T. Aura: \u201CThreat modeling\
+    \ framework for mobile communication systems\u201D, May 2020](https://arxiv.org/abs/2005.05110v1\
+    \ )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1599
   tactics:
@@ -8482,12 +8546,13 @@ techniques:
       \ algorithm to have highest priority in gNB. These algorithms are sent to the\
       \ UE in the (Access Stratum) AS Security Mode Command. Normally the activation\
       \ of algorithms for the AS is done by the gNB based on that policy received\
-      \ from the SMF, but a fake gNB can ignore the SMF. Clauses 6.7.3 & D.1 of [2].\n\
-      \nAdversary with control over a legitimate gNB, and who currently serves the\
-      \ UE, tells the SMF that the UE Control Plane (CP) and User Plane (UP) policy\
-      \ is NULL encryption, and the (legitimate but not correctly implemented) SMF\
-      \ doesn\u2019t check that against the locally-stored UE UP policy and lets the\
-      \ CP and UP data be transmitted with NULL encryption. Clause 6.6.1 of [2]"
+      \ from the SMF, but a fake gNB can ignore the SMF. Clauses 6.7.3 & D.1 of [\\\
+      [2\\]](#2).\n\nAdversary with control over a legitimate gNB, and who currently\
+      \ serves the UE, tells the SMF that the UE Control Plane (CP) and User Plane\
+      \ (UP) policy is NULL encryption, and the (legitimate but not correctly implemented)\
+      \ SMF doesn\u2019t check that against the locally-stored UE UP policy and lets\
+      \ the CP and UP data be transmitted with NULL encryption. Clause 6.6.1 of [\\\
+      [2\\]](#2)"
     Name: Fake or misconfigured base station
   - Description: 'Adversary makes the unauthorized change in the SMF CP and UP local
       policy to enable NULL encryption for CP & UP traffic.
@@ -8504,7 +8569,7 @@ techniques:
       \ the UE's NAS data is not protected, i.e. prioritize NULL algorithm for either\
       \ NAS encryption or integrity.\n \nThis can be followed by another attack behavior\
       \ whereby eavesdropping can be done over the air interface for data and signaling.\
-      \ Clauses 5.3.2 and 5.5.1 of [2]"
+      \ Clauses 5.3.2 and 5.5.1 of [\\[2\\]](#2)"
     Name: Rogue or misconfigured AMF non-roaming
   - Description: "Compromised source AMF sends incorrect UE context information to\
       \ legitimate target AMF during either (a) Initial registration and roaming or\
@@ -8522,17 +8587,17 @@ techniques:
       \ part of the \u201CUEContextTransfer\u201D or \n\u201CRelocateUEContext\u201D\
       \ service request messages. All UE data will be sent in clear text after roaming\
       \ or handover is completed. Clauses 4.11.1.2.2.2, 4.11.1.3.3, 4.11.2.3 and 5.2.2.1\
-      \ of [3] The element in the UE context is the ueSecurityCapability which the\
-      \ rogue AMF sets to NULL only."
+      \ of [\\[3\\]](#3) The element in the UE context is the ueSecurityCapability\
+      \ which the rogue AMF sets to NULL only."
     Name: Rogue or misconfigured AMF/MME during EPS roaming/handover
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
     \  )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    .](https://www.3gpp.org/DynaReport/33501.htm  )"
-  - "[3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D.](https://www.3gpp.org/DynaReport/23502.htm\
-    \  )"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D.](https://www.3gpp.org/DynaReport/33501.htm  )"
+  - "\\[3\\] <a name=\"3\"> [3GPP TS 23.502 \u201CProcedures for the 5G System (5GS)\u201D\
+    .](https://www.3gpp.org/DynaReport/23502.htm  )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1600
   tactics:
@@ -8617,28 +8682,29 @@ techniques:
   procedureexamples:
   - Description: A rogue or misconfigured gNB can disable IPSec encryption or use
       a weak IPSec encryption algorithm on backhaul interfaces such as N2, N3 and
-      Xn. Then it can launch other attacks. Clause D.2.2 of [1], clause 5.3.2 of [2].
+      Xn. Then it can launch other attacks. Clause D.2.2 of [\[1\]](#1), clause 5.3.2
+      of [\[2\]](#2).
     Name: Compromised or misconfigured gNB
   - Description: A rogue or misconfigured AMF can disable IPSec encryption or use
       a weak IPSec encryption algorithm on N2 and N26 interfaces. Then it can launch
-      other attacks. Clause K.2.1 of [1], clause 5.5.1  of [2]
+      other attacks. Clause K.2.1 of [\[1\]](#1), clause 5.5.1  of [\[2\]](#2)
     Name: Compromised or misconfigured AMF
   - Description: A rogue or misconfigured UPF can disable IPSec encryption or use
       a weak IPSec encryption algorithm on N3, N4 and N9 interfaces. Then it can launch
-      other attacks. Clause L.2.1 of [1]
+      other attacks. Clause L.2.1 of [\[1\]](#1)
     Name: Compromised or misconfigured UPF
   - Description: A rogue or misconfigured SMF can disable IPSec encryption or use
       a weak IPSec encryption algorithm on N4 interface. Then it can launch other
-      attacks. Clause 9.9 of [2]
+      attacks. Clause 9.9 of [\[2\]](#2)
     Name: Compromised or misconfigured SMF
   - Description: 'A rogue or misconfigured AMF can disable the TLS encryption or use
       a weak TLS encryption algorithm to another NF including the SCP. Then it can
       launch other attacks to gain unauthorized access to network services. Clause
-      13.1 of [2]
+      13.1 of [\[2\]](#2)
 
 
       If SCP is rogue or misconfigured, it can force TLS connections to all NFs to
-      be unencrypted or use weak encryptions for all. Clause 5.9.2.4 of [2]'
+      be unencrypted or use weak encryptions for all. Clause 5.9.2.4 of [\[2\]](#2)'
     Name: Compromised or misconfigured NF
   - Description: 'A rogue or misconfigured SEPP can disable TLS encryption or use
       a weak TLS encryption algorithm on N32-c interface or N32-f interface or both.
@@ -8646,23 +8712,23 @@ techniques:
 
       A rogue or misconfigured SEPP can disable JWE encryption or use a weak encryption
       algorithm when PRINS is used on N32-f. Then it can launch other attacks. Clauses
-      13.1 and 13.2 of [2]'
+      13.1 and 13.2 of [\[2\]](#2)'
     Name: Compromised or misconfigured SEPP or IPX component
   - Description: 'A rogue or misconfigured AMF/MME can disable IPSec encryption or
       use a weak IPSec encryption algorithm on N26 interface. Then it can launch other
-      attacks. Clause K.2.1 of [1], 8.4 of [2].
+      attacks. Clause K.2.1 of [\[1\]](#1), 8.4 of [\[2\]](#2).
 
 
       A rogue or misconfigured UPF can disable IPSec encryption or use a weak IPSec
       encryption algorithm on the N9 interface between home PLMN UPF and visited PLMN
-      UPF. See clause 9.9, 13.1 and 13.2 of [2]'
+      UPF. See clause 9.9, 13.1 and 13.2 of [\[2\]](#2)'
     Name: Compromised or misconfigured MME/AMF, or UPF.
   references:
-  - "[3GPP TR 33.926 \u201CSecurity Assurance Specification (SCAS) threats and critical\
-    \ assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
+  - "\\[1\\] <a name=\"1\"> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
+    \ (SCAS) threats and critical assets in 3GPP network product classes\u201D.](https://www.3gpp.org/DynaReport/33926.htm\
     \  )"
-  - "[3GPP TS 33.501 \u201CSecurity architecture and procedures for 5G System\u201D\
-    .](https://www.3gpp.org/DynaReport/33501.htm  )"
+  - "\\[2\\] <a name=\"2\"> [3GPP TS 33.501 \u201CSecurity architecture and procedures\
+    \ for 5G System\u201D.](https://www.3gpp.org/DynaReport/33501.htm  )"
   status: This is a theoretical behavior in context of 5G systems.
   subtechnique-of: FGT1600
   tactics:
@@ -8699,15 +8765,16 @@ techniques:
       point.
   - Description: Adversary installs an illegitimate complete gNB and configures the
       power so as to appear strongest to a given UE in a particular location, see
-      [2].
+      [\[2\]](#2).
     Name: Configure fake gNB to appear strongest
   references:
-  - "[European Union Agency for Cybersecurity (ENISA): \u201CENISA Threat Landscape\
-    \ for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
+  - "\\[1\\] <a name=\"1\"> [European Union Agency for Cybersecurity (ENISA): \u201C\
+    ENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
     \ )"
-  - "[3rd Generation Partnership Project (3GPP) TR 33.809: \u201CStudy on  5G security\
-    \ enhancements against False Base Stations (FBS)\u201D, Technical Report, v0.18.0,\
-    \ February 2022.](https://www.3gpp.org/DynaReport/33809.htm )"
+  - "\\[2\\] <a name=\"2\"> [3rd Generation Partnership Project (3GPP) TR 33.809:\
+    \ \u201CStudy on  5G security enhancements against False Base Stations (FBS)\u201D\
+    , Technical Report, v0.18.0, February 2022.](https://www.3gpp.org/DynaReport/33809.htm\
+    \ )"
   status: This is a theoretical behavior
   subtechnique-of: FGT1608
   tactics:
@@ -8767,7 +8834,8 @@ techniques:
       IRC channel and can run kubectl locally to spread once within a victim cluster
     Name: S0623
   references:
-  - '[ETSI NFV SEC025, Secure End-to-End VNF and NS management specification
+  - '\[1\] <a name="1"> [ETSI NFV SEC025, Secure End-to-End VNF and NS management
+    specification
 
     Release 4, section 4.4.6, accessed 6/28/2022](https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_&_NS_management/NFV-SEC025v0012.zip)'
   status: This is a theoretical behavior
@@ -8847,7 +8915,7 @@ techniques:
       to facilitate execution.
     Name: G0139
   references:
-  - '[Network Functions Virtualisation (NFV) Release 4;
+  - '\[1\] <a name="1"> [Network Functions Virtualisation (NFV) Release 4;
 
     Security;Isolation and trust domain specification
 

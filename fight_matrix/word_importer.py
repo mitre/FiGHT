@@ -69,6 +69,13 @@ types = [
     "attack_technique_with_fight_subs",           #6
     "invalid_type"                                #6
 ]
+
+def link_refs(text, offset=0):
+    p = r'\[(\d+)\]'
+    r = r'[\[\1\]](#\1)'
+    newtext = re.sub(p, r, text)
+    return newtext
+
 class FightDraft(object):
     """FiGHT Draft Object
 
@@ -271,11 +278,11 @@ class FightDraft(object):
     def get_procedure_examples(self):
         return self.procedure_examples
 
-    def get_procedure_examples_dict(self):
+    def get_procedure_examples_dict(self, offset=0):
         myarray = []
         for procedure_ex in self.procedure_examples:
             name = procedure_ex[0]
-            desc = procedure_ex[1]
+            desc = link_refs(procedure_ex[1], offset)
             myarray.append({"Name": name, "Description": desc})
         return myarray
 
@@ -394,11 +401,13 @@ class FightDraft(object):
 
     def get_references_dict(self):
         myarray = []
+        count = 1
         for reference in self.references:
             text = reference[0]
             url = reference[1]
-            link = f"[{text}]({url})"
+            link = f"\[{count}\] <a name=\"{count}\"> [{text}]({url})"
             myarray.append(link)
+            count += 1
         return myarray
 
     def get_references_md(self):
