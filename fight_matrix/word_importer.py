@@ -71,7 +71,9 @@ types = [
 ]
 
 def link_refs(text, offset=0):
+    return text
     p = r'\[(\d+)\]'
+    #r = r'<a href="#\1">\[\1\]</a>'
     r = r'[\[\1\]](#\1)'
     newtext = re.sub(p, r, text)
     return newtext
@@ -405,7 +407,7 @@ class FightDraft(object):
         for reference in self.references:
             text = reference[0]
             url = reference[1]
-            link = f"\[{count}\] <a name=\"{count}\"> [{text}]({url})"
+            link = f"<a name=\"{count}\"> \[{count}\] </a> [{text}]({url})"
             myarray.append(link)
             count += 1
         return myarray

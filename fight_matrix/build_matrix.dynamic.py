@@ -291,7 +291,9 @@ ref_num_re = re.compile("\[(\d+)\]")
 ref_re = re.compile("(\[\d+\])")
 
 def link_refs(text):
+    return text
     p = r'\[(\d+)\]'
+    #r = r'<a href="#\1">\[\1\]</a>'
     r = r'[\[\1\]](#\1)'
     newtext = re.sub(p, r, text)
     return newtext
