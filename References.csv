@@ -1,3 +1,4 @@
+FGT5019.004,Intercept Unencrypted SUPI,"3GPP TS 33.501 "" Security architecture and procedures for 5G system”",https://www.3gpp.org/DynaReport/33501.htm  
 T1498.502,Shared Slice Resource exhaustion,"ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.3, Accessed 6/27/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain
 T1498.502,Shared Slice Resource exhaustion,"GSMA Official Document NG.126 - Cloud Infrastructure Reference Model_NG.126-v1.0-2, Accessed 6/27/2022",https://www.gsma.com/newsroom/wp-content/uploads//NG.126-v1.0-2.pdf
 T1498.502,Shared Slice Resource exhaustion,"UKS: R. Pell et.al, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, Oct. 2021",https://arxiv.org/abs/2108.11206
@@ -5,13 +6,19 @@ T1498.502,Shared Slice Resource exhaustion,"NGMN
 5G SECURITY RECOMMENDATIONS PACKAGE #2 : NETWORK SLICING, Accessed 6/27/2022",https://www.ngmn.org/publications/5g-security-recommendations-package-2-network-slicing.html
 FGT5018.002,Radio access hardware,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, page 202, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5018.002,Radio access hardware,"El-Shorbagy, A.-moniem. “5G Technology and the Future of Architecture”. Procedia Computer Science, (2021), volume 182, p121–131.",https://doi.org/10.1016/j.procs.2021.02.017 
-FGT5006.002,DNS Encapsulation,"“Badhra Framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”",https://arxiv.org/pdf/2005.05110.pdf
-FGT5006.002,DNS Encapsulation,Mobile Data Charging: New Attacks and Countermeasures,https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
+FGT5006.002,DNS Encapsulation,"“Bhadhra Framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”",https://arxiv.org/pdf/2005.05110.pdf
+FGT5006.002,DNS Encapsulation,"Peng, C., Li, C., Tu, G., Lu, S., & Zhang, L. (2012). Mobile data charging: new attacks and countermeasures. Proceedings of the 2012 ACM conference on Computer and communications security.",https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
 FGT5006.002,DNS Encapsulation,"Merve Sahin, Aurelien Francillon, Payas Gupta, and Mustaque Ahamad. 2017. 
 “Sok: Fraud in telephony networks”. In 2017 IEEE European Symposium on Security
 and Privacy (EuroS&P). IEEE, p235–250",https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7961983&tag=1
 FGT5006.002,DNS Encapsulation,"Kui Xu, Patrick Butler, Sudip Saha, Danfeng (Daphni) Yao in DNS CC Journal, “DNS for Massive-Scale Command and Control”",https://people.cs.vt.edu/~danfeng/papers/DNS-CC-JOURNAL.pdf
-FGT5025,Falsify interconnect invoice,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, section 5.2, November 2019.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks 
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"“Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes,” 3rd Generation Partnership Project (3GPP), TR 33.926 ver.17.3.0, Dec. 2021, sec. G.2.4.1-G.2.4.2",https://www.3gpp.org/DynaReport/33926.htm
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"G. Green, “5G Security when Roaming – Part 2,” Mpirical, Lancaster, UK, May 21, 2021",https://www.mpirical.com/blog/5g-security-when-roaming-part-2
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"“Security architecture and procedures for 5G System,” 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2",https://www.3gpp.org/DynaReport/33501.htm
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"“5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,” 3GPP, TS 29.573 ver.16.9.0, March 2022",https://www.3gpp.org/DynaReport/29573.htm
+FGT5016,_Abuse_of_Inter-operator_Interfaces,"P.Tommassen, “5G Security When Roaming,” iBasis, October 6, 2020",https://ibasis.com/5g-security-when-roaming/
+FGT5025,Falsify interconnect invoice,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, November 2019.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks 
 FGT5025,Falsify interconnect invoice,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
 T1020.001,Network traffic duplication,"3GPP TR 33.848 Security Impacts of Virtualization,
 Section 5.15.2",https://www.3gpp.org/DynaReport/33848.htm
@@ -39,23 +46,19 @@ T1583.502,Programmable UE devices,Ericsson: “Detecting false base stations in 
 FGT5004.001,Controller,"ENISA, “Threat Landscape and Good Practice Guide for Software Defined Networks/5G”, Jan. 2016",https://www.enisa.europa.eu/publications/sdn-threat-landscape 
 FGT5004.001,Controller,"Scott-Hayward, S., O'Callaghan, G., & Sezer, S. “SDN Security: A Survey”. 2013 IEEE SDN for Future. Networks and Services (SDN4FNS) (pp. 1-7)",https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702553&tag=1 
 FGT5004.001,Controller,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
-T1439,Lawful Intercept Abuse,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-T1439,Lawful Intercept Abuse,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
+FGT5030,_DoS_Attack_on_IAB_Deployment,"5G Americas White Paper: Innovations in 5G Backhaul Technologies; IAB, HFC & FIBER”, June 2020.",https://www.5gamericas.org/wp-content/uploads/2020/06/Innovations-in-5G-Backhaul-Technologies-WP-PDF.pdf
+FGT5030,_DoS_Attack_on_IAB_Deployment,3GPP TS 38.401: “NG-RAN; Architecture description”.,https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3219
 T1048.003,DNS Queries,"“Bhadra framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems,” Retrieved April 28, 2022",https://arxiv.org/pdf/2005.05110.pdf
 T1557.502,Roaming and Interconnection,"P.Tommassen, “5G Security When Roaming,” iBasis, October 6, 2020",https://ibasis.com/5g-security-when-roaming/
 T1557.502,Roaming and Interconnection,"“5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,” 3GPP, TS 29.573 ver.16.9.0, March 2022",https://www.3gpp.org/DynaReport/29573.htm 
 T1557.502,Roaming and Interconnection,"“Security architecture and procedures for 5G System,” 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2",https://www.3gpp.org/DynaReport/33501.htm
-FGT5016,Abuse of Inter-operator Interfaces,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
-FGT5016,Abuse of Inter-operator Interfaces,"“Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes,” 3rd Generation Partnership Project (3GPP), TR 33.926 ver.17.3.0, Dec. 2021, sec. G.2.4.1-G.2.4.2",https://www.3gpp.org/DynaReport/33926.htm
-FGT5016,Abuse of Inter-operator Interfaces,"G. Green, “5G Security when Roaming – Part 2,” Mpirical, Lancaster, UK, May 21, 2021",https://www.mpirical.com/blog/5g-security-when-roaming-part-2
-FGT5016,Abuse of Inter-operator Interfaces,"“Security architecture and procedures for 5G System,” 3GPP, TS 33.501 ver. 16.3.0, July 2020, Sec. 13.1.2,13.2",https://www.3gpp.org/DynaReport/33501.htm
-FGT5016,Abuse of Inter-operator Interfaces,"“5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3,” 3GPP, TS 29.573 ver.16.9.0, March 2022",https://www.3gpp.org/DynaReport/29573.htm
-FGT5016,Abuse of Inter-operator Interfaces,"P.Tommassen, “5G Security When Roaming,” iBasis, October 6, 2020",https://ibasis.com/5g-security-when-roaming/
 T1046,Core-network scanning,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 T1609.501,Accessing Terminated VNF,"ETSI NFV SEC025, Secure End-to-End VNF and NS management specification
 Release 4, section 4.4.6, accessed 6/28/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_&_NS_management/NFV-SEC025v0012.zip
 T1072,5G Orchestration and Deployment Tools,"ETSI NFV SEC001, “Network Functions Virtualization (NFV); NFV Security; Problem Statement”, Jan. 2014, section 6.9",https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf 
 T1072,5G Orchestration and Deployment Tools,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206  
+T1072,5G Orchestration and Deployment Tools,"Dell SecureWorks. (2013, March 21). Wiper Malware Analysis Attacking Korean Financial Sector. Retrieved May 13, 2015.",http://www.secureworks.com/cyber-threat-intelligence/threats/wiper-malware-analysis-attacking-korean-financial-sector/
+T1072,5G Orchestration and Deployment Tools,Silence – a new Trojan attacking financial organizations ( accessed 06/20/2023,https://securelist.com/the-silence/83009/
 T1525,Compromised image,"ENISA THREAT LANDSCAPE FOR 5G NETWORKS, December 2020, section 6.2. Accessed April 13, 2021",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks/
 T1525,Compromised image,"Docker Documentation, Security, Content in Trust",https://docs.docker.com/engine/security/trust/
 T1600.501,Radio interface,3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”.,https://www.3gpp.org/DynaReport/33926.htm  
@@ -70,38 +73,42 @@ FGT5004.002,vSwitch,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “
 FGT5012.004,Core network function signaling,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 FGT5012.004,Core network function signaling,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206  
 FGT5012.004,Core network function signaling,"S. Holtmanns, S. P. Rao, I. Oliver, “User location tracking attacks for LTE networks using the interworking functionality”, 2016 IFIP Networking Conference.",https://ieeexplore.ieee.org/document/7497239 
+FGT5012.004,Core network function signaling,3GPP TS 23.502 “Procedures for the 5G System (5GS)”,https://www.3gpp.org/DynaReport/23502.htm
+FGT5012.004,Core network function signaling,3GPP TS 23.273 “5G System (5GS) Location Services (LCS)”,https://www.3gpp.org/DynaReport/23273.htm
 T1583,Access to Cloud Infra or MEC,"S. Sahoo, S. K. Mishra, B. Sahoo & A. K. Turuk, “Co-resident Attack in Cloud Computing: An Overview”, Encyclopedia of Big Data Technologies, March 2018",https://link.springer.com/content/pdf/10.1007%2F978-3-319-63962-8_322-1.pdf 
 T1583,Access to Cloud Infra or MEC,"T. Ristenpart, E. Tromer, H. Shacham, S. Savage, “Hey, you, get off of my cloud: exploring information leakage in third-party compute clouds”, In CCS '09: Proceedings of the 16th ACM conference on Computer and communications security, November 2009 Pages 199–212",https://dl.acm.org/doi/10.1145/1653662.1653687 
 T1611,VM and Container Breakout,"ETSI NFV SEC023, Container security spec (WIP) v004.",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec
 T1611,VM and Container Breakout,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
 T1611,VM and Container Breakout,"Github, “Awesome VM exploit”",https://github.com/WinMin/awesome-vm-exploit 
 T1611,VM and Container Breakout,Project Zero,https://googleprojectzero.blogspot.com/2021/06/an-epyc-escape-case-study-of-kvm.html 
+T1608.501,_Configurability_of_False_Base_Station_or_Access_Point_,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+T1608.501,_Configurability_of_False_Base_Station_or_Access_Point_,"3rd Generation Partnership Project (3GPP) TR 33.809: “Study on 5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.",https://www.3gpp.org/DynaReport/33809.htm 
 T1557.503,Non-SBI,3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”.,https://www.3gpp.org/DynaReport/33926.htm 
 T1557.503,Non-SBI,3GPP TS 33.501 “Security architecture and procedures for 5G System”.,https://www.3gpp.org/DynaReport/33501.htm 
-FGT5024,SIM boxing,"ENISA “Threat Landscape for 5G Networks Report” Nov 2019, section 5.2.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks
-FGT5024,SIM boxing,Masrub et. al.: “SIM boxing Problem: ALMADAR ALJADID Case Study”,https://ieeexplore.ieee.org/document/9249872
-FGT5024,SIM boxing,"Reaves et.al, “Boxed Out: Blocking Cellular Interconnect Bypass Fraud at the Network Edge”",https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-reaves-boxed.pdf
-FGT5024,SIM boxing,"Anne Josiane Kouam, Aline Carneiro Viana, Alain Tchana. “SIMBox bypass frauds in cellular networks: Strategies, evolution, detection, and future directions. Communications Surveys and Tutorials”",https://hal.inria.fr/hal-03105845v4/document
-FGT5024,SIM boxing,"Mobile Ecosystem Forum, “Business SMS, SIM Farms and the Data Protection Risk”, whitepaper, 2020.",https://mobileecosystemforum.com/business-sms-sim-farms-and-the-data-protection-risk/
-T1078.004,Container Management- Unbounded admin access,"ETSI NFV SEC023, Container Security Spec, section 5.4.4, Accessed 6/27/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec/NFV-SEC023v005.zip
-T1195.502,Compromise Service Supply Chain,"3GPP TS 23.501, sec 4.2.4, 5.13,", https://www.3gpp.org/DynaReport/23501.htm
-T1195.502,Compromise Service Supply Chain,3GPP TS 23.558,https://www.3gpp.org/DynaReport/23558.htm
-T1195.502,Compromise Service Supply Chain,3GPP TS 23.548,https://www.3gpp.org/DynaReport/23548.htm
+T1195.502,Compromise Service Supply Chain,3GPP TS 23.501 “System architecture for the 5G System (5GS); Stage 2 (Release 17)”, https://www.3gpp.org/DynaReport/23501.htm
+T1195.502,Compromise Service Supply Chain,"3GPP TS 23.558: “
+Architecture for enabling Edge Applications”",https://www.3gpp.org/DynaReport/23558.htm
+T1195.502,Compromise Service Supply Chain,3GPP TS 23.548: “5G System Enhancements for Edge Computing; Stage 2”,https://www.3gpp.org/DynaReport/23548.htm
+T1195.502,Compromise Service Supply Chain,"ETSI, White Paper No. 28, “MEC in 5G networks”",https://www.etsi.org/images/files/ETSIWhitePapers/etsi_wp28_mec_in_5G_FINAL.pdf
 FGT5015,Device database manipulation,"GSM Association, “GSM Association Official Document FS.31, Baseline Security Controls.”, v2.0, Feb. 2020",https://www.gsma.com/security/resources/fs-31-gsma-baseline-security-controls 
 FGT5012.006,NAS exploit,"X. Hu et.al. “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, IEEE Access, August 2019.",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
-FGT5026,SIM cloning,"Blog article, “Clone or Swap? SIM Card Vulnerabilities to Reckon With”",https://securityintelligence.com/posts/clone-or-swap-sim-card-vulnerabilities-to-reckon-with/
+FGT5026,SIM cloning,"Martin Brisfors, Sebastian Forsmark, Elena Dubrova: “How Deep Learning Helps Compromising USIM”",https://dl.acm.org/doi/abs/10.1007/978-3-030-68487-7_9
+FGT5026,SIM cloning,"Jinghao Zhao, Boyan Ding, Yunqi Guo, Zhaowei Tan, Songwu Lu, “SecureSIM: Rethinking Authentication and Access Control for SIM/eSIM”",https://dl.acm.org/doi/pdf/10.1145/3447993.3483254
 T1499,Interworking Denial of Service,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 T1499,Interworking Denial of Service,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
 T1499,Interworking Denial of Service,"TOP 7 REST API Security Threats, blog January 2019",https://blog.restcase.com/top-7-rest-api-security-threats/ 
 T1195.501,SIM credential theft,"Daily Mail.com, news article 20 Feb 2015, ""US and UK spies hacked SIM card manufacturer to steal codes that allowed them to eavesdrop on mobile phones worldwide, according to bombshell documents leaked by Ed Snowden"".",https://www.dailymail.co.uk/news/article-2961314/US-UK-hacked-SIM-card-manufacturer-steal-codes-allowed-eavesdrop-mobile-phones-worldwide-according-bombshell-documents-leaked-Ed-Snowden.html    
 T1195.501,SIM credential theft,"GSMA FS.28 “Security Guidelines for Exchange of UICC Credentials”, Version 1.0, November 2020.",https://www.gsma.com/security/resources/fs-28-security-guidelines-for-exchange-of-uicc-credentials/ 
+T1195.501,SIM credential theft,Gemalto article on SIM credential threat: “GEMALTO PRESENTS THE FINDINGS OF ITS INVESTIGATIONS INTO THE ALLEGED HACKING OF SIM CARD ENCRYPTION KEYS BY BRITAIN'S GOVERNMENT COMMUNICATIONS HEADQUARTERS (GCHQ) AND THE U.S. NATIONAL SECURITY AGENCY (NSA)”.,https://www.thalesgroup.com/en/markets/digital-identity-and-security/press-release/gemalto-presents-the-findings-of-its-investigations-into-the-alleged-hacking-of-sim-card-encryption-keys
+T1195.501,SIM credential theft,BBC article: “US and UK accused of hacking Sim card firm to steal codes“.,https://www.bbc.com/news/technology-31545050
+T1195.501,SIM credential theft,Securitytoday.com article: “U.S. and Britain Work Together to Pull off SIM Card Heist”.,https://securitytoday.com/articles/2015/02/20/us-and-britain-work-together-to-pull-off-sim-card-heist.aspx?admgarea=ht.government
 T1048,Control plane signaling exfiltration,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
 FGT5022,Alter Subscriber Profile,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 FGT5022,Alter Subscriber Profile,"S. Holtmanns, I. Oliver and Y. Miche, “Mobile Subscriber Profile Data Privacy Breach via 4G Diameter Interconnection”, 2017.",https://www.riverpublishers.com/journal_read_html_article.php?j=JICTS/6/3/4 
 FGT5022,Alter Subscriber Profile,"3GPP TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022. section 4.11.1.2.2",https://www.3gpp.org/DynaReport/23502.htm 
 FGT5022,Alter Subscriber Profile,"3GPP TS 29.503, “5G System; Unified Data Management Services; Stage 3”",https://www.3gpp.org/DynaReport/29503.htm
 FGT5012.001,Passive radio signals observation,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-FGT5012.001,Passive radio signals observation,"X. Hu et.al. “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, IEEE Access, August 2019.",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
+FGT5012.001,Passive radio signals observation,"X. Hu et.al. “A Systematic Analysis Method for 5G Non-Access Stratum Signaling Security”, IEEE Access, August 2019.",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
 T1557.504,Service Based Interface,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks
 T1557.504,Service Based Interface,"3rd Generation Partnership Project (3GPP) TS 33.117, “Catalogue of general security assurance requirements (Release 17)”, v17.0.0, June 2021.",https://www.3gpp.org/DynaReport/33117.htm  
 T1557.504,Service Based Interface,3GPP TS 33.310 “Network Domain Security (NDS); Authentication Framework (AF)”,https://www.3gpp.org/DynaReport/33310.htm 
@@ -112,11 +119,10 @@ T1555.501,Hardware Security Module Key Signing,"A New Trust Model For The 5G Era
 FGT5009.002,Network Interfaces,3GPP TR33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes.”,https://www.3gpp.org/DynaReport/33926.htm
 FGT5009.002,Network Interfaces,3GPP TS33.501 “Security architecture and procedures for 5G System.”,https://www.3gpp.org/DynaReport/33501.htm
 FGT5012.005,Shared network function in slice,"AdaptiveMobile Security, ""A Slice in Time: Slicing Security in 5G Core Networks"", 17032021-v1.00, March 2021.",https://info.adaptivemobile.com/network-slicing-security 
-FGT5032.002,X-App,"O-RAN ALLIANCE, ‘Non-RT RIC: Functional Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.002,X-App,"O-RAN ALLIANCE, ‘Non-RT RIC Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.002,X-App,"Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed June 2022, section 5.1",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
+FGT5032.002,X-App,O-RAN.WG3.RICARCH-R003-v04.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.002,X-App,ORAN.WG11.Threat-Model.O-R003-v06.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.002,X-App,"Federal Office of information Security, Study 5G RAN Risk Analysis",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
 T1014,Unauthorized software in NFVI,"ETSI NFV SEC025, Secure E2E VNF & NS management spec (WIP) v006, retrieved April 26, 2021",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC025_Secure_E2E_VNF_%26_NS_management
-FGT5006.001,Layer 2 Redirection of Encrypted DNS,"D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, “Breaking LTE on Layer Two” https://alter-attack.net",https://alter-attack.net/media/breaking_lte_on_layer_two.pdf
 T1078.003,Infrastructure local account,"ENISA “Threat Landscape and Good Practice Guide for Software Defined Networks/5G”, Jan. 2016, Table 1, and 2",https://www.enisa.europa.eu/publications/sdn-threat-landscape
 T1078.003,Infrastructure local account,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206  
 T1599.504,Manipulate Virtual Network Function (VNF) Configuration,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
@@ -132,7 +138,8 @@ FGT5008,Redirection of traffic via user plane network function,"ENISA “Threat 
 FGT5008,Redirection of traffic via user plane network function,"“Bhadra framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”",https://arxiv.org/abs/2005.05110v1 
 FGT5008,Redirection of traffic via user plane network function,3GPP TS 23.502 “Technical Specification Group Services and System Aspects; Procedures for the 5G System (5GS)”.,https://www.3gpp.org/DynaReport/23502.htm
 FGT5008,Redirection of traffic via user plane network function,3GPP TS 23.501 “Technical Specification Group Services and System Aspects; System architecture for the 5G System (5GS)”.,https://www.3gpp.org/DynaReport/23501.htm
-FGT5008,Redirection of traffic via user plane network function,UCC 5G UPF Configuration and Administration Guide,https://www.cisco.com/c/en/us/td/docs/wireless/ucc/upf/Ultra-Cloud-Core-5G-UPF-Config-Guide.html
+FGT5008,Redirection of traffic via user plane network function,"“Ultra Cloud Core 5G User Plane Function, Release 2020.02 - Configuration and Administration Guide”, Cisco Systems, Accessed May 25, 2023",https://www.cisco.com/c/en/us/td/docs/wireless/ucc/upf/Ultra-Cloud-Core-5G-UPF-Config-Guide.html
+FGT5008,Redirection of traffic via user plane network function,“5G Security Issues.” Positive Technologies,https://www.gsma.com/membership/resources/positive-technologies-5g-security-issues/
 T1498.501,Flooding core network component,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 T1498.501,Flooding core network component,3GPP TS 23.501: System architecture for the 5G System (5GS),https://www.3gpp.org/DynaReport/23501.htm  
 FGT5029,Exploit Semi-public Facing Application,"“5G Security Assurance Specification (SCAS) for the Security Edge Protection Proxy (SEPP) network product class,“ TS 33.517 ver. 17.0.0, 3rd Generation Partnership Project (3GPP), Sec. 4.2.3.3-4.4, Jun. 2021",https://www.3gpp.org/DynaReport/33517.htm
@@ -152,26 +159,33 @@ T1565.002,Network Interfaces,3GPP TR33.926 “Security Assurance Specification (
 T1565.002,Network Interfaces,3GPP TS33.501 “Security architecture and procedures for 5G System.”,https://www.3gpp.org/DynaReport/33501.htm
 T1565.002,Network Interfaces,3GPP TS 23.501 “System architecture for the 5G System (5GS)”,https://www.3gpp.org/DynaReport/23501.htm
 T1565.002,Network Interfaces,3GPP TS 23.502 “Procedures for the 5G System (5GS)”,https://www.3gpp.org/DynaReport/23502.htm
-FGT5032.003,rApps,"O-RAN ALLIANCE, ‘Non-RT RIC: Functional Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.003,rApps,"O-RAN ALLIANCE, ‘Non-RT RIC Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.003,rApps,"Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed June 2022, section 5.1",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
+FGT5032.003,rApps,O-RAN.WG2.Non-RT-RIC-ARCH-R003-v03.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.003,rApps,O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.003,rApps,O-RAN.WG11.Threat-Model.O-R003-v06.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.003,rApps,"Federal Office of information Security, Study 5G RAN Risk Analysis",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
 FGT5006.003,DNS Poisoning,"“Badhra Framework”: S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”",https://arxiv.org/pdf/2005.05110.pdf
 FGT5006.003,DNS Poisoning,Mobile Data Charging: New Attacks and Countermeasures,https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
 FGT5006.003,DNS Poisoning,"Merve Sahin, Aurelien Francillon, Payas Gupta, and Mustaque Ahamad. 2017. 
 Sok: Fraud in telephony networks. In 2017 IEEE European Symposium on Security
 and Privacy (EuroS&P). IEEE, 235–250",https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7961983&tag=1
 FGT5006.003,DNS Poisoning,"Kui Xu, Patrick Butler, Sudip Saha, Danfeng (Daphni) Yao in DNS CC Journal, “DNS for Massive-Scale Command and Control”",https://people.cs.vt.edu/~danfeng/papers/DNS-CC-JOURNAL.pdf
+FGT5006.001,_Layer_2_Redirection_of_Encrypted_DNS,"D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, “Breaking LTE on Layer Two” https://alter-attack.net",https://alter-attack.net/media/breaking_lte_on_layer_two.pdf
+T1583.501,_False_Cellular_Base_Station_or_Access_Point,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+T1583.501,_False_Cellular_Base_Station_or_Access_Point,"3rd Generation Partnership Project (3GPP) TR 33.809: “Study on 5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.",https://www.3gpp.org/DynaReport/33809.htm 
 FGT5004,Network Flow Manipulation,"ENISA, “Threat Landscape and Good Practice Guide for Software Defined Networks/5G”, Jan. 2016",https://www.enisa.europa.eu/publications/sdn-threat-landscape 
 FGT5004,Network Flow Manipulation,"Scott-Hayward, S., O'Callaghan, G., & Sezer, S. “SDN Security: A Survey”. 2013 IEEE SDN for Future. Networks and Services (SDN4FNS) (pp. 1-7)",https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6702c553&tag=1 
 FGT5004,Network Flow Manipulation,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
 FGT5007,Registration of malicious network functions,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5007,Registration of malicious network functions,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, November 2019.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks 
 FGT5007,Registration of malicious network functions,"3rd Generation Partnership Project (3GPP) TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022.",https://www.3gpp.org/DynaReport/23502.htm
-T1608.501,Configurability of Fake Base Station or Access Point,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-T1608.501,Configurability of Fake Base Station or Access Point,"3rd Generation Partnership Project (3GPP) TR 33.809: “Study on  5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.",https://www.3gpp.org/DynaReport/33809.htm 
+FGT5019.002,Intercept Bid-Down SUPI,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+FGT5019.002,Intercept Bid-Down SUPI,3GPP TS 24.301 “Non-Access-Stratum (NAS) protocol for Evolved Packet System (EPS)”; Stage 3,https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1072
+FGT5019.002,Intercept Bid-Down SUPI,"3GPP TS 23.003: ""Numbering, Addressing and Identification”, Version 17.6.0, Section 2.2B",https://www.3gpp.org/DynaReport/23003.htm  
 FGT5009.001,Radio Interface,"3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, v17.4.0, June 2022",https://www.3gpp.org/DynaReport/33926.htm  
 FGT5009.001,Radio Interface,"3GPP TS 33.501 “Security architecture and procedures for 5G System”, v 17.6.0, June 2022",https://www.3gpp.org/DynaReport/33501.htm  
 FGT5009.001,Radio Interface,"3GPP TS 23.502 “Procedures for the 5G System (5GS)”, v17.5.0, June 2022",https://www.3gpp.org/DynaReport/23502.htm  
+FGT5017,Charging Data Record (CDR) collection,"Techradar.com news article Dec. 31, 2020, ""T-Mobile data breach sees phone numbers and call records leaked online"", Retrieved March 4, 2022",https://www.techradar.com/news/t-mobile-data-breach-sees-phone-numbers-and-call-records-leaked-online 
+FGT5017,Charging Data Record (CDR) collection,"Leong, R, Perez, D. and Dean, T.: “MESSAGETAP: Who’s Reading Your Text Messages” FireEye. 31 Oct 2019",https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages 
 T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),"ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.2",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain
 FGT5009,Weaken Integrity,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks
 FGT5001,Network-side SMS collection,"Dynamic Ciso.com “New Malware Discovered by FireEye APT41, Infects SMS Servers Within Telecoms”, Nov 1, 2019, retrieved March 4, 2022.",https://dynamicciso.com/new-malware-discovered-by-fireeye-apt41infects-sms-servers-within-telecoms
@@ -181,7 +195,6 @@ FGT5019.003,Obtain subscriber identifier by NF,"3rd Generation Partnership Proje
 FGT5010,Fraudulent AMF registration for UE in UDM,"3rd Generation Partnership Project (3GPP) TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, Dec. 2021, clause E.2.2.3",https://www.3gpp.org/DynaReport/33926.htm 
 FGT5010,Fraudulent AMF registration for UE in UDM,"3rd Generation Partnership Project (3GPP) TR 33.846,” Study on authentication enhancements in the 5G System (5GS)”, Technical Report, v17.0.0, December 2021, clause 5.3.1.2",https://www.3gpp.org/DynaReport/33846.htm 
 FGT5010,Fraudulent AMF registration for UE in UDM,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-FGT5010,Fraudulent AMF registration for UE in UDM,3GPP contribution (2019),https://www.3gpp.org/ftp/Meetings_3GPP_SYNC/SA3/Inbox/Drafts/draft_S3-194673_was_S3-194189_Resolving%20the%20ENs%20in%20KI%233.1_V3.docx 
 FGT5010,Fraudulent AMF registration for UE in UDM,3GPP TS 29.503: “5G System; Unified Data Management Services; Stage 3”,https://www.3gpp.org/DynaReport/29503.htm
 T1588,IMSI Catcher,"Adrian Dabrowski, Nicola Pianta, Thomas Klepp, Martin Mulazzani, and Edgar Weippl. IMSI-catch me if you can: IMSI-catcher-catchers. In Proceedings of the 30th annual computer security applications Conference, pages 246–255, 2014.",https://its-wiki.no/images/f/fb/Dabrowski_ISMI_Catch_me_Catchers.pdf
 T1588,IMSI Catcher,"Ravishankar Borgaonkar,  Altaf Shaik , 5G IMSI Catchers Mirage, Balckhat USA Conference 2021",https://blackhat.com/us-21/briefings/schedule/#g-imsi-catchers-mirage-23538
@@ -190,7 +203,6 @@ T1588,IMSI Catcher,"A Knight, Brier & Thorn, Hacking GSM: Building a Rogue Base 
 FGT5019.001,Intercept Home Network via SUCI,"3GPP TS 23.003: ""Numbering, Addressing and Identification”, Version 17.6.0, Section 2.2B",https://www.3gpp.org/DynaReport/23003.htm  
 FGT5018.003,Edge Servers,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, page 202, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5018.003,Edge Servers,"ISO/IEC 27011:(2016), “Information technology — Security techniques — Code of practice for Information security controls based on ISO/IEC 27002 for telecommunications organizations”",https://www.iso.org/obp/ui/#iso:std:iso-iec:27011:ed-2:v1:en
-FGT5019.002,Intercept Bid-Down IMSI,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5021,Tunnel ID uniqueness failure,3GPP TR 33.926 “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”.,https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3002
 FGT5021,Tunnel ID uniqueness failure,3GPP TS 23.501 “System architecture for the 5G System (5GS)”.,https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3144
 FGT5021,Tunnel ID uniqueness failure,"3GPP TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022.",https://www.3gpp.org/DynaReport/23502.htm 
@@ -198,23 +210,25 @@ T1021,VNF Access Services,"Fraunhofer AISEC, “Threat Analysis of Container-as-
 T1599,Network Boundary Bridging,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 T1599,Network Boundary Bridging,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
 T1040.501,Radio Interface,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-T1040.501,Radio Interface,"Hu, X. et al. : “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957  
+T1040.501,Radio Interface,"Hu, X. et al: “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957  
 T1040.501,Radio Interface,3GPP TS33.501 “Security architecture and procedures for 5G System”.,https://www.3gpp.org/DynaReport/33501.htm
 T1040.501,Radio Interface,"Zaenab D. Shakir, J. Zec, I. Kostanic, “Position location based on measurement reports in LTE cellular networks”, 2018 IEEE 19th Wireless and Microwave Technology Conference (WAMICON), 2018.",https://ieeexplore.ieee.org/document/8363501 
 FGT5006,DNS Manipulation,"D. Rupprecht, K. Kohls, T. Holtz, and C. Popper, “Breaking LTE on Layer Two” https://alter-attack.net",https://alter-attack.net/media/breaking_lte_on_layer_two.pdf
 FGT5006,DNS Manipulation," S.P. Rao, S. Holtmanns, T. Aura, “Threat modeling framework for mobile communication systems”",https://arxiv.org/pdf/2005.05110.pdf
-FGT5006,DNS Manipulation,Mobile Data Charging: New Attacks and Countermeasures,https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
+FGT5006,DNS Manipulation,"Peng, C., Li, C., Tu, G., Lu, S., & Zhang, L. (2012). Mobile data charging: new attacks and countermeasures. Proceedings of the 2012 ACM conference on Computer and communications security.",https://dl.acm.org/doi/pdf/10.1145/2382196.2382220
 FGT5011,Unauthorized access to NEF via token fraud,3GPP TR 33.926 Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes.,https://www.3gpp.org/DynaReport/33926.htm
 FGT5011,Unauthorized access to NEF via token fraud,"Internet Engineering Task Force, IETF RFC 6819 “OAuth 2.0 Threat Model and Security Considerations”, Jan. 2013.",https://datatracker.ietf.org/doc/html/rfc6819 
+T1587.004,_Develop_Capabilities_Exploits,"M.Grassi and X. Chen, “Over The Air Baseband Exploit: Gaining Remote
+Code Execution on 5G Smartphones, Retrieved May 16, 2023",https://keenlab.tencent.com/zh/whitepapers/us-21-Over-The-Air-Baseband-Exploit-Gaining-Remote-Code-Execution-on-5G-Smartphones-wp.pdf
+T1587.004,_Develop_Capabilities_Exploits,"I.Karim, F.Cicala, et.al.,“ATFuzzer: Dynamic Analysis Framework of AT Interface
+for Android Smartphones,” Retrieved May 16, 2023",https://dl.acm.org/doi/pdf/10.1145/3416125
 FGT5003,Network Function Service Discovery,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
 FGT5003,Network Function Service Discovery,"3GPP Technical Report 33.926, “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Release 17.",https://www.3gpp.org/DynaReport/33926.htm 
 FGT5003,Network Function Service Discovery,"Internet Engineering Task Force (IETF) “OAuth 2.0 Security Best Current Practice”, draft-ietf-oauth-security-topics-05, June 2022.",https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics-19
 T1499.002,Base station flood with fictitious access requests,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-FGT5017,Call Detail Record (CDR) collection,"Techradar.com news article Dec. 31, 2020, ""T-Mobile data breach sees phone numbers and call records leaked online"", Retrieved March 4, 2022",https://www.techradar.com/news/t-mobile-data-breach-sees-phone-numbers-and-call-records-leaked-online 
-FGT5017,Call Detail Record (CDR) collection,"Leong, R, Perez, D. and Dean, T.: “MESSAGETAP: Who’s Reading Your Text Messages” FireEye. 31 Oct 2019",https://www.mandiant.com/resources/messagetap-who-is-reading-your-text-messages 
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,"Network Functions Virtualisation (NFV) Release 4;
-Security;Isolation and trust domain specification
-Release 4, section 4.2.1, Access 4/12/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain
+Security; Isolation and trust domain specification
+Release 4, section 4.2.1, Accessed 4/12/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain
 FGT5018,Vandalism of network infrastructure,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5018,Vandalism of network infrastructure,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, November 2019.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-for-5g-networks 
 T1464,UE or gNB Jamming,"Y. Arjoune and S. Faruque, “Smart Jamming Attacks in 5G New Radio: A Review” (2020), 10th Annual Computing and Communication Workshop and Conference (CCWC)",https://ieeexplore.ieee.org/abstract/document/9031175/ 
@@ -225,38 +239,45 @@ T1600.502,Network interfaces,3GPP TS 33.501 “Security architecture and procedu
 T1599.502,Network Slice infrastructure  resource hijacking,"ETSI NFV SEC026 Isolation and trust domain specification, section 4.2.3",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC026_Isolation_and_trust_domain
 FGT5005,Memory Scrapping,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, section 6.2, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 FGT5005,Memory Scrapping,"ENISA, “Threat Landscape and Good Practice Guide for Software Defined Networks/5G”, Jan. 2016",https://www.enisa.europa.eu/publications/sdn-threat-landscape 
-FGT5005,Memory Scrapping,"ETSI GS NFV-SEC 009 V1.1.1 , “NFV Security;
-Report on use cases and technical approaches for multi-layer host administration” , December 2015",https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/009/01.01.01_60/gs_nfv-sec009v010101p.pdf 
-FGT5005,Memory Scrapping,PoS RAM Scraper Malware,https://www.wired.com/wp-content/uploads/2014/09/wp-pos-ram-scraper-malware.pdf 
+FGT5005,Memory Scrapping,"ETSI GS NFV-SEC 009 V1.1.1, “NFV Security:
+Report on use cases and technical approaches for multi-layer host administration”, December 2015",https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/009/01.01.01_60/gs_nfv-sec009v010101p.pdf 
+FGT5005,Memory Scrapping,"N. Huq, “PoS RAM Scraper Malware: Past, Present, and Future,” Trend Micro, accessed May 25, 2023",https://www.wired.com/wp-content/uploads/2014/09/wp-pos-ram-scraper-malware.pdf 
 FGT5005,Memory Scrapping,"J. Hizver, “Taxonomic Modeling of Security Threats in Software Defined Networking”, Blackhat Conference, Aug. 2015",https://www.blackhat.com/docs/us-15/materials/us-15-Hizver-Taxonomic-Modeling-Of-Security-Threats-In-Software-Defined-Networking-wp.pdf 
 FGT5005,Memory Scrapping,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
-T1583.501,Fake Cellular Base Station or Access Point,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
-T1583.501,Fake Cellular Base Station or Access Point,"3rd Generation Partnership Project (3GPP) TR 33.809: “Study on 5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.",https://www.3gpp.org/DynaReport/33809.htm 
 T1190,Exploit Public-Facing Network Function,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 T1190,Exploit Public-Facing Network Function,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”,  October 2021",https://arxiv.org/abs/2108.11206 
 T1190,Exploit Public-Facing Network Function,"TOP 7 REST API Security Threats, blog January 2019",https://blog.restcase.com/top-7-rest-api-security-threats/ 
+T1190,Exploit Public-Facing Network Function,3GPP TS 29.522: “Network Exposure Function Northbound APIs; Stage 3”,https://www.3gpp.org/DynaReport/29522.htm
 T1562.501,Bid down UE,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
+T1562.501,Bid down UE,DEFCON 24 article “Forcing Targeted LTE Cellphone Into Unsafe Network”,https://www.scribd.com/document/350156530/forcing-targeted-lte-cellphone-into-unsafe-network
 FGT5002,Bypass home routing,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 FGT5002,Bypass home routing,"European Union Agency for Cybersecurity (ENISA), “Signaling security in telecom SS7/Diameter/5G”, March 2018",https://www.enisa.europa.eu/publications/signalling-security-in-telecom-ss7-diameter-5g 
 FGT5002,Bypass home routing,"GSM Association, “Official Document NG.111 - SMS Evolution”, v2.0, Nov. 2020",https://www.gsma.com/newsroom/wp-content/uploads//NG.111-v2.0.pdf 
-FGT5002,Bypass home routing,Kirill Puzankov: “Hidden Agendas: bypassing GSMA recommendations on SS7 networks”,https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html
+FGT5002,Bypass home routing,"Kirill Puzankov: “Hidden Agendas: bypassing GSMA recommendations on SS7 networks,”accessed on May 25, 2023",https://docplayer.net/136483279-Hidden-agendas-bypassing-gsma-recommendations-on-ss7-networks-kirill-puzankov.html
 T1557.501,Radio Interface,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, section 4.4, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
 T1557.501,Radio Interface,"Hu, X. et al: “A Systematic Analysis Method for 5G Non-Access Stratum Signalling Security”, August 2019",https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8817957 
 T1557.501,Radio Interface,"3rd Generation Partnership Project (3GPP) TR 33.809: “Study on  5G security enhancements against False Base Stations (FBS)”, Technical Report, v0.18.0, February 2022.",https://www.3gpp.org/DynaReport/33809.htm 
-FGT5032.001,Radio Intelligent Controller (RIC),"O-RAN ALLIANCE, ‘Non-RT RIC: Functional Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, V01.01, Technical Report O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01, Mar. 2021",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.001,Radio Intelligent Controller (RIC),"O-RAN ALLIANCE, ‘Non-RT RIC Architecture’, O-RAN WG2: Non-real- time RAN Intelligent Controller and A1 Interface Workgroup, Technical Specification O-RAN.WG2.Non-RT-RIC-ARCH-TS-v02.00, Mar. 2022",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.001,Radio Intelligent Controller (RIC),"Federal Office of Information Security, Study 5G RAN Risk Analysis, Accessed June 2022, section 5.1",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
-FGT5032.001,Radio Intelligent Controller (RIC),"O-RAN ALLIANCE, ‘O-RAN Security Threat Modeling and Remediation Analysis 3.0’
-, O-RAN SFG,, Technical Analysis O-RAN.SFG. O-RAN.SFG.Threat-Model -v03.00, July. 2022",https://orandownloadsweb.azurewebsites.net/specifications
-FGT5032.001,Radio Intelligent Controller (RIC),"O-RAN ALLIANCE, ‘O-RAN RIC Architecture
-,ORAN WG3, Technical Specification O-RAN.WG3.RICARCH-v02.01
-,March 2022",https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.001,Radio Intelligent Controller (RIC),O-RAN.WG3.RICARCH-R003-v04.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.001,Radio Intelligent Controller (RIC),O-RAN.WG2.Non-RT-RIC-ARCH-R003-v03.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.001,Radio Intelligent Controller (RIC),O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.001,Radio Intelligent Controller (RIC),O-RAN.WG11.Threat-Model.O-R003-v06.00,https://orandownloadsweb.azurewebsites.net/specifications
+FGT5032.001,Radio Intelligent Controller (RIC),"Federal Office of information Security, Study 5G RAN Risk Analysis",https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5
 T1592.501,Internal resource search,"S.P. Rao, S. Holtmanns, T. Aura: “Threat modeling framework for mobile communication systems”, May 2020",https://arxiv.org/abs/2005.05110v1 
 FGT5012.002,Self Location Measurement,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+T1078.004,Container Management- Unauthorized access,"ETSI NFV SEC023, Container Security Spec, section 5.4.4
+, Accessed 6/27/2022",https://docbox.etsi.org/ISG/NFV/Open/Drafts/SEC023_Container_Security_Spec/NFV-SEC023v005.zip
+T1078.004,Container Management- Unauthorized access,Peirates,https://github.com/inguardians/peirates
+T1078.004,Container Management- Unauthorized access,Kubernetes Used in Brute-Force Attacks Tied to Russia’s APT28,https://vulners.com/threatpost/THREATPOST:B25070E6CF075EEA6B20C4D8D25ADBE8
 T1437,Control plane signaling disguise for C2,"R. Pell, S. Moschoyiannis, E. Panaousis, R. Heartfield, “Towards dynamic threat modelling in 5G core networks based on MITRE ATT&CK”, October 2021",https://arxiv.org/abs/2108.11206 
 T1437,Control plane signaling disguise for C2,"3rd Generation Partnership Project (3GPP) TS 23.502, “Procedures for the 5G System (5GS); Stage 2 (Release 17)”, Technical Specification, v17.4.0, March 2022.",https://www.3gpp.org/DynaReport/23502.htm
-FGT5028,Discover network slice identifier,"AdaptiveMobile Security, ""A Slice in Time: Slicing Security in 5G Core Networks"", 17032021-v1.00.",https://www.adaptivemobile.com/products/5g-security
+FGT5028,Discover network slice identifier,"AdaptiveMobile Security, ""A Slice in Time: Slicing Security in 5G Core Networks"", 17032021-v1.00.",https://info.adaptivemobile.com/network-slicing-security
 FGT5028,Discover network slice identifier,"3rd Generation Partnership Project (3GPP) TS 29.510, “; Network function repository services; Stage 3”, v17.4.0, Dec 2021.",https://www.3gpp.org/DynaReport/29510.htm
+FGT5028,Discover network slice identifier,3GPP TS 23.502 “Procedures for the 5G System (5GS); Stage 2”,https://www.3gpp.org/DynaReport/23502.htm
 FGT5023,Charging fraud via NF control,"3rd Generation Partnership Project (3GPP) TR 33.926: “Security Assurance Specification (SCAS) threats and critical assets in 3GPP network product classes”, Technical Report, v17.3.0, December. 2021",https://www.3gpp.org/DynaReport/33926.htm 
 FGT5023,Charging fraud via NF control,"European Union Agency for Cybersecurity (ENISA): “ENISA Threat Landscape for 5G Networks” Report, December 2020.",https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks 
+FGT5023,Charging fraud via NF control,3GPP TS 32.255 “Telecommunication management; Charging management; 5G data connectivity domain charging; Stage 2”,https://www.3gpp.org/DynaReport/32255.htm
+FGT5023,Charging fraud via NF control,3GPP TS 23.502 “Procedures for the 5G System (5GS)”,https://www.3gpp.org/DynaReport/23502.htm
+FGT5023,Charging fraud via NF control,3GPP TS 23.503 “Policy and charging control framework for the 5G System (5GS); Stage 2”,https://www.3gpp.org/DynaReport/23503.htm
+FGT5023,Charging fraud via NF control,3GPP TS 29.522 “5G System; Network Exposure Function Northbound APIs; Stage 3”,https://www.3gpp.org/DynaReport/29522.htm
+FGT5023,Charging fraud via NF control,3GPP TS 29.122 “T8 reference point for Northbound APIs”,https://www.3gpp.org/DynaReport/29122.htm
 FGT5027,Spoof network slice identifier,"AdaptiveMobile Security, ""A Slice in Time: Slicing Security in 5G Core Networks"", 17032021-v1.00",https://info.adaptivemobile.com/network-slicing-security
