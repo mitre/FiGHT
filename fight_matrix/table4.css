@@ -1,0 +1,126 @@
+body {
+    margin: 0 auto;
+    padding: 0px;
+    width: 100%;
+    font-family: "Myriad Pro", 
+        "Helvetica Neue", Helvetica, 
+        Arial, Sans-Serif;
+}
+
+a:link, a:visited {
+    color: white;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    width: 995px;
+}
+
+.wrapper h1 {
+    margin-top: 50px;
+    font-size: 45px;
+    color: #585858;
+}
+
+.wrapper h1 p {
+    font-size: 20px;
+}
+
+.table_detail {
+    width: 500px;
+    text-align: left;
+    border-collapse: collapse;
+    color: #2E2E2E;
+    border: #A4A4A4;
+}
+
+.table_div {
+    width: 500px;
+}
+
+.table_detail tr:hover {
+    background-color: #F2F2F2;
+}
+
+.technique-row {
+    border-spacing: 1px;
+}
+
+.technique-row tr:hover {
+    background-color: #F2F2F2;
+}
+
+.table_detail .hidden_row {
+    display: none;
+}
+
+.technique {
+    border-spacing: 1px;
+}
+
+.supertechnique {
+    border-spacing: 1px;
+}
+.tactic {
+    width: 1%;
+    vertical-align: top;
+}
+
+.tbody {
+    border-spacing: 1px;
+
+}
+
+.tr {
+    border-spacing: 1px;
+}
+
+.technique-blank {
+    float: left;
+    display: table-column;
+    width: 150px;
+    height: 100%;
+    border: 1px solid #000000;
+    border-spacing: 1px;
+    background-color: #ffffff;
+}
+
+.technique-cell-addendum {
+    float: left;
+    display: table-column;
+    width: 150px;
+    height: 75px;
+    border: 1px solid #000000;
+    border-spacing: 1px;
+    background-color: #7A9AE6;
+}
+
+.technique-cell-new-fight {
+    float: left;
+    display: table-column;
+    width: 150px;
+    height: 75px;
+    border: 1px solid #000000;
+    border-spacing: 1px;
+    background-color: #AA3333;
+}
+
+.technique-cell-new-child {
+    float: left;
+    display: table-column;
+    width: 150px;
+    height: 75px;
+    border: 1px solid #000000;
+    border-spacing: 1px;
+    background-color: #E67A7A;
+}
+
+.technique-cell:hover {
+    background-color: #F2F2F2;
+}
+ 
+.subtechniques-td {
+    display: none;
+}

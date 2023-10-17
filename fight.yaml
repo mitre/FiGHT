@@ -38,7 +38,8 @@ data sources:
   id: DS0006
   name: Web Credential
   object-type: data source
-  techniques: []
+  techniques:
+  - FGT5034
 - description: A single file used to deploy a virtual machine/bootable disk into an
     on-premise or third-party cloud environment
   id: DS0007
@@ -56,6 +57,7 @@ data sources:
   techniques:
   - FGT1014
   - FGT1542.501
+  - FGT1587.004
 - description: Instances of computer programs that are being executed by at least
     one thread. Processes have memory space for process executables, loaded modules
     (DLLs or shared libraries), and allocated memory regions containing everything
@@ -75,7 +77,8 @@ data sources:
   id: DS0010
   name: Cloud Storage
   object-type: data source
-  techniques: []
+  techniques:
+  - FGT5034
 - description: Executable files consisting of one or more shared classes and interfaces,
     such as portable executable (PE) format binaries/dynamic link libraries (DLL),
     executable and linkable format (ELF) binaries/shared libraries, and Mach-O format
@@ -102,6 +105,7 @@ data sources:
   - FGT1599.502
   - FGT1599.503
   - FGT1498.502
+  - FGT1195.003
 - description: A single unit of shared resources within a cluster, comprised of one
     or more containers
   id: DS0014
@@ -147,6 +151,8 @@ data sources:
   - FGT1557.503
   - FGT5012.005
   - FGT5020
+  - FGT5032.002
+  - FGT5032.003
   - FGT5019.003
   - FGT5009.001
   - FGT1499
@@ -155,6 +161,7 @@ data sources:
   - FGT5009.002
   - FGT1600.502
   - FGT5029
+  - FGT5036
 - description: A non-volatile data storage device (hard drive, floppy disk, USB flash
     drive) with at least one formatted partition, typically mounted to the file system
     and/or assigned a drive letter
@@ -180,6 +187,7 @@ data sources:
   object-type: data source
   techniques:
   - FGT1498.501
+  - FGT1583.508
 - description: A computer process that is configured to execute continuously in the
     background and perform system tasks, in some cases before any user has logged
     in
@@ -206,6 +214,10 @@ data sources:
   - FGT1542.501
   - FGT1195
   - FGT1020.001
+  - FGT5032.002
+  - FGT5032.003
+  - FGT1195.002
+  - FGT1195.003
 - description: Mechanisms that allow inter-process communication locally or over the
     network. A named pipe is usually found as a file and processes attach to it
   id: DS0023
@@ -225,7 +237,10 @@ data sources:
   id: DS0025
   name: Cloud Service
   object-type: data source
-  techniques: []
+  techniques:
+  - FGT5032.002
+  - FGT5032.003
+  - FGT5034
 - description: A database and set of services that allows administrators to manage
     permissions, access to network resources, and stored data objects (user, group,
     application, or devices)
@@ -257,6 +272,7 @@ data sources:
   - FGT1020.001
   - FGT1555.501
   - FGT5029
+  - FGT5036
 - description: 'Data transmitted across a network (ex: Web, DNS, Mail, File, etc.),
     that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable
     format (ex: PCAP)'
@@ -299,6 +315,12 @@ data sources:
   - FGT5009.002
   - FGT1600.502
   - FGT5029
+  - FGT1572.501
+  - FGT5031
+  - FGT1498.503
+  - FGT1599.505
+  - FGT5012.008
+  - FGT5019.005
 - description: A virtual server environment which runs workloads, hosted on-premise
     or by third-party cloud providers
   id: DS0030
@@ -356,7 +378,8 @@ data sources:
   id: DS0037
   name: Certificate
   object-type: data source
-  techniques: []
+  techniques:
+  - FGT5034
 - description: 'Information obtained (commonly through registration or activity logs)
     regarding one or more IP addresses registered with human readable names (ex: mitre.org)'
   id: DS0038
@@ -378,7 +401,7 @@ data sources:
   name: RF Spectrum Monitor
   object-type: data source
   techniques:
-  - FGT1464
+  - FGT5035
 - description: UE measurements of received power levels from all base stations nearby.
     Report to operator gNB radio signals (sent to all UEs to enable them to select
     gNB and connect) received at a given UE
@@ -390,6 +413,7 @@ data sources:
   - FGT5012.006
   - FGT1583.501
   - FGT1608.501
+  - FGT5012.007
 - description: Audit charging system records for anomaly
   id: FGDS5003
   name: Charging anomaly
@@ -487,6 +511,62 @@ data sources:
   name: Image verification
   object-type: data source
   techniques: []
+- description: Verify payload for GTP-U encapsulated packets
+  id: FGDS5016
+  name: Payload checking
+  object-type: data source
+  techniques:
+  - FGT1572.501
+  - FGT5031
+- description: Monitor gNB and core network logs for NULL scheme usage for SUCI protection.
+  id: FGDS5017
+  name: Monitor null scheme usage
+  object-type: data source
+  techniques:
+  - FGT5019.004
+- description: Monitor provisioning logs in core network for changes in home network
+    public key and home PLMN ID.
+  id: FGDS5018
+  name: Monitor provisioning logs
+  object-type: data source
+  techniques:
+  - FGT5019.004
+- description: Monitor when UE makes emergency call or when UE is moved to eNB in
+    NSA mode.
+  id: FGDS5019
+  name: Monitor operations logs
+  object-type: data source
+  techniques:
+  - FGT5019.004
+- description: Monitor gNB logs for unplanned network service outages.
+  id: FGDS5020
+  name: Monitor unplanned service outage
+  object-type: data source
+  techniques:
+  - FGT5024
+- description: Monitor all 3rd party application onboarding processes and use host
+    scanning to detect malware insertions.
+  id: FGDS5021
+  name: Monitor 3rd party application onboarding
+  object-type: data source
+  techniques:
+  - FGT5034
+- description: Monitor if any security configurations have been downgraded to weak
+    or no security.
+  id: FGDS5022
+  name: Monitor security configurations
+  object-type: data source
+  techniques:
+  - FGT1040
+  - FGT1040.502
+- description: Run at the UE side an application/tool to detect received silent SMS
+    messages
+  id: FGDS5102
+  name: Silent SMS detector
+  object-type: data source
+  techniques:
+  - FGT5019.006
+  - FGT5012.007
 id: FiGHT
 mitigations:
 - description: Securely transfer sensitive files between two end points
@@ -538,12 +618,13 @@ mitigations:
   - FGT5006.002
   - FGT5009.001
   - FGT5009.002
+  - FGT1040.502
 - description: Disable or remove an RF transmitter
   id: FGM5001
   name: Disable malicious transmitter
   object-type: mitigation
   techniques:
-  - FGT1464
+  - FGT5035
 - description: User Equipment (UE) can reject e.g. RRC signaling such as RRC Release
     with Redirect info, if not integrity protected.
   id: FGM5002
@@ -563,10 +644,14 @@ mitigations:
 - description: Employ a SMS Router that intercepts incoming location queries (from
     other operators), configured so that it can't be subverted.
   id: FGM5004
-  name: Correctly configure SS7 firewall
+  name: Correctly configure SMS firewall
   object-type: mitigation
   techniques:
   - FGT5002
+  - FGT5012.008
+  - FGT5019.005
+  - FGT5019.006
+  - FGT5012.007
 - description: 'Physical protection of: communications centers, Telecommunications
     equipment room, Physically isolated operation areas, Equipment sited in other
     carrier''s or partner''s premises, cable/fibers, junction boxes, '
@@ -697,6 +782,7 @@ mitigations:
   - FGT5004
   - FGT5004.001
   - FGT5004.002
+  - FGT5034
 - description: 'UE warn user of lower security network. '
   id: FGM5092
   name: Warn user
@@ -710,8 +796,8 @@ mitigations:
   object-type: mitigation
   techniques:
   - FGT1499.502
-- description: Network (AMF) should allocate new 5G-GUTI whenever possible; UPF/and
-    gBN should allocate unique Tunnel IDs.SMF should check newly allocated charging
+- description: Network (AMF) should allocate new 5G-GUTI whenever possible; UPF and
+    gNB should allocate unique Tunnel IDs. SMF should check newly allocated charging
     IDs.
   id: FGM5094
   name: Allocate new 5G identifiers judiciously
@@ -749,7 +835,7 @@ mitigations:
   name: Move UE close to gNB
   object-type: mitigation
   techniques:
-  - FGT1464
+  - FGT5035
   - FGT5012.001
 - description: Raising the height of the UE may move it outside another RF source,
     e.g. jammer
@@ -757,20 +843,29 @@ mitigations:
   name: Raise height of UE
   object-type: mitigation
   techniques:
-  - FGT1464
+  - FGT5035
 - description: Isolate CDR databases from the rest of the IT systems/NOC resources
   id: FGM5101
   name: Isolate CDR database
   object-type: mitigation
   techniques:
   - FGT5017
-- description: Use a firewall or other rate limiter for signaling traffic coming into
-    5G network
+- description: Run at the UE side an application/tool to detect and not respond to
+    silent SMS messages
+  id: FGM5102
+  name: 'Silent SMS blocker '
+  object-type: mitigation
+  techniques:
+  - FGT5019.006
+  - FGT5012.007
+- description: Use a firewall or other rate limiter for signaling and user plane traffic
+    coming into 5G network
   id: FGM5498
-  name: Limit incoming signaling traffic
+  name: Limit incoming signaling and user plane traffic
   object-type: mitigation
   techniques:
   - FGT1498.501
+  - FGT1572.501
 - description: Producer NF e.g. AUSF can rate limit authentication requests from the
     same SUCI/SUPI too many times in a short period. Or NRF not respond to requests
     after a given number of failed NSSAI lookups
@@ -839,6 +934,14 @@ mitigations:
   name: Application Developer Guidance
   object-type: mitigation
   techniques: []
+- description: In order to mitigate Signaling System 7 (SS7) exploitation, the Communications,
+    Security, Reliability, and Interoperability Council (CSRIC) describes filtering
+    interconnections between network operators to block inappropriate requests
+  id: M1014
+  name: Interconnection Filtering
+  object-type: mitigation
+  techniques:
+  - FGT1583.508
 - description: Configure Active Directory to prevent use of certain techniques; use
     SID Filtering, etc.
   id: M1015
@@ -855,6 +958,8 @@ mitigations:
   - FGT1190
   - FGT1499
   - FGT1499
+  - FGT1195.002
+  - FGT1195.003
 - description: Train users to be aware of access or manipulation attempts by an adversary
     to reduce the risk of successful spearphishing, social engineering, and other
     techniques that involve user interaction.
@@ -932,7 +1037,9 @@ mitigations:
   id: M1025
   name: Privileged Process Integrity
   object-type: mitigation
-  techniques: []
+  techniques:
+  - FGT5032.002
+  - FGT5032.003
 - description: Manage the creation, modification, use, and permissions associated
     to privileged accounts, including SYSTEM and root.
   id: M1026
@@ -1001,6 +1108,8 @@ mitigations:
   - FGT1195.501
   - FGT1498.502
   - FGT1583
+  - FGT5034
+  - FGT1200
 - description: Use intrusion detection signatures to block traffic at network boundaries.
   id: M1031
   name: Network Intrusion Prevention
@@ -1012,6 +1121,8 @@ mitigations:
   - FGT5009.001
   - FGT5009.002
   - FGT1600.502
+  - FGT1572.501
+  - FGT5031
 - description: Use two or more pieces of evidence to authenticate to a system; such
     as username and password in addition to a token from a physical smart card or
     token generator.
@@ -1030,12 +1141,16 @@ mitigations:
   techniques:
   - FGT1599.504
   - FGT5005
+  - FGT5032.002
+  - FGT5032.003
+  - FGT5034
 - description: Block users or groups from installing or using unapproved hardware
     on systems, including USB devices.
   id: M1034
   name: Limit Hardware Installation
   object-type: mitigation
-  techniques: []
+  techniques:
+  - FGT1200
 - description: Prevent access to file shares, remote access to systems, unnecessary
     services. Mechanisms to limit access may include use of network concentrators,
     RDP gateways, etc.
@@ -1053,6 +1168,8 @@ mitigations:
   - FGT1599.502
   - FGT1599.503
   - FGT1557.502
+  - FGT5032.002
+  - FGT5032.003
 - description: Configure features related to account use like login attempt lockouts,
     specific login times, etc.
   id: M1036
@@ -1073,6 +1190,7 @@ mitigations:
   - FGT1499
   - FGT1048.003
   - FGT1048
+  - FGT1583.508
 - description: Block execution of code on a system through application control, and/or
     script blocking.
   id: M1038
@@ -1110,6 +1228,7 @@ mitigations:
   - FGT1599.502
   - FGT1599.503
   - FGT1040
+  - FGT1040
   - FGT1020.001
   - FGT5016
   - FGT5012.002
@@ -1120,6 +1239,8 @@ mitigations:
   - FGT1583
   - FGT1600.502
   - FGT5019.004
+  - FGT1572.501
+  - FGT5031
 - description: Remove or deny access to unnecessary and potentially vulnerable software
     to prevent abuse by adversaries.
   id: M1042
@@ -1138,9 +1259,12 @@ mitigations:
   - FGT1600.501
   - FGT1599
   - FGT5017
+  - FGT5032.002
+  - FGT5032.003
   - FGT5009.001
   - FGT5009.002
   - FGT1600.502
+  - FGT5034
 - description: Prevent abuse of library loading mechanisms in the operating system
     and software to load untrusted code by configuring appropriate library loading
     mechanisms and investigating potential vulnerable software.
@@ -1156,6 +1280,10 @@ mitigations:
   techniques:
   - FGT1014
   - FGT1542.501
+  - FGT5032.002
+  - FGT5032.003
+  - FGT5034
+  - FGT1195.002
 - description: Use secure methods to boot a system and verify the integrity of the
     operating system and loading mechanisms.
   id: M1046
@@ -1184,6 +1312,7 @@ mitigations:
   - FGT1611.501
   - FGT1557.504
   - FGT5009
+  - FGT1200
 - description: Restrict execution of code to a virtual environment on or in transit
     to an endpoint system.
   id: M1048
@@ -1221,6 +1350,8 @@ mitigations:
   - FGT5009.002
   - FGT1600.502
   - FGT5029
+  - FGT1195.002
+  - FGT1195.003
 - description: Configure Windows User Account Control to mitigate risk of adversaries
     obtaining elevated process access.
   id: M1052
@@ -1265,11 +1396,89 @@ mitigations:
   techniques:
   - FGT5016
   - FGT1583.501
+  - FGT1587
+  - FGT1588
+  - FGT1588.002
 - description: Use a data loss prevention (DLP) strategy to categorize sensitive data,
     identify data formats indicative of personal identifiable information (PII), and
     restrict exfiltration of sensitive data.
   id: M1057
   name: Data Loss Prevention
+  object-type: mitigation
+  techniques: []
+- description: Randomize TEID allocations.
+  id: FGM5507
+  name: TEID allocation
+  object-type: mitigation
+  techniques:
+  - FGT5031
+- description: 'Refresh TEID allocations frequently. '
+  id: FGM5508
+  name: Refresh TEIDs
+  object-type: mitigation
+  techniques:
+  - FGT5031
+- description: Filter encapsulated GTP-U packets received from UE.
+  id: FGM5509
+  name: Filter GTP-U packets
+  object-type: mitigation
+  techniques: []
+- description: Filter user plane packets received from UE which have destination address
+    set core NF's IP address.
+  id: FGM5510
+  name: Filter packets to core NF sent by UE
+  object-type: mitigation
+  techniques:
+  - FGT1599.505
+- description: Monitor NAS messages from UE for incorrect or very large header length.
+  id: FGM5511
+  name: Verify NAS messages from UE
+  object-type: mitigation
+  techniques:
+  - FGT1498.503
+- description: Use high availability feature for all core network functions.
+  id: FGM5512
+  name: Use high availability
+  object-type: mitigation
+  techniques:
+  - FGT1498.503
+- description: Use Diameter End-to-end Signaling Security (DESS)
+  id: FGM5513
+  name: Use DESS security
+  object-type: mitigation
+  techniques:
+  - FGT5012.008
+  - FGT5019.005
+- description: Minimize number of connections to eNB in NSA mode.
+  id: FGM5514
+  name: Minmize eNB connections
+  object-type: mitigation
+  techniques:
+  - FGT5019.004
+- description: Move mIAB node to another location to avoid RF jamming.
+  id: FGM5515
+  name: Move mIAB node
+  object-type: mitigation
+  techniques:
+  - FGT5024
+- description: 'Allow tokens with short lifetime to prevent AiTM attacks by replaying
+    stolen tokens. '
+  id: FGM5516
+  name: Make xApp sessions short lived
+  object-type: mitigation
+  techniques:
+  - FGT5034
+- description: Use application layer data obfuscation technique for example use of
+    Orbot as Tor proxy to send all traffic through Tor circuit.
+  id: FGM5517
+  name: Use obfuscation at application layer
+  object-type: mitigation
+  techniques:
+  - FGT1195.002
+- description: APIs in the system should use secure access and data transport using
+    TLS 1.3 or latest.
+  id: M1009
+  name: Encrypt Network Traffic
   object-type: mitigation
   techniques: []
 name: FiGHT Threat Matrix
@@ -1571,7 +1780,7 @@ techniques:
   mitigations:
   - fgmid: FGM5004
     mitigates: Correctly configure SS7 firewall in home network. [4]
-    name: Correctly configure SS7 firewall
+    name: Correctly configure SMS firewall
   name: Bypass home routing
   object-type: technique
   platforms: 5G
@@ -2877,29 +3086,24 @@ techniques:
   tactics:
   - TA0002
   typecode: fight_technique
-- addendums:
-  - "#### Addendum Name: UE or gNB Jamming\r\n##### Architecture Segments: RAN\r\n\
-    \ An adversary transmits radio signals to degrade reception and demodulation of\
-    \ signals to the UE or gNB. \r\n\r\nConsists of numerous methods, including noise\
-    \ jamming, generating false synchronization signals, and replaying modified portions\
-    \ of legitimate signals to degrade demodulation. Jamming in 5G (NR) is different\
-    \ from 3G and similar to 4G, but at high level the same principles are applied.\r\
-    \n\r\n\r\n"
-  architecture-segment: RAN
-  bluf: An attacker could jam radio signals (e.g. Wi-Fi, cellular, GPS) to prevent
-    the mobile device from communicating.
+- architecture-segment: RAN
+  bluf: An adversary transmits radio signals to degrade reception and demodulation
+    of signals to the UE or gNB/eNB.
   criticalassets:
   - Description: UE and gNB basic operations.
     Name: Radio receivers at base station and user equipment
-  description: "An attacker could jam radio signals (e.g. Wi-Fi, cellular, GPS) to\
-    \ prevent the mobile device from communicating.\r\n[To read more, please see the\
-    \ MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1464)\r\
-    \n"
+  description: " An adversary transmits radio signals to degrade reception and demodulation\
+    \ of signals to the UE or gNB/eNB. \r\n\r\nConsists of numerous methods, including\
+    \ noise jamming, generating false synchronization signals, and replaying modified\
+    \ portions of legitimate signals to degrade demodulation. Jamming in 5G (NR) is\
+    \ different from 3G and similar to 4G, but at high level the same principles are\
+    \ applied. This technique is similar to the ATT&CK for Mobile technique T1464.\r\
+    \n\r\n\r\n"
   detections:
   - detects: Identify source and location of jammer.
     fgdsid: FGDS5001
     name: RF Spectrum Monitor
-  id: FGT1464
+  id: FGT5035
   mitigations:
   - fgmid: FGM5001
     mitigates: Disable jamming source.
@@ -2910,7 +3114,7 @@ techniques:
   - fgmid: FGM5100
     mitigates: Increase height of User Equipment to avoid jamming signal.
     name: Raise height of UE
-  name: Jamming or Denial of Service
+  name: Radio Jamming
   object-type: technique
   platforms: 5G radio access
   procedureexamples:
@@ -2942,11 +3146,10 @@ techniques:
   - "<a name=\"3\"> \\[3\\] </a> [Lichtman, et al. \u201C5G NR Jamming, Spoofing,\
     \ and Sniffing: Threat Assessment and Mitigation\u201D (2018), 2018 IEEE International\
     \ Conference on Communications Workshops](https://arxiv.org/pdf/1803.03845.pdf)"
-  status: This is an observed behavior in Enterprise networks, and is theoretical
-    in context of 5G systems.
+  status: Observed in earlier 3GPP generations and expected in 5G.
   tactics:
   - TA0040
-  typecode: attack_technique_addendum
+  typecode: fight_technique
 - access-required: N/A
   architecture-segment: User Plane
   bluf: An adversary  diverts user plane traffic for one or more UEs via a user plane
@@ -2961,8 +3164,11 @@ techniques:
     \ or cause to send a command to a user plane (routing) function that results in\
     \ altering the traffic flow. This threat involves compromising a network element\
     \ to divert traffic flows and allow a malicious actor to eavesdrop on user traffic.\
-    \ \r\n\r\nRedirection attacks on the core network result in not only communication\
-    \ interception, but also in billing discrepancies.\r\n\r\n\r\n"
+    \ \r\n\r\nAn adversary positioned between the UE and the UPF may intercept unprotected\
+    \ data packets and change the destination IP address of the packets, so that the\
+    \ UPF ends up sending them to a different data network. \r\n\r\nRedirection attacks\
+    \ on the core network result in not only communication interception, but also\
+    \ in billing discrepancies.\r\n\r\n\r\n"
   detections:
   - detects: Monitor AF to NEF APIs for illegitimate traffic redirection requests.
       Monitor Nnef_TrafficInfluence_Update API calls from AF to NEF for traffic redirection
@@ -3009,6 +3215,12 @@ techniques:
       \ takes action that affects the UPF behavior. Clause 5.6.7 Table 5.6.7-1 first\
       \ row \u201CTraffic Description\u201D of [5], clause 4.3.6 of [4]."
     Name: Rogue AF or rogue/misconfigured NEF
+  - Description: "An adversary positioned e.g. on a router can exploit the fact that\
+      \ the N3 interface may not use IPSec protection. In this case, a UE\u2019s uplink\
+      \ data may be sent to a different data network or destination in the data network:\
+      \ the adversary intercepts the UE packets encapsulated in GTP-U tunnel, and\
+      \ changes the destination IP address."
+    Name: Access on N3 interface
   references:
   - "<a name=\"1\"> \\[1\\] </a> [European Union Agency for Cybersecurity (ENISA):\
     \ \u201CENISA Threat Landscape for 5G Networks\u201D Report, December 2020.](https://www.enisa.europa.eu/publications/enisa-threat-landscape-report-for-5g-networks\
@@ -3537,16 +3749,16 @@ techniques:
     \ of data or system compromise.\r\n\r\n5G deployments are expected to have various\
     \ deployment models comprise of vendor supplied VNF/CNFs, open-source software,\
     \ and dedicated physical appliances from suppliers as well as white label hardware.\
-    \  It is also expected that 5G services to end consumer may include third party\
+    \  It is also expected that 5G services to end-consumer may include third party\
     \ services to support resources required by 5G Core and RAN elements such as third\
     \ party back haul, MEC or commercial Cloud data centers resources.  Adversary\
-    \ may use a software or hardware supply chain to insert compromised components\
-    \ (binaries, FW, compromised processing chips) in the supply chain of a targeted\
-    \ MNO or taint entire supply chain first to have option to select a target from\
-    \ victims receiving compromised products.  Opensource communities may be vulnerable\
-    \ to accidental or intentional compromise.  These days a lot of reputable vendors\
-    \ also use open-source components in their license products, Opensource community\
-    \ can offer a conduit to a target victim.\r\n\r\n"
+    \ may use a software, hardware, or service supply chain to insert compromised\
+    \ components (binaries, Firmware, compromised processing chips) in the supply\
+    \ chain of a targeted MNO or taint entire supply chain first to have option to\
+    \ select a target from victims receiving compromised products. Opensource communities\
+    \ may be vulnerable to accidental or intentional compromise.  These days a lot\
+    \ of reputable vendors also use open-source components in their license products,\
+    \ Opensource community may become a conduit to a target victim.\r\n\r\n"
   architecture-segment: OA&M, Virtualization
   bluf: "Adversaries may manipulate products or product delivery mechanisms prior\
     \ to receipt by a final consumer for the purpose of data or system compromise.\n\
@@ -3562,13 +3774,16 @@ techniques:
     \ or software, attackers looking to gain execution have often focused on malicious\
     \ additions to legitimate software in software distribution or update channels."
   criticalassets:
-  - Description: ''
+  - Description: Network functions are prime target to impact 5G communication services
     Name: CORE, RAN VNFs
-  - Description: ''
+  - Description: OSS tools have privileged access and broad reachability and may be
+      used to change configuration of the network by adversary.
     Name: OSS Tools
-  - Description: ''
+  - Description: Security tools have privileged access and broad reachability may
+      be used to evade defenses and allow for lateral movements by the adversary
     Name: Security tools
-  - Description: ''
+  - Description: CI/CD tools may be used for inserting malware or poisoned images
+      as well as change the network elements deployed and their behavior.
     Name: CI/CD Tools
   description: "Adversaries may manipulate products or product delivery mechanisms\
     \ prior to receipt by a final consumer for the purpose of data or system compromise.\n\
@@ -3613,6 +3828,7 @@ techniques:
   - "<a name=\"1\"> \\[1\\] </a> [ETSI NFV SEC001, \u201CNetwork Functions Virtualization\
     \ (NFV); NFV Security; Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
     \ )"
+  - <a name="2"> \[2\] </a> [The Untold Story of the Boldest Supply-Chain Hack Ever](https://www.wired.com/story/the-untold-story-of-solarwinds-the-boldest-supply-chain-hack-ever/)
   status: This is an observed behavior in Enterprise networks, and is theoretical
     in context of 5G systems.
   tactics:
@@ -4433,6 +4649,35 @@ techniques:
     \ very difficult to detect or prevent from within a 3GPP NF or VM, and adversaries\
     \ may be able to read data in transit. \r\n\r\nAn adversary may utilize these\
     \ observations for several follow-on techniques.\r\n\r\n"
+  - "#### Addendum Name: _Fronthaul\r\n##### Architecture Segments: User Plane, Control\
+    \ Plane, Roaming, Virtualization\r\n Adversaries may sniff network traffic to\
+    \ capture information about fronthaul user plane.\r\n\r\nORAN Alliance has defined\
+    \ the open fronthaul interface which connects one O-DU to one or more O-RUs inside\
+    \ the gNB. The fronthaul interface makes it possible to distribute the physical\
+    \ layer functionalities between RU and DU, and to control RU operations from DU.\
+    \ ORAN Alliance has selected a specific configuration (split 7.2x) for splitting\
+    \ of the physical layer among those proposed by 3GPP. The lower part of the physical\
+    \ layer (low PHY) resides in RU and performs Orthogonal Frequency Division Multiplexing\
+    \ (OFDM) phase compensation, inverse FFT and Cyclic Prefix (CP) insertion for\
+    \ frequency-to-time conversion in downlink, and FFT and CP removal in uplink.\
+    \ The physical layer in DU (high PHY) performs scrambling, modulation, layer mapping,\
+    \ and resource element mapping. Fronthaul consists of four types of interfaces:\
+    \ Control or C plane is used to carry control plane messages, User or U plane\
+    \ is used to carry user plane data, Synchronization or S plane is used to carry\
+    \ timing information and Management or M plane is used to carry management data.\r\
+    \n\r\nO-RAN fronthaul interface needs to implement strict performance requirements\
+    \ which includes very high throughput and very low latency. See clause 4.4 of\
+    \ [2]. Some security features may not be implemented by MNOs to meet those requirements\
+    \ and to reduce processing delay. Hence, Adversary on the Side (AoTS) attack on\
+    \ open fronthaul interface is possible which results in passive eavesdropping\
+    \ of U plane data. The adversary may use a simple sniffer device to monitor all\
+    \ U plane communications which is normally not encrypted at lower 3 layers (RLC,\
+    \ MAC and PHY). Confidentiality and integrity protection requirements are not\
+    \ specified by ORAN alliance for control, user and synchronization (CUS) planes,\
+    \ and those are mandatory for M plane. See clause 6.1 of [2] and clause 5.4 of\
+    \ [3].\r\n\r\nNote: The user plane data in PDCP and above layers remains encrypted\
+    \ on Fronthaul U plane and this eavesdrop attack will not impact any of those\
+    \ data unless PDCP security is also broken by the adversary.\r\n\r\n"
   architecture-segment: User Plane, Control Plane, Roaming, Virtualization
   bluf: Adversaries may sniff network traffic to capture information about an environment,
     including authentication material passed over the network.
@@ -4444,6 +4689,8 @@ techniques:
     Name: UE data on roaming user plane interface
   - Description: Signaling data, provisioning data, service discovery
     Name: UP, CP Data
+  - Description: Sensitive subscriber user plane data will be available to the adversary.
+    Name: Sensitive subscriber data
   description: "Adversaries may sniff network traffic to capture information about\
     \ an environment, including authentication material passed over the network.\r\
     \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1040)\r\
@@ -4459,6 +4706,10 @@ techniques:
   - detects: Monitor commands given to NFs which may help data sniffing.
     fgdsid: DS0017
     name: Command
+  - detects: Monitor if security configurations in O-RU and O-DU are downgraded to
+      weak or no security levels.
+    fgdsid: FGDS5022
+    name: Monitor security configurations
   id: FGT1040
   mitigations:
   - fgmid: FGM5033
@@ -4491,9 +4742,21 @@ techniques:
       acceptable configuration is adequate and complies with [2] TS 33.501 clause
       13.2.4.9.
     name: Software Configuration
+  - fgmid: M1041
+    mitigates: Ensure fronthaul user plane data is protected with strong encryption
+      algorithm. This will have performance impact on devices implementing it.
+    name: Encrypt Sensitive Information
   name: Network Sniffing
   object-type: technique
-  platforms: 5G Network
+  platforms: 5G Network, RAN
+  postconditions:
+  - Description: As a follow-on attack, adversary may do application layer fingerprinting
+      attack based on the data collected at MAC and RLC layers. [See FGT1040.501]
+    Name: Application layer finger printing
+  preconditions:
+  - Description: Adversary must have physical access to open fronthaul network to
+      collect data.
+    Name: Adversary has access to open fronthaul network.
   procedureexamples:
   - Description: Adversary with access to the non-SBI interfaces (Xn, N2, N3, N4,
       N9) not using encryption can monitor traffic exchange and obtain UE information
@@ -4520,6 +4783,16 @@ techniques:
       for a given victim UE. An adversary may utilize these observations for a number
       of follow-on techniques.
     Name: SEPP compromise
+  - Description: 'Adversary launches AoTS attack on open fronthaul U plane data traffic
+      by using a simple sniffer device. The fronthaul U plane data usually does not
+      have encryption due to stringent performance requirements. Hence an eavesdrop
+      attack is possible by a simple device.
+
+
+      This attack can only eavesdrop on user plane data below PDCP layer. Any user
+      plane data in PDCP and above layers are not impacted by this attack. See clause
+      5.4.1.2, T-UPLANE-01 of [1], clause 6.1 of [2] and clause 5.4 of [3].'
+    Name: Eavesdrop on U plane data on open fronthaul interface.
   references:
   - "<a name=\"1\"> \\[1\\] </a> [3GPP TR 33.926 \u201CSecurity Assurance Specification\
     \ (SCAS) threats and critical assets in 3GPP network product classes\u201D, March\
@@ -4545,12 +4818,17 @@ techniques:
     \ IP network layer security\u201D](https://www.3gpp.org/DynaReport/33210.htm)"
   - "<a name=\"10\"> \\[10\\] </a> [3GPP TR 33.848 \u201CStudy on Security Impacts\
     \ of Virtualization\u201D. (WIP) Section 5.15.2](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3574)"
+  - <a name="1"> \[1\] </a> [O-RAN Threat Model 6.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [O-RAN WG4 Control, User, and Synchronization Plane Specification
+    12.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="3"> \[3\] </a> [O-RAN WG4 Management Plane Specification 12.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
   status: This is an observed behavior in Enterprise networks, and is theoretical
     in context of 5G systems.
   tactics:
   - TA0007
   - TA0009
   - TA0006
+  - TA0040
   typecode: attack_technique_addendum
 - access-required: User/NPE/Administrative access
   addendums:
@@ -4745,17 +5023,17 @@ techniques:
   typecode: fight_technique
 - access-required: N/A
   architecture-segment: Control Plane, Network Slice
-  bluf: 'An adversary can send high volumes of registration signaling to degrade performance
-    of core network components. '
+  bluf: An adversary-controlled UE may send high volumes of signaling messages to
+    core network functions in order to cause a denial of service.
   criticalassets:
   - Description: AMF functionality serving the UEs should be available always.
     Name: Network services (AMF)
-  description: " An adversary may send high volumes of registration signaling to degrade\
-    \ performance or deny access to the network for all UEs.\r\n\r\nUpon power on\
-    \ or coming out of flight mode, a UE needs to register with 5G network in order\
-    \ to get services from the network. After it gets connected to the network, UE\
-    \ sends several signaling messages to maintain the connection and to request new\
-    \ services. If any of those signaling messages are sent repeatedly to 5G network,\
+  description: " An adversary-controlled UE may send high volumes of signaling messages\
+    \ to core network functions in order to cause a denial of service.\r\n\r\nUpon\
+    \ power on or coming out of flight mode, a UE needs to register with 5G network\
+    \ in order to get services from the network. After it gets connected to the network,\
+    \ UE sends several signaling messages to maintain the connection and to request\
+    \ new services. If any of those signaling messages are sent repeatedly to 5G network,\
     \ the network spends its resources to process those request messages, which may\
     \ overwhelm some critical Network Functions (NFs) such as Access and Mobility\
     \ Function (AMF).\r\n\r\nA malicious UE sends repeated Attach requests which cause\
@@ -4781,8 +5059,8 @@ techniques:
 
       In addition, SCP can act as load balancer between the service consumer (AMF)
       and service producer (UDM). (Annex E of [2])'
-    name: Limit incoming signaling traffic
-  name: 'Flooding of core network components '
+    name: Limit incoming signaling and user plane traffic
+  name: Flooding of core network component
   object-type: technique
   platforms: 5G network
   postconditions:
@@ -7533,9 +7811,9 @@ techniques:
   tactics:
   - TA0002
   typecode: fight_subtechnique
-- access-required: User/NPE/Administrative access
-  architecture-segment: RAN
-  bluf: 'An adversary may compromise an xApp to affect radio network configuration. '
+- access-required: User/NPE/Administrative access, Privileged Access
+  architecture-segment: 5G
+  bluf: 'An adversary may compromise an xApp to affect the radio network configuration. '
   criticalassets:
   - Description: Configuration and date related to gNodeB
     Name: RAN Service Management and Orchestration
@@ -7544,34 +7822,112 @@ techniques:
   - Description: xApp and Configuration and data related to gNodeB, Realtime optimization
       data
     Name: xApps
-  description: " \r\n\r\nAn adversary may compromise an xApp to affect the radio network\
-    \ configuration.\r\nThe O-RAN architecture includes the Radio Intelligence Controllers\
-    \ (RICs), which consists of the Non-Real-Time Radio Intelligent Controller (Non-RT\
-    \ RIC) and the Near-Real-Time Radio Intelligent Controller (Near-RT RIC), to optimize\
+  - Description: "UE data includes UE\u2019s coarse location, temporary identifier\
+      \ and correlation of UE temporary identifier to other service-related data e.g.,\
+      \ DNN, NSSAI etc. See clause 6.2.1 of [2]."
+    Name: ' UE data'
+  - Description: Sensitive network data such as QoS policies of a slice
+    Name: Sensitive network data
+  - Description: Configuration data such as configuration regarding radio resource
+      management (RRM), QoS, and spectrum allocation
+    Name: RAN configuration data
+  description: " \r\nAn adversary may compromise an xApp to affect the radio network\
+    \ configuration.\r\nThe O-RAN architecture includes the RAN Intelligence Controllers\
+    \ (RIC), which consists of the Non-Real-Time RAN Intelligent Controller (Non-RT\
+    \ RIC) and the Near-Real-Time RAN Intelligent Controller (Near-RT RIC), to optimize\
     \ radio resource management of gNB components. The Non-RT RIC is embedded in the\
-    \ Service and Management Orchestration (SMO) framework and hosts rApps to provide\
+    \ Service Management and Orchestration (SMO) framework and hosts rApps to provide\
     \ policy-based guidance, machine learning model management and enrichment information\
-    \ to the Near-RT RIC function for the purpose of RAN optimization. The Near-RT\
-    \ RIC is a logical function that hosts xApps and enables near real-time control\
-    \ and optimization of the functions and resources of gNB components O-CU-CP, O-CU-UP\
-    \ and O-DU, steered via the policies and enrichment data provided from the Non-RT\
-    \ RIC.\r\nxApps are applications designed to run on the Near-RT RIC to provide\
-    \ the desired RAN functionality. xApps are independent of the Near-RT RIC and\
-    \ may be provided by any third party. xApps on the Near-RT RIC can collect near\
-    \ real-time information from gNB components (O-CU-CP, O-CU-UP and O-DU) and influence\
-    \ behavior of those components thereby impacting 5G base station performance and\
-    \ delivery of services to a group of UEs or a single UE.\r\nA compromise of an\
-    \ xApp (or through xApp Agent) can potentially lead to unauthorized changes in\
-    \ a CU or DU via E2 Interface.\r\n\r\n\r\n"
-  detections: []
+    \ to the Near-RT RIC function for the purpose of RAN optimization. \r\nThe Near-RT\
+    \ RIC is a logical function that hosts xApps and enables near-real-time control\
+    \ and optimization of the functions and resources of gNB components [O-RAN Central\
+    \ Unit-Control Plane (O-CU-CP), O-RAN Central Unit-User Plane (O-CU-UP) and O-RAN\
+    \ Distributed Unit (O-DU)], steered via the policies and enrichment data provided\
+    \ from the Non-RT RIC. \r\nThe O-RAN platform can perform both non-real-time optimization\
+    \ and near-real-time optimization of O-RAN elements through the Non-RT RIC and\
+    \ Near-RT RIC. Non-real-time optimization may be used for higher-level optimization\
+    \ and is facilitated by the Non-RT RIC. Use cases such as policy-based guidance\
+    \ and AI/ML are examples of those appropriate for non real-time-optimization.\
+    \ Near-real-time optimization enables certain capabilities and is facilitated\
+    \ by the Near-RT RIC. Use cases such as radio resource management and Quality\
+    \ of Service (QoS) optimization are examples of those appropriate for near-real-time\
+    \ optimization. \r\nxApps are applications designed to run on the Near-RT RIC\
+    \ to provide the desired RAN functionality. xApps are independent of the Near-RT\
+    \ RIC and may be provided by any third party. \r\nxApps on the Near-RT RIC can\
+    \ collect near-real-time information from gNB components (O-CU-CP, O-CU-UP and\
+    \ O-DU) and influence behavior of those components, thereby impacting 5G base\
+    \ station performance and delivery of services to a group of UEs or a single UE.\r\
+    \nxApps may be compromised during the delivery to the service provider, either\
+    \ through the external supply chain from vendor to the service provider or through\
+    \ the internal CI/CD pipeline. Malicious code may be inserted in the xApp application\
+    \ package that could compromise the application. Adversary may also obtain xApp\
+    \ credentials or compromise a 3rd party infrastructure the application is hosted\
+    \ on.\r\nA compromise of an xApp (or through xApp Agent) can potentially lead\
+    \ to unauthorized changes in O-CU or O-DU via E2 Interface.\r\n"
+  detections:
+  - detects: Monitor xApp lifecycle management events from logs regarding onboarding,
+      authentication/authorization of xApps to Near-RT RIC. Audit logs and telemetry
+      data for unauthorized activity.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor and alert on changes to xApp and cloud configuration files during
+      runtime
+    fgdsid: DS0022
+    name: File
+  - detects: Perform real-time audits and post-processing of logs. Detect which parts
+      of the O-RAN are accessed by xApps.
+    fgdsid: DS0025
+    name: Cloud Service
   id: FGT5032.002
-  mitigations: []
-  name: ' X-App'
+  mitigations:
+  - fgmid: M1025
+    mitigates: Enforce least privilege access for cloud components
+    name: Privileged Process Integrity
+  - fgmid: M1033
+    mitigates: Use only trusted supply chain, rigorous scanning of software images.
+      Limit Software Installations especially from 3rd party sources.
+    name: Limit Software Installation
+  - fgmid: M1035
+    mitigates: Limit access to xApp instance
+    name: Limit Access to Resource Over Network
+  - fgmid: M1043
+    mitigates: Use capabilities to prevent successful credential access by adversaries
+    name: Credential Access Protection
+  - fgmid: M1045
+    mitigates: Verify digital signature of xApp
+    name: Code Signing
+  name: ' xApp'
   object-type: technique
   platforms: 5G
+  postconditions:
+  - Description: Adversary affects the radio network configuration, accesses configuration
+      data, and perform other unauthorized activities
+    Name: Affected Network Radio Configuration
+  - Description: Adversary degrades network operation or in the worst case, causes
+      network outage
+    Name: Network operations impacted
+  - Description: "UE and subscriber\u2019s sensitive data is revealed to the adversary"
+    Name: Sensitive UE data exposed to adversary
+  preconditions:
+  - Description: Adversary has access to xApp (e.g., application package, credentials)
+    Name: Adversary access to xApp
+  procedureexamples:
+  - Description: Adversary compromising external supply chain or internal CI/CD pipeline
+      to implement backdoor into xApp
+    Name: xApp access via backdoor
+  - Description: Adversary obtains xApp credentials through various means and compromises
+      the xApp
+    Name: xApp access via stolen credentials
+  - Description: Adversary may compromise the infrastructure the O-RAN platform is
+      deployed on and gain access to xApp
+    Name: xApp access via compromised 3rd party hosting infrastructure provider
   references:
   - <a name="1"> \[1\] </a> [O-RAN.WG3.RICARCH-R003-v04.00](https://orandownloadsweb.azurewebsites.net/specifications)
   - <a name="2"> \[2\] </a> [ORAN.WG11.Threat-Model.O-R003-v06.00](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="3"> \[3\] </a> [Federal Office of information Security, Study 5G RAN
+    Risk Analysis](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
+  - <a name="1"> \[1\] </a> [O-RAN Security Threat Model 6.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [O-RAN WG3 Near-RT RIC Architecture 4.00 Version](https://orandownloadsweb.azurewebsites.net/specifications)
   - <a name="3"> \[3\] </a> [Federal Office of information Security, Study 5G RAN
     Risk Analysis](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
   status: This is a theoretical behavior in context of 5G systems.
@@ -7579,10 +7935,19 @@ techniques:
   tactics:
   - TA0002
   typecode: fight_subtechnique
-- access-required: User/NPE/Administrative access
-  architecture-segment: RAN
-  bluf: "An adversary may compromise an rApp to affect radio network configuration.\_"
+- access-required: Privileged Access, User/NPE/Administrative access
+  architecture-segment: 5G
+  bluf: An adversary may compromise an rApp to affect the radio network configuration.
   criticalassets:
+  - Description: "UE data includes UE\u2019s coarse location, temporary identifier\
+      \ and correlation of UE temporary identifier to other service-related data e.g.,\
+      \ DNN, NSSAI etc. See clause 6.2.1 of [2]."
+    Name: ' UE data'
+  - Description: Sensitive network data such as QoS policies of a slice
+    Name: Sensitive network data
+  - Description: Configuration data such as configuration regarding radio resource
+      management (RRM), QoS, and spectrum allocation
+    Name: RAN configuration data
   - Description: Configuration and date related to gNodeB
     Name: RAN Service Management and Orchestration
   - Description: RIC and Configuration and data related to gNodeB
@@ -7606,13 +7971,69 @@ techniques:
     \nA compromise of an rApp (or through rApp Agent) can potentially lead to unauthorized\
     \ changes in O-CU or O-DU via A1 interface from Non-RT RIC to Near-RT RIC.\r\n\
     \r\n\r\n"
-  detections: []
+  detections:
+  - detects: Monitor rApp lifecycle management events from logs regarding onboarding,
+      authentication/authorization of rApps. Audit logs and telemetry data for unauthorized
+      activity.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Monitor and alert on changes to rApp and cloud configuration files during
+      runtime
+    fgdsid: DS0022
+    name: File
+  - detects: Perform real-time audits and post-processing of logs. Detect which parts
+      of the O-RAN are accessed by rApps.
+    fgdsid: DS0025
+    name: Cloud Service
   id: FGT5032.003
-  mitigations: []
-  name: ' rApps'
+  mitigations:
+  - fgmid: M1025
+    mitigates: Enforce least privilege access for cloud components
+    name: Privileged Process Integrity
+  - fgmid: M1033
+    mitigates: Use only trusted supply chain, rigorous scanning of software images.
+      Limit Software Installations especially from 3rd party sources.
+    name: Limit Software Installation
+  - fgmid: M1035
+    mitigates: Limit access to rApp instance
+    name: Limit Access to Resource Over Network
+  - fgmid: M1043
+    mitigates: Use capabilities to prevent successful rApp credential access by adversaries.
+    name: Credential Access Protection
+  - fgmid: M1045
+    mitigates: Verify digital signature of rApp
+    name: Code Signing
+  name: ' rApp'
   object-type: technique
   platforms: 5G
+  postconditions:
+  - Description: Adversary affects the radio network configuration, accesses configuration
+      data, and perform other unauthorized activities
+    Name: Affected Network Radio Configuration
+  - Description: Adversary degrades network operation or in the worst case, causes
+      network outage
+    Name: Network operations impacted
+  - Description: "UE and subscriber\u2019s sensitive data is revealed to adversary"
+    Name: Sensitive UE data exposed to adversary
+  preconditions:
+  - Description: Adversary has access to rApp (e.g., application package, credential)
+    Name: Adversary access to rApp
+  procedureexamples:
+  - Description: Adversary compromising external supply chain or internal CI/CD pipeline
+      to implement backdoor into rApp
+    Name: rApp access via backdoor
+  - Description: Adversary obtains rApp credentials through various means and compromises
+      the rApp
+    Name: rApp access via stolen credentials
+  - Description: Adversary may compromise the infrastructure the O-RAN platform is
+      deployed on and gain access to rApp
+    Name: rApp access via compromised 3rd party hosting infrastructure provider
   references:
+  - <a name="1"> \[1\] </a> [O-RAN Security Threat Model 6.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [O-RAN WG2 Non-RT RIC Architecture 3.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="3"> \[3\] </a> [O-RAN WG2 Non-RT RIC Technical Report 1.01 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="4"> \[4\] </a> [Federal Office of information Security, Study 5G RAN
+    Risk Analysis](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/Studies/5G/5GRAN-Risk-Analysis.pdf?__blob=publicationFile&v=5)
   - <a name="1"> \[1\] </a> [O-RAN.WG2.Non-RT-RIC-ARCH-R003-v03.00](https://orandownloadsweb.azurewebsites.net/specifications)
   - <a name="2"> \[2\] </a> [O-RAN.WG2.Non-RT-RIC-ARCH-TR-v01.01](https://orandownloadsweb.azurewebsites.net/specifications)
   - <a name="3"> \[3\] </a> [O-RAN.WG11.Threat-Model.O-R003-v06.00](https://orandownloadsweb.azurewebsites.net/specifications)
@@ -7860,6 +8281,11 @@ techniques:
     \ \u201CStudy on 5G security enhancements against False Base Stations (FBS)\u201D\
     , Technical Report, v0.18.0, February 2022.](https://www.3gpp.org/DynaReport/33809.htm\
     \ )"
+  - "<a name=\"3\"> \\[3\\] </a> [Cablelabs article \u201CFalse Base Station or IMSI\
+    \ Catcher: What You Need to Know\u201D](https://www.cablelabs.com/blog/false-base-station-or-imsi-catcher-what-you-need-to-know)"
+  - <a name="4"> \[4\] </a> [Open source O-RAN 5G CU/DU solution from Software Radio
+    Systems (SRS)](https://github.com/srsran/srsRAN_Project )
+  - <a name="5"> \[5\] </a> [Open Air Interface project source code](https://gitlab.eurecom.fr/oai/openairinterface5g/)
   status: This is a theoretical behavior
   subtechnique-of: FGT1583
   tactics:
@@ -8824,7 +9250,7 @@ techniques:
   - TA0005
   typecode: fight_subtechnique_to_attack_technique
 - access-required: N/A
-  architecture-segment: MEC, OA&M
+  architecture-segment: RAN, Virtualization, OA&M
   bluf: Adversaries may manipulate service or service delivery mechanisms prior to
     or while used by a mobile network operator (MNO) for the purpose of data or system
     compromise.
@@ -8901,25 +9327,62 @@ techniques:
   description: " An adversary may intercept unencrypted radio transmissions of a UE\u2019\
     s SUCI to identify the IMSI/SUPI of the UE. \r\n\r\nAdversary can retrieve the\
     \ IMSI/SUPI of UE if SUCI is sent unencrypted over the air. The adversary can\
-    \ launch other attacks on the subscriber with the IMSI/SUPI. \r\n\r\nBackground\
-    \ information: The UE\u2019s permanent identity, SUPI (SUbscriber Permanent Identifier),\
-    \ includes a home network identifier and a user-specific identifier, and is never\
-    \ sent unencrypted over the radio interface. Instead, a SUCI (SUbscriber Concealed\
+    \ launch other attacks on the subscriber with the IMSI/SUPI. \r\n\r\nWhen 5G UE\
+    \ is connected to 4G base station (eNB) in non-stand alone (NSA) mode, adversary\
+    \ uses an airlink signal analyzer to retrieve UE's permanent identity (IMSI/SUPI).\
+    \ All threats present in 4G network including IMSI/SUPI catching can materialize\
+    \ when UE is connected to network via 4G eNB.\r\n\r\nBackground information: The\
+    \ UE\u2019s permanent identity, SUPI (SUbscriber Permanent Identifier), includes\
+    \ a home network identifier and a user-specific identifier, and is never sent\
+    \ unencrypted over the radio interface. Instead, a SUCI (SUbscriber Concealed\
     \ Identifier) is sent when the UE goes through initial registration to the serving\
     \ network procedures; this de-concealment operation can only be done by the UE\u2019\
     s home network. However, SUCI can be sent unencrypted over the air by UE in any\
     \ of the following scenarios: \r\n\r\n1. When UE makes an emergency call and it\
     \ does not have a 5G-GUTI\r\n  \r\n2. If the home PLMN has configured \"NULL\u201D\
     \ SUCI-protection algorithm to be used\r\n\r\n3. If the home PLMN has not provisioned\
-    \ the public key needed to generate a SUCI. \r\nRefer clause 6.12.2 of [1].\r\n\
-    \r\n"
-  detections: []
+    \ the public key needed to generate a SUCI \r\nRefer clause 6.12.2 of [1].\r\n\
+    \r\nNSA mode uses 4G core, and it uses two types of base stations: 4G & 5G for\
+    \ network access. Depending on the coverage area and network load, MNO chooses\
+    \ whether to connect the UE to the 5G base station (gNB) or to 4G base station\
+    \ (eNB). eNB typically covers a much larger area than gNB.\r\n\r\n"
+  detections:
+  - detects: 'Monitor gNB and core network logs when:
+
+
+
+      Null scheme is used for SUCI protection
+
+
+
+      Home PLMN does not configure public key for SUCI protection'
+    fgdsid: FGDS5017
+    name: Monitor null scheme usage
+  - detects: Monitor Provisioning logs for changes in Home network public key configuration,
+      PLMN ID etc.
+    fgdsid: FGDS5018
+    name: Monitor provisioning logs
+  - detects: 'Monitor Operations logs for:
+
+
+
+      UE makes an emergency call
+
+
+
+      In NSA mode, when 5G UE is ordered to connect to network via eNB'
+    fgdsid: FGDS5019
+    name: Monitor operations logs
   id: FGT5019.004
   mitigations:
   - fgmid: M1041
-    mitigates: Do not use null-scheme for SUCI encryption both in network configuration
-      and in UE configuration. Always configure home PLMN public key in the UE.
+    mitigates: Always configure home PLMN public key in the UE. Do not use NULL scheme
+      for SUCI encryption both in network configuration and in UE configuration.
     name: Encrypt Sensitive Information
+  - fgmid: FGM5514
+    mitigates: Minimize the number of connections to eNB when using NSA mode, use
+      eNB only when 5G coverage is not available or 5G network is overloaded.
+    name: Minmize eNB connections
   name: Intercept unencrypted SUPI
   object-type: technique
   platforms: 5G
@@ -8929,10 +9392,19 @@ techniques:
       confidentiality, or physical attack.
     Name: Target association
   preconditions:
-  - Description: Attacker requires sufficient signal to interference and noise ratio
+  - Description: Adversary requires sufficient signal to capture and decode all airlink
+      messages (with low interference and high SNR).
     Name: Ability to receive SUCI over the air
+  - Description: In NSA mode, 5G UE is directed to connect to eNB due to lack of 5G
+      coverage in the area or network load situations.
+    Name: 5G UE is directed to connect to 4G base station in NSA mode
   procedureexamples:
-  - Description: Receive SUCI when sent in clear mode and extract the IMSI/SUPI.
+  - Description: "Adversary reads the SUCI from airlink messages using signal analyzer\
+      \ when it is sent in clear mode and extracts the IMSI/SUPI.\n\nThis is possible\
+      \ in the following scenarios:\n\n\nWhen UE makes an emergency call and it does\
+      \ not have a 5G-GUTI.\n\n\nIf the home PLMN has configured \"NULL\u201D SUCI-protection\
+      \ algorithm to be used.\n\nIf the home PLMN has not provisioned the public key\
+      \ needed to generate a SUCI. \n\n\nUE is moved from a gNB to an eNB in NSA mode."
     Name: Intercept IMSI/SUPI over the radio interface
   references:
   - "<a name=\"1\"> \\[1\\] </a> [3GPP TS 33.501 \" Security architecture and procedures\
@@ -9029,6 +9501,1687 @@ techniques:
   - TA0001
   - TA0009
   typecode: fight_technique
+- access-required: N/A
+  architecture-segment: UE
+  bluf: An adversary may send specially crafted data to the UE over-the-air via the
+    radio interface to execute malicious code.
+  description: " An adversary may send specially crafted data to the UE over-the-air\
+    \ via the radio interface to execute malicious code.  An adversary with a position\
+    \ to send data to the UE, such as control of an IMS service or the UPF may send\
+    \ data to the UE that can, using a previously identified vulnerability, cause\
+    \ adversary execution on the UE.\r\n\r\nThe adversary may identify a vulnerability\
+    \ in the radio interface through fuzzing techniques against the baseband and supporting\
+    \ chips used in the UE.  Vulnerabilities that could enable an adversary to execute\
+    \ code include heap corruptions and use-after-frees[1].  Additionally, vulnerabilities\
+    \ such as buffer overflow vulnerabilities are often found due to insecure coding\
+    \ practices. Although fuzzing has been demonstrated to be a viable approach to\
+    \ identify vulnerabilities, vulnerabilities may be discovered by adversaries through\
+    \ additional techniques including physical examination/tampering and binary executable\
+    \ analysis.\r\n\r\n\r\n"
+  detections: []
+  id: FGT1203.501
+  mitigations: []
+  name: 'Over-the-Air Input
+
+    '
+  object-type: technique
+  platforms: 5G
+  preconditions:
+  - Description: Adversary must have identified a vulnerability in the target UE baseband
+      or supporting chips to enable OTA exploitation.
+    Name: Identified vulnerability on baseband or supporting chips
+  procedureexamples:
+  - Description: Proof of Concept demonstration of technique exploiting modem vulnerability
+      from IMS service over an adversary controlled 5G core and base station.
+    Name: Adversary controlled IMS
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [M.Grassi & X. Chen, \u201COver The Air Baseband\
+    \ Exploit: Gaining Remote\nCode Execution on 5G Smartphones,\u201D retrieved May\
+    \ 16, 2023](https://dl.acm.org/doi/abs/10.1145/3395351.3399360)"
+  status: This a 5G relevant behavior that has been demonstrated in a successful proof
+    of concept
+  subtechnique-of: FGT1203
+  tactics:
+  - TA0002
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: P
+  architecture-segment: UE
+  bluf: An adversary may send specially crafted data to the UE's application processor's
+    interface to the baseband API to execute malicious code.
+  description: " An adversary may send specially crafted data to the UE's application\
+    \ processor's interface to the baseband API to execute malicious code. The adversary\
+    \ with a position on the UE to communicate to the baseband API can execute malicious\
+    \ code on the baseband processing system.\r\n\r\nThe adversary may identify a\
+    \ vulnerability in the baseband API through fuzzing techniques[1].  Vulnerabilities\
+    \ that could enable an adversary to execute code include memory boundary violations,\
+    \ including buffer overflows that affect the stack and the heap on the baseband.\
+    \  Vulnerabilities such as buffer overflow vulnerabilities are often found due\
+    \ to insecure coding practices. Although fuzzing has been demonstrated to be a\
+    \ viable approach to identify vulnerabilities, vulnerabilities may be discovered\
+    \ by adversaries through additional techniques including physical examination/tampering\
+    \ and binary executable analysis.\r\n\r\n"
+  detections: []
+  id: FGT1203.502
+  mitigations: []
+  name: Baseband API
+  object-type: technique
+  platforms: 5G
+  preconditions:
+  - Description: Exploitation requires the ability to communicate with the baseband
+      API.
+    Name: Baseband API Access
+  references:
+  - '<a name="1"> \[1\] </a> [Imtiaz Karim, Fabrizio Cicala, Syed Rafiul Hussain,
+    Omar Chowdhury, and Elisa Bertino. 2020. ATFuzzer: Dynamic Analysis Framework
+    of AT Interface for Android Smartphones. Digital Threats 1, 4, Article 23 (December
+    2020)](https://dl.acm.org/doi/10.1145/3416125)'
+  status: This is a theoretical behavior in context of 5G systems.
+  subtechnique-of: FGT1203
+  tactics:
+  - TA0002
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: N/A
+  addendums:
+  - "#### Addendum Name: Baseband Exploits\r\n##### Architecture Segments: UE\r\n\
+    \ An adversary may develop exploits that target the UE to execute malicious code.\
+    \ The adversary may identify a vulnerability in the UE modem and exploit this\
+    \ to execute malicious code. The adversary may need specific knowledge of the\
+    \ modems, e.g.[T1592.001]( https://attack.mitre.org/techniques/T1592/001/), used\
+    \ in specific UEs and exploits might be viable for specific models of UEs or the\
+    \ class of UE utilizing a specific version of firmware, e.g. [T1592.003]( https://attack.mitre.org/techniques/T1592/003/).\
+    \ Vulnerabilities may be discovered in multiple ways and exploiting the vulnerability\
+    \ may require previous use of techniques to obtain an operator RAN position or\
+    \ deploy a false base station, such as in [FGT1583.501]( ),  to which the UE would\
+    \ connect.  \r\n"
+  architecture-segment: UE
+  bluf: Adversaries may develop exploits that can be used during targeting.
+  description: "Adversaries may develop exploits that can be used during targeting.\r\
+    \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1587/004)\r\
+    \n"
+  detections:
+  - detects: Use of stack canaries by the firmware author can be used to detect manipulation
+      of stack return addresses,
+    fgdsid: DS0008
+    name: Kernel
+  id: FGT1587.004
+  mitigations: []
+  name: Exploits
+  object-type: technique
+  platforms: 5G
+  preconditions:
+  - Description: Adversary may need to deploy their own base station (and possibly
+      core network) in a lab environment for exploit development and testing.
+    Name: Lab test environment
+  procedureexamples:
+  - Description: Researchers[1] analyzed firmware for vulnerabilities and identified
+      stack overflow vulnerability in an XML parser inside the baseband that parses
+      IMS messages.
+    Name: Stack Overflow
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [M.Grassi and X. Chen, \u201COver The Air Baseband\
+    \ Exploit: Gaining Remote\nCode Execution on 5G Smartphones, Retrieved May 16,\
+    \ 2023](https://keenlab.tencent.com/zh/whitepapers/us-21-Over-The-Air-Baseband-Exploit-Gaining-Remote-Code-Execution-on-5G-Smartphones-wp.pdf)"
+  - "<a name=\"2\"> \\[2\\] </a> [I.Karim, F.Cicala, et.al.,\u201CATFuzzer: Dynamic\
+    \ Analysis Framework of AT Interface\nfor Android Smartphones,\u201D Retrieved\
+    \ May 16, 2023](https://dl.acm.org/doi/pdf/10.1145/3416125)"
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  subtechnique-of: FGT1587
+  tactics:
+  - TA0042
+  typecode: attack_subtechnique_addendum
+- access-required: N/A
+  architecture-segment: RAN
+  bluf: An adversary may create an operator network to facilitate applying techniques
+    to a victim UE.
+  description: " An adversary may create an operator network to facilitate applying\
+    \ techniques to a victim UE. Adversary may create a fully functional operator\
+    \ network such as a 5G core and false base station to exploit the user and/or\
+    \ UE. Creation of a false base station may not be sufficient in a 5G network to\
+    \ further the adversary\u2019s objectives due to security improvements from earlier\
+    \ generations. The availability of open 5G core and RAN software and services\
+    \ make this viable for an adversary. The adversary, controlling the 5G network\
+    \ the UE attaches, via additional techniques, such as [FGT1583.501]( https://fight.mitre.org/techniques/FGT1583.501/),\
+    \ may redirect the UE or use [FGT1562.501}( https://fight.mitre.org/techniques/FGT1562.501)\
+    \ to perform a downgrade attack to weaken end-to-end security. Techniques suchs\
+    \ as [FGT5009]( https://fight.mitre.org/techniques/FGT5009/) may also be utilized\
+    \ by the adversary to evade defenses.\r\n\r\n\r\n"
+  detections: []
+  id: FGT1587.501
+  mitigations: []
+  name: Operator Network
+  object-type: technique
+  platforms: 5G
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [M.Grassi and X. Chen, \u201COver The Air Baseband\
+    \ Exploit: Gaining Remote\nCode Execution on 5G Smartphones, Retrieved May 16,\
+    \ 2023](https://keenlab.tencent.com/zh/whitepapers/us-21-Over-The-Air-Baseband-Exploit-Gaining-Remote-Code-Execution-on-5G-Smartphones-wp.pdf)"
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1587
+  tactics:
+  - TA0042
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: N/A
+  architecture-segment: 5G
+  bluf: An adversary obtains network access through illicit means in order to install
+    instrumentation.
+  description: " An adversary obtains use of network or signaling infrastructure in\
+    \ order to apply techniques against 5G networks. An adversary may attempt to legitimately\
+    \ or illegitimately acquire network or signaling, e.g. SS7, infrastructure capabilities\
+    \ that are able to communicate with other operator environments. Unlike [T1650\
+    \ \u2013 Acquire Access](https://attack.mitre.org/techniques/T1650), the adversary\
+    \ is not acquiring access through an underground market and the adversary may\
+    \ be part of a legitimate organization that has obtained access.  The adversary,\
+    \ working within the legitimate organization, may then use that legitimately obtained\
+    \ access in unauthorized ways. The adversary may also be acquiring infrastructure\
+    \ access through coercion or subterfuge from a legitimate operator or service\
+    \ provider. The adversary may use this network infrastructure, however obtained,\
+    \ as a position to apply additional follow-on behaviors. \r\n\r\n\r\n"
+  detections:
+  - detects: Logs from firewalls may be useful for detecting adversary activities
+      through signaling or via other network access protocols protected by firewalls.
+    fgdsid: DS0018
+    name: Firewall
+  id: FGT1583.508
+  mitigations:
+  - fgmid: M1014
+    mitigates: Filtering requests from unexpected/unauthorized providers may provide
+      some defense against malicious use of SS7 networks used by an adversary.
+    name: Interconnection Filtering
+  - fgmid: M1037
+    mitigates: Use of firewall capabilities may allow filtering for a number of different
+      paths, protocols, and networks.  Firewall capability may permit restrictions
+      on SS7, SMS, IP, Diameter and other protocols.
+    name: Filter Network Traffic
+  name: Network Access
+  object-type: technique
+  platforms: 5G
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [\u201CNSO offered \u2018bags of cash\u2019 for access\
+    \ to U.S. cell networks, whistleblower claims,\u201D Washington Post. Accessed:\
+    \ Apr. 11, 2023. [Online].](https://www.washingtonpost.com/technology/2022/02/01/nso-pegasus-bags-of-cash-fbi/)"
+  - "<a name=\"2\"> \\[2\\] </a> [\u201CNSO Group's Recent Difficulties Could Shape\
+    \ the Future of the Spyware Industry,\u201D Infosecurity Magazine, Access: Sep.\
+    \ 11, 2011. [online]](https://www.infosecurity-magazine.com/news-features/nso-groups-difficulties-spyware/)"
+  status: This is a theoretical behavior in context of 5G systems.
+  subtechnique-of: FGT1583
+  tactics:
+  - TA0042
+  typecode: fight_subtechnique_to_attack_technique
+- architecture-segment: RAN, UE
+  bluf: An adversary may send crafted GTP-U packets to the UPF/PGW in order to establish
+    an illicit session with a target UE.
+  criticalassets:
+  - Description: "UE\u2019s privacy is violated by the data session established by\
+      \ adversary."
+    Name: UE security is impacted
+  description: " An adversary may send crafted GTP-U packets to the UPF/PGW in order\
+    \ to establish an illicit session with a target UE.\r\n\r\nAdversary may send\
+    \ an encapsulated GTP-U packet to UPF/PGW with the destination IP of inner IP\
+    \ the same as UE\u2019s private IP address and source IP of inner IP as its own\
+    \ IP or a server IP on the internet which is controlled by the adversary. UPF/PGW\
+    \ forwards the GTP-U packet to gNB/eNB. gNB/eNB decapsulates the GTP-U header\
+    \ and forwards the inner packet to the victim UE. UE responds to the message.\
+    \ The response message is received either by the adversary or by an adversary\
+    \ controlled malicious server on the internet. Thus, adversary establishes a two-way\
+    \ communication to the victim UE. Once the session is established, adversary can\
+    \ launch further attacks such as inserting malware, execute Remote Procedure Call\
+    \ (RPC) etc.\r\n\r\n"
+  detections:
+  - detects: Monitor incoming packets on N6 interface for any unauthorized data sessions.
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Examine all IP packets received from the internet at UPF/PGW with encapsulated
+      GTP-U payload.
+    fgdsid: FGDS5016
+    name: Payload checking
+  id: FGT1572.501
+  mitigations:
+  - fgmid: FGM5498
+    mitigates: GTP firewall can be used to prevent GTP-U based frauds. GTP in GTP
+      Identification can be used to prevent GTP reflection attacks. [2]
+    name: Limit incoming signaling and user plane traffic
+  - fgmid: M1031
+    mitigates: Network Intrusion Prevention.
+    name: Network Intrusion Prevention
+  - fgmid: M1041
+    mitigates: Use IPSec tunnel between gNB and UPF to prevent Adversary on the side
+      (AoTS) attacks.
+    name: Encrypt Sensitive Information
+  name: UE Access via GTP-U
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: UE is subject to further attacks such as malware insertion, RPC execution
+      etc.
+    Name: UE security is compromised
+  preconditions:
+  - Description: "Adversary figures out UE\u2019s private IP address by using open-source\
+      \ IP address scanning tools such as Shodan and they also figure out the TEID\
+      \ being used by the network. [See FGT5031 Discover TEID]\n\nNote: For LTE, the\
+      \ adversary needs to know TEIDs of two GTP tunnels: TEIDs on S5 and S1-U interfaces."
+    Name: Adversary has knowledge of UE IP address and TEID
+  procedureexamples:
+  - Description: "Adversary may send encapsulated GTP-U packet to UPF/PGW with the\
+      \ destination IP of inner IP the same as UE\u2019s private IP address and source\
+      \ IP of inner IP as its own IP or a server IP on the internet which is controlled\
+      \ by the adversary. UPF/PGW forwards the GTP-U packet to gNB. gNB decapsulates\
+      \ the GTP-U header and forwards the inner packet to the victim UE. UE responds\
+      \ to the message. The response message is received either by the adversary or\
+      \ by an adversary controlled malicious server on the internet. Thus, adversary\
+      \ establishes a two-way communication to the victim UE. [1]\n\nAdversary may\
+      \ launch further attacks on victim UE such as inserting malware, execute Remote\
+      \ Procedure Call (RPC) etc.\n\nNote: For LTE, two GTP tunnels are used in the\
+      \ user plane. The first GTP tunnel is between PGW and SGW-U on S5 interface\
+      \ and the second GTP tunnel is between SGW-U and eNB on S1-U interface. Hence,\
+      \ the adversary needs to know the TEID of both GTP tunnels to launch this attack."
+    Name: Two way session is established between victim UE and adversary
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [Trend Micro article: \u201COutside Looking In: How\
+    \ a Packet Reflection Vulnerability Could Allow Attackers to Infiltrate Internal\
+    \ 5G Networks\u201D](https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/plague-private-5g-networks)"
+  - "<a name=\"2\"> \\[2\\] </a> [A10 Networks article: \u201CGTP FIREWALL IN 4G AND\
+    \ 5G MOBILE NETWORKS STRONG PROTECTION FOR ALL GTP INTERFACES\u201D.](https://www.a10networks.com/wp-content/uploads/A10-SB-19202-EN.pdf)"
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1572
+  tactics:
+  - TA0001
+  typecode: fight_subtechnique_to_attack_technique
+- architecture-segment: 5G
+  bluf: An adversary may discover a valid GTP-U TEID in order to apply additional
+    techniques.
+  criticalassets:
+  - Description: "UE\u2019s sensitive data such as its private IP address and GTP-U\
+      \ tunnel id (TEID) are revealed to adversary."
+    Name: UE privacy
+  description: " An adversary may discover a valid GTP-U TEID in order to apply additional\
+    \ techniques.\r\n\r\nThe GPRS Tunneling Protocol - User plane (GTP-U) is a protocol\
+    \ in both 4G and 5G that tunnels user data packets between the radio network (gNB/eNB)\
+    \ and the User Plane Function (UPF) in 5G, Serving Gateway (SGW) in 4G. In 4G,\
+    \ there is another GTP-U tunnel between SGW and Packet Data Network (PDN) Gateway\
+    \ (PGW). The GTP-U protocol header has a Tunnel Endpoint ID (TEID). Each UE is\
+    \ assigned a unique TEID for the GTP-U tunnel and it is used to carry data from\
+    \ multiple QoS flows. In order to apply additional techniques like hijacking the\
+    \ tunnel, the adversary needs to discover a valid TEID.\r\n\r\nAdversary may try\
+    \ to guess the TEID by sending a large number of GTP-U packets to the UPF/PGW\
+    \ (e.g., through N3 interface between UPF and gNB or S1-U interface between SGW\
+    \ and eNB and S5 interface between SGW and PGW) with different TEIDs, until a\
+    \ valid one is found. When target IP address and TEID match, the adversary may\
+    \ receive a response indicating success. Some core networks show affinity to certain\
+    \ ranges of TEIDs under certain conditions, making brute forcing easier. Once\
+    \ TEID is known, further attacks can be launched to slow down or crash the targeted\
+    \ UE.\r\n\r\n"
+  detections:
+  - detects: Monitor incoming packets on N6 interface for any unauthorized data sessions.
+    fgdsid: DS0029
+    name: Network Traffic
+  - detects: Inspect the payloads of all incoming packets to filter encapsulated GTP-U
+      on internet facing interface of UPF and PGW.
+    fgdsid: FGDS5016
+    name: Payload checking
+  id: FGT5031
+  mitigations:
+  - fgmid: M1031
+    mitigates: Network Intrusion Prevention.
+    name: Network Intrusion Prevention
+  - fgmid: M1041
+    mitigates: Use IPSec between gNB and UPF, eNB and SGW, SGW and PGW. Use strong
+      encryption algorithms to prevent eavesdropping on subscriber payload data including
+      their private IP addresses.
+    name: Encrypt Sensitive Information
+  - fgmid: FGM5507
+    mitigates: Randomize TEID allocations.
+    name: TEID allocation
+  - fgmid: FGM5508
+    mitigates: Refresh TEIDs frequently to make discovery of TEID to UE IP address
+      mapping harder.
+    name: Refresh TEIDs
+  name: Discover TEID
+  object-type: technique
+  platforms: 5G
+  preconditions:
+  - Description: "Retrieve the target UE\u2019s private IP address using open-source\
+      \ search engines e.g. shodan."
+    Name: "Obtain victim UE\u2019s private IP address"
+  procedureexamples:
+  - Description: "Adversary sends large number of encapsulated GTP-U packets with\
+      \ different TEIDs to a particular UE whose IP address is known to the adversary.\
+      \ If response is received for a GTP-U packet, UE\u2019s TEID will be known to\
+      \ the adversary. [1]\n\nFor example, adversary may launch further attacks such\
+      \ as GTP-U tunnel hijack and DoS to the target UE.\n\nIn 5G, the TEID of N3\
+      \ GTP tunnel needs to be discovered by the adversary. In 4G, the adversary needs\
+      \ to discover TEID of S1-U GTP tunnel and S5 GTP tunnel."
+    Name: Send large number of GTP-U packets via UPF/PGW/SGW to the target UE
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [TrendMicro publication: \u201CA Deep Dive into the\
+    \ Packet Reflection Vulnerability Allowing Attackers to Plague Private 5G Networks\
+    \ - Security News.\u201D](https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/plague-private-5g-networks)"
+  status: This is a theoretical behavior
+  tactics:
+  - TA0007
+  typecode: fight_technique
+- architecture-segment: 5G
+  bluf: An adversary controlled UE may be used to send crafted NAS messages to AMF
+    to crash or slow down the AMF.
+  criticalassets:
+  - Description: 5G core network functions can be slowed down or crashed which causes
+      temporary network outage for UEs and gNBs.
+    Name: Core network functions
+  description: " An adversary controlled UE may be used to send crafted NAS messages\
+    \ to AMF to crash or slow down the AMF.\r\n\r\nAMF processes registration request\
+    \ messages from UE and it works with other NFs in the core to respond to those\
+    \ messages. By sending crafted NAS messages from UE, an adversary may force 5G\
+    \ core AMF or other Control Plane functions to go into undefined states, and might\
+    \ result in DoS. UEs use NAS connection (via N1 interface) to the core AMF function.\
+    \ A specially crafted message can be used to cause coding or parsing error which\
+    \ can potentially crash the AMF. Existing UEs and new UEs may not be able to get\
+    \ service from the 5G network.\r\n\r\n"
+  detections:
+  - detects: 'Examine all header fields of control plane messages received in the
+      uplink direction from UE to the core.
+
+      This can be done either by logging all messages received by the NF or by using
+      a proxy or firewall at the core network entry point.'
+    fgdsid: DS0029
+    name: Network Traffic
+  id: FGT1498.503
+  mitigations:
+  - fgmid: FGM5511
+    mitigates: Check for NAS message with incorrect or very large length, examine
+      all header fields. Improve message parsing mechanism by discarding messages
+      with improper header lengths.
+    name: Verify NAS messages from UE
+  - fgmid: FGM5512
+    mitigates: Use high availability feature for all core network functions.
+    name: Use high availability
+  name: UE DoS to AMF
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: Some 5G core network services will be unavailable causing temporary
+      network outage.
+    Name: Network services unavailable
+  preconditions:
+  - Description: A compromised COTS UE or a UE with open-source code running in an
+      SDR can be used to run malicious application code. This can be used to generate
+      the specially crafted NAS message to be sent towards AMF.
+    Name: Compromise a UE or a purpose built UE
+  procedureexamples:
+  - Description: Adversary controlled UE sends a crafted NAS message towards AMF with
+      the length field increased to a very large value. If AMF does not do proper
+      header parameters check including length check, it can cause buffer overflow
+      in the AMF which can force AMF to go to an undefined state or crash. This will
+      cause Denial of Service for existing and future UEs. [1,2,3]
+    Name: AMF is targeted from UE using malformed NAS message
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [Github post: \u201C[NAS] fix the security issue\
+    \ (ZDI-CAN-14043)\u201D](https://github.com/open5gs/open5gs/commit/00c96a3f0ffd12c4330bee9a3f9596f8e4b86b6f)"
+  - "<a name=\"2\"> \\[2\\] </a> [CVE-2021-44081: \u201CA buffer overflow vulnerability\
+    \ exists in the AMF of open5gs 2.1.4. When the length of MSIN in Supi exceeds\
+    \ 24 characters, it leads to AMF denial of service.\u201D](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44081)"
+  - "<a name=\"3\"> \\[3\\] </a> [CVE-2022-43677: \u201CA crafted malformed NGAP message\
+    \ can crash AMF and NGAP decoder\u201D.](https://github.com/free5gc/free5gc/issues/402)"
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1498
+  tactics:
+  - TA0040
+  typecode: fight_subtechnique_to_attack_technique
+- architecture-segment: 5G
+  bluf: An adversary-controlled UE may be used to send a GTP-U packet to UPF/PGW with
+    a malicious payload in order to evade UPF/PGW routing controls to establish communications
+    with a core NF.
+  criticalassets:
+  - Description: Core NF is illegitimately accessed from the UE via user plane function
+      UPF/PGW.
+    Name: Core network functions accessed from the user plane
+  description: " An adversary-controlled UE may be used to send a GTP-U packet to\
+    \ UPF/PGW with a malicious payload in order to evade UPF/PGW routing controls\
+    \ to establish communications with a core NF.\r\n\r\nThe UPF/PGW is the core network\
+    \ function supporting the user plane. It tunnels user data packets from the radio\
+    \ access networks (gNB/eNB) towards data networks (such as the Internet). Other\
+    \ core network functions (NFs) - such as the Session Management Function (SMF)\
+    \ - support the control plane. In this threat, a user plane packet crosses over\
+    \ to the control plane. \r\n\r\nThe UPF/PGW normally processes GTP-U packets to\
+    \ and from the radio access network (gNB/eNB). A GTP-U packet, after the header\
+    \ is stripped, should contain a regular user data IP packet, with the source IP\
+    \ address of the UE, and the destination an external IP address (Internet). However,\
+    \ in this case, it contains a control packet addressed to a core network function\
+    \ for instance the SMF. The UPF/PGW should then drop this packet, but in some\
+    \ implementations it was found that the UPF/PGW may instead route it as indicated.\r\
+    \n\r\nThus, if UPF/PGW does not do proper parameter checks, it may route the packet\
+    \ to an improper destination such as a core network function in the control plane\
+    \ e.g. SMF, it can cause the NF to go to an undefined state and the NF may crash.\r\
+    \n\r\n\r\n"
+  detections:
+  - detects: Examine all header fields and encapsulated payload of user plane packets
+      received in the uplink direction from UE.
+    fgdsid: DS0029
+    name: Network Traffic
+  id: FGT1599.505
+  mitigations:
+  - fgmid: FGM5510
+    mitigates: "Do not allow any packets received from UE which has destination address\
+      \ set to a core NF\u2019s IP address."
+    name: Filter packets to core NF sent by UE
+  name: GTP-U Abuse
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: "Core network function is DoS\u2019ed from the user plane."
+    Name: Core network functions impacted
+  preconditions:
+  - Description: A COTS UE or SDR UE can be used to prepare specially crafted GTP-U
+      packets to be sent to towards UPF/PGW.
+    Name: Compromise a UE
+  procedureexamples:
+  - Description: 'This is a UP to CP cross-over or network boundary bridging attack.
+      A specially crafted GTP-U packet containing a control plane packet is sent by
+      the adversary controlled UE to the UPF/PGW, e.g. a tunneled GTP-U packet can
+      be sent to trick the UPF/PGW. The payload packet contains the NF IP address
+      as the destination IP.
+
+
+      Without proper parameter validation, UPF/PGW may send the GTP-U payload to the
+      destination address in the control plane which can be SMF. The message can cause
+      the SMF to go to an undefined state and it may crash the SMF.'
+    Name: Core NF is attacked from UE using tunneled GTP-U packets via UPF/PGW
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1599
+  tactics:
+  - TA0005
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: N/A
+  architecture-segment: 5G
+  bluf: An adversary may send an unsolicited SS7/Diameter message to the core network
+    of a UE that will cause the core network to provide coarse location of the UE.
+  criticalassets:
+  - Description: "Subscriber\u2019s coarse location is revealed to the adversary."
+    Name: "UE\u2019s privacy is compromised"
+  description: " An adversary may send an unsolicited SS7/Diameter message to the\
+    \ core network of a UE that will cause the core network to provide coarse location\
+    \ of the UE.\r\n\r\n5G SA core has interfaces to IMS core to support voice and\
+    \ SMS services. Diameter/SS7 attacks. In signaling plane, voice service uses Diameter\
+    \ based Rx interface between PCF and P-CSCF in IMS, Diameter based Sh interface\
+    \ between HSS/UDM and TAS in IMS, Diameter based Cx interface between HSS/UDM\
+    \ and I/S-CSCF. It also uses SIP/SDP based Gm interface between UPF and P-CSCF\
+    \ in the user plane.\r\nSMS over NAS service uses SS7 (MAP) based interface and\
+    \ S6c Diameter based interface from UDM to SMSC. It also uses MAP and SGd (Diameter)\
+    \ interfaces from SMSF to SMSC.\r\n\r\nDiameter based attacks:\r\nAdversary sets\
+    \ up a fake IP-SM-GW or SMS-GMSC and then sends a specially crafted Send Routing\
+    \ Info for Short Message Request (SRR) with victim UE\u2019s MSISDN to HSS/UDM.\
+    \ If SMS router/firewall is not setup or if it is setup incorrectly, HSS/UDM will\
+    \ return the ID of AMF/MME\u2019s currently serving the UE in response Send Routing\
+    \ Info for SM Answer (SRA) message. Thus, adversary will know the coarse location\
+    \ of the UE e.g. part of the town where the victim UE is present.\r\n\r\nSS7 attacks:\r\
+    \nAdversary sets up a fake SMSC and then sends a specially crafted MAP SRI_SM\
+    \ Send Routing Info for Short Message Request (SRR) with victim UE\u2019s MSISDN\
+    \ to HSS/UDM. If SMS router/firewall is not setup or if it is setup incorrectly,\
+    \ HSS/UDM will return the IMSI/SUPI of the UE and the ID of AMF/MME\u2019s currently\
+    \ serving the UE in response Send Routing Info for SM Answer (SRA) message.\r\n\
+    \r\nOnce coarse location of victim UE is known to the adversary, they may launch\
+    \ follow on attacks such as physical attack, eavesdropping on airlink messages\
+    \ from the UE etc.\r\n\r\n"
+  detections:
+  - detects: Monitor all communications over Diameter and SS7/MAP based interfaces
+      to/from core network.
+    fgdsid: DS0029
+    name: Network Traffic
+  id: FGT5012.008
+  mitigations:
+  - fgmid: FGM5004
+    mitigates: Use SS7/MAP firewall and SMS router
+    name: Correctly configure SMS firewall
+  - fgmid: FGM5513
+    mitigates: Use Diameter End-to-end Signaling Security (DESS)
+    name: Use DESS security
+  name: Diameter signaling
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: Further attacks such as physical attack and eavesdropping on subscriber
+      private data are possible once their coarse location is known to the adversary.
+    Name: Further attacks on subscriber are possible
+  preconditions:
+  - Description: "Adversary collects victim UE\u2019s phone number from subscriber\u2019\
+      s physical address using internet based services such as numlooker.com."
+    Name: MSISDN or phone number of victim UE is known to adversary
+  procedureexamples:
+  - Description: "Adversary sets up a fake SMSC and then sends a specially crafted\
+      \ MAP SRI_SM Send Routing Info for Short Message Request (SRR) with victim UE\u2019\
+      s MSISDN to HSS/UDM. If SMS router/firewall is not setup or if it is setup incorrectly,\
+      \ HSS/UDM will return the IMSI/SUPI of the UE and the ID of AMF/MME\u2019s currently\
+      \ serving the UE in response Send Routing Info for SM Answer (SRA) message.\
+      \ [1]"
+    Name: "Subscriber\u2019s coarse location is retrieved via SS7/MAP signaling"
+  - Description: "Adversary sets up a fake IP-SM-GW or SMS-GMSC and then sends a specially\
+      \ crafted Send Routing Info for Short Message Request (SRR) with victim UE\u2019\
+      s MSISDN to HSS/UDM. If SMS router/firewall is not setup or if it is setup incorrectly,\
+      \ HSS/UDM will return the ID of AMF/MME\u2019s currently serving the UE in response\
+      \ Send Routing Info for SM Answer (SRA) message. Thus, adversary will know the\
+      \ coarse location of the UE e.g. part of the town where the victim UE is present.\
+      \ [2]"
+    Name: "Subscriber\u2019s coarse location is retrieved via Diameter signaling"
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [International Conference on Cyber Conflict 2016:\
+    \ \u201CWe know where you are\".](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7529440)"
+  - "<a name=\"2\"> \\[2\\] </a> [Positive Technologies article: \u201CNext Generation\
+    \ Networks, Next Level Cyber Security Problems\u201D](https://www.ptsecurity.com/upload/iblock/a8e/diameter_research.pdf)"
+  status: This is a theoretical behavior in context of 5G systems.
+  subtechnique-of: FGT5012
+  tactics:
+  - TA0007
+  - TA0009
+  typecode: fight_subtechnique
+- access-required: N/A
+  architecture-segment: 5G
+  bluf: An adversary may send an unsolicited SS7/Diameter message to the core network
+    of a UE that will cause the core network to provide IMSI/SUPI of the UE.
+  criticalassets:
+  - Description: "Subscriber\u2019s identity is revealed to the adversary."
+    Name: "UE\u2019s privacy is compromised"
+  description: " An adversary may send an unsolicited SS7/Diameter message to the\
+    \ core network of a UE that will cause the core network to provide IMSI/SUPI of\
+    \ the UE.\r\n\r\n5G SA core has interfaces to IMS core to support voice and SMS\
+    \ services. Diameter/SS7 attacks. In signaling plane, voice service uses Diameter\
+    \ based Rx interface between PCF and P-CSCF in IMS, Diameter based Sh interface\
+    \ between HSS/UDM and TAS in IMS, Diameter based Cx interface between HSS/UDM\
+    \ and I/S-CSCF. It also uses SIP/SDP based Gm interface between UPF and P-CSCF\
+    \ in the user plane.\r\nSMS over NAS service uses SS7 (MAP) based interface and\
+    \ S6c Diameter based interface from UDM to SMSC. It also uses MAP and SGd (Diameter)\
+    \ interfaces from SMSF to SMSC.\r\n\r\nDiameter based attacks:\r\nAdversary sets\
+    \ up a fake SMSC and then sends a specially crafted Send Routing Info for Short\
+    \ Message Request (SRR) with victim UE\u2019s MSISDN to HSS/UDM. If SMS router/firewall\
+    \ is not setup or if it is setup incorrectly, HSS/UDM will return the IMSI/SUPI\
+    \ of the UE and the ID of AMF/MME\u2019s currently serving the UE in response\
+    \ Send Routing Info for SM Answer (SRA) message.\r\nIn another scenario, adversary\
+    \ sets up an application server and sends a specially crafted User Data Request\
+    \ (UDR) message with victim UE\u2019s MSISDN to HSS/UDM. If HSS/UDM is not configured\
+    \ properly, HSS/UDM will return the IMSI/SUPI of the UE in User Data Answer (UDA)\
+    \ response message.\r\n\r\nSS7 based attacks:\r\nAdversary sets up a fake SMSC\
+    \ and then sends a specially crafted MAP SRI_SM Send Routing Info for Short Message\
+    \ Request (SRR) with victim UE\u2019s MSISDN to HSS/UDM. If SMS router/firewall\
+    \ is not setup or if it is setup incorrectly, HSS/UDM will return the IMSI/SUPI\
+    \ of the UE and the ID of AMF/MME\u2019s currently serving the UE in response\
+    \ Send Routing Info for SM Answer (SRA) message.\r\nOnce the IMSI/SUPI is obtained,\
+    \ adversary may launch further attacks such as retrieving location of the UE,\
+    \ network slice and data network that are being used by the UE etc.\r\n"
+  detections:
+  - detects: Monitor all communications over Diameter and SS7/MAP based interfaces
+      to/from core network.
+    fgdsid: DS0029
+    name: Network Traffic
+  id: FGT5019.005
+  mitigations:
+  - fgmid: FGM5004
+    mitigates: Use SS7/MAP firewall and SMS router
+    name: Correctly configure SMS firewall
+  - fgmid: FGM5513
+    mitigates: Use Diameter End-to-end Signaling Security (DESS)
+    name: Use DESS security
+  name: Diameter signaling
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: If IMSI/SUPI is obtained, many other subsequent attacks are possible
+      such as retrieving subscriber location, network slice, data network of the UE.
+    Name: IMSI/SUPI is available to the adversary
+  preconditions:
+  - Description: "Adversary collects victim UE\u2019s phone number from subscriber\u2019\
+      s physical address using internet based services such as numlooker.com."
+    Name: MSISDN or phone number of victim UE is known to adversary
+  procedureexamples:
+  - Description: "Diameter: \nAdversary sets up a fake SMSC and then sends a specially\
+      \ crafted Send Routing Info for Short Message Request (SRR) with victim UE\u2019\
+      s MSISDN to HSS/UDM. If SMS router/firewall is not setup or if it is setup incorrectly,\
+      \ HSS/UDM will return the IMSI/SUPI of the UE and the ID of AMF/MME\u2019s ID\
+      \ currently serving the UE in response Send Routing Info for SM Answer (SRA)\
+      \ message.\n\nSS7:\nAdversary sets up a fake SMSC and then sends a specially\
+      \ crafted MAP SRI_SM Send Routing Info for Short Message Request (SRR) with\
+      \ victim UE\u2019s MSISDN to HSS/UDM. If SMS router/firewall is not setup or\
+      \ if it is setup incorrectly, HSS/UDM will return the IMSI/SUPI of the UE and\
+      \ the ID of AMF/MME\u2019s ID currently serving the UE in response Send Routing\
+      \ Info for SM Answer (SRA) message. [1, 2]"
+    Name: "UE\u2019s IMSI/SUPI is retrieved using SRR message"
+  - Description: "Adversary sets up an application server and sends a specially crafted\
+      \ User Data Request (UDR) message with victim UE\u2019s MSISDN to HSS/UDM. If\
+      \ HSS/UDM is not configured properly, HSS/UDM will return the IMSI/SUPI of the\
+      \ UE in User Data Answer (UDA) response message. [2]"
+    Name: "UE\u2019s IMSI/SUPI is retrieved using UDR message"
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [International Conference on Cyber Conflict 2016:\
+    \ \u201CWe know where you are\".](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7529440)"
+  - "<a name=\"2\"> \\[2\\] </a> [Positive Technologies article: \u201CNext Generation\
+    \ Networks, Next Level Cyber Security Problems\u201D](https://www.ptsecurity.com/upload/iblock/a8e/diameter_research.pdf)"
+  status: This is a theoretical behavior in context of 5G systems.
+  subtechnique-of: FGT5019
+  tactics:
+  - TA0009
+  typecode: fight_subtechnique
+- architecture-segment: 5G
+  bluf: 'Malicious xApps may gain unauthorized access to near-RT RIC and E2 nodes. '
+  criticalassets:
+  - Description: Adversary may impact normal RAN functions.
+    Name: 'Near-RT RIC function: RAN optimization'
+  - Description: "Adversary may disrupt RAN operations by changing UE\u2019s slice\
+      \ priority and QoS parameters which results in denying new connections or dropping\
+      \ existing connections."
+    Name: RAN configuration data
+  - Description: "UE data includes UE\u2019s coarse location, temporary identifier\
+      \ and correlation of UE temporary identifier to other service related data e.g.\
+      \ DNN, NSSAI etc. See clause 6.2.1 of [2]."
+    Name: UE data
+  - Description: Adversary has read/write access to database containing sensitive
+      network data such as QoS policies and slice priority.
+    Name: Sensitive network data
+  description: " Malicious xApps may gain unauthorized access to near-RT RIC and E2\
+    \ nodes. \r\n\r\nxApps are application software that may be developed by third\
+    \ party vendors. They reside in the Near Real Time (near-RT) RAN Intelligent Controller\
+    \ (RIC) after onboarding is done by ORAN orchestration system. Near-RT RICs control\
+    \ and optimize RAN functions for events ranging from 10 ms to 1 sec. xApps manage\
+    \ Radio Resource Management (RRM) functions of RAN via E2 interface. The following\
+    \ components are controlled by xApps by using APIs: E2 nodes such as O-DU, O-RU,\
+    \ O-CU-CP and O-CU-UP. Near-RT RIC and xApps are managed by non-RT RIC via A1\
+    \ interface for RAN optimizations and by SMO via O1 interface for lifecycle management.\r\
+    \n\r\nDuring onboarding of xApps, malware may be installed by the adversary in\
+    \ xApps which can gain unauthorized access to near-RT RIC by exploiting weak or\
+    \ misconfigured authentication mechanism in near-RT RIC. A malicious xApp image\
+    \ may be crafted by the adversary and then installed in near-RT RIC during onboarding.\
+    \ A legitimate xApp may be cloned in near-RT RIC by an insider adversary.\r\n\r\
+    \nOnce installed in near-RT RIC, the rogue xApp may access E2 nodes via APIs by\
+    \ penetrating traffic separating firewalls within ORAN. The rogue xApp may change\
+    \ behavior of near-RT RIC which will impact RAN functions such as coverage, network\
+    \ slicing, QoS etc.\r\n  \r\n\r\n"
+  detections:
+  - detects: Monitor access token usage by xApps.
+    fgdsid: DS0006
+    name: Web Credential
+  - detects: 'Perform real-time audits and post-processing of logs.
+
+      Detect which parts of the RAN is accessed by each xApp e.g. O-DU, O-CU-CP, O-CU-UP,
+      O-RU etc.'
+    fgdsid: DS0010
+    name: Cloud Storage
+  - detects: Monitor logs for authentication/authorization of xApps to near-RT RIC
+      and E2 nodes, logs for each transaction done by xApps to E2 nodes. Audit logs
+      and telemetry data for unauthorized activities.
+    fgdsid: DS0025
+    name: Cloud Service
+  - detects: Verify and refresh frequently digital signatures used for authenticating
+      xApps by near-RT RIC and E2 nodes.
+    fgdsid: DS0037
+    name: Certificate
+  - detects: Monitor all xApps onboarding processes. Use host scanning tools to detect
+      malware insertions.
+    fgdsid: FGDS5021
+    name: Monitor 3rd party application onboarding
+  id: FGT5034
+  mitigations:
+  - fgmid: FGM5091
+    mitigates: Use strong authentication and authorization for 3rd party xApps during
+      onboarding and use strong mutual authentication between xApps and near-RT RIC
+      and between xApp and E2 nodes.
+    name: Mutual authentication
+  - fgmid: M1030
+    mitigates: Restrict SW paths for some network components using standard protocols
+      such as SSL, REST/HTTPS etc.
+    name: Network Segmentation
+  - fgmid: M1033
+    mitigates: Use only trusted supply chain, rigorous scanning of software images.
+      Limit Software Installations especially from 3rd party sources.
+    name: Limit Software Installation
+  - fgmid: M1043
+    mitigates: Credential Access Protection - Use capabilities to prevent successful
+      credential access by adversaries; including blocking forms of credential dumping.
+    name: Credential Access Protection
+  - fgmid: M1045
+    mitigates: Verify digital signature of xApp
+    name: Code Signing
+  - fgmid: FGM5516
+    mitigates: Make the tokens short lived to prevent replay of token attacks (AiTM).
+    name: Make xApp sessions short lived
+  name: Rogue xApps unauthorized access
+  object-type: technique
+  platforms: ORAN
+  postconditions:
+  - Description: Adversary degrades network operation or in the worst case causes
+      temporary network outage.
+    Name: Network operations impacted
+  - Description: "Operator\u2019s network policies are known to the adversary."
+    Name: Sensitive network data exposed to adversary
+  - Description: "UE and subscriber\u2019s sensitive data is revealed to the adversary."
+    Name: Sensitive UE data exposed to adversary
+  preconditions:
+  - Description: 'Adversary installs rogue xApp in near-RT RIC via malware during
+      onboarding and it finds out weak authentication mechanism in near-RT RIC to
+      gain entry in the O-RAN systems.
+
+
+      A legitimate xApp may be cloned by adversary to launch further attacks.'
+    Name: Adversary has access to near-RT RIC during onboarding or via insider attack
+  procedureexamples:
+  - Description: 'Adversary may exploit weakly configured authentication mechanism
+      in near-RT RIC and E2 nodes for the xApps and may gain unauthorized access to
+      near-RT RIC and E2 nodes.
+
+
+      Adversary may access E2 nodes such as O-DU, O-RU, O-CU-CP and O-CU-UP via E2
+      interface by using E2 related APIs. Clause 5.4.1.4 of [1], clause 7.3 of [2]
+      and [3].'
+    Name: Malicious xApp gets access to near-RT RIC and E2 nodes.
+  - Description: "Rogue xApp may change behavior of near-RT RIC by intercepting or\
+      \ modifying A1 messages to/from non-RT RIC or O1 messages to/from SMO. Some\
+      \ examples of attacks are:\n\nDoS attack on network and UEs by changing slice\
+      \ priority and QoS parameters, steal network and UE information and track UE\u2019\
+      s location."
+    Name: Rogue xApp changes behavior of ORAN system
+  - Description: "When a new xApp is deployed, it is authenticated by near-RT RIC.\
+      \ If authentication is successful, near-RT RIC provides an ID to the xApp and\
+      \ it creates a Managed Object Instance (MOI) for the xApp. MOI is used by SMO\
+      \ to manage xApps. \n\nAiTM attack may be launched by adversary by monitoring\
+      \ and replaying a stolen token or MOI of a legitimate xApp. This may change\
+      \ behavior of near-RT RIC and impact RAN functions such as coverage, network\
+      \ slicing and QoS. Clause 9.4.1 of [2]."
+    Name: xApps stolen token/MOI
+  references:
+  - <a name="1"> \[1\] </a> [O-RAN Security Threat Model 6.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [O-RAN WG3 Near-RT RIC Architecture 4.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - "<a name=\"3\"> \\[3\\] </a> [Ericsson white paper: \u201CSecurity considerations\
+    \ of Open RAN\u201D.](https://www.ericsson.com/en/security/security-considerations-of-open-ran)"
+  status: This is a theoretical behavior
+  tactics:
+  - TA0001
+  typecode: fight_technique
+- architecture-segment: 5G
+  bluf: "Adversary may jam to impact IAB or mIAB (gNB) node's communications to impact\
+    \ the UEs and downstream IAB node\xE2\u20AC\u2122s ability to connect to network."
+  criticalassets:
+  - Description: 5G RAN services are disrupted during jamming attack.
+    Name: Network operations disrupted
+  description: " Adversary may jam to impact IAB or mIAB (gNB) node's communications\
+    \ to impact the UEs and downstream IAB node\u2019s ability to connect to network.\r\
+    \n\r\nIf one or more Integrated Access and Backhaul (IAB) nodes or mobile IAB\
+    \ (mIAB) or gNBs wireless backhaul connection is jammed in tactical or mobile\
+    \ network deployment, the network connectivity will be disrupted. This will cause\
+    \ temporary DoS attack for some users until an alternate connection is available.\r\
+    \n\r\nMobile IAB nodes are small cell base stations which are typically deployed\
+    \ on a vehicle placed in strategic areas. For example, mIAB node can be deployed\
+    \ near a stadium for a game event. The backhaul traffic from the mIAB node is\
+    \ carried over the air to the next hop base station. The next hop gNB can be another\
+    \ IAB node or a fixed base station (aka donor IAB) which has a wired connection\
+    \ to the 5G core network.\r\n\r\nAn IAB node may use the same or different RF\
+    \ frequency bands for the backhaul traffic to the upstream IAB node and for providing\
+    \ network access to the UEs connected to itself. If the same frequency band is\
+    \ used for backhaul and access, it is known as in-band deployment and if different\
+    \ frequency bands are used for backhaul and access, it is known as out-of-band\
+    \ deployment. The adversary may choose to jam both frequency bands in case of\
+    \ out-of-band deployment to disrupt both backhaul and access communications.\r\
+    \n\r\nThe adversary may impact communications of the target IAB node, the IAB\
+    \ nodes that are downstream from the target IAB node and all UEs that are connected\
+    \ to the target IAB node and all UEs that are connected to downstream IAB nodes.\
+    \ [2]\r\n\r\n"
+  detections:
+  - detects: Monitor gNB logs for abnormal service outage.
+    fgdsid: FGDS5020
+    name: Monitor unplanned service outage
+  id: FGT5024
+  mitigations:
+  - fgmid: FGM5515
+    mitigates: Move the mIAB node to another location to avoid jamming and establish
+      a new connection to the next hop base station.
+    name: Move mIAB node
+  name: IAB Denial of Service
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: Legitimate subscribers are not able to connect to 5G network.
+    Name: Network operations are impacted
+  preconditions:
+  - Description: Adversary must be positioned in the same area as the victim IAB node
+      with a wireless sniffer device and a jamming device equipped with sufficient
+      transmit power.
+    Name: Adversary in the same vicinity as victim IAB node
+  - Description: Adversary impacts all communications associated to the victim IAB
+      node i.e. both access and backhaul.
+    Name: Adversary jams all communications of the victim IAB node
+  procedureexamples:
+  - Description: Adversary monitors transmissions on the IAB node backhaul and access
+      links with a wireless sniffer device. Then it starts transmitting bogus RF signal
+      with enough transmit power to jam the backhaul and access link communications.
+      This will disrupt connectivity to the network of the victim IAB node, all IAB
+      nodes that are downstream from victim IAB node, all UEs which are connected
+      to the victim IAB node and all UEs which are connected to downstream IAB nodes.
+    Name: IAB or mIAB node is jammed by adversary.
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [5G Americas White Paper: \u201CInnovations in 5G\
+    \ Backhaul Technologies; IAB, HFC & FIBER\u201D, June 2020.](https://www.5gamericas.org/wp-content/uploads/2020/06/Innovations-in-5G-Backhaul-Technologies-WP-PDF.pdf)"
+  - "<a name=\"2\"> \\[2\\] </a> [3GPP TS 38.401: \u201CNG-RAN; Architecture description\u201D\
+    .](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3219)"
+  status: This is a theoretical behavior
+  tactics:
+  - TA0040
+  typecode: fight_technique
+- architecture-segment: 5G
+  bluf: Adversary manipulates User Plane data on Fronthaul interface between O-DU
+    and O-RU to re-direct the data to a wrong destination or get discarded by the
+    recipient due to incorrect message parameters.
+  criticalassets:
+  - Description: Legitimate subscribers can be denied access or existing subscriber
+      sessions can be terminated or directed to malicious server.
+    Name: Subscriber network access
+  description: " Adversary manipulates User Plane data on Fronthaul interface between\
+    \ O-DU and O-RU to re-direct the data to a wrong destination or get discarded\
+    \ by the recipient due to incorrect message parameters.\r\n\r\nORAN Alliance has\
+    \ defined the open fronthaul interface which connects one O-DU to one or more\
+    \ O-RUs inside the gNB. The fronthaul interface makes it possible to distribute\
+    \ the physical layer functionalities between RU and DU, and to control RU operations\
+    \ from DU. ORAN Alliance has selected a specific configuration (split 7.2x) for\
+    \ splitting the physical layer among those proposed by 3GPP. The lower part of\
+    \ the physical layer (low PHY) resides in RU and performs Orthogonal Frequency\
+    \ Division Multiplexing (OFDM) phase compensation, inverse FFT and Cyclic Prefix\
+    \ (CP) insertion for frequency-to-time conversion in downlink, and FFT and CP\
+    \ removal in uplink. The physical layer in DU (high PHY) performs scrambling,\
+    \ modulation, layer mapping, and resource element mapping. Fronthaul consists\
+    \ of four types of interfaces: Control or C plane is used to carry control plane\
+    \ messages, User or U plane is used to carry user plane data, Synchronization\
+    \ or S plane is used to carry timing information and Management or M plane is\
+    \ used to carry management data.\r\n\r\nO-RAN fronthaul interface needs to implement\
+    \ strict performance requirements which includes very high throughput and very\
+    \ low latency. See clause 4.4 of [2]. Some security features may not be implemented\
+    \ by MNOs to meet those requirements and to reduce processing delay. Hence, AiTM\
+    \ attack on open fronthaul interface is possible which results in manipulation\
+    \ of U plane data. The adversary may manipulate RLC and MAC layers of the user\
+    \ plane data to cause DoS attack and/or session redirection attack (e.g. DNS redirection)\
+    \ on legitimate subscribers. Confidentiality and integrity protection requirements\
+    \ are not specified by ORAN alliance for control, user and synchronization (CUS)\
+    \ planes, and those are mandatory for M plane. See clause 6.1 of [2] and clause\
+    \ 5.4 of [3].\r\n\r\nNote: The user plane data in PDCP and above layers remains\
+    \ integrity protected on Fronthaul U plane and this data manipulation attack will\
+    \ not impact any of those data unless PDCP security is also broken by the adversary.\r\
+    \n\r\n"
+  detections:
+  - detects: Monitor if security configurations in O-RU and O-DU are downgraded to
+      weak or no security levels.
+    fgdsid: FGDS5022
+    name: Monitor security configurations
+  id: FGT1040.502
+  mitigations:
+  - fgmid: FGM1557
+    mitigates: Ensure fronthaul user plane data is protected with integrity protection.
+      This has performance impact on devices which implement integrity protection.
+    name: Integrity protection of data communication
+  name: Fronthaul User Plane Data
+  object-type: technique
+  platforms: RAN
+  postconditions:
+  - Description: Legitimate subscribers are denied access or existing sessions can
+      be terminated.
+    Name: DoS Attack
+  - Description: Subscriber sessions are redirected to a malicious server.
+    Name: Session redirection
+  preconditions:
+  - Description: Adversary must have physical access to open fronthaul network to
+      collect data and then manipulate and replay the data.
+    Name: Adversary has access to open fronthaul network.
+  procedureexamples:
+  - Description: 'Adversary launches AiTM attack on open fronthaul U plane data traffic
+      by using a simple sniffer and replay device. The fronthaul U plane data usually
+      does not have integrity protection due to stringent performance requirements.
+      Hence a data manipulation attack is possible by a simple device. DoS attack
+      can be done by manipulating RLC header with bogus data and those messages will
+      get discarded by the recipient. Session redirection attack can be launched by
+      changing the destination MAC address in the MAC header which will re-direct
+      the packets to an adversary-controlled server.
+
+
+      This attack can only manipulate user plane data below PDCP layer. Any user plane
+      data in PDCP and above layers are not compromised by this attack. See clause
+      5.4.1.2, T-UPLANE-01 of [1], clause 6.1 of [2] and clause 5.4 of [3].'
+    Name: Manipulate U plane data on open fronthaul interface.
+  references:
+  - <a name="1"> \[1\] </a> [O-RAN Threat Model 6.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [O-RAN WG4 Control, User, and Synchronization Plane Specification
+    12.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="3"> \[3\] </a> [O-RAN WG4 Management Plane Specification 12.00 version](https://orandownloadsweb.azurewebsites.net/specifications)
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1040
+  tactics:
+  - TA0040
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: N/A, N/A
+  addendums:
+  - "#### Addendum Name: _Silent_paging_tool\r\n##### Architecture Segments: RAN,\
+    \ UE\r\n An adversary may build or develop a silent SMS tool in order to send\
+    \ SMSs to nearby phones in a target area.\r\n\r\nA silent SMS is described in\
+    \ the specification GSM 03.40 as a Short Message of type 0, which indicates that\
+    \ the UE must acknowledge receipt of the short message but may discard its contents.\r\
+    \n\r\nIt is possible to build/develop an application to send silent SMS messages,\
+    \ which can run on a regular phone (UE) that can register to a local network.\
+    \ That application can be used to send a silent SMS to a target UE using the phone\
+    \ number (MSISDN).\r\n\r\n"
+  - "#### Addendum Name: _IMSI_Catcher\r\n##### Architecture Segments: RAN, UE\r\n\
+    \ An adversary may build an International Mobile Subscriber Identity (IMSI) catcher\
+    \ to capture IMSI numbers from nearby UEs in a target area.\r\n\r\nIMSI catchers\
+    \ are very similar to fake base stations but may not have full capabilities of\
+    \ the base station. The IMSI Catcher term has been traditionally associated with\
+    \ UE identity discovery or location identification.  Adversary may build one with\
+    \ open-source code and generic radio transceivers. Open-source code for software\
+    \ defined radio, or RAN test equipment, or simulators can also be modified to\
+    \ create an IMSI catcher.\r\n\r\n"
+  architecture-segment: RAN, UE
+  bluf: Adversaries may build capabilities that can be used during targeting.
+  description: "Adversaries may build capabilities that can be used during targeting.\r\
+    \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1587)\r\
+    \n"
+  detections: []
+  id: FGT1587
+  mitigations:
+  - fgmid: M1056
+    mitigates: This technique cannot be easily mitigated with preventive controls
+      since it is based on behaviors performed outside of the scope of the mobile
+      network operator .
+    name: Pre-compromise
+  name: Develop Capabilities
+  object-type: technique
+  platforms: RAN, RAN
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [Information Security Newspaper, \u201CHow to hack\
+    \ and track anybody\u2019s  phone location via silent SMS messages\u201D.](https://www.securitynewspaper.com/2023/06/20/how-to-hack-track-anybodys-phone-location-via-silent-sms-messages/)"
+  - <a name="2"> \[2\] </a> [Silent-sms-ping github repository](https://github.com/MatejKovacic/silent-sms-ping)
+  - "<a name=\"1\"> \\[1\\] </a> [Adrian Dabrowski, Nicola Pianta, Thomas Klepp, Martin\
+    \ Mulazzani, and Edgar Weippl. \u201CIMSI-catch me if you can: IMSI-catcher-catchers\u201D\
+    . In Proceedings of the 30th annual computer security applications Conference,\
+    \ pages 246\u2013255, 2014.](https://its-wiki.no/images/f/fb/Dabrowski_ISMI_Catch_me_Catchers.pdf)"
+  - "<a name=\"2\"> \\[2\\] </a> [Ravishankar Borgaonkar,  Altaf Shaik\_, 5G IMSI\
+    \ Catchers Mirage, Balckhat USA Conference 2021](https://blackhat.com/us-21/briefings/schedule/#g-imsi-catchers-mirage-23538)"
+  - <a name="3"> \[3\] </a> [HOW COPS CAN SECRETLY TRACK YOUR PHONE, The Intercept,
+    online article, July 31, 2021.  Accessed 6/22/2022](https://theintercept.com/2020/07/31/protests-surveillance-stingrays-dirtboxes-phone-tracking/)
+  - '<a name="4"> \[4\] </a> [A Knight, Brier & Thorn, Hacking GSM: Building a Rogue
+    Base Station to Hack Cellular Devices, Online Article.  Accessed 6/22/2022](https://www.brierandthorn.com/post/hacking-gsm-building-a-rogue-base-station-to-hack-cellular-devices)'
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  tactics:
+  - TA0042
+  typecode: attack_technique_addendum
+- addendums:
+  - "#### Addendum Name: _Rogue_Operator_Network\r\n##### Architecture Segments: Control\
+    \ Plane, RAN\r\n An adversary may install or set up a customized core mobile network\
+    \ in a target environment to enable follow-on behaviors.\r\n\r\nAn adversary may\
+    \ install, or otherwise set up a 5G core network capability that can be used during\
+    \ targeting. To support their operations, an adversary will likely obtain this\
+    \ capability (e.g. from open source software), and then proceed to stage it on\
+    \ a server (COTS) under their control. For a complete mobile network set-up, a\
+    \ radio access network (e.g. fake base station) would also be used, connected\
+    \ to this core network.\r\n\r\n\r\n"
+  architecture-segment: Control Plane, RAN
+  bluf: Adversaries may upload, install, or otherwise set up capabilities that can
+    be used during targeting.
+  description: "Adversaries may upload, install, or otherwise set up capabilities\
+    \ that can be used during targeting.\r\n[To read more, please see the MITRE ATT&CK\
+    \ page for this technique](https://attack.mitre.org/techniques/T1608)\r\n"
+  detections: []
+  id: FGT1608
+  mitigations: []
+  name: Stage Capabilities
+  object-type: technique
+  platforms: 5G Core
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [M.Grassi & X. Chen, \u201COver The Air Baseband\
+    \ Exploit: Gaining Remote Code Execution on 5G Smartphones,\u201D retrieved May\
+    \ 16, 2023](https://dl.acm.org/doi/abs/10.1145/3395351.3399360)"
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  tactics:
+  - TA0042
+  typecode: attack_technique_addendum
+- architecture-segment: Control Plane
+  bluf: An adversary may operationalize a customized mobile network in a target environment
+    to enable other follow-on behaviors against UE.s
+  criticalassets:
+  - Description: UEs that are lured to connect to a fake network may lose functionality.
+      The registration signaling will likely fail in the end.
+    Name: UE functionality
+  description: " An adversary may operationalize a customized mobile network in a\
+    \ target environment to enable other follow-on behaviors against UEs.\r\n\r\n\
+    An adversary enables the programmability of a rogue mobile network, in order to\
+    \ be able to connect a victim UE to a hostile/fake operator network. This is software\
+    \ that can run on a single piece of hardware. To configure it, the configuration\
+    \ files would need to be updated:  configure PLMN identifiers, radio frequency\
+    \ spectrum, IP addresses for core components. Configuration for connecting to\
+    \ one or more radio access nodes (e.g. base station) may also be done.\r\n\r\n\
+    This technique is to be used in conjunction with the equivalent technique for\
+    \ fake base station FGT1608.501. \r\n\r\n\r\n"
+  detections: []
+  id: FGT1608.502
+  mitigations: []
+  name: Configure Operator Core Network
+  object-type: technique
+  platforms: 5G Core
+  procedureexamples:
+  - Description: 'Adversary obtains software capability such as: open source software
+      (e.g Open5GS, free5GC) to set up a rogue operator network, with sufficient capability
+      to achieve follow-on behavior.'
+    Name: Obtain capability for configuration of a rogue mobile network core
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [M.Grassi & X. Chen, \u201COver The Air Baseband\
+    \ Exploit: Gaining Remote\nCode Execution on 5G Smartphones,\u201D retrieved May\
+    \ 16, 2023](https://dl.acm.org/doi/abs/10.1145/3395351.3399360)"
+  status: This is a theoretical behavior
+  subtechnique-of: FGT1608
+  tactics:
+  - TA0042
+  typecode: fight_subtechnique_to_attack_technique
+- access-required: N/A, N/A
+  addendums:
+  - "#### Addendum Name: IMSI Catcher\r\n##### Architecture Segments: RAN, UE\r\n\
+    \ An adversary may build an International Mobile Subscriber Identity (IMSI) catcher\
+    \ to capture IMSI numbers from nearby phones in a target area.\r\n\r\nIMSI catchers\
+    \ are very similar to fake base stations but may not have full capabilities of\
+    \ the base station. The IMSI Catcher term has been traditionally associated with\
+    \ UE identity discovery or location identification.  Adversary may build one with\
+    \ open-source code and generic radio transceivers. Open-source code for software\
+    \ defined radio, or RAN test equipment, or simulators can also be modified to\
+    \ create an IMSI catcher.\r\n\r\n"
+  - "#### Addendum Name: _Silent_paging_tool\r\n##### Architecture Segments: RAN,\
+    \ UE\r\n An adversary may buy or steal a silent SMS tool in order to send SMSes\
+    \ to nearby phones in a target area.\r\n\r\nA silent SMS is described in the specification\
+    \ GSM 03.40 as a Short Message of type 0, which indicates that the UE must acknowledge\
+    \ receipt of the short message but may discard its contents.\r\n\r\nA simple mobile\
+    \ phone running a program to send silent SMSes is such an SMS tool. What is needed\
+    \ is cellular connectivity, and the phone number of the victim. \r\n\r\n"
+  architecture-segment: RAN, UE
+  bluf: Adversaries may buy and/or steal capabilities that can be used during targeting.
+  description: "Adversaries may buy and/or steal capabilities that can be used during\
+    \ targeting.\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1588)\r\
+    \n"
+  detections: []
+  id: FGT1588
+  mitigations:
+  - fgmid: M1056
+    mitigates: This technique cannot be easily mitigated with preventive controls
+      since it is based on behaviors performed outside of the scope of the mobile
+      network operator .
+    name: Pre-compromise
+  name: Obtain Capabilities
+  object-type: technique
+  platforms: RAN, RAN
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [Adrian Dabrowski, Nicola Pianta, Thomas Klepp, Martin\
+    \ Mulazzani, and Edgar Weippl. \u201CIMSI-catch me if you can: IMSI-catcher-catchers\u201D\
+    . In Proceedings of the 30th annual computer security applications Conference,\
+    \ pages 246\u2013255, 2014.](https://its-wiki.no/images/f/fb/Dabrowski_ISMI_Catch_me_Catchers.pdf)"
+  - "<a name=\"2\"> \\[2\\] </a> [Ravishankar Borgaonkar,  Altaf Shaik\_, 5G IMSI\
+    \ Catchers Mirage, Balckhat USA Conference 2021](https://blackhat.com/us-21/briefings/schedule/#g-imsi-catchers-mirage-23538)"
+  - <a name="3"> \[3\] </a> [HOW COPS CAN SECRETLY TRACK YOUR PHONE, The Intercept,
+    online article, July 31, 2021.  Accessed 6/22/2022](https://theintercept.com/2020/07/31/protests-surveillance-stingrays-dirtboxes-phone-tracking/)
+  - '<a name="4"> \[4\] </a> [A Knight, Brier & Thorn, Hacking GSM: Building a Rogue
+    Base Station to Hack Cellular Devices, Online Article.  Accessed 6/22/2022](https://www.brierandthorn.com/post/hacking-gsm-building-a-rogue-base-station-to-hack-cellular-devices)'
+  - "<a name=\"1\"> \\[1\\] </a> [SMS Deliverer, \u201CPING/Silent SMS\u201D](https://www.smsdeliverer.com/onlinehelp/interface/pingsms/)"
+  - "<a name=\"2\"> \\[2\\] </a> [Information Security Newspaper, \u201CHow to hack\
+    \ and track anybody\u2019s  phone location via silent SMS messages\u201D.](https://www.securitynewspaper.com/2023/06/20/how-to-hack-track-anybodys-phone-location-via-silent-sms-messages/)"
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  tactics:
+  - TA0042
+  typecode: attack_technique_addendum
+- access-required: N/A
+  architecture-segment: RAN
+  bluf: Adversary sends a spoofed or silent SMS to trigger paging of UE, to retrieve
+    the subscriber profile identifier.
+  criticalassets:
+  - Description: ''
+    Name: UE identifier
+  description: " Adversary sends a spoofed or silent SMS to trigger paging of UE,\
+    \ to retrieve the subscriber profile identifier. \r\n\r\nA UE has a permanent\
+    \ identifier (IMSI or SUPI), but also a temporary one (\u201CTemporary Mobile\
+    \ Subscriber Identity\u201D) assigned by the network (TMSI, with their version\
+    \ for 4G and 5G). Adversaries can take advantage of cellular networks where the\
+    \ IMSI is used when computing how to page a UE, rather than TMSI, or when the\
+    \ TMSI is used but not changed frequently. This is a choice of the mobile network\
+    \ operator. \r\n\r\n\r\nAn adversary can send silent SMS messages to that target\
+    \ phone number, and watch the paging messages that the base station in that area\
+    \ sends in response (assumes the target UE is in inactive mode and is located\
+    \ in the area of a base station where the adversary has installed a radio interface\
+    \ sniffer). From the sniffed paging messages, and adversary learns the \u201C\
+    paging occasion\u201D for that UE. From the paging occasion, several bits (7)\
+    \ of the IMSI can be deduced. The rest of the IMSI (24 bits) can be tried out\
+    \ by brute force by sending many paging messages (e.g. via a fake base station)\
+    \ corresponding to the IMSIs being tried out, and if one gets a response that\
+    \ is valid, it means that the guess is correct. \r\n\r\n\r\nSeveral UEs may end\
+    \ up sharing the same paging occasion. With knowledge of the victim\u2019s phone\
+    \ number, an adversary can cause the victim UE to be paged in a certain fashion\
+    \ (e.g. by sending a given number of silent SMS and watching for a similar number\
+    \ of paging messages), the adversary can determine the paging occasion for that\
+    \ UE. If the UE is not located in that cell area, then no such paging messages\
+    \ will be noticed. An adversary needs to install sniffers in all of the cell areas\
+    \ of interest, i.e. where they desire to determine the presence or absence of\
+    \ a target UE at a given time, and/or to determine the UE identifiers (IMSI or\
+    \ SUPI or TMSI).\r\n\r\n\r\nBackground information: the IMSI in the US is ~49\
+    \ bits, but the IMSI\u2019s leading 18-bits (i.e., the mobile country code and\
+    \ the mobile network code) can be obtained from the phone number using paid, Internet-based\
+    \ home location register lookup services. The \u201Cpaging occasion\u201D \u2013\
+    \ the precise time/frequency slot when the paging indication is sent\u2014is calculated\
+    \ in a known way based on a UE identifier- either IMSI or TMSI.\r\n\r\n"
+  detections:
+  - detects: Run at the UE side a tool to detect silent SMS messages (can be OS monitoring
+      app as in [4])
+    fgdsid: FGDS5102
+    name: Silent SMS detector
+  id: FGT5019.006
+  mitigations:
+  - fgmid: FGM5004
+    mitigates: The operator may run a network side SMS firewall that permits legitimate
+      silent SMSs (e.g. from law enforcement) but blocks the ones from suspicious
+      sources
+    name: Correctly configure SMS firewall
+  - fgmid: FGM5102
+    mitigates: Run at the UE side a tool to detect and not respond to multiple silent
+      SMS messages received in a short time (can be OS monitoring app as in [2])
+    name: 'Silent SMS blocker '
+  name: Silent SMS
+  object-type: technique
+  platforms: 5G
+  preconditions:
+  - Description: Adversary deployed a sniffer in the coverage area where the target
+      UE may be located
+    Name: Radio interface sniffer
+  procedureexamples:
+  - Description: By sending several (about 8) silent SMS messages to a UE, (or make
+      8 silent calls), and watching the responses on the radio interface- if the UE
+      is present, the paging occasion of the UE can be determined [1].
+    Name: Paging occasion guessing
+  - Description: If the operator uses IMSI to page UEs, then if some bits of the IMSI
+      are already guessed (e.g. via a location/paging occasion guessing discovery
+      technique), it is possible to infer the actual IMSI. The adversary sends multiple
+      silent SMS messages corresponding to guessed IMSIs, and watches the radio interface
+      for responses. [1]
+    Name: IMSI-cracking
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [S.R. Hussain et.al., \u201CPrivacy Attacks to the\
+    \ 4G and 5G Cellular Paging Protocols Using Side Channel Information\u201D](https://homepage.divms.uiowa.edu/~comarhaider/publications/LTE-torpedo-NDSS19.pdf\
+    \ )"
+  - "<a name=\"2\"> \\[2\\] </a> [H. Wen et al., \u201CThwarting Smartphone SMS Attacks\
+    \ at the\nRadio Interface Layer\u201D](https://www.ndss-symposium.org/ndss-paper/thwarting-smartphone-sms-attacks-at-the-radio-interface-layer/.\
+    \ Retrieved Sept 14, 2023.)"
+  status: This is a theoretical behavior in context of 5G systems.
+  subtechnique-of: FGT5019
+  tactics:
+  - TA0009
+  typecode: fight_subtechnique
+- architecture-segment: RAN
+  bluf: Adversary sends spoofed or silent paging messages to a UE and deduces the
+    UE's location from the responses of that UE
+  criticalassets:
+  - Description: UEs rough location is known to the adversary which can be used for
+      further attacks such as bidding down, IMSI cracking and physical attack.
+    Name: UE location
+  description: " Adversary sends spoofed or silent paging messages to a UE and deduces\
+    \ the UE's location from the responses of that UE.\r\n\r\nAdversary broadcasts\
+    \ spoofed paging message from a false base station or manipulates a legitimate\
+    \ one using a Software-defined-radio tool; alternatively, the adversary uses a\
+    \ silent SMS message tool to cause the legitimate base station to send a paging\
+    \ message. These paging messages can be heard by all UEs in the area. The paging\
+    \ message broadcast time/frequency is calculated by the base station based on\
+    \ the temporary identifier 5G-GUTI or 4G-GUTI of the target UE, or the IMSI. It\
+    \ is assumed that the adversary can guess the UEs GUTI (see technique FGT5012.006).\r\
+    \n\r\nAn adversary sends multiple paging messages and then sniffs the radio interface\
+    \ looking for UEs\u2019 responses to paging messages. Paging is successful if\
+    \ the target UE responds.  If such a set of multiple paging responses corresponding\
+    \ to the paging calculated from the one given GUTI is noticed, then it can be\
+    \ concluded that that UE is present in the cell area. This leads to discovery\
+    \ of the coarse location of a UE. As a side benefit, a valid GUTI (or several\
+    \ GUTIs) is also now discovered. \r\n\r\nBackground info: Silent SMS messages\
+    \ is a type of SMS that are used legitimately by mobile operators and governments\
+    \ to track a smartphone subscriber\u2019s geographical location. \r\n\r\n\r\n"
+  detections:
+  - detects: UE measurements of received power levels from all base stations nearby,
+      and their identifiers. Clause 6.24 of [2].
+    fgdsid: FGDS5002
+    name: UE signal measurements
+  - detects: Run at the UE side a tool to detect silent SMS messages (can be OS monitoring
+      app as in [4])
+    fgdsid: FGDS5102
+    name: Silent SMS detector
+  id: FGT5012.007
+  mitigations:
+  - fgmid: FGM5004
+    mitigates: The operator may run a network-side SMS firewall that permits legitimate
+      silent SMSs (e.g. from law enforcement) but blocks the ones from suspicious
+      sources
+    name: Correctly configure SMS firewall
+  - fgmid: FGM5102
+    mitigates: Run at the UE side a tool to detect and not respond to multiple silent
+      SMS messages received in a short time (can be OS monitoring app as in [4])
+    name: 'Silent SMS blocker '
+  name: Silent of spoofed paging
+  object-type: technique
+  platforms: 5G
+  postconditions:
+  - Description: "Adversary knows the cellular base station area where the UE is located.\
+      \ Further attacks are possible such as eavesdropping on target UE\u2019s communication\
+      \ to network if UE coarse location is known to adversary."
+    Name: UE coarse location is known to adversary
+  preconditions:
+  - Description: Adversary gets hold of a false base station which is capable of sending
+      fraudulent paging messages.
+    Name: Obtain a false base station to send fake broadcast messages, or a SDR tool
+      to manipulate legitimate signaling on the radio interface
+  - Description: Adversary develops or obtains a tool to send silent SMS (e.g. mobile
+      phone with special application running)
+    Name: Obtain a silent SMS tool
+  procedureexamples:
+  - Description: "Adversary sends fake paging message with UEs temporary identifier\
+      \ from a false base station. Sigover attack method is used to overshadow the\
+      \ paging message from legitimate base station. If the victim UE is in the area,\
+      \ it responds with a service request message. UE\u2019s presence in the cell\
+      \ area is then known to the adversary [1]."
+    Name: Send fake paging message to target UE
+  - Description: "Adversary sends a series of silent SMS messages or makes a series\
+      \ of silent calls to a target UE, that would cause the base station to send\
+      \ a series of corresponding paging messages. The adversary then monitors the\
+      \ paging channel to watch for these set of multiple paging messages, and thus\
+      \ determines the paging slots (\u201Cpaging occasion\u201D) assigned to the\
+      \ target UE. In addition, if the target UE responds, adversary concludes the\
+      \ target is in the area of that base station. If not, the target is not there\
+      \ [3]"
+    Name: Send silent SMS to target UE
+  - Description: "Adversary sends multiple silent SMS to the UE, and then watches\
+      \ the paging channel. If multiple instances of the same GUTI is seen, or if\
+      \ a given Paging Frame Index (determined by the IMSI) (PFI)  seems to be \u201C\
+      busy\u201D then the adversary can conclude that the target UE is in that cell\
+      \ area (coarse location retrieval) [3]"
+    Name: Watch for same paging occasion to be used by base station
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [: \u201CImproving 4G/5G air interface security:\
+    \ A survey of existing attacks on different LTE layers\u201D, ACM](https://dl.acm.org/doi/abs/10.1016/j.comnet.2021.108532)"
+  - <a name="2"> \[2\] </a> [3GPP TR 33.809](https://www.3gpp.org/DynaReport/33809.htm)
+  - "<a name=\"3\"> \\[3\\] </a> [S.R. Hussain et.al., \u201CPrivacy Attacks to the\
+    \ 4G and 5G Cellular Paging Protocols Using Side Channel Information\u201D](https://homepage.divms.uiowa.edu/~comarhaider/publications/LTE-torpedo-NDSS19.pdf.\
+    \ Retrieved Sept 11, 2023)"
+  - "<a name=\"4\"> \\[4\\] </a> [H. Wen et al., \u201CThwarting Smartphone SMS Attacks\
+    \ at the\nRadio Interface Layer\u201D](https://www.ndss-symposium.org/ndss-paper/thwarting-smartphone-sms-attacks-at-the-radio-interface-layer/.\
+    \ Retrieved Sept 14, 2023.)"
+  status: This is a theoretical behavior
+  subtechnique-of: FGT5012
+  tactics:
+  - TA0009
+  - TA0007
+  typecode: fight_subtechnique
+- architecture-segment: RAN, Virtualization
+  bluf: 'Adversary may gain unauthorized access to machine learning model or database
+    and alters the data to disrupt service or change the behavior of network elements. '
+  criticalassets:
+  - Description: Configuration and session data for RAN as well as ML applications.
+    Name: Configuration and session data
+  - Description: ML models and algorithms itself can be a lucrative asset to acquire
+      in addition to understanding the behavior of the models fo0r an adversary.
+    Name: Algorithm
+  description: " Adversary may gain unauthorized access to machine learning model\
+    \ or database and alters the data to disrupt service or change the behavior of\
+    \ network elements. \r\n\r\nCurrently ORAN implementation specifies RAN Intelligent\
+    \ Controller (RIC) and associated xApps/rApps as part of the RAN system for machine\
+    \ learning and optimization.  Machine learning models may also exist in Service\
+    \ Management and Orchestration (SMO) to optimize network design, deployment and\
+    \ operation.  A nefarious change on ML models or data can cause drastic behavior\
+    \ change of O-RAN components including network outage. Altering a machine learning\
+    \ model (System manipulation and compromise of ML data confidentiality and privacy),\
+    \ adversary can change O-RAN behavior.\r\n\r\n"
+  detections: []
+  id: FGT5037
+  mitigations: []
+  name: Alter ML Model
+  object-type: technique
+  platforms: ORAN, OA&M
+  references:
+  - '<a name="1"> \[1\] </a> [Adversarial Machine Learning: Well-known techniques](https://viso.ai/deep-learning/adversarial-machine-learning/)'
+  - <a name="2"> \[2\] </a> [OWASP Machine Learning Security Top Ten](https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03_2023-Model_Inversion_Attack.html)
+  status: This is a theoretical behavior
+  tactics:
+  - TA0040
+  typecode: fight_technique
+- architecture-segment: RAN, Virtualization
+  bluf: 'Adversary may use AI/ML training data and prediction poisoning techniques
+    to manipulate the outcomes of a machine learning model for malicious purposes,
+    to disrupt service or change the behavior of network elements. '
+  criticalassets:
+  - Description: Configuration and session data for RAN as well as ML applications.
+    Name: Configuration and session data
+  - Description: ML models and algorithms itself can be a lucrative asset to acquire
+      in addition to understanding the behavior of the models fo0r an adversary.
+    Name: Algorithm
+  description: " Adversary may use AI/ML training data and prediction poisoning techniques\
+    \ to manipulate the outcomes of a machine learning model for malicious purposes,\
+    \ to disrupt service or change the behavior of network elements. \r\n\r\nIn the\
+    \ context of AI/ML security threats, adversaries can employ various techniques\
+    \ to compromise machine learning models at different stages. During training,\
+    \ they can engage in data poisoning by injecting manipulated data (Data Injection),\
+    \ mislabeling data points (Label Poisoning), or maliciously augmenting data with\
+    \ adversarial samples (Data Augmentation Poisoning). Adversaries can also manipulate\
+    \ the model itself during training, introducing hidden backdoor patterns (Backdoor\
+    \ Attacks) or deducing sensitive information by observing model outputs (Model\
+    \ Inversion Attacks). In the inference phase, they can create adversarial examples\
+    \ to trick the model (Adversarial Examples) or subtly change data distributions\
+    \ over time to cause incorrect predictions (Concept Drift). Additionally, adversaries\
+    \ can engage in data pollution by manipulating live input data (Data Poisoning\
+    \ in Live Systems) or compromise model integrity by stealing and manipulating\
+    \ training data (Data Theft). Lastly, they can attempt to determine training data\
+    \ membership via Membership Inference Attacks by querying the model with tailored\
+    \ inputs. \r\n\r\nThe ORAN implementation outlines the inclusion of a RAN Intelligent\
+    \ Controller (RIC) and its associated xApps/rApps within the RAN system, which\
+    \ are designed for machine learning and optimization purposes. Machine learning\
+    \ models might also be present within the Service Management and Orchestration\
+    \ (SMO) framework to enhance network design, deployment, and operation. However,\
+    \ any malicious alterations made to these ML models, or their associated data\
+    \ could lead to unintended consequences, such as disruptions in the desired operational\
+    \ state of network components, traffic management issues, and potentially even\
+    \ network outages.\r\n\r\n\r\n\r\n"
+  detections:
+  - detects: Application logs can provide information about change, read, update,
+      and delete(CRUD) activity.
+    fgdsid: DS0015
+    name: Application Log
+  - detects: Access and authorization logs can reveal abnormal logging activity that
+      precedes action taken on the system
+    fgdsid: DS0028
+    name: Logon Session
+  id: FGT5036
+  mitigations: []
+  name: AI/ML training data and prediction poisoning
+  object-type: technique
+  platforms: ORAN, OA&M
+  references:
+  - '<a name="1"> \[1\] </a> [Adversarial Machine Learning: Well-known techniques](https://viso.ai/deep-learning/adversarial-machine-learning/)'
+  - <a name="2"> \[2\] </a> [OWASP Machine Learning Security Top Ten](https://owasp.org/www-project-machine-learning-security-top-10/docs/ML03_2023-Model_Inversion_Attack.html)
+  status: This is a theoretical behavior
+  tactics:
+  - TA0040
+  typecode: fight_technique
+- addendums:
+  - "#### Addendum Name: _Compromise_software__Supply_Chain\r\n##### Architecture\
+    \ Segments: RAN, Virtualization\r\n Adversaries may manipulate software products\
+    \ or product delivery mechanisms prior to deployment in an MNO\u2019s production\
+    \ environment for the purpose of data or system compromise.\r\n\r\nSoftware supply\
+    \ chain compromise can occur through various means, such as tampering with the\
+    \ source code of the application, manipulating the software's update and distribution\
+    \ process, or substituting legitimate compiled releases with altered versions.\r\
+    \n\r\n5G deployments are expected to embrace diverse deployment models, encompassing\
+    \ vendor-supplied VNF/CNFs, open-source software, dedicated physical appliances\
+    \ from suppliers, and white-label hardware. This diversity introduces multiple\
+    \ potential points of vulnerability before the software is employed in 5G communication\
+    \ services. An adversary could exploit the supply chain of management and monitoring\
+    \ tools, network functions, or infrastructure software, including operating systems,\
+    \ orchestration systems, and element managers.\r\n\r\n"
+  architecture-segment: RAN, Virtualization
+  bluf: Adversaries may manipulate application software prior to receipt by a final
+    consumer for the purpose of data or system compromise.
+  criticalassets:
+  - Description: Network functions are prime target to impact 5G communication services
+    Name: CORE, RAN VNFs
+  - Description: OSS tools have privileged access and broad reachability and may be
+      used to change configuration of the network by adversary.
+    Name: OSS Tools
+  - Description: Security tools have privileged access and broad reachability may
+      be used to evade defenses and allow for lateral movements by the adversary
+    Name: Security tools
+  - Description: CI/CD tools may be used for inserting malware or poisoned images
+      as well as change the network elements deployed and their behavior.
+    Name: CI/CD Tools
+  description: "Adversaries may manipulate application software prior to receipt by\
+    \ a final consumer for the purpose of data or system compromise.\r\n[To read more,\
+    \ please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1195/002)\r\
+    \n"
+  detections:
+  - detects: Use verification of distributed binaries through hash checking or other
+      integrity checking mechanisms. Scan downloads for malicious signatures and attempt
+      to test software and updates prior to deployment while taking note of potential
+      suspicious activity.
+    fgdsid: DS0022
+    name: File
+  id: FGT1195.002
+  mitigations:
+  - fgmid: M1016
+    mitigates: Vulnerability Scanning of software before it is brought into MNO environment
+      as well as regular scans to detect abnormal behavior
+    name: Vulnerability Scanning
+  - fgmid: M1045
+    mitigates: Enforce binary and application integrity with digital signature verification
+      to prevent untrusted code from executing.
+    name: Code Signing
+  - fgmid: M1051
+    mitigates: Update Software regularly
+    name: Update Software
+  - fgmid: FGM5517
+    mitigates: Enforce policy to use signed Software Bill of Materials (SBOMs) and
+      software.
+    name: Use obfuscation at application layer
+  name: Compromise Software Supply Chain
+  object-type: technique
+  platforms: 5G
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [ETSI NFV SEC001, \u201CNetwork Functions Virtualization\
+    \ (NFV); NFV Security; Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
+    \ )"
+  - <a name="2"> \[2\] </a> [The Untold Story of the Boldest Supply-Chain Hack Ever](https://www.wired.com/story/the-untold-story-of-solarwinds-the-boldest-supply-chain-hack-ever/)
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  subtechnique-of: FGT1195
+  tactics:
+  - TA0001
+  typecode: attack_subtechnique_addendum
+- addendums:
+  - "#### Addendum Name: _Compromise_Hardware__Supply_Chain\r\n##### Architecture\
+    \ Segments: RAN, Virtualization\r\n Adversaries may manipulate hardware components\
+    \ or products prior to deployment in an MNO\u2019s production environment for\
+    \ the purpose of data or system compromise.\r\n\r\nThrough alterations to hardware\
+    \ or firmware within the supply chain, malicious actors can implant a concealed\
+    \ entry point into consumer networks. This clandestine access can prove challenging\
+    \ to identify, affording the adversary substantial control over the system. Hardware\
+    \ backdoors have the potential to be introduced into a wide array of devices,\
+    \ including servers, workstations, network infrastructure components, and peripherals.\r\
+    \n\r\n5G multiplicity of deployment options introduces numerous potential points\
+    \ of vulnerability, all before the hardware even integrates into 5G communication\
+    \ services. Within this complex landscape, adversaries possess the opportunity\
+    \ to exploit various aspects of the supply chain, such as compromising management\
+    \ and monitoring tools, tampering with firmware within components, or clandestinely\
+    \ introducing additional chips into server and network hardware. Furthermore,\
+    \ the prospect of counterfeit hardware infiltrating the legitimate supply chain\
+    \ accentuates the vulnerability landscape. Counterfeit hardware may lack rigorous\
+    \ security considerations and thorough testing, making it a potential Achilles'\
+    \ heel within the supply chain.\r\n\r\n"
+  architecture-segment: RAN, Virtualization
+  bluf: Adversaries may manipulate hardware components in products prior to receipt
+    by a final consumer for the purpose of data or system compromise.
+  criticalassets:
+  - Description: Network functions are prime target to impact 5G communication services
+    Name: CORE, RAN VNFs
+  - Description: OSS tools have privileged access and broad reachability and may be
+      used to change configuration of the network by adversary.
+    Name: OSS Tools
+  - Description: Security tools have privileged access and broad reachability may
+      be used to evade defenses and allow for lateral movements by the adversary
+    Name: Security tools
+  - Description: CI/CD tools may be used for inserting malware or poisoned images
+      as well as change the network elements deployed and their behavior.
+    Name: CI/CD Tools
+  description: "Adversaries may manipulate hardware components in products prior to\
+    \ receipt by a final consumer for the purpose of data or system compromise.\r\n\
+    [To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1195/003)\r\
+    \n"
+  detections:
+  - detects: Perform physical inspection of hardware to look for potential tampering.
+      Perform integrity checking on pre-OS boot mechanisms that can be manipulated
+      for malicious purposes and compare against known good baseline behavior.
+    fgdsid: DS0013
+    name: Sensor Health
+  - detects: Use verification of distributed binaries through hash checking or other
+      integrity checking mechanisms. Scan downloads for malicious signatures and attempt
+      to test software and updates prior to deployment while taking note of potential
+      suspicious activity.
+    fgdsid: DS0022
+    name: File
+  id: FGT1195.003
+  mitigations:
+  - fgmid: M1016
+    mitigates: Vulnerability Scanning of software before it is brought into MNO environment
+      as well as regular scans to detect abnormal behavior
+    name: Vulnerability Scanning
+  - fgmid: M1051
+    mitigates: Update Software regularly
+    name: Update Software
+  name: Compromise Hardware Supply Chain
+  object-type: technique
+  platforms: 5G
+  references:
+  - "<a name=\"1\"> \\[1\\] </a> [ETSI NFV SEC001, \u201CNetwork Functions Virtualization\
+    \ (NFV); NFV Security; Problem Statement\u201D, Jan. 2014, section 6.9](https://www.etsi.org/deliver/etsi_gs/nfv-sec/001_099/001/01.01.01_60/gs_nfv-sec001v010101p.pdf\
+    \ )"
+  - <a name="2"> \[2\] </a> [The Untold Story of the Boldest Supply-Chain Hack Ever](https://www.wired.com/story/the-untold-story-of-solarwinds-the-boldest-supply-chain-hack-ever/)
+  - <a name="3"> \[3\] </a> [Trusted Platform Module (TPM) Summary](https://trustedcomputinggroup.org/wp-content/uploads/Trusted-Platform-Module-Summary_04292008.pdf)
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  subtechnique-of: FGT1195
+  tactics:
+  - TA0001
+  typecode: attack_subtechnique_addendum
+- addendums:
+  - "#### Addendum Name: _Physical_attack_O-RAN_fronthaul_Ethernet_interface\r\n#####\
+    \ Architecture Segments: RAN\r\n Unauthorized access to Open Front Haul Ethernet\
+    \ L1 physical layer interface(s) may allow adversary to launch DDoS, eaves dropping\
+    \ attacks compromising the network.\r\n\r\nIn an O-RAN architecture, the baseband\
+    \ unit (BBU) is divided into two components: the distributed unit (DU) and the\
+    \ centralized unit (CU). The front haul interface plays a crucial role in connecting\
+    \ the DU and the Remote Radio Unit (RU or RRU) within the network, ensuring efficient\
+    \ communication. \r\n\r\nTo transport the CPRI (Common Public Radio Interface)\
+    \ traffic from the RU to the DU, an Ethernet-based bridged network is employed.\
+    \ This involves utilizing various Ethernet protocols such as IEEE 802.3 for general\
+    \ Ethernet connectivity, IEEE 802.1 for bridging and VLAN tagging, and IEEE 802.1CM\
+    \ for time-sensitive networking in industrial automation. The Ethernet-based front\
+    \ haul interface establishes a high-capacity and low-latency connection between\
+    \ the DU and the RU, facilitating the efficient transmission of digital baseband\
+    \ data, synchronization signals, control signals, and management information.\
+    \  Usually, RUs and Ethernet Switches placed near the antenna units, which are\
+    \ unmanned facilities and can be physically intruded due to detection and response\
+    \ time delays by personnel. \r\n\r\nUnauthorized devices on this interface can\
+    \ pose significant risks to the O-RAN network. Such devices can potentially launch\
+    \ a Denial-of-Service (DoS) attack by sending malicious or bogus messages, disrupting\
+    \ network operations. Additionally, they may attempt to eavesdrop on critical\
+    \ Control (C-Plane), User (U-Plane), Synchronization (S-Plane), or Management\
+    \ (M-Plane) traffic, compromising the integrity and confidentiality of the network.\r\
+    \n\r\n\r\n"
+  architecture-segment: RAN
+  bluf: Adversaries may introduce computer accessories, computers, or networking hardware
+    into a system or network that can be used as a vector to gain access.
+  criticalassets:
+  - Description: RRU, DU, CU may be exposed to front haul design vulnerability or
+      compromise.
+    Name: RAN network elements
+  - Description: Control plane and user plane data communication between DU and RRU
+      as well as UE.
+    Name: CP/UP Data
+  description: "Adversaries may introduce computer accessories, computers, or networking\
+    \ hardware into a system or network that can be used as a vector to gain access.\r\
+    \n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1200)\r\
+    \n"
+  detections: []
+  id: FGT1200
+  mitigations:
+  - fgmid: M1030
+    mitigates: '
+
+      Network segmentation'
+    name: Network Segmentation
+  - fgmid: M1034
+    mitigates: 'Limit hardware installation
+
+
+      T1200'
+    name: Limit Hardware Installation
+  - fgmid: M1047
+    mitigates: 'Audit
+
+      https://attack.mitre.org/mitigations/M1047/'
+    name: Audit
+  name: Hardware Additions
+  object-type: technique
+  platforms: ORAN
+  procedureexamples:
+  - Description: ATT&CK T1200- https://attack.mitre.org/techniques/T1200/A
+    Name: Adding hardware to insecure open switch ports
+  - Description: A compromised access via remote login or physical access to communication,
+      technician interface can yield to creating span ports and tunneling traffic
+      to network sniffer
+    Name: Privileged access to a router or switch
+  references:
+  - <a name="1"> \[1\] </a> [ORAN WG Threat Model](O-RAN WG11 Threat Model 6.00 version
+    https://orandownloadsweb.azurewebsites.net/specifications)
+  - <a name="2"> \[2\] </a> [NTIA Open RAN Security Report May 2023](https://ntia.gov/sites/default/files/publications/open_ran_security_report_full_report_0.pdf)
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  tactics:
+  - TA0040
+  typecode: attack_technique_addendum
+- addendums:
+  - "#### Addendum Name: _Obtain_Capabilities-Tools\r\n##### Architecture Segments:\
+    \ RAN\r\n An adversary may obtain tooling needed to target victim UEs for attack.\r\
+    \n\r\nAdversary needs to obtain tools (HW/SW) to carry out planned attacks against\
+    \ victim UEs.  This may include buying stingrays or buying radio cards, laptops\
+    \ and integrating into a working base station.  Adversary may need specific tools\
+    \ such as Sim Cloning, network traffic analyzer, certificates, or code needed\
+    \ to be executed on a compromised 5G Network Function to achieve its goals.  \
+    \ \r\n\r\nIn some cases, an adversaries may purchase from third party specific\
+    \ software to do development and integration work to provide specific attack capabilities.\
+    \ \r\n\r\n\r\n\r\n\r\n"
+  architecture-segment: RAN
+  bluf: Adversaries may buy, steal, or download software tools that can be used during
+    targeting.
+  criticalassets:
+  - Description: Radio Communication service between UE and basestation
+    Name: RAN Service
+  - Description: UE and Subscriber identity as well as communication
+    Name: UE identity, and communication
+  description: "Adversaries may buy, steal, or download software tools that can be\
+    \ used during targeting.\r\n[To read more, please see the MITRE ATT&CK page for\
+    \ this technique](https://attack.mitre.org/techniques/T1588/002)\r\n"
+  detections: []
+  id: FGT1588.002
+  mitigations:
+  - fgmid: M1056
+    mitigates: This technique cannot be easily mitigated with preventive controls
+      since it is based on behaviors performed outside of the scope of enterprise
+      defenses and controls.
+    name: Pre-compromise
+  name: Tool
+  object-type: technique
+  platforms: 5G
+  procedureexamples:
+  - Description: There are many tools developed to test 5G systems, same tools can
+      be used for adversarial objective on a system
+    Name: Use of Open-source software & Testing tools
+  references:
+  - <a name="1"> \[1\] </a> [Open Source tools](https://github.com/ravens/awesome-telco)
+  - <a name="2"> \[2\] </a> [Building a Cellphone IMSI Catcher (Stingray)](https://www.hackers-arise.com/post/software-defined-radio-part-6-building-a-imsi-catcher-stingray)
+  status: This is an observed behavior in Enterprise networks, and is theoretical
+    in context of 5G systems.
+  subtechnique-of: FGT1588
+  tactics:
+  - TA0042
+  typecode: attack_subtechnique_addendum
+- architecture-segment: 5G
+  bluf: An adversary may obtain radio network function needed to attack target victim
+    UEs.
+  description: "An adversary may obtain radio network function needed to attack target\
+    \ victim UEs.\r\n[To read more, please see the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/FGT1588/501)\r\
+    \n"
+  detections: []
+  id: FGT1588.501
+  mitigations: []
+  name: 'Obtain Capabilities: Radio Network Functions'
+  object-type: technique
+  platforms: 5G
+  status: This is an observed behavior in Enterprise networks.
+  subtechnique-of: FGT1588
+  tactics:
+  - TA0042
+  typecode: fight_subtechnique
 - architecture-segment: 5G
   bluf: Adversaries may breach or otherwise leverage organizations who have access
     to intended victims.
@@ -9240,18 +11393,37 @@ techniques:
   - TA0040
   typecode: attack_technique_with_subs_with_addendums
 - architecture-segment: 5G
-  bluf: Adversaries may upload, install, or otherwise set up capabilities that can
-    be used during targeting.
-  description: "Adversaries may upload, install, or otherwise set up capabilities\
-    \ that can be used during targeting.\r\n[To read more, please see the MITRE ATT&CK\
-    \ page for this technique](https://attack.mitre.org/techniques/T1608)\r\n"
+  bluf: Adversaries may exploit software vulnerabilities in client applications to
+    execute code.
+  description: "Adversaries may exploit software vulnerabilities in client applications\
+    \ to execute code.\r\n[To read more, please see the MITRE ATT&CK page for this\
+    \ technique](https://attack.mitre.org/techniques/T1203)\r\n"
   detections: []
-  id: FGT1608
+  id: FGT1203
   mitigations: []
-  name: Stage Capabilities
+  name: Exploitation for Client Execution
   object-type: technique
   platforms: 5G
   status: This is an observed behavior in Enterprise networks.
   tactics:
-  - TA0042
+  - TA0002
+  typecode: attack_technique_with_fight_subs
+- architecture-segment: 5G
+  bluf: Adversaries may tunnel network communications to and from a victim system
+    within a separate protocol to avoid detection/network filtering and/or enable
+    access to otherwise unreachable systems.
+  description: "Adversaries may tunnel network communications to and from a victim\
+    \ system within a separate protocol to avoid detection/network filtering and/or\
+    \ enable access to otherwise unreachable systems.\r\n[To read more, please see\
+    \ the MITRE ATT&CK page for this technique](https://attack.mitre.org/techniques/T1572)\r\
+    \n"
+  detections: []
+  id: FGT1572
+  mitigations: []
+  name: Protocol Tunneling
+  object-type: technique
+  platforms: 5G
+  status: This is an observed behavior in Enterprise networks.
+  tactics:
+  - TA0001
   typecode: attack_technique_with_fight_subs

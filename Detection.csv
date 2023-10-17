@@ -1,3 +1,18 @@
+FGT5019.004,Intercept Unencrypted SUPI,FGDS5017,"Monitor gNB and core network logs when:
+
+
+Null scheme is used for SUCI protection
+
+
+Home PLMN does not configure public key for SUCI protection"
+FGT5019.004,Intercept Unencrypted SUPI,FGDS5018,"Monitor Provisioning logs for changes in Home network public key configuration, PLMN ID etc."
+FGT5019.004,Intercept Unencrypted SUPI,FGDS5019,"Monitor Operations logs for:
+
+
+UE makes an emergency call
+
+
+In NSA mode, when 5G UE is ordered to connect to network via eNB"
 T1498.502,Shared Slice Resource exhaustion,Audit Policy Violations,Automated user and resource policy compliance checks and instrumentation to alert on violation attempts
 T1498.502,Shared Slice Resource exhaustion,Audit logs,"Auditing logs for security, authentication and authorization activity, host access, hosts, virtualization orchestrator and managers can reveal behavioral anomalies"
 T1498.502,Shared Slice Resource exhaustion,DS0013,"Monitor systems performance and alert on quota exceptions on hosts, applications and networks"
@@ -11,6 +26,7 @@ T1020.001,Network traffic duplication,DS0017,Monitor Command executions on the d
 T1020.001,Network traffic duplication,DS0022,"Network elements use active and start up configuration files, monitoring configuration drifts can reveal abnormal activity"
 T1020.001,Network traffic duplication,DS0028,Monitor log on sessions and escalation to higher privilege activity on the devices
 T1020.001,Network traffic duplication,DS0002,Monitor all user accounts accessing network devices to detect abnormal activity
+FGT5035,_Radio_Jamming,FGDS5001,Identify source and location of jammer.
 FGT5020,Retrieve UE subscription data,DS0015,Monitor logs
 T1499.503,DOS a UE via gNB or NF signaling,FGDS5011,Subscriber notifies provider of no or degraded service
 T1018,Core-network scanning,DS0029,SIEM tools using network firewalls. Detect port scanners.
@@ -23,6 +39,7 @@ T1499.501,Consume data allocation to deny or degrade service,FGDS5006,Excessive 
 FGT5004.001,Controller,FGDS5014,Analyze logs to detect unauthorized activity
 FGT5004.001,Controller,DS0015,Periodically audit SDN and Network element configuration to detect unauthorized changes
 FGT5004.001,Controller,DS0029,Periodically audit network flow tables to detect unauthorized changes to flow data
+T1588.501,_Obtain_Capabilities-Radio_Network_Functions,UE,Cellular devices and user data
 T1048.003,DNS Queries,DS0015,Collect and analyze DNS lookup logs for unusual patterns and destinations
 T1048.003,DNS Queries,DS0029,Analyze network destinations for DNS traffic for unusual destinations and volumes.
 T1557.502,Roaming and Interconnection,DS0015,Monitor for access to SEPP application/appliance for unexpected access.
@@ -41,18 +58,22 @@ FGT5014,Shared resource discovery,DS0017,Monitor command history on VNFs and hos
 FGT5004.002,vSwitch,FGDS5014,Analyze logs to detect unauthorized activity
 FGT5004.002,vSwitch,DS0015,Periodically audit SDN and Network element configuration and compare with baseline configuration to detect unauthorized changes
 FGT5004.002,vSwitch,DS0029,Periodically audit network flow tables to detect unauthorized changes to flow data
+FGT5019.005,_Diameter_signaling,DS0029,Monitor all communications over Diameter and SS7/MAP based interfaces to/from core network.
 T1611,VM and Container Breakout,DS0009,Monitor process creation and OS API execution activity.
 T1611,VM and Container Breakout,DS0032,"Monitor for the deployment of suspicious or unknown container images and pods in your environment, particularly containers running as root."
 T1611,VM and Container Breakout,DS0034,Monitor cluster-level (Kubernetes) data and events associated with changing containers' volume configurations.
+T1499.004,_UPF_from_UE,DS0029,Examine all header fields of user plane packets received in the uplink direction from UE.
 T1608.501,_Configurability_of_False_Base_Station_or_Access_Point_,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers. Refer to clause 6.24 of [2]."
 T1557.503,Non-SBI,DS0029,Inspect network traffic content and watch for unauthorized changes as the packets move through the routers/middle boxes
 T1557.503,Non-SBI,DS0015,Check configuration changes in all switches/routers. Configuration audits by OSS/BSS
+T1498.501,_Flooding_core_network_component,DS0018,Application layer DoS attack detection mechanism can be used to detect repeated attempt of UE attach-detach cycle within a short period.
 FGT5015,Device database manipulation,FGDS5009,Difficult to detect unauthorized changes. Inspect logs of what changes were made and by whom in the EIR
 FGT5012.006,NAS exploit,FGDS5002,"Operator standard means to detect presence of fake gNBs. gNB radio signals (sent to all UEs to enable them to select gNB and connect) are received and reported by UEs to the operator, who can then run cross checks with the signals that the UEs should have received if all gNBs nearby were legitimate."
 FGT5026,SIM cloning,FGDS5005,Investigate unusual USIM card patterns.
 T1499,Interworking Denial of Service,DS0015,Monitor application logs for unusual requests or rate of requests
 T1499,Interworking Denial of Service,DS0029,Monitor for unusual volumes or sources of requests to the service
 T1048,Control plane signaling exfiltration,DS0029,"Monitor and analyze traffic patterns and packet inspection over the SBI, especially to/from external functions."
+FGT5024,_IAB_Denial_of_Service,FGDS5020,Monitor gNB logs for abnormal service outage.
 FGT5022,Alter Subscriber Profile,FGDS5011,Subscriber contacts Customer service to complain (in some limited cases)
 T1555.501,Hardware Security Module Key Signing,DS0028,Analyze access logs for appropriate use by admins
 T1555.501,Hardware Security Module Key Signing,DS0015,Analyze the application logs for access from appropriate NFs and appropriate/typical use
@@ -61,6 +82,8 @@ FGT5009.002,Network Interfaces,DS0029,Inspect network traffic and watch for unau
 FGT5009.002,Network Interfaces,DS0015,"Check configuration changes in gNB, NFs, SEPP and MME.
 Run configuration audits by OSS/BSS."
 FGT5012.005,Shared network function in slice,DS0015,"Regularly audit applications and interface messaging logs. Check logs of requests/responses at the shared NF. E.g., each entry should contain SUPI, NF consumer that requested it, slice IDs of both."
+T1200,_Physical_attack_O-RAN_fronthaul_Ethernet_interface,,"bility to detect new ports, devices on the network"
+T1599.505,_GTP-U_Abuse,DS0029,Examine all header fields and encapsulated payload of user plane packets received in the uplink direction from UE.
 T1014,Unauthorized software in NFVI,DS0022,File changes of any sort that cannot be traced back to authorized change.
 T1014,Unauthorized software in NFVI,DS0007,Software image inconsistency.  Signature and checksum mismatch
 T1014,Unauthorized software in NFVI,DS0008,Kernel executing unknow processes or unauthorized processes not typical of the host.
@@ -68,6 +91,8 @@ T1014,Unauthorized software in NFVI,DS0029,Network traffic pattern may reveal re
 T1014,Unauthorized software in NFVI,DS0009,Active processes or process log may reveal unauthorized activity due to rootkits
 T1014,Unauthorized software in NFVI,DS0019,Background services not typically associated with the host
 T1014,Unauthorized software in NFVI,Degraded performance,"System may have reboots, or unexpected performance degradation, may be slow to respond to inputs."
+FGT5036,_AI_ML_training_data_and_prediction_poisoning,DS0028,Access and authorization logs can reveal abnormal logging activity that precedes action taken on the system
+FGT5036,_AI_ML_training_data_and_prediction_poisoning,DS0015,"Application logs can provide information about change, read, update, and delete(CRUD) activity."
 T1078.003,Infrastructure local account,DS0028,Logon session
 T1078.003,Infrastructure local account,DS0002,User Account authentication
 T1599.504,Manipulate Virtual Network Function (VNF) Configuration,DS0028,Access Logs - Analyze logs to detect unauthorized activity to VNF and other tools used in lifecycle management and security of the VNF
@@ -77,6 +102,8 @@ T1599.504,Manipulate Virtual Network Function (VNF) Configuration,DS0007,Image l
 FGT5018.004,Theft of assets,FGDS5012,"Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed. Additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider-level monitoring mechanisms."
 FGT5018.001,Cabling and junction boxes,FGDS5012,"Security Incident and event monitoring
 Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed. Additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider-level monitoring mechanisms."
+FGT5012.007,_Silent_or_spoofed_paging,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers. Clause 6.24 of [2]."
+FGT5012.007,_Silent_or_spoofed_paging,FGDS5102,Run at the UE side a tool to detect silent SMS messages (can be OS monitoring app as in [4])
 T1542.501,Unauthorized software in NFVI,DS0022,File changes of any sort that cannot be traced back to authorized change.
 T1542.501,Unauthorized software in NFVI,DS0007,Software image inconsistency.  Signature and checksum mismatch
 T1542.501,Unauthorized software in NFVI,DS0008,Kernel executing unknow processes or unauthorized processes not typical of the host.
@@ -85,7 +112,11 @@ T1542.501,Unauthorized software in NFVI,DS0009,Active processes or process log m
 T1542.501,Unauthorized software in NFVI,DS0019,Background services not typically associated with the host
 T1542.501,Unauthorized software in NFVI,DS0013,"Degraded performance; system may have reboots, or unexpected performance degradation, may be slow to respond to inputs."
 FGT5008,Redirection of traffic via user plane network function,DS0015,Monitor AF to NEF APIs for illegitimate traffic redirection requests. Monitor Nnef_TrafficInfluence_Update API calls from AF to NEF for traffic redirection requests to unauthorized DNN & S-NSSAI.
-T1498.501,Flooding core network component,DS0018,Application layer DoS attack detection mechanism can be used to detect repeated attempt of UE attach-detach cycle within a short period.
+FGT5032.003,_rApp,DS0022,Monitor and alert on changes to rApp and cloud configuration files during runtime
+FGT5032.003,_rApp,DS0015,"Monitor rApp lifecycle management events from logs regarding onboarding, authentication/authorization of rApps. Audit logs and telemetry data for unauthorized activity."
+FGT5032.003,_rApp,FGDS5015,Verify rApp image hash
+FGT5032.003,_rApp,DS0025,Perform real-time audits and post-processing of logs. Detect which parts of the O-RAN are accessed by rApps.
+FGT5019.006,_Silent_SMS,FGDS5102,Run at the UE side a tool to detect silent SMS messages (can be OS monitoring app as in [4])
 FGT5029,Exploit Semi-public Facing Application,DS0015,Monitor application logs for evidence of unexpected access requests or potential pattern of errors logged that might indicate attempts to create unexpected behavior
 FGT5029,Exploit Semi-public Facing Application,DS0028,Monitor login session logs for evidence an adversary has created accounts or setup access after compromise of the service via specially formed packets on the service API
 FGT5029,Exploit Semi-public Facing Application,DS0029,Observe unusual traffic to the SEPP and any evidence of unusual source or destinations from the SEPP that might indicate a source of specially formed packets.
@@ -102,6 +133,8 @@ T1583.501,_False_Cellular_Base_Station_or_Access_Point,FGDS5002,"UE measurements
 FGT5004,Network Flow Manipulation,FGDS5014,Analyze logs to detect unauthorized activity
 FGT5004,Network Flow Manipulation,DS0015,Periodically audit SDN and Network element configuration and compare with baseline configuration to detect unauthorized changes
 FGT5004,Network Flow Manipulation,DS0029,Periodically audit network flow tables to detect unauthorized changes to flow data
+T1195.003,_Compromise_Hardware__Supply_Chain,DS0022,Use verification of distributed binaries through hash checking or other integrity checking mechanisms. Scan downloads for malicious signatures and attempt to test software and updates prior to deployment while taking note of potential suspicious activity.
+T1195.003,_Compromise_Hardware__Supply_Chain,DS0013,Perform physical inspection of hardware to look for potential tampering. Perform integrity checking on pre-OS boot mechanisms that can be manipulated for malicious purposes and compare against known good baseline behavior.
 FGT5007,Registration of malicious network functions,DS0015,Monitor application logs of core NFs.
 FGT5007,Registration of malicious network functions,DS0032,Monitor for newly constructed containers that may deploy a container into an environment to facilitate execution or evade defenses.
 FGT5019.002,Intercept Bid-Down SUPI,FGDS5010,UE transitions to less secure service
@@ -113,7 +146,9 @@ T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),DS0028,Audit Pol
 T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),DS0015,"Audit logs - Auditing logs for security, authentication and authorization activity, host access, hosts, virtualization orchestrator and managers can reveal behavioral anomalies"
 T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),DS0013,Monitor systems performance
 T1599.501,Malicious co-tenancy  exploit of NFVI (Network Slice),DS0029,Monitor network flows
+T1195.002,_Compromise_software__Supply_Chain,DS0022,Use verification of distributed binaries through hash checking or other integrity checking mechanisms. Scan downloads for malicious signatures and attempt to test software and updates prior to deployment while taking note of potential suspicious activity.
 FGT5009,Weaken Integrity,DS0029,Data sent over the network or radio interface can be analyzed to check for the integrity algorithm.
+T1583.508,Network Access,DS0018,Logs from firewalls may be useful for detecting adversary activities through signaling or via other network access protocols protected by firewalls.
 T1599.503,Network Slice Application Resource Hijacking,DS0028,Audit Policy Violations - Automated user and resource policy compliance checks and instrumentation to alert on violation attempts
 T1599.503,Network Slice Application Resource Hijacking,DS0015,"Audit logs - Auditing logs for security, authentication and authorization activity, host access, hosts, virtualization orchestrator and managers can reveal behavioral anomalies"
 T1599.503,Network Slice Application Resource Hijacking,DS0013,Monitor systems performance
@@ -127,15 +162,19 @@ T1021,VNF Access Services,DS0028,"5G NFs have defined interfaces, any other sess
 T1021,VNF Access Services,DS0029,Monitor network traffic for expected and unexpected attempted and established connections
 T1599,Network Boundary Bridging,DS0029,Network Traffic should be monitored for traffic flows and messaging contents to determine abnormal activity.
 T1040.501,Radio Interface,FGDS5010,UE transitions to less secure service. UE responds to requests that were not sent by legitimate network.
+T1587.004,Baseband Exploits,DS0008,"Use of stack canaries by the firmware author can be used to detect manipulation of stack return addresses,"
 FGT5006,DNS Manipulation,DS0029,"Data transmitted across a network (ex: Web, DNS, Mail, File, etc.), that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable format (ex: PCAP)"
 FGT5006,DNS Manipulation,DS0015,Logs from DNS forwarders/servers can be used to detect changes in usage from endpoints
 FGT5011,Unauthorized access to NEF via token fraud,DS0015,Logs of connection attempts to NEF
+FGT5031,_Discover_TEID,DS0029,Monitor incoming packets on N6 interface for any unauthorized data sessions.
+FGT5031,_Discover_TEID,FGDS5016,Inspect the payloads of all incoming packets to filter encapsulated GTP-U on internet facing interface of UPF and PGW.
 FGT5003,Network Function Service Discovery,DS0015,Logging of all access requests/inquiries to NFs
 T1499.002,Base station flood with fictitious access requests,FGDS5007,Excessive number of access requests received at gNB.
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,DS0015,"Audit application logs (NFVO, VIM).  Configuration management databases (CMDB) and other asset management systems may help with the detection of computer systems or network devices that should not exist on a network."
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,DS0032,"Monitor container creation, container start events"
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,DS0009,"Monitor process activity on node, hosts and VNFs."
 T1611.501,Malicious privileged container VNF Shared Resource Accesss,DS0034,"Monitor volume or storage modifications, attachment or read actions."
+T1498.002,_Transmit_spoofed_broadcast_message,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers. Clause 6.24 of [3]."
 FGT5018,Vandalism of network infrastructure,DS0040,Asset tracking tools. Security Management and Detection
 T1499.502,Trigger Fraud Alert to Deny Service,FGDS5011,Subscriber contacts service provider to determine why service is denied.
 T1464,UE or gNB Jamming,FGDS5001,Identify source and location of jammer.
@@ -148,6 +187,19 @@ T1599.502,Network Slice infrastructure  resource hijacking,DS0029,Monitor networ
 FGT5005,Memory Scrapping,DS0015,Analyze logs to detect unauthorized activity
 FGT5005,Memory Scrapping,DS0029,All inbound and outbound connections should be audited for unauthorized activity
 T1562.501,Bid down UE,FGDS5013,"At the UE side, the UE can tell that there is a 5G cell site that it can hear, but if it eventually gets connected to a 4G cell site, then it may have suffered a bidding down attack"
+T1498.503,_UE_DoS_to_AMF,DS0029,"Examine all header fields of control plane messages received in the uplink direction from UE to the core.
+This can be done either by logging all messages received by the NF or by using a proxy or firewall at the core network entry point."
+T1498.503,_UE_DoS_to_AMF,FGDS5015,Test all software patches for each core NF.
+FGT5034,_Rogue_xApps_unauthorized_access,FGDS5021,Monitor all xApps onboarding processes. Use host scanning tools to detect malware insertions.
+FGT5034,_Rogue_xApps_unauthorized_access,DS0025,"Monitor logs for authentication/authorization of xApps to near-RT RIC and E2 nodes, logs for each transaction done by xApps to E2 nodes. Audit logs and telemetry data for unauthorized activities."
+FGT5034,_Rogue_xApps_unauthorized_access,DS0010,"Perform real-time audits and post-processing of logs.
+Detect which parts of the RAN is accessed by each xApp e.g. O-DU, O-CU-CP, O-CU-UP, O-RU etc."
+FGT5034,_Rogue_xApps_unauthorized_access,DS0006,Monitor access token usage by xApps.
+FGT5034,_Rogue_xApps_unauthorized_access,DS0037,Verify and refresh frequently digital signatures used for authenticating xApps by near-RT RIC and E2 nodes.
+FGT5034,_Rogue_xApps_unauthorized_access,FGDS5015,Verify xApp image hash
+FGT5012.008,_Diameter_signaling,DS0029,Monitor all communications over Diameter and SS7/MAP based interfaces to/from core network.
+T1572.501,UE Access via GTP-U,FGDS5016,Examine all IP packets received from the internet at UPF/PGW with encapsulated GTP-U payload.
+T1572.501,UE Access via GTP-U,DS0029,Monitor incoming packets on N6 interface for any unauthorized data sessions.
 FGT5002,Bypass home routing,DS0015,"Logs of externally received messages requesting location of user or, logs of outgoing responses to such messages can detect anomalies. Logs are on the NF or functions which interface SMS home router such as MAP IWF or SMSC. See Figure 27 of [3]."
 T1557.501,Radio Interface,FGDS5002,"UE measurements of received power levels from all base stations nearby, and their identifiers Reference clause 6.24 of [3]"
 T1592.501,Internal resource search,FGDS5009,Access to IR.21 file should be logged.
@@ -158,5 +210,6 @@ T1078.004,Container Management- Unauthorized access,DS0002,"Monitor user account
 FGT5028,Discover network slice identifier,DS0015,"Logs at the NRF of failed NSSAI lookups. If a NF asks for NSSAIs that do not exist, then flag that or take action.
 
 AMF can ask the UDM about NSSAIs legitimately. Keep AMF and UDM logs of transactions involving asks about NSSAIs."
+T1040.502,_Fronthaul_User_Plane_Data,FGDS5022,Monitor if security configurations in O-RU and O-DU are downgraded to weak or no security levels.
 FGT5023,Charging fraud via NF control,FGDS5003,Management system (OSS/BSS) checks uniqueness of charging ID for all new PDU sessions in non-roaming scenario and existing PDU sessions in handover and roaming scenario
 FGT5027,Spoof network slice identifier,DS0015,"Check logs of requests/responses at the shared NF. E.g., each entry should contain UE ID (SUPI), NF consumer that requested it, slice Ids of both."

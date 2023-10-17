@@ -1,23 +1,4 @@
 /*!
-  * vue-router v3.5.4
-  * (c) 2022 Evan You
-  * @license MIT
-  */
-
-/*!
- * Vue.js v2.6.14
- * (c) 2014-2021 Evan You
- * Released under the MIT License.
- */
-
-/*!
- * vuex v3.6.2
- * (c) 2021 Evan You
- * @license MIT
- */
-
-
-/*!
   * vue-scrollto v2.20.0
   * (c) 2019 Randjelovic Igor
   * @license MIT
@@ -52,5 +33,24 @@
  * Sortable 1.10.2
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
+ * @license MIT
+ */
+
+
+/*!
+  * vue-router v3.5.4
+  * (c) 2022 Evan You
+  * @license MIT
+  */
+
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
+
+/*!
+ * vuex v3.6.2
+ * (c) 2021 Evan You
  * @license MIT
  */

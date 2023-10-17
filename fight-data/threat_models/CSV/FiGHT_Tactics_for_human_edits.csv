@@ -1,0 +1,16 @@
+FGTAXXX,Name,Description
+TA5001,Fraud,Obtain service without contracturally paying for it.
+TA0001,initial-access,The adversary is trying to get into your network.
+TA0002,Execution,The adversary is trying to run malicious code.
+TA0003,Persistence,The adversary is trying to maintain their foothold.
+TA0004,privilege-escalation,The adversary is trying to gain higher-level permissions.
+TA0005,defense-evasion,The adversary is trying to avoid being detected.
+TA0006,credential-access,The adversary is trying to steal account names and passwords.
+TA0007,"	Discovery",The adversary is trying to figure out your environment.
+TA0008,lateral-movement,The adversary is trying to move through your environment.
+TA0009,"	Collection",The adversary is trying to gather data of interest to their goal.
+TA0010,"	Exfiltration",The adversary is trying to steal data.
+TA0011,command-and-control,The adversary is trying to communicate with compromised systems to control them.
+TA0040,Impact,"The adversary is trying to manipulate, interrupt, or destroy your systems and data."
+TA0042,resource-development,The adversary is trying to establish resources they can use to support operations.
+TA0043,reconnaissance,The adversary is trying to gather information they can use to plan future operations.
