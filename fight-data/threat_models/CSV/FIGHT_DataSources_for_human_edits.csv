@@ -1,4 +1,4 @@
-FGDSID,Data Source Name,Description
+﻿FGDSID,Data Source Name,Description
 DS0001,Firmware,"Computer software that provides low-level control for the hardware and device(s) of a host, such as BIOS or UEFI/EFI"
 DS0002,User Account,"A profile representing a user, device, service, or application used to authenticate and access resources"
 DS0003,Scheduled Job,"Automated tasks that can be executed at a specific time or on a recurring schedule running in the background (ex: Cron daemon, task scheduler, BITS)"
@@ -36,6 +36,7 @@ DS0035,Internet Scan,Information obtained (commonly via active network traffic p
 DS0036,Group,A collection of multiple user accounts that share the same access rights to the computer and/or network resources and have common security rights
 DS0037,Certificate,"A digital document, which highlights information such as the owner's identity, used to instill trust in public keys used while encrypting network communications"
 DS0038,Domain Name,Information obtained (commonly through registration or activity logs) regarding one or more IP addresses registered with human readable names (ex: mitre.org)
+DS0039,Asset,"Monitoring ability to detect new ports, devices on the network"
 DS0040,Operational Databases,"Operational databases contain information about the status of the operational process and associated devices, including any measurements, events, history, or alarms that have occurred"
 FGDS5001,RF Spectrum Monitor,"RF spectrum monitoring equipment, optionally including direction finding and geolocation"
 FGDS5002,UE signal measurements,UE measurements of received power levels from all base stations nearby. Report to operator gNB radio signals (sent to all UEs to enable them to select gNB and connect) received at a given UE
@@ -43,7 +44,7 @@ FGDS5003,Charging anomaly,Audit charging system records for anomaly
 FGDS5004,Scan voice calls,Scan voice calls for certain amount of losses to detect if the call is made over internet (IP)
 FGDS5005,SIM card pattern,Keep track of SIM cards with unusual pattern
 FGDS5006,UE data usage,Monitor for excessive data usage; including using AI/ML
-FGDS5007,RAN access requests,Number of access requests received from UEs (or a single UE) at the gNB. Keep track to avoid overload.
+FGDS5007,UE access requests,Number of access requests received from UEs (or a single UE) at the gNB. Keep track to avoid overload.
 FGDS5008,Search Internet for leaks,Leaking IR.21 information on the Internet can be found
 FGDS5009,Access to operator resource,Maintain logs of access to operator O&M resources like IR.21 databases.
 FGDS5010,UE transition to less secure service,UE transitions from 5GS to 4G/EPS with less or no security
@@ -51,7 +52,7 @@ FGDS5011,Subscriber notify provider,Subscriber notifies service provider about D
 FGDS5012,SIEM,"Security Incident and event monitoring. Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed"
 FGDS5013,UE connecting to 4G,"The UE can tell that there is a 5G cell site that it can hear, but if it eventually gets connected to a 4G cell site "
 FGDS5014,SDN Access Logs,Analyze SDN logs to detect unauthorized activity
-FGDS5015 ,Image verification,Automated hash verification of images
+FGDS5015,Image verification,Automated hash verification of images
 FGDS5016,Payload checking,Verify payload for GTP-U encapsulated packets
 FGDS5017,Monitor null scheme usage,Monitor gNB and core network logs for NULL scheme usage for SUCI protection.
 FGDS5018,Monitor provisioning logs,Monitor provisioning logs in core network for changes in home network public key and home PLMN ID.
@@ -60,3 +61,4 @@ FGDS5020,Monitor unplanned service outage,Monitor gNB logs for unplanned network
 FGDS5021,Monitor 3rd party application onboarding,Monitor all 3rd party application onboarding processes and use host scanning to detect malware insertions.
 FGDS5022,Monitor security configurations,Monitor if any security configurations have been downgraded to weak or no security.
 FGDS5102,Silent SMS detector,Run at the UE side an application/tool to detect received silent SMS messages
+FGDS5023,Audit policy violation,Automated policy compliance checks

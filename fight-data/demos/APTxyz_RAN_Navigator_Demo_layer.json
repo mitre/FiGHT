@@ -1,0 +1,321 @@
+{
+	"name": "layer",
+	"versions": {
+		"attack": "1",
+		"navigator": "4.8.0",
+		"layer": "4.4"
+	},
+	"domain": "fight-5g",
+	"customDataURL": "http://10.128.7.205:4200/assets/new_bundle_refactor_2.20230926_173020.json",
+	"description": "",
+	"filters": {
+		"platforms": [
+			"Infrastructure",
+			"PNF",
+			"VNF Hosts",
+			"5G Network",
+			"Linux",
+			"macOS",
+			"Windows",
+			"Network",
+			"RAN",
+			"",
+			"Azure AD",
+			"Office 365",
+			"SaaS",
+			"IaaS",
+			"Google Workspace",
+			"Containers",
+			"5G",
+			"CI/CD & OA&M Tools",
+			"VNFs",
+			"5G radio access",
+			"VM",
+			"Container",
+			"Azure/AWS",
+			"SDN",
+			"PRE",
+			"OA&M",
+			"Impl Virtualization",
+			"Impl OA&M",
+			"Hosts",
+			"ICAM",
+			"CI/CD",
+			"OA&M Tools",
+			"virtualization",
+			"IPX",
+			"SEPP",
+			"VAS",
+			"Physical",
+			"5G Core Network",
+			"5G UE",
+			"5G network",
+			"UPF",
+			"O-RAN",
+			"Arch ORAN",
+			"5G RAN",
+			"NF",
+			"4G",
+			"3G",
+			"Slice",
+			"CSP",
+			"HSM",
+			"5G radio",
+			"UE Baseband",
+			"Virtualization",
+			"SDN vSwitch",
+			"Network Element",
+			"SDN Controller",
+			"5G Radio",
+			"5G core",
+			"Data transmission infrastructure and power supply",
+			"Radio access hardware",
+			"Edge server",
+			"remote/shared location physical assets"
+		]
+	},
+	"sorting": 0,
+	"layout": {
+		"layout": "side",
+		"aggregateFunction": "average",
+		"showID": false,
+		"showName": true,
+		"showAggregateScores": false,
+		"countUnscored": false
+	},
+	"hideDisabled": false,
+	"techniques": [
+		{
+			"techniqueID": "FGT1583",
+			"tactic": "resource-development",
+			"score": 95,
+			"color": "#e6d60d",
+			"comment": "An adversary obtains a fake base station and installs it in the area of interest. It is not connected to the legitimate operator networks of the target UEs.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1583.501",
+			"tactic": "resource-development",
+			"score": 95,
+			"color": "#e6d60d",
+			"comment": "An adversary obtains a fake base station and installs it in the area of interest. It is not connected to the legitimate operator networks of the target UEs.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1608",
+			"tactic": "resource-development",
+			"score": 95,
+			"color": "#e6d60d",
+			"comment": "An adversary configures the fake base station to act as if part of the local operator but emitting signals at a higher power.  This will lure victim UEs to try to connect to it.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1608.501",
+			"tactic": "resource-development",
+			"score": 95,
+			"color": "#e6d60d",
+			"comment": "An adversary configures the fake base station to act as if part of the local operator but emitting signals at a higher power.  This will lure victim UEs to try to connect to it.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1562",
+			"tactic": "defense-evasion",
+			"score": 70,
+			"color": "#e6d60d",
+			"comment": "A fake base station can be used by an adversary to inform the UE that 5G services are not available, but only4G services. Then, once the UE accepts to connect to 4G, it can be then responding to requests for permanent identiy (IMSI), so that the adversary can find this id for this victim UE. The IMSI can then be used in signaling wthin the network with the goal to obtain the location of the UE.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1562.501",
+			"tactic": "defense-evasion",
+			"score": 70,
+			"color": "#e6d60d",
+			"comment": "A fake base station can be used by an adversary to inform the UE that 5G services are not available, but only4G services. Then, once the UE accepts to connect to 4G, it can be then responding to requests for permanent identiy (IMSI), so that the adversary can find this id for this victim UE. The IMSI can then be used in signaling wthin the network with the goal to obtain the location of the UE.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1592",
+			"tactic": "reconnaissance",
+			"score": 50,
+			"color": "#6baed6",
+			"comment": "An adversary obtains a leaked IR.21 database and discovers the network topology of the local operator, including IP addresses of some core network functions. If the adversary is the foreign operator itself, then this is not required.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1592.501",
+			"tactic": "reconnaissance",
+			"score": 50,
+			"color": "#6baed6",
+			"comment": "An adversary obtains a leaked IR.21 database and discovers the network topology of the local operator, including IP addresses of some core network functions. If the adversary is the foreign operator itself, then this is not required.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1557",
+			"tactic": "collection",
+			"score": 60,
+			"color": "#e6d60d",
+			"comment": "When an adversary has obtained both a fake base station and fake UE, it can position itself as an AITM between the victim UE and the legitimate network. Then it can replay NAS messages to probe for UE presence, for example, or it can modify some signaling messages in such a way so as to trigger location service",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1557.501",
+			"tactic": "collection",
+			"score": 60,
+			"color": "#e6d60d",
+			"comment": "When an adversary has obtained both a fake base station and fake UE, it can position itself as an AITM between the victim UE and the legitimate network. Then it can replay NAS messages to probe for UE presence, for example, or it can modify some signaling messages in such a way so as to trigger location service",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1199",
+			"tactic": "initial-access",
+			"score": 70,
+			"color": "#6baed6",
+			"comment": "It would be important for an adversay to find the permanent identifier of a given UE of interest. This can be done by taking over or pretending to be a roaming partner or IPX (IP exchange, the roaming 'fabric' of servers nodes that provide roaming services between operators) node, and asking for a UE's SUPI/IMSI (the permanend ID) based on its phone number (MSISDN). ",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1199.501",
+			"tactic": "initial-access",
+			"score": 70,
+			"color": "#6baed6",
+			"comment": "It would be important for an adversay to find the permanent identifier of a given UE of interest. This can be done by taking over or pretending to be a roaming partner or IPX (IP exchange, the roaming 'fabric' of servers nodes that provide roaming services between operators) node, and asking for a UE's SUPI/IMSI (the permanend ID) based on its phone number (MSISDN). ",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT5012",
+			"tactic": "collection",
+			"color": "#97e89f",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT5012",
+			"tactic": "discovery",
+			"color": "#97e89f",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT5002",
+			"tactic": "defense-evasion",
+			"score": 70,
+			"color": "#6baed6",
+			"comment": "An adversay external to the operator network can pretend to be a roaming partner operator employing a lower generation core, e.g. 3G, and then claiming that a UE from a given home operator is now roaming into the foreign network; the adversary can send a control message asking for the location of that UE so that the roaming operator can know where to send the SMS for this UE. This is a known flaw in the routing of SMSs from previous generations, so home networks put an 'SMS home router' which intercepts such requests for UE location. HOwever, misconfiguration in this SMS router can leave open the door for smart location query requests to still slip by and reach the home operator location services and thus get the UE location in response.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1190",
+			"tactic": "initial-access",
+			"color": "#6baed6",
+			"comment": "An operator may allow an exernal Application Function (AF) to have paid subscribe acccess to various services provided by the operator, including UE location (with user consent, e.g. for location based services). For a given sent of UEs, such an AF talks to the NEF (NEtwork exposure function) and asks for the UE location (if subscribed service is location service). An adversary may compromise this AF and use it to ask for the location of a given UE, and if that UE has alllowed it, then it will go undergo the location determination procedure and so the result (its coordinates) will be sent to that AF, where the adversary sits. Alternatively, the AF may be used by an adversary to ask for locations for another UE that is not actually subscibed/has not allowed such location services, and if the NEF is not careful to check the authorization of this AF, it may end up responding to the AF's illegimiate request by providing the location of this victim UE.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "FGT1557",
+			"tactic": "credential-access",
+			"color": "",
+			"comment": "When an adversary has obtained both a fake base station and fake UE, it can position itself as an AITM between the victim UE and the legitimate network. Then it can replay NAS messages to probe for UE presence, for example, or it can modify some signaling messages in such a way so as to trigger location service",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1199.501",
+			"tactic": "collection",
+			"color": "",
+			"comment": "It would be important for an adversay to find the permanent identifier of a given UE of interest. This can be done by taking over or pretending to be a roaming partner or IPX (IP exchange, the roaming 'fabric' of servers nodes that provide roaming services between operators) node, and asking for a UE's SUPI/IMSI (the permanend ID) based on its phone number (MSISDN). ",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "FGT1557.501",
+			"tactic": "credential-access",
+			"color": "",
+			"comment": "When an adversary has obtained both a fake base station and fake UE, it can position itself as an AITM between the victim UE and the legitimate network. Then it can replay NAS messages to probe for UE presence, for example, or it can modify some signaling messages in such a way so as to trigger location service",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		}
+	],
+	"gradient": {
+		"colors": [
+			"#ff6666ff",
+			"#ffe766ff",
+			"#8ec843ff"
+		],
+		"minValue": 0,
+		"maxValue": 100
+	},
+	"legendItems": [
+		{
+			"color": "#6baed6",
+			"label": "APT_using_Network"
+		},
+		{
+			"color": "#e6d60d",
+			"label": "APT_using_RAN"
+		},
+		{
+			"color": "#97e89f",
+			"label": "APT_using_RAN and APT_using_Network"
+		}
+	],
+	"metadata": [],
+	"links": [],
+	"showTacticRowBackground": false,
+	"tacticRowBackground": "#dddddd",
+	"selectTechniquesAcrossTactics": true,
+	"selectSubtechniquesWithParent": false
+}

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/techniques/FGT1557.504", {data:[{}],fetch:{},mutations:[]});

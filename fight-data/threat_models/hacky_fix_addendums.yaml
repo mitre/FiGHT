@@ -1,0 +1,44 @@
+techniques:
+    - tid: T1040
+      Addendums:
+        - name: _Fronthaul
+          architectures:
+          - o-ran
+        - name: Network Elements
+          architectures:
+          - arch-user plane
+          - arch-control plane
+          - arch-roaming
+          - impl-virtualization
+    - tid: T1565.002
+      Addendums:
+        - name: Fronthaul User Plane Data
+          architectures:
+          - o-ran 
+        - name: Network Interfaces
+          architectures:
+          - arch-control plane
+          - arch-user plane
+          - arch-roaming
+        - name: Radio Interface
+          architectures:
+          - arch-ran
+    - tid: T1499.002
+      Addendums:
+        - name: UDM DOS via SUCI replay
+          architectures:
+          - arch-control plane
+        - name: Base Station flood with fictitious access requests
+          architectures:
+          - arch-ran
+          - arch-ue
+    - tid: T1499
+      Addendums:
+        - name: Public Function Denial of Service
+          architectures:
+          - arch-control plane
+          - arch-user plane
+        - name: Interworking Denial of Service
+          architectures:
+          - arch-control plane
+          - arch-roaming

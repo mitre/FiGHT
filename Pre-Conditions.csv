@@ -1,88 +1,93 @@
 FGT5019.004,Intercept Unencrypted SUPI,Ability to receive SUCI over the air,Adversary requires sufficient signal to capture and decode all airlink messages (with low interference and high SNR).
 FGT5019.004,Intercept Unencrypted SUPI,5G UE is directed to connect to 4G base station in NSA mode,"In NSA mode, 5G UE is directed to connect to eNB due to lack of 5G coverage in the area or network load situations."
 FGT5018.002,Radio access hardware,Improper physical security of radio access hardware,"Despite the virtualized structure of the 5G network and all involved network functions, there will be a strong dependency on the physical infrastructure, especially in the initial migration/hybrid 5G deployments."
-FGT5006.002,DNS Encapsulation,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
-FGT5016,_Abuse_of_Inter-operator_Interfaces,IPX key compromise,Adversary will need to compromise keys used to sign IE modifications at IPX
-FGT5016,_Abuse_of_Inter-operator_Interfaces,Compromise of initiating SEPP,"Compromise of the initiating SEPP, typically the VPLMN SEPP, would permit an adversary to establish a protection policy that would allow IPX modification."
+T1599,Compromise Network Isolation,Privileged access,Privileged access to device implementing the network separation controls
+FGT5030,DoS Attack on IAB Deployment,Adversary in the same vicinity as victim gNB,Adversary must be positioned in the same area as the victim gNB with a wireless sniffer device and a jamming device equipped with sufficient transmit power.
 FGT5020,Retrieve UE subscription data,SUPI or GPSI,Adversary must know the SUPI or GPSI of victim UE
 T1499.503,DOS a UE via gNB or NF signaling,Compromise gNB or NF,Adversary needs access to a fake or compromised gNB or a compromised NF.
 T1018,Core-network scanning,Access to scanning tool,Adversaries need access to such tools.
 T1499.501,Consume data allocation to deny or degrade service,A malicious app or set of apps have to have been installed on the UE,There are several methods to achieve this
 FGT5004.001,Controller,Credential and Access to SDN Controller,Privileged Access to SDN controller via direct login or through SDN control plane APIs
-FGT5030,_DoS_Attack_on_IAB_Deployment,Adversary in the same vicinity as victim gNB,Adversary must be positioned in the same area as the victim gNB with a wireless sniffer device and a jamming device equipped with sufficient transmit power.
+FGT5031,Discover TEID,Obtain victim UE’s private IP address,Retrieve the target UE’s private IP address using open-source search engines e.g. shodan.
 T1048.003,DNS Queries,External DNS Resolution,Operator environment must permit DNS queries either directly or recursively for domains the operator doesn’t directly control.
+T1565.002,Fronthaul User Plane Data,Adversary has access to open fronthaul network.,Adversary must have physical access to open fronthaul network to collect data and then manipulate and replay the data.
 T1557.502,Roaming and Interconnection,SEPP control,Adversary would need to be in control of the vSEPP which may be managed by a VAS
+FGT5016,Abuse of Inter-operator Interfaces,IPX key compromise,Adversary will need to compromise keys used to sign IE modifications at IPX
+FGT5016,Abuse of Inter-operator Interfaces,Compromise of initiating SEPP,"Compromise of the initiating SEPP, typically the VPLMN SEPP, would permit an adversary to establish a protection policy that would allow IPX modification."
 T1046,Core-network scanning,Access to scanning tool,Adversaries need access to such tools.
 T1525,Compromised image,Credential and Access to repository and or image creation tools (i.e. Docker),"An image can be manipulated, or a new image can be introduced to have same impact.  Privileged Access to tool or repo is required."
 T1600.501,Radio interface,Rogue or misconfigured AMF or SMF or gNB,"A rogue gNB may be required to change the UE’s CP and UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
 This attack is possible with only control over the AMF, in which case the algorithm for CP and UP protection is changed to NULL."
+FGT5039,Manipulate Virtual Network Function VNF Configuration,Credential and Access,Privileged Access to VNF or VNF managers via direct login or through Control Plane APIs
 FGT5004.002,vSwitch,Credential and Access to SDN vSwitch,Privileged Access to SDN vSwitch via direct login or through SDN control plane APIs
 FGT5012.004,Core network function signaling,Access to SS7 network,Adversary may pretend to be an operator supporting only earlier generations.
 FGT5012.004,Core network function signaling,Access to operator’s network function,Adversary has to gain control of one core NF.
 FGT5012.004,Core network function signaling,Knowledge of the UE SUPI or GPSI 5G-GUTI of target UE,UE identifier required for all Core network function abuse.
-FGT5019.005,_Diameter_signaling,MSISDN or phone number of victim UE is known to adversary,Adversary collects victim UE’s phone number from subscriber’s physical address using internet based services such as numlooker.com.
-T1499.004,_UPF_from_UE,Compromise a UE,A COTS UE or an SDR based simulated UE can be used to prepare specially crafted GTP-U packets to be sent to towards UPF/SGW-U.
 T1557.503,Non-SBI,Compromised or misconfigured switches/routers or gNB,"Malware or wrong configuration in switches/routers between RAN and core, between gNBs, in gNB itself, in SMF or UPF."
 FGT5012.006,NAS exploit,Control of fake gNB in the area where the victim UE may be located.,Adversary must install a fake gNB that it can control what messages it sends to UEs.
-FGT5012.006,NAS exploit,Control of fake UE  in the NAS SMC attack.,Adversary must acquire a fake UE to achieve the NAS SMC attack.
+FGT5012.006,NAS exploit,Control of fake UE in the NAS SMC attack.,Adversary must acquire a fake UE to achieve the NAS SMC attack.
 FGT5026,SIM cloning,Access to USIM card,Adversary needs physical access to USIM card during manufacturing of USIMs or during transport to MNOs and the cloned USIM card needs to be activated by the MNO.
 T1499,Interworking Denial of Service,API vulnerability,"Adversary may need to identify vulnerabilities in the API to obtain initial-access, unauthorized information, or perform a denial of service"
 T1499,Interworking Denial of Service,API credentials,Adversary may need to obtain credentials to collect unauthorized information
+FGT5019.006,Silent SMS,Radio interface sniffer,Adversary deployed a sniffer in the coverage area where the target UE may be located
 T1195.501,SIM credential theft,Implant malware or physical access,Adversary needs to either implant malware in SIM vendor’s server or have physical access to the SIM card inventory.
-FGT5024,_IAB_Denial_of_Service,Adversary in the same vicinity as victim IAB node,Adversary must be positioned in the same area as the victim IAB node with a wireless sniffer device and a jamming device equipped with sufficient transmit power.
-FGT5024,_IAB_Denial_of_Service,Adversary jams all communications of the victim IAB node,Adversary impacts all communications associated to the victim IAB node i.e. both access and backhaul.
 FGT5012.001,Passive radio signals observation,Line-of-sight,Attacker must have radio line-of-sight to target for most accurate geolocation.
 T1555.501,Hardware Security Module Key Signing,Obtain service account credentials,Adversary acquires credentials with legitimate privileges to conduct operations using the HSM. Adversary has a position to initiate transactions with the HSM.
 FGT5009.002,Network Interfaces,Rogue or misconfigured AMF or SMF or gNB or UPF or SEPP or MME or any other core NF,Adversary must have access to the network components to cause the attacks
 FGT5012.005,Shared network function in slice,Access shared NF in a different slice,"Two slices share one common NF that is able to get UE location info. Adversary has control of one slice or at least a NF in that slice -- where said NF is allowed to talk to the AMF.
 
 The following core NFs can legitimately ask for or obtain directly the location of a UE (some granularity): AMF, UDM, NEF, NWDAF, GMLC, LMF. The following core NFs can only get limited/coarse location: SMF, UPF, PCF."
-T1599.505,_GTP-U_Abuse,Compromise a UE,A COTS UE or SDR UE can be used to prepare specially crafted GTP-U packets to be sent to towards UPF/PGW.
-T1599.504,Manipulate Virtual Network Function (VNF) Configuration,Credential and Access,Privileged Access to VNF or VNF managers via direct login or thru Control Plane APIs
+T1048.501,_Covert_Exfiltration_of_Data_Via_DNS_Request_,Unauthenticated DNS Services,There must not be an endpoint detection and response capability to validate whether host/network function/UE is communicating with a malicious DNS server or a valid one.
+T1642.501,Transmit spoofed broadcast message,Obtain a false base station to send fake broadcast messages,Adversary gets hold of a false base station which is capable of broadcasting fraudulent messages.
+T1642.501,Transmit spoofed broadcast message,Adversary must be in the same vicinity of target UEs,False base station must be deployed in the area where target UEs are located.
 FGT5018.004,Theft of assets,Improper security monitoring of remote/shared facilities,"Remote/shared sites have to be integrated in the network-wide Security Incident and Monitoring System, but with additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider -level monitoring mechanisms. Failure to do so may leave advanced or sustained threats undetected, as well as technical failures or malfunctions of local resources."
 FGT5018.001,Cabling and junction boxes,Unprotected cables,"Fibers routed between pieces of equipment without proper protection are susceptible to damage, which can critically affect network reliability. The fiber cable management system should therefore ensure that every fiber is protected from physical damage."
 FGT5018.001,Cabling and junction boxes, Unprotected junction boxes,"Lack of protection of junction boxes / splice closures. Improper cable routing also causes increased congestion in the termination panel and the cableways, increasing the possibility of bend radius violations and long-term failure."
-FGT5012.007,_Silent_or_spoofed_paging,"Obtain a false base station to send fake broadcast messages, or a SDR tool to manipulate legitimate signaling on the radio interface",Adversary gets hold of a false base station which is capable of sending fraudulent paging messages.
-FGT5012.007,_Silent_or_spoofed_paging,Obtain a silent SMS tool,Adversary develops or obtains a tool to send silent SMS (e.g. mobile phone with special application running)
+FGT5019.005,Diameter signaling,MSISDN or phone number of victim UE is known to adversary,Adversary collects victim UE’s phone number from subscriber’s physical address using internet based services such as numlooker.com.
 T1203.501,Over-the-Air Input,Identified vulnerability on baseband or supporting chips,Adversary must have identified a vulnerability in the target UE baseband or supporting chips to enable OTA exploitation.
+T1572,_DNS_Encapsulation_,Unauthenticated DNS Services,There must not be an endpoint detection and response capability to validate whether host/network function/UE is communicating with a malicious DNS server or a valid one.
 FGT5008,Redirection of traffic via user plane network function,Acquire UPF IP address/control,An adversary must have control of the UPF IP address or a UPF
 FGT5008,Redirection of traffic via user plane network function,Control SMF/NEF/AF,"An adversary must first control the SMF or NEF, or AF"
-FGT5032.003,_rApp,Adversary access to rApp,"Adversary has access to rApp (e.g., application package, credential)"
-FGT5019.006,_Silent_SMS,Radio interface sniffer,Adversary deployed a sniffer in the coverage area where the target UE may be located
 FGT5029,Exploit Semi-public Facing Application,Vulnerability Identified,Adversary must have identified a vulnerability susceptible to the specially crafted message that results in an ability to use additional techniques.
 T1199.501,MNO Roaming Partners,Compromised partner,"An adversary must already have compromised a trusted PLMN or one of their service providers, e.g. IPX, VAS, etc."
 T1199.501,MNO Roaming Partners,Compromised credentials,An adversary may need compromised legitimate credentials that could be used to obtain information from the MNO.
 T1199.501,MNO Roaming Partners,Identified vulnerability,An adversary may need to identify a vulnerability in an MNO network function to send specially crafted requests to obtain initial access.
+FGT5012.003,5G-GUTI reuse,Adversary present in the vicinity of victim UE,Adversary must be present in the same area where the UE is located.
+T1599.505,GTP-U Abuse,Compromise a UE,A COTS UE or SDR UE can be used to prepare specially crafted GTP-U packets to be sent to towards UPF/PGW.
 T1203.502,Baseband API,Baseband API Access,Exploitation requires the ability to communicate with the baseband API.
-T1565.002,Network Interfaces,Weakened or disabled integrity protection,See technique Weaken Integrity: Network Interfaces
+FGT5024,IAB Denial of Service,Adversary in the same vicinity as victim IAB node,Adversary must be positioned in the same area as the victim IAB node with a wireless sniffer device and a jamming device equipped with sufficient transmit power.
+FGT5024,IAB Denial of Service,Adversary jams all communications of the victim IAB node,Adversary impacts all communications associated to the victim IAB node i.e. both access and backhaul.
+T1498.503,UE DoS to AMF,Compromise a UE or a purpose built UE,A compromised COTS UE or a UE with open-source code running in an SDR can be used to run malicious application code. This can be used to generate the specially crafted NAS message to be sent towards AMF.
 FGT5006.003,DNS Poisoning,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
-FGT5006.001,_Layer_2_Redirection_of_Encrypted_DNS,Unauthenticated DNS Services,The end user must not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
 FGT5004,Network Flow Manipulation,Credential and Access to SDN Controller and network elements,Privileged Access to SDN controller and Network elements
 FGT5019.002,Intercept Bid-Down SUPI,Permissive user security profile,User security profile must allow bidding down.
 FGT5019.002,Intercept Bid-Down SUPI,Bid down operation successful,Denying service to 5G and bidding down (e.g. from a fake or compromised base station) must have occurred for this 5G UE. Adversary must be present in the same area as the UE.
 FGT5009.001,Radio Interface,Rogue or misconfigured AMF or SMF or gNB or MME,"A rogue gNB may be required to change the UE’s CP & UP supported algorithms to NULL. It’s easier to achieve control over a gNB than over the AMF or SMF itself. But then if the AMF and SMF are not rogue just not configured to do these additional checks, then control over a rogue gNB is sufficient.
 This attack is possible with only control over the AMF, in which case the algorithm for CP and UP protection may be changed to NULL."
-FGT5017,Charging Data Record (CDR) collection,SMSC is compromised,Rogue or misconfigured SMSC
+FGT5017,Charging Data Record (CDR) collection,Adversary compromises a legitimate CHF,Adversary either clones a legitimate CHF or implants malware in a legitimate CHF.
 FGT5009,Weaken Integrity,Adversary controlling end point,Adversary gets hold of an end point such as gNB to manipulate signaling
 FGT5001,Network-side SMS collection,Malware developed,Adversary must first develop the malware to achieve the procedures herein.
+FGT5032.002,xApp,Adversary access to xApp,"Adversary has access to xApp (e.g., application package, credentials)"
 FGT5019.003,Obtain subscriber identifier by NF,UE phone number and control of AF/NF,Adversary has knowledge of UE phone number/GPSI and has control over an AF or NEF or AMF.
 FGT5010,Fraudulent AMF registration for UE in UDM,Faulty UDM implementation,"If the UDM does not store the authentication status of a UE, or the authentication status is incorrect"
-FGT5019.001,Intercept Home Network via SUCI,Ability to receive SUCI over the air,Attacker requires sufficient signal to noise and interference ratio
+FGT5019.001,Intercept Home Network via SUCI,Ability to receive SUCI over the air,Adversary requires sufficient signal to noise and interference ratio and must be present in the same area as the UE.
+FGT5012.008,Diameter signaling,MSISDN or phone number of victim UE is known to adversary,Adversary collects victim UE’s phone number from subscriber’s physical address using internet based services such as numlooker.com.
 FGT5018.003,Edge Servers,Improper security monitoring of edge computing facilities,"Mobile-edge computing have to be integrated in the network-wide Security Incident and Monitoring System, but with additional considerations: development of use-case specific alert rules, integration and correlation of data at all levels (network, application), integration and correlation with service provider -level monitoring mechanisms. Failure to do so may leave advanced or sustained threats undetected, as well as technical failures or malfunctions of local resources."
 FGT5021,Tunnel ID uniqueness failure,Control or misconfiguration of gNB or UPF,"Faulty implementation at gNB or UPF ; or, control over gNB, and UPF"
-T1599,Network Boundary Bridging,Privileged access,Privileged access to device implementing the network separation controls
+FGT5032.003,rApp,Adversary access to rApp,"Adversary has access to rApp (e.g., application package, credential)"
 T1040.501,Radio Interface,Permissive subscriber security profile in the UE OR system employs null encryption.,Subscriber security profile in the UE must allow bidding down to less secure service OR system must employ null encryption.
 T1040.501,Radio Interface,Successful “Bid down UE” attack,See [FGT1562.501](/techniques/FGT1562.501).
+T1040.501,Radio Interface,Adversary in the same vicinity as victim UE,Adversary must be positioned in the same area as the victim UE with an airlink message sniffer device to collect the downlink data sent by gNB to the UE.
 T1587.004,Baseband Exploits,Lab test environment,Adversary may need to deploy their own base station (and possibly core network) in a lab environment for exploit development and testing.
-FGT5006,DNS Manipulation,Unauthenticated DNS Services,The end user does not have the capability to validate whether it is communicating with a malicious DNS or a valid one.
-FGT5006,DNS Manipulation,Unmonitored DNS Traffic,DNS traffic must be permitted to move through the network without verification that it is routed to valid DNS Servers and without checking to ensure that the contents of the packets are actually DNS requests.
 FGT5011,Unauthorized access to NEF via token fraud,MNO service access,Access to some MNO services to gain knowledge about tokens to access the NEF
-FGT5031,_Discover_TEID,Obtain victim UE’s private IP address,Retrieve the target UE’s private IP address using open-source search engines e.g. shodan.
 FGT5003,Network Function Service Discovery,Access to NRF,NRF is by design open to connections from other network functions. Control of another NF in the operator domain may be required.
 FGT5003,Network Function Service Discovery,Access to SCP,SCP is compromised to hijack tokens.
 T1499.002,Base station flood with fictitious access requests,Transmit to gNB with sufficient power to succeed in flooding.,Adversary must be able to transmit to gNB with sufficient power to be received.
-T1498.002,_Transmit_spoofed_broadcast_message,Obtain a false base station to send fake broadcast messages,Adversary gets hold of a false base station which is capable of broadcasting fraudulent messages.
-T1498.002,_Transmit_spoofed_broadcast_message,Adversary must be in the same vicinity of target UEs,False base station must be deployed in the area where target UEs are located.
+FGT5034,Radio control manipulation via rogue xApps,Adversary has access to near-RT RIC during onboarding or via insider attack,"Adversary installs rogue xApp in near-RT RIC via malware during onboarding and it finds out weak authentication mechanism in near-RT RIC to gain entry in the O-RAN systems.
+
+A legitimate xApp may be cloned by adversary to launch further attacks."
+FGT5012.007,Silent or spoofed paging,"Obtain a false base station to send fake broadcast messages, or a SDR tool to manipulate legitimate signaling on the radio interface",Adversary gets hold of a false base station which is capable of sending fraudulent paging messages.
+FGT5012.007,Silent or spoofed paging,Obtain a silent SMS tool,Adversary develops or obtains a tool to send silent SMS (e.g. mobile phone with special application running)
 FGT5018,Vandalism of network infrastructure,Improper physical security of 5G core component infrastructure,"Improper physical security of Data Centers / Telecommunication equipment room. 
 
 Improper isolation of physical security perimeter between tenants.
@@ -114,11 +119,6 @@ FGT5005,Memory Scrapping,Credential and access to SDN controller and network ele
 T1190,Exploit Public-Facing Network Function,API vulnerability,"Adversary may need to identify vulnerabilities in the API to obtain initial-access, unauthorized information, or perform a denial of service"
 T1190,Exploit Public-Facing Network Function,API credentials,Adversary may need to obtain credentials to collect unauthorized information
 T1562.501,Bid down UE,False base station with strong signal and UE system,"Adversary has procured a UE and gNB under its control, and the victim UE is nearby"
-T1498.503,_UE_DoS_to_AMF,Compromise a UE or a purpose built UE,A compromised COTS UE or a UE with open-source code running in an SDR can be used to run malicious application code. This can be used to generate the specially crafted NAS message to be sent towards AMF.
-FGT5034,_Rogue_xApps_unauthorized_access,Adversary has access to near-RT RIC during onboarding or via insider attack,"Adversary installs rogue xApp in near-RT RIC via malware during onboarding and it finds out weak authentication mechanism in near-RT RIC to gain entry in the O-RAN systems.
-
-A legitimate xApp may be cloned by adversary to launch further attacks."
-FGT5012.008,_Diameter_signaling,MSISDN or phone number of victim UE is known to adversary,Adversary collects victim UE’s phone number from subscriber’s physical address using internet based services such as numlooker.com.
 T1572.501,UE Access via GTP-U,Adversary has knowledge of UE IP address and TEID,"Adversary figures out UE’s private IP address by using open-source IP address scanning tools such as Shodan and they also figure out the TEID being used by the network. [See FGT5031 Discover TEID]
 
 Note: For LTE, the adversary needs to know TEIDs of two GTP tunnels: TEIDs on S5 and S1-U interfaces."
@@ -127,8 +127,8 @@ FGT5002,Bypass home routing,Get target user’s phone number,Access to the MSISD
 T1557.501,Radio Interface,Permissive subscriber security profile OR system employs null integrity or encryption.,Subscriber security profile must allow bidding down to less secure service OR system must employ null integrity or encryption.
 T1592.501,Internal resource search,"Access to GSMA account; in some cases, none.",Adversary needs to access the operator databases or GSMA repositories
 FGT5012.002,Self Location Measurement,Permissive subscriber security profile OR system does not employ over-the-air encryption.,Subscriber security profile must allow bidding down to less secure format OR system does not employ over-the-air encryption.
+FGT5012.002,Self Location Measurement,Adversary present in the vicinity of victim UE,Adversary must be present in the same area where the UE is located.
 FGT5028,Discover network slice identifier,Compromise of core consumer NF,"For NF discovery service, clause 5.2.7.1 of [3] lists the following service consumers: AMF, SMF, PCF, NEF, NSSF, SMSF, AUSF, CHF, NRF, NWDAF, I-CSCF, SCSCF, IMS-AS, SCP, UDM, AF, DCCF, MBSF, 5G DDNMF, TSCTSF."
-T1040.502,_Fronthaul_User_Plane_Data,Adversary has access to open fronthaul network.,Adversary must have physical access to open fronthaul network to collect data and then manipulate and replay the data.
 FGT5027,Spoof network slice identifier,Slice identifier was discovered,See [FGT5028](/techniques/FGT5028)
 FGT5027,Spoof network slice identifier,Two slices share one common NF,This is common in practice
 FGT5027,Spoof network slice identifier,NRF does not check requester slice identifier and the target (consumer) slice identifier.,This is implicit in the standards that do not mandate this check.

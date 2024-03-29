@@ -1,0 +1,56 @@
+================================================================================
+CASE 1
+----------------------------------------
+FGT5019    ['FGTA0007', 'FGTA0009']
+  FGT5019.001    ['FGTA0007']
+  FGT5019.002    ['FGTA0007']
+  FGT5019.003    ['FGTA0009']
+  FGT5019.004    ['FGTA0007']
+----------------------------------------
+ACTION:  Make all Subtechniques members of FGTA0007 and FGTA0009
+
+================================================================================
+CASE 2
+----------------------------------------
+FGT1599    ['FGTA0005']
+  FGT1599.503    ['FGTA0040']
+  FGT1599.504    ['FGTA0005', 'FGTA0040']
+----------------------------------------
+ACTION:  Promote FGT1599.503 to a full technique in Impact
+ACTION:  Promote FGT1599.504 remove FGTA0040
+
+================================================================================
+CASE 3
+----------------------------------------
+FGT5006    ['FGTA0001', 'FGTA0003']
+  FGT5006.002    ['FGTA5001', 'FGTA0011', 'FGTA0010']
+----------------------------------------
+ACTION:  FGT5006.001 GOES AWAY and becomes ADDENDUM TO T1565.002 Data Manipulation: Transmitted Data Manipulation
+  - The addendum to T1565.002 gets a Precondition for Adversary in the Middle
+ACTION:  FGT5006.002 GOES AWAY 
+  - becomes an ADDENDUM to T1572 Protocol Tunneling
+    - No addition of Fraud to Tactics, retain only Command and Control
+  - becomes an ADDENDUM TO T1041 Exfiltration over C2 Channel
+ACTION:  FGT5006 GOES AWAY
+
+================================================================================
+CASE 4
+----------------------------------------
+FGT1195    ['FGTA0001']
+  FGT1195.501    ['FGTA0006']
+ACTION:  Add FGTA00001 to FGT1195.501
+
+
+================================================================================
+CASE 5
+----------------------------------------
+FGT1611    ['FGTA0008', 'FGTA0004']
+  FGT1611.501    ['FGTA0004']
+QUESTION:  @Muddasar, is there any reason the Subtechnique FGT1611.501 (Escape to Host: Malicious privileged container VNF Shared Resource Access) should not be in all of the parent's Tactics?  (Lateral Movement, Privilege Escalation).  It is currently only a member of Privilege Escalation
+
+================================================================================
+CASE 6
+----------------------------------------
+FGT1078    ['FGTA0005', 'FGTA0003', 'FGTA0004', 'FGTA0001']
+  FGT1078.003    ['FGTA0003']
+QUESTION:  @Muddasar, is there any reason the Subtechnique FGT1078.003 (Valid Accounts:Local Accounts) should not be in all of the parent's Tactics?  (Defense Evasion, Privilege Escalation, Initial Access).  It is currently only a member of Persistence
