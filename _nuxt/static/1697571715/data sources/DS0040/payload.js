@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/data%20sources/DS0040", {data:[{}],fetch:{},mutations:[]});

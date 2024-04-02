@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/resources/updates", {data:[{}],fetch:{},mutations:[]});

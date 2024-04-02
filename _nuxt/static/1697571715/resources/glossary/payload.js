@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/resources/glossary", {data:[{}],fetch:{},mutations:[]});

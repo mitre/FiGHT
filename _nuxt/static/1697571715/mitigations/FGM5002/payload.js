@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/mitigations/FGM5002", {data:[{}],fetch:{},mutations:[]});
