@@ -14,10 +14,10 @@ variables:
   FDEBRANCH: word_class_redesign
 
 stages:
-  - pages  # This stage contains all of the build steps, including uploading files for later use.
+  - pages-no-cui  # This stage contains all of the build steps, including uploading files for later use.
 
-pages:
-  stage: pages
+pages-no-cui:
+  stage: pages-no-cui
   before_script:
     - apt-get update && apt-get -y upgrade
     - apt-get install -y python3 python3-pip curl zip rsync 
