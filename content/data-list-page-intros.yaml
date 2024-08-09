@@ -15,9 +15,3 @@ mitigations: |
   Mitigations describe the means by which defenders can prevent adversary behaviors.  These methods can be technical, procedural, or policy based. 
 data sources: | 
   Data Sources describe the sources of data used to detect activity.
-campaigns: | 
-  The security community tracks intrusion activity using various analytic methodologies and terms, such as operations, intrusion sets, and campaigns. Some intrusion activity may be referenced by a variety of names due to different organizations tracking similar activity, often from different vantage points; conversely other times reported activity is not given a designated name.
-groups: | 
-  Groups are activity clusters that are tracked by a common name in the security community. Analysts track these clusters using various analytic methodologies and terms such as threat groups, activity groups, and threat actors.
-software: | 
-  Software is a generic term for custom or commercial code, operating system utilities, open-source software, or other tools used to conduct behavior modeled in MITRE FiGHT<sup>&trade;</sup> and ATT&CK<sup>&reg;</sup>.
