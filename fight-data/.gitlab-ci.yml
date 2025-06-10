@@ -10,15 +10,15 @@ variables:
   FIGHT_VERSION: 2.1.0-dev
   BRANCH: main
   PAGESBRANCH: develop
-  MATRIXBRANCH: master
-  FDEBRANCH: word_class_redesign
+  FDEBRANCH: fde_no_subs
 
 stages:
-  - pages-no-cui  # This stage contains all of the build steps, including uploading files for later use.
+  - pages  # This stage contains all of the build steps, including uploading files for later use.
 
-pages-no-cui:
-  stage: pages-no-cui
+pages:
+  stage: pages
   before_script:
+    - env
     - apt-get update && apt-get -y upgrade
     - apt-get install -y python3 python3-pip curl zip rsync 
     - pip install --user requests
@@ -35,39 +35,52 @@ pages-no-cui:
     - git submodule foreach --recursive git fetch
     - git submodule update --init --recursive
     - git config --file=.gitmodules -l
+
     # 5g-security submodule updates
     - cd 5g-security.pages.mitre.org
+         
     - git fetch
     - git status
     - git branch -r
     - git checkout $PAGESBRANCH
     - git status
-    # fight-matrix submodule updates
-    - cd ../fight-matrix
+    - mkdir -p static/fight-data/dist/schemas
+    - cp ../fight_data_engine/static/* static/fight-data/dist/schemas
+    - cd ..
+    
+    # fde submodule updates
+    - cd fight_data_engine
     - git fetch
     - git status
     - git branch -r
-    - git checkout $MATRIXBRANCH
+    - git checkout $FDEBRANCH
     - git status
-    - pip install --user -r requirements.txt
-    # Run fight-matrix
-    - python3 ./build_matrix.dynamic.py ../threat_models/CSV/FIGHT_releases.csv ../threat_models/enterprise-attack-14.1.json ../threat_models/mobile-attack-14.1.json ../threat_models/Word/ ../threat_models/CSV/FiGHT_Mitigations_for_human_edits.csv ../threat_models/CSV/FIGHT_DataSources_for_human_edits.csv ../threat_models/hacky_fix_addendums.yaml
-    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file build_matrix.log "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/build_matrix_log/$FIGHT_VERSION/build_matrix.log"'
+                        
+    - cd ..
+
+
+    # Run FiGHT Data Engine
+    - pip install --user -r fight_data_engine/requirements.txt
+    - pip install tabulate
+                      
+    - 'python3 fight_data_engine/make_fight_matrix_2.py --word_path threat_models/Word/ --csv_path threat_models/CSV/ --attack_stix_enterprise threat_models/enterprise-attack-14.1.json --attack_stix_mobile threat_models/mobile-attack-14.1.json --log_level debug --yaml_path fight.yaml --navigator_stix_path fight_stix_bundle.json'
+    - 'python3 scripts/word_logs.py'
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file newfile.log "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/build_matrix_log/$FIGHT_VERSION/build_matrix.log"'
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file fight.yaml "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/fight-yaml/$FIGHT_VERSION/fight.yaml"'
     # Publish the website
-    - cd ..
-    - cp fight-matrix/fight.yaml 5g-security.pages.mitre.org/static/fight-data/dist/ATLAS.yaml # Put the YAML where it needs to be
+    - cp fight.yaml 5g-security.pages.mitre.org/static/fight-data/dist/ATLAS.yaml # Put the YAML where it needs to be
     - cd 5g-security.pages.mitre.org
     - sed -i "s/ROUTER_BASE || '\/'/ROUTER_BASE || '\/sandboxes\/$GITLAB_USER_LOGIN\/$CI_COMMIT_BRANCH'/g" nuxt.config.js
     - cat nuxt.config.js
-    # Build the website
+    
     - npm install
     - npm run generate-gh
   script:
     # Position the generated site for pages deployment
     - cd ..
     - rsync --verbose --stats --progress --compress --recursive --times --perms --links 5g-security.pages.mitre.org/dist/* public/sandboxes/$GITLAB_USER_LOGIN/$CI_COMMIT_BRANCH
-    - cp fight-matrix/fight.yaml public/sandboxes/$GITLAB_USER_LOGIN/$CI_COMMIT_BRANCH # Put the YAML where it needs to be
+    - cp fight.yaml public/sandboxes/$GITLAB_USER_LOGIN/$CI_COMMIT_BRANCH # Put the YAML where it needs to be
+    - cp status.html public/sandboxes/$GITLAB_USER_LOGIN/$CI_COMMIT_BRANCH
     - find public -iname \*attack\*.json -exec rm -f {} +
     - find public -iname \*.docx -exec rm -f {} +
     - du -ksh public/*

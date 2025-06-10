@@ -1,64 +1,161 @@
 ﻿FGDSID,Data Source Name,Description
-DS0001,Firmware,"Computer software that provides low-level control for the hardware and device(s) of a host, such as BIOS or UEFI/EFI"
-DS0002,User Account,"A profile representing a user, device, service, or application used to authenticate and access resources"
-DS0003,Scheduled Job,"Automated tasks that can be executed at a specific time or on a recurring schedule running in the background (ex: Cron daemon, task scheduler, BITS)"
-DS0004,Malware Repository,"Information obtained (via shared or submitted samples) regarding malicious software (droppers, backdoors, etc.) used by adversaries"
-DS0005,WMI,The infrastructure for management data and operations that enables local and remote management of Windows personal computers and servers
-DS0006,Web Credential,"Credential material, such as session cookies or tokens, used to authenticate to web applications and services"
-DS0007,Image,A single file used to deploy a virtual machine/bootable disk into an on-premise or third-party cloud environment
-DS0008,Kernel,"A computer program, at the core of a computer OS, that resides in memory and facilitates interactions between hardware and software components"
-DS0009,Process,"Instances of computer programs that are being executed by at least one thread. Processes have memory space for process executables, loaded modules (DLLs or shared libraries), and allocated memory regions containing everything from user input to application-specific data structures"
-DS0010,Cloud Storage,"Data object storage infrastructure hosted on-premise or by third-party providers, made available to users through network connections and/or APIs"
-DS0011,Module,"Executable files consisting of one or more shared classes and interfaces, such as portable executable (PE) format binaries/dynamic link libraries (DLL), executable and linkable format (ELF) binaries/shared libraries, and Mach-O format binaries/shared libraries"
-DS0012,Script,"A file or stream containing a list of commands, allowing them to be launched in sequence"
-DS0013,Sensor Health,"Information from host telemetry providing insights about system status, errors, or other notable functional activity"
-DS0014,Pod,"A single unit of shared resources within a cluster, comprised of one or more containers"
-DS0015,Application Log,"Events collected by third-party services such as mail servers, web applications, or other appliances (not by the native OS or platform) Data sources with information about the set of devices found within the network, along with their current software and configurations"
-DS0016,Drive,"A non-volatile data storage device (hard drive, floppy disk, USB flash drive) with at least one formatted partition, typically mounted to the file system and/or assigned a drive letter"
-DS0017,Command,"A directive given to a computer program, acting as an interpreter of some kind, in order to perform a specific task"
-DS0018,Firewall,"A network security system, running locally on an endpoint or remotely as a service (ex: cloud environment), that monitors and controls incoming/outgoing network traffic based on predefined rules"
-DS0019,Service,"A computer process that is configured to execute continuously in the background and perform system tasks, in some cases before any user has logged in"
-DS0021,Persona,A malicious online profile representing a user commonly used by adversaries to social engineer or otherwise target victims
-DS0022,File,"A computer resource object, managed by the I/O system, for storing data (such as images, text, videos, computer programs, or any wide variety of other media)."
-DS0023,Named Pipe,Mechanisms that allow inter-process communication locally or over the network. A named pipe is usually found as a file and processes attach to it
-DS0024,Windows Registry,"A Windows OS hierarchical database that stores much of the information and settings for software programs, hardware devices, user preferences, and operating-system configurations"
-DS0025,Cloud Service,"Infrastructure, platforms, or software that are hosted on-premise or by third-party providers, made available to users through network connections and/or APIs"
-DS0026,Active Directory,"A database and set of services that allows administrators to manage permissions, access to network resources, and stored data objects (user, group, application, or devices)"
-DS0027,Driver,"A computer program that operates or controls a particular type of device that is attached to a computer. Provides a software interface to hardware devices, enabling operating systems and other computer programs to access hardware functions without needing to know precise details about the hardware being used"
-DS0028,Logon Session,"Logon occurring on a system or resource (local, domain, or cloud) to which a user/device is gaining access after successful authentication and authorizaton"
-DS0029,Network Traffic,"Data transmitted across a network (ex: Web, DNS, Mail, File, etc.), that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable format (ex: PCAP)"
-DS0030,Instance,"A virtual server environment which runs workloads, hosted on-premise or by third-party cloud providers"
-DS0031,Cluster,A set of containerized computing resources that are managed together but have separate nodes to execute various tasks and/or applications
-DS0032,Container,A standard unit of virtualized software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
-DS0033,Network Share,"A storage resource (typically a folder or drive) made available from one host to others using network protocols, such as Server Message Block (SMB) or Network File System (NFS)"
-DS0034,Volume,"Block object storage hosted on-premise or by third-party providers, typically made available to resources as virtualized hard drives"
-DS0035,Internet Scan,Information obtained (commonly via active network traffic probes or web crawling) regarding various types of resources and servers connected to the public Internet
-DS0036,Group,A collection of multiple user accounts that share the same access rights to the computer and/or network resources and have common security rights
-DS0037,Certificate,"A digital document, which highlights information such as the owner's identity, used to instill trust in public keys used while encrypting network communications"
-DS0038,Domain Name,Information obtained (commonly through registration or activity logs) regarding one or more IP addresses registered with human readable names (ex: mitre.org)
-DS0039,Asset,"Monitoring ability to detect new ports, devices on the network"
-DS0040,Operational Databases,"Operational databases contain information about the status of the operational process and associated devices, including any measurements, events, history, or alarms that have occurred"
-FGDS5001,RF Spectrum Monitor,"RF spectrum monitoring equipment, optionally including direction finding and geolocation"
-FGDS5002,UE signal measurements,UE measurements of received power levels from all base stations nearby. Report to operator gNB radio signals (sent to all UEs to enable them to select gNB and connect) received at a given UE
-FGDS5003,Charging anomaly,Audit charging system records for anomaly
-FGDS5004,Scan voice calls,Scan voice calls for certain amount of losses to detect if the call is made over internet (IP)
-FGDS5005,SIM card pattern,Keep track of SIM cards with unusual pattern
-FGDS5006,UE data usage,Monitor for excessive data usage; including using AI/ML
-FGDS5007,UE access requests,Number of access requests received from UEs (or a single UE) at the gNB. Keep track to avoid overload.
-FGDS5008,Search Internet for leaks,Leaking IR.21 information on the Internet can be found
-FGDS5009,Access to operator resource,Maintain logs of access to operator O&M resources like IR.21 databases.
-FGDS5010,UE transition to less secure service,UE transitions from 5GS to 4G/EPS with less or no security
-FGDS5011,Subscriber notify provider,Subscriber notifies service provider about DoS attack or other issues
-FGDS5012,SIEM,"Security Incident and event monitoring. Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed"
-FGDS5013,UE connecting to 4G,"The UE can tell that there is a 5G cell site that it can hear, but if it eventually gets connected to a 4G cell site "
-FGDS5014,SDN Access Logs,Analyze SDN logs to detect unauthorized activity
-FGDS5015,Image verification,Automated hash verification of images
-FGDS5016,Payload checking,Verify payload for GTP-U encapsulated packets
-FGDS5017,Monitor null scheme usage,Monitor gNB and core network logs for NULL scheme usage for SUCI protection.
-FGDS5018,Monitor provisioning logs,Monitor provisioning logs in core network for changes in home network public key and home PLMN ID.
-FGDS5019,Monitor operations logs,Monitor when UE makes emergency call or when UE is moved to eNB in NSA mode.
-FGDS5020,Monitor unplanned service outage,Monitor gNB logs for unplanned network service outages.
-FGDS5021,Monitor 3rd party application onboarding,Monitor all 3rd party application onboarding processes and use host scanning to detect malware insertions.
-FGDS5022,Monitor security configurations,Monitor if any security configurations have been downgraded to weak or no security.
-FGDS5102,Silent SMS detector,Run at the UE side an application/tool to detect received silent SMS messages
-FGDS5023,Audit policy violation,Automated policy compliance checks
+FGDS0001,Firmware,"Computer software that provides low-level control for the hardware and device(s) of a host, such as BIOS or UEFI/EFI"
+FGDS0001.001,Firmware Modification,"Changes made to firmware, including its settings and/or data, such as MBR (Master Boot Record) and VBR (Volume Boot Record)"
+FGDS0001.002,Firmware Mismatch,Baseband firmware on the UE does not match authorized version by the OEM or carrier
+FGDS0002,User Account,"A profile representing a user, device, service, or application used to authenticate and access resources"
+FGDS0002.001,User Account Authentication,"An attempt by a user to gain access to a network or computing resource, often by providing credentials (ex: Windows EID 4776 or /var/log/auth.log)"
+FGDS0002.002,User Account Creation,Initial construction of a new account (ex: Windows EID 4720 or /etc/passwd logs)
+FGDS0002.003,User Account Deletion,Removal of an account (ex: Windows EID 4726 or /var/log access/authentication logs)
+FGDS0002.004,User Account Metadata,"Contextual data about an account, which may include a username, user ID, environmental data, etc."
+FGDS0002.005,User Account Modification,"Changes made to an account, such as permissions and/or membership in specific groups (ex: Windows EID 4738 or /var/log access/authentication logs)"
+FGDS0004,Malware Repository,"Information obtained (via shared or submitted samples) regarding malicious software (droppers, backdoors, etc.) used by adversaries"
+FGDS0004.001,Malware Content,"Code, strings, signatures, and other identifying characteristics of a malicious payload stored within a malware repository. It includes both static (file-based) and dynamic (behavioral or execution-based) components that can be analyzed for threat intelligence, detection, and prevention purposes. "
+FGDS0004.002,Malware Metadata,"Contextual data about a malicious payload, such as compilation times, file hashes, as well as watermarks or other identifiable configuration information"
+FGDS0006,Web Credential,"Credential material, such as session cookies or tokens, used to authenticate to web applications and services"
+FGDS0006.001,Web Credential Creation,"Credential material, such as session cookies or tokens, used to authenticate to web applications and services"
+FGDS0006.002,Web Credential Usage,An attempt by a user to gain access to a network or computing resource by providing web credentials (ex: Windows EID 1202)
+FGDS0007,Image,A single file used to deploy a virtual machine/bootable disk into an on-premise or third-party cloud environment
+FGDS0007.001,Image Creation,Initial construction of a virtual machine image (ex: Azure Compute Service Images PUT)
+FGDS0007.002,Image Deletion,Removal of a virtual machine image (ex: Azure Compute Service Images DELETE)
+FGDS0007.003,Image Metadata,"Contextual data about a virtual machine image such as name, resource group, state, or type"
+FGDS0007.004,Image Modification,"Changes made to a virtual machine image, including setting and/or control data (ex: Azure Compute Service Images PATCH)"
+FGDS0007.005, Image hash,"Verify the image hash of core NF or O-RAN applications (xApp/rApp) against known reference values for these hashes. Ensure the applications have the correct software patches installed. 
+The hash could also be a 5G platform software image hash."
+FGDS0008,Kernel,"A computer program, at the core of a computer OS, that resides in memory and facilitates interactions between hardware and software components"
+FGDS0008.001,Kernel Module Load,"An object file that contains code to extend the running kernel of an OS, typically used to add support for new hardware (as device drivers) and/or filesystems, or for adding system calls"
+FGDS0009,Process,"Instances of computer programs that are being executed by at least one thread. Processes have memory space for process executables, loaded modules (DLLs or shared libraries), and allocated memory regions containing everything from user input to application-specific data structures"
+FGDS0009.001,OS API Execution,Operating system function/method calls executed by a process
+FGDS0009.002,Process Access,"Opening of a process by another process, typically to read memory of the target process (ex: Sysmon EID 10)"
+FGDS0009.003,Process Creation,"The initial construction of an executable managed by the OS, that may involve one or more tasks or threads. (e.g. Win EID 4688, Sysmon EID 1, cmd.exe > net use, etc.)"
+FGDS0009.004,Process Metadata,"Contextual data about a running process, which may include information such as environment variables, image name, user/owner, etc."
+FGDS0009.005,Process Modification,"Changes made to a process, or its contents, typically to write and/or execute code in the memory of the target process (ex: Sysmon EID 8)"
+FGDS0009.006,Process Termination,Exit of a running process (ex: Sysmon EID 5 or Windows EID 4689)
+FGDS0010,Cloud Storage,"Data object storage infrastructure hosted on-premise or by third-party providers, made available to users through network connections and/or APIs"
+FGDS0010.001,Cloud Storage Access,"Opening of a cloud storage infrastructure, typically to collect/read its value (ex: AWS S3 GetObject)"
+FGDS0010.002,Cloud Storage Creation,Initial construction of new cloud storage infrastructure (ex: AWS S3 CreateBucket)
+FGDS0010.003,Cloud Storage Deletion,Removal of cloud storage infrastructure (ex: AWS S3 DeleteBucket)
+FGDS0010.004,Cloud Storage Enumeration,An extracted list of cloud storage infrastructure (ex: AWS S3 ListBuckets or ListObjects)
+FGDS0010.005,Cloud Storage Metadata,"Contextual data about cloud storage infrastructure and activity around it such as name, size, or owner"
+FGDS0010.006,Cloud Storage Modification,"Changes made to cloud storage infrastructure, including its settings and/or data (ex: AWS S3 PutObject or PutObjectAcl)"
+FGDS0012,Script,"A file or stream containing a list of commands, allowing them to be launched in sequence"
+FGDS0012.001,Execution,"The execution of a text file that contains code via the interpreter (e.g. Powershell, WMI, Windows EID 4104, etc.)"
+FGDS0013,Sensor Health,"Information from host telemetry providing insights about system status, errors, or other notable functional activity"
+FGDS0013.001,Host Status,"Logging, messaging, and other artifacts highlighting the health of host sensors (ex: metrics, errors, and/or exceptions from logging applications)"
+FGDS0014,Pod,"A single unit of shared resources within a cluster, comprised of one or more containers"
+FGDS0014.001,Pod Creation,Initial construction of a new pod (ex: kubectl apply|run)
+FGDS0014.002,Pod Enumeration,An extracted list of pods within a cluster (ex: kubectl get pods)
+FGDS0014.003,Pod Modification,"Changes made to a pod, including its settings and/or control data (ex: kubectl set|patch|edit)"
+FGDS0015,Application Log,"Events collected by third-party services such as mail servers, web applications, or other appliances (not by the native OS or platform) Data sources with information about the set of devices found within the network, along with their current software and configurations"
+FGDS0015.001,Application Log Content,"Logging, messaging, and other artifacts provided by third-party services (ex: metrics, errors, and/or alerts)"
+FGDS0017,Command,"A directive given to a computer program, acting as an interpreter of some kind, in order to perform a specific task"
+FGDS0017.001,Command Execution,"The execution of a line of text, potentially with arguments, created from program code (e.g. a cmdlet executed via powershell.exe, interactive commands like >dir, shell executions, etc. )"
+FGDS0018,Firewall,"A network security system, running locally on an endpoint or remotely as a service (ex: cloud environment), that monitors and controls incoming/outgoing network traffic based on predefined rules"
+FGDS0018.001,Firewall disable,Deactivation or stoppage of a cloud service (ex: Write/Delete entries within Azure Firewall Activity Logs)
+FGDS0018.002,Firewall enumeration,An extracted list of available firewalls and/or their associated settings/rules
+FGDS0018.003,Firewall metadata,"Contextual data about a firewall and activity around it such as name, policy, or status"
+FGDS0018.004,Firewall rule modification,"Changes made to a firewall rule, typically to allow/block specific network traffic"
+FGDS0019,Service,"A computer process that is configured to execute continuously in the background and perform system tasks, in some cases before any user has logged in"
+FGDS0019.001,Service Creation,Initial construction of a new service/daemon (ex: Windows EID 4697 or /var/log daemon logs)
+FGDS0019.002,Service Metdata,"Contextual data about a service/daemon, which may include information such as name, service executable, start type, etc."
+FGDS0019.003,Service Modification,"Changes made to a service/daemon, such as changes to name, description, and/or start type (ex: Windows EID 7040 or /var/log daemon logs)"
+FGDS0022,File,"A computer resource object, managed by the I/O system, for storing data (such as images, text, videos, computer programs, or any wide variety of other media)."
+FGDS0022.001,File Access,"Opening a file, which makes the file contents available to the requestor (ex: Windows EID 4663)"
+FGDS0022.002,File Creation,Initial construction of a new file (ex: Sysmon EID 11)
+FGDS0022.003,File Deletion,"Removal of a file (ex: Sysmon EID 23, macOS ESF EID ES_EVENT_TYPE_AUTH_UNLINK, or Linux commands auditd unlink, rename, rmdir, unlinked, or renameat rules)"
+FGDS0022.004,File Metadata,"Contextual data about a file, which may include information such as name, the content (ex: signature, headers, or data/media), user/owner, permissions, etc."
+FGDS0022.005,File Modification,File contents are changed by adversary.
+FGDS0025,Cloud Service,"Infrastructure, platforms, or software that are hosted on-premise or by third-party providers, made available to users through network connections and/or APIs"
+FGDS0025.001,Cloud Service Disable,Deactivation or stoppage of a cloud service (ex: AWS Cloudtrail StopLogging)
+FGDS0025.002,Cloud Service Enumeration,An extracted list of cloud services (ex: AWS ECS ListServices)
+FGDS0025.003,Cloud Service Metadata,"Contextual data about a cloud service and activity around it such as name, type, or purpose/function"
+FGDS0025.004,Cloud Service Modification,"Changes made to a cloud service, including its settings and/or data (ex: AWS CloudTrail DeleteTrail or DeleteConfigRule)"
+FGDS0028,Logon Session,"Logon occurring on a system or resource (local, domain, or cloud) to which a user/device is gaining access after successful authentication and authorizaton"
+FGDS0028.001,Logon Session Creation,"Initial construction of a successful new user logon following an authentication attempt. (e.g. Windows EID 4624, /var/log/utmp, or /var/log/wmtp)"
+FGDS0028.002,Logon Session Metadata,"Contextual data about a logon session, such as username, logon type, access tokens (security context, user SIDs, logon identifiers, and logon SID), and any activity associated within it"
+FGDS0029,Network Traffic,"Data transmitted across a network (ex: Web, DNS, Mail, File, etc.), that is either summarized (ex: Netflow) and/or captured as raw data in an analyzable format (ex: PCAP)"
+FGDS0029.001,Network Connection Creation,"Initial construction of a network connection, such as capturing socket information with a source/destination IP and port(s) (ex: Windows EID 5156, Sysmon EID 3, or Zeek conn.log)"
+FGDS0029.002,Network Traffic Content,Logged network traffic data showing both protocol header and body values (ex: PCAP)
+FGDS0029.003,Network Traffic Flow,"Summarized network packet data, with metrics, such as protocol headers and volume (ex: Netflow or Zeek http.log)"
+FGDS0032,Container,A standard unit of virtualized software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another
+FGDS0032.001,Container Creation,Initial construction of a new container (ex: docker create )
+FGDS0032.002,Container Enumeration,An extracted list of containers (ex: docker ps)
+FGDS0032.003,Container Start,Activation or invocation of a container (ex: docker start or docker restart)
+FGDS0034,Volume,"Block object storage hosted on-premise or by third-party providers, typically made available to resources as virtualized hard drives"
+FGDS0034.001,Volume Creation,Initial construction of a cloud volume (ex: AWS create-volume)
+FGDS0034.002,Volume Deletion,Removal of a a cloud volume (ex: AWS delete-volume)
+FGDS0034.003,Volume Enumeration,An extracted list of available volumes within a cloud environment (ex: AWS describe-volumes)
+FGDS0034.004,Volume Metdata,"Contextual data about a cloud volume and activity around it, such as id, type, state, and size"
+FGDS0034.005,Volume Modification,"Changes made to a cloud volume, including its settings and control data (ex: AWS modify-volume)"
+FGDS0035,Internet Scan,Information obtained (commonly via active network traffic probes or web crawling) regarding various types of resources and servers connected to the public Internet
+FGDS0035.001,Response Content,Logged network traffic in response to a scan showing both protocol header and body values
+FGDS0035.002,Response Metadata,"Contextual data about an Internet-facing resource gathered from a scan, such as running services or ports"
+FGDS0037,Certificate,"A digital document, which highlights information such as the owner's identity, used to instill trust in public keys used while encrypting network communications"
+FGDS0037.001,Certificate Registration,Verify and refresh frequently digital signatures used for authenticating xApps by near-RT RIC and E2 nodes.
+FGDS0039,Asset,"Data sources with information about the set of devices found within the network, along with their current software and configurations"
+FGDS0039.001,Asset inventory,"This includes sources of current and expected devices on the network, including the manufacturer, model, and necessary identifiers (e.g., IP and hardware addresses)"
+FGDS0039.002,Software,"This includes sources of current and expected software or application programs deployed to a device, along with information on the version and patch level for vendor products, full source code for any application programs, and unique identifiers (e.g., hashes, signatures)."
+FGDS0040,Operational Databases,"Operational databases contain information about the status of the operational process and associated devices, including any measurements, events, history, or alarms that have occurred"
+FGDS0040.001,Device Alarm,"This includes alarms associated with unexpected device functions, such as shutdowns, restarts, failures, or configuration changes"
+FGDS0040.002,Process History/Live Data,This includes any data stores that maintain historical or real-time events and telemetry recorded from various sensors or devices
+FGDS0040.003,Process/Event Alarm,"This includes a list of any process alarms or alerts produced to indicate unusual or concerning activity within the operational process (e.g., increased temperature/pressure)"
+FGDS0042,User Interface,Visual activity on the device that could alert the user to potentially malicious behavior.
+FGDS0042.001,Permission Request,System prompts triggered when an application requests new or additional permissions
+FGDS0042.002,System Notifications,Notifications generated by the OS
+FGDS0042.003,System Settings,Settings visible to the user on the device
+FGDS5001,RF Spectrum,"RF spectrum contains information that can be used for signal direction finding and geolocation, as well as to detect jamming"
+FGDS5001.001,RF Spectrum signals,Signal measurements to identify the presence of jamming source. 
+FGDS5002,Radio interface,Radio layer messages between UE and the serving gNB (phy/MAC layer) 
+FGDS5002.001,Signals sent by UEs ,"UE signals sent to gNB such as: measurements of received power levels from all base stations nearby, other signals such as Sounding Reference Signal (SRS). "
+FGDS5002.002,gNB broadcast messages,"gNB signals & messages broadcast for all UEs to hear- e.g. MIBs and SIBs, also PRS (Positioning Ref Signal)"
+FGDS5002.003,Paging channel,Paging channel content
+FGDS5002.004,NAS messages between UE and AMF,"NAS messages from UE to gNB or gNB to UE (e.g., NAS attach messages  for encryption/integrity algorithm downgrading to NULL, or NAS registration rejects for downgrade by network to steer UE to 4G/3G.)"
+FGDS5003,Charging data records,Charging system records for anomaly detection
+FGDS5003.001,Charging data records content,"Content of Subscriber CDRs (Charging Data Records) (e.g., in Charging Funciton (CHF) logs)"
+FGDS5005,Core network logs for SIM,SIM card usage logs in the network to identify any fraudulent use of SIM cards.
+FGDS5005.001,Core logs for SIM usage pattern,SIM card usage logs in the network to identify if more than one UE is using the same IMSI/SUPI simultaneously or the same IMSI/SUPI is being used in two impossible geographical locations within a short period of time. E.g. if the IMSI/SUPI is used in two locations which are far apart within a short period of time (not simultaneously).
+FGDS5006,UE logs for resource usage,"Logs of battery, CPU, storage consumption and use"
+FGDS5006.001,UE battery performance,Unexpected power consumption or unexplained battery drain
+FGDS5009,MNO database access logs ,"Logs of access to operator O&M resources like IR.21, EIR databases."
+FGDS5009.001,MNO database access logs  content in core,Logs of all types of operator database access requests.
+FGDS5010,"
+UE  logs","UE logs about RAT transition events, and user actions such as turn on or off airplane mode, SIM card operations. The logs can be collected using MDM/EMM from the operator.
+
+(MDM=Mobile Device Management, EMM=Enterprise mobile management.)"
+FGDS5010.001,UE logs for radio network transition events,UE modem logs  RAT transition events e.g. 5G to 4G or 3G.
+FGDS5010.002,UE Operating system logs,UE service related logs from the Android or iOS applications in the application processor. These logs capture user actions such as turning on or off airplane mode.
+FGDS5010.003,UE logs for SIM card accesses,Messages between modem processor and SIM/eSIM.
+FGDS5011,MNO logs in core for subscriber service complaints,"Subscriber complaints to the operator about issues they experience with connectivity, network performance or billing.
+"
+FGDS5011.001,MNO logs for service issues in core,Subscriber complaint logs about degraded or denied service.
+FGDS5012,Security logs in network,"Security Incident and event monitoring. Event logs recording user activities, exceptions, faults and information security events should be produced, kept and regularly reviewed"
+FGDS5012.001,Security logs in core,"Logs for security, authentication and authorization, host access (physical and virtual) etc."
+FGDS5014,SDN Access Logs in SDN elements,SDN logs to detect unauthorized activity
+FGDS5014.001,SDN Access Logs in SDN elements,"Logs accessing SDN elements (routers, switches, SDN controllers)"
+FGDS5016,Packet capture for user plane packets,Packets received at the User Plane Function (UPF)
+FGDS5016.001,Core network packet captures (pcaps),Message payload of all user plane packets received from the internet at UPF or PGW for detecting encapsulated GTP-U packet.
+FGDS5017,gNB or 5G core logs,Logs collected at the gNB or a 5G core network function.  
+FGDS5017.001,gNB log content for NULL encryption use,gNB logs for NULL scheme usage in registration messages from UEs.
+FGDS5017.002,Core network log content for NULL encryption use ,Core network logs for NULL scheme usage in registration messages from UEs.
+FGDS5017.003,gNB log content for flooding of messages from UE,Access request messages received from UEs (or a single UE) at the gNB within a short period of time.
+FGDS5017.004,Core network log content for flooding of messages from UE,Registration request messages received from UEs (or a single UE) at the core network within a short period of time.
+FGDS5017.005,Erratic connectivity,"gNB logs of UE experiencing frequent dropped connections, difficulty connecting and throttled data."
+FGDS5017.006,gNB log for service outage,gNB logs for unplanned service outage.
+FGDS5017.007,Provisioning logs in core,Provisioning logs for UE related security configuration changes in core allowing NULL encryption of the SUPI.
+FGDS5017.008,gNB log for replayed messages,gNB logs for replayed messages sent to gNB
+FGDS5019,UE operations logs in core,"UE operational logs in core NFs. 
+
+"
+FGDS5019.001,UE operations logs in core,"Core logs related to UE operations for events such as - UE makes an emergency call or in NSA mode, when a UE is ordered to connect to network via eNB."
+FGDS5022,Security configuration,Security related configuration logs in gNB and core.
+FGDS5022.001,O-RAN security configuration logs,Security related configuration logs in O-DU and O-RU.
+FGDS5022.002,Core security configuration logs,Security related configuration logs in core NFs.
+FGDS5023,User and resource policy configuration,Automated policy compliance checks
+FGDS5023.001,User and resource policy configuration logs in core network,User and resource policy configuration logs in core network for compliance violations.
+FGDS5024,Silent SMS detector,UE application for detection of silent SMS messages.
+FGDS5024.001,Silent SMS detector at UE side,Logs in UE for detecting silent SMS messages.
+FGDS5025,SUCI parameters in UDM ,Contents of the UE registration message in UDM/SIDF for SUCI parameter
+FGDS5025.001,SUCI parameter for elliptic curve in UDM,Registration message contents in UDM/SIDF for Ellitpic curve of public key sent by the UE.
+FGDS5026,"Slice performance counters, KPIs",Core performance counters for default and dedicated slices (bearers)
+FGDS5026.001,Slice performance counters and KPIs of core NFs in MANO ,Network slice related performance management counters and KPIs of core NFs in MANO.
+FGDS5029,Host system software and configurations,Host system information on malicious software and configurations.
+FGDS5029.001,5G network host software and configurations,Reports of host system scans for malicious software and configurations.

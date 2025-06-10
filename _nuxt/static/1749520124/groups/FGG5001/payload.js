@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/groups/FGG5001", {data:[{}],fetch:{},mutations:[]});

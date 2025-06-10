@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/data%20sources/FGDS0013", {data:[{}],fetch:{},mutations:[]});

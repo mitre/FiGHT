@@ -1,0 +1,8 @@
+[submodule "fight_data_engine"]
+	path = fight_data_engine
+	url = ../fight_data_engine
+	branch = fde_no_subs
+[submodule "5g-security.pages.mitre.org"]
+	path = 5g-security.pages.mitre.org
+	url = ../5g-security.pages.mitre.org
+	branch = develop
