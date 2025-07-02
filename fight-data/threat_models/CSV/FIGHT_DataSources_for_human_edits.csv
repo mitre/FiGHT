@@ -47,6 +47,10 @@ FGDS0014.002,Pod Enumeration,An extracted list of pods within a cluster (ex: kub
 FGDS0014.003,Pod Modification,"Changes made to a pod, including its settings and/or control data (ex: kubectl set|patch|edit)"
 FGDS0015,Application Log,"Events collected by third-party services such as mail servers, web applications, or other appliances (not by the native OS or platform) Data sources with information about the set of devices found within the network, along with their current software and configurations"
 FGDS0015.001,Application Log Content,"Logging, messaging, and other artifacts provided by third-party services (ex: metrics, errors, and/or alerts)"
+FGDS0016,Drive,"A non-volatile data storage device (hard drive, floppy disk, USB flash drive) with at least one formatted partition, typically mounted to the file system and/or assigned a drive letter"
+FGDS0016.001,Drive Access,"Refers to the act of accessing a data storage device, such as a hard drive, SSD, USB, or network-mounted drive. This data component logs the opening or mounting of drives, capturing activities such as reading, writing, or executing files within an assigned drive letter (e.g., C:\, /mnt/drive) or mount point."
+FGDS0016.002,Drive Creation,"The activity of assigning a new drive letter or creating a mount point for a data storage device, such as a USB, network share, or external hard drive, enabling access to its content on a host system. "
+FGDS0016.003,Drive Modification,"The alteration of a drive letter, mount point, or other attributes of a data storage device, which could involve reassignment, renaming, permissions changes, or other modifications."
 FGDS0017,Command,"A directive given to a computer program, acting as an interpreter of some kind, in order to perform a specific task"
 FGDS0017.001,Command Execution,"The execution of a line of text, potentially with arguments, created from program code (e.g. a cmdlet executed via powershell.exe, interactive commands like >dir, shell executions, etc. )"
 FGDS0018,Firewall,"A network security system, running locally on an endpoint or remotely as a service (ex: cloud environment), that monitors and controls incoming/outgoing network traffic based on predefined rules"
@@ -69,6 +73,12 @@ FGDS0025.001,Cloud Service Disable,Deactivation or stoppage of a cloud service (
 FGDS0025.002,Cloud Service Enumeration,An extracted list of cloud services (ex: AWS ECS ListServices)
 FGDS0025.003,Cloud Service Metadata,"Contextual data about a cloud service and activity around it such as name, type, or purpose/function"
 FGDS0025.004,Cloud Service Modification,"Changes made to a cloud service, including its settings and/or data (ex: AWS CloudTrail DeleteTrail or DeleteConfigRule)"
+FGDS0026,Active Directory,"A database and set of services that allows administrators to manage permissions, access to network resources, and stored data objects (user, group, application, or devices)"
+FGDS0026.001,Active Directory Credential Request,Requests for authentication credentials via Kerberos or other methods like NTLM and LDAP queries.
+FGDS0026.002,Active Directory Object Access,"Object access refers to activities where AD objects (e.g., user accounts, groups, policies) are accessed or queried. "
+FGDS0026.003,Active Directory Object Creation,"Creating new objects in AD, such as user accounts, groups, organizational units (OUs), or trust relationships. Logged as Event ID 5137"
+FGDS0026.004,Active Directory Object Deletion,"Object deletion in AD (e.g., user accounts, groups, OUs) is logged as Event ID 5141"
+FGDS0026.005,Active Directory Object Modification,"Changes to AD objects (e.g., users, groups, OUs) are logged as Event ID 5136 (Object Modification) or 5163 (Attribute Changes)."
 FGDS0028,Logon Session,"Logon occurring on a system or resource (local, domain, or cloud) to which a user/device is gaining access after successful authentication and authorizaton"
 FGDS0028.001,Logon Session Creation,"Initial construction of a successful new user logon following an authentication attempt. (e.g. Windows EID 4624, /var/log/utmp, or /var/log/wmtp)"
 FGDS0028.002,Logon Session Metadata,"Contextual data about a logon session, such as username, logon type, access tokens (security context, user SIDs, logon identifiers, and logon SID), and any activity associated within it"
@@ -147,7 +157,7 @@ FGDS5019,UE operations logs in core,"UE operational logs in core NFs.
 "
 FGDS5019.001,UE operations logs in core,"Core logs related to UE operations for events such as - UE makes an emergency call or in NSA mode, when a UE is ordered to connect to network via eNB."
 FGDS5022,Security configuration,Security related configuration logs in gNB and core.
-FGDS5022.001,O-RAN security configuration logs,Security related configuration logs in O-DU and O-RU.
+FGDS5022.001,O-RAN security configuration logs,"Security related configuration logs in O-CU, O-DU and O-RU."
 FGDS5022.002,Core security configuration logs,Security related configuration logs in core NFs.
 FGDS5023,User and resource policy configuration,Automated policy compliance checks
 FGDS5023.001,User and resource policy configuration logs in core network,User and resource policy configuration logs in core network for compliance violations.
@@ -157,5 +167,11 @@ FGDS5025,SUCI parameters in UDM ,Contents of the UE registration message in UDM/
 FGDS5025.001,SUCI parameter for elliptic curve in UDM,Registration message contents in UDM/SIDF for Ellitpic curve of public key sent by the UE.
 FGDS5026,"Slice performance counters, KPIs",Core performance counters for default and dedicated slices (bearers)
 FGDS5026.001,Slice performance counters and KPIs of core NFs in MANO ,Network slice related performance management counters and KPIs of core NFs in MANO.
+FGDS5027,Physical Inspection,Inspection of hardware components
+FGDS5027.001,Manual inspection,Manually inspect all hardware components for tampering.
+FGDS5028 ,Physical Sensors ,Sensors on physical components
+FGDS5028.001,Facility sensors,Facility intrusion detection and alert
+FGDS5028.002,Cabinet and cage sensors,Cabinet and cage instrusion detection and alert
+FGDS5028.003,Device sensors,Device instrusion detection and alert
 FGDS5029,Host system software and configurations,Host system information on malicious software and configurations.
 FGDS5029.001,5G network host software and configurations,Reports of host system scans for malicious software and configurations.

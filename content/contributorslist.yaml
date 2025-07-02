@@ -48,6 +48,11 @@ data:
       - "AJ Victoria"
       - "Jamie Williams"
       - "Lily Wong"
+      - "Rodney Bollie"
+  -
+    organization: Politecnico di Milano
+    contributors:
+      - "Marco Mezzavilla"
   -
     organization: PwC Finland
     contributors:

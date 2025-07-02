@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/software/S0041", {data:[{}],fetch:{},mutations:[]});
