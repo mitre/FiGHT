@@ -15,25 +15,7 @@ T1564.501 Command Output Filtering"
 FGS5006,TINYSHELL,"TINYSHELL is a lightweight client/server clone of the standard remote shell tools (rlogin, DNS, telnet, ssh, etc.) that can act as a backdoor to provide remote shell execution as well as file transfers.","LIMINAL PANDA configured remotely accessible systems with TINYSHELL backdoors that used dynamic DNS domains for their external C2 channel. TINYSHELL backdoors were configured to perform communications using TCP over port 53 and 443, likely as a mechanism to bypass outbound network protections, blend in with existing traffic, and evade detection.","T1059 Command and Scripting Interpreter,
 
 T1071.004 Roaming Partner DNS"
-FGS5007,STEELCORGI,STEELCORGI is a packer for Linux ELF programs that uses key material from the executing environment to decrypt the payload.. The malware uses the environment variable values as a key to decrypt additional data to be executed.,"To further obfuscate activity, LIMINAL PANDA used a Linux ELF packer named STEELCORGI which was executed in memory on a Solaris system. The malware contains various anti-analysis techniques, including anti-debugging, anti-tracing, and string obfuscation.","T1027.010 Obfuscated Files or Information
-T1027.013 Obfuscated Files or Information: Encrypted/Encoded File"
-FGS5008,Ghost Spider,"GHOSTSPIDER is a sophisticated multi-modular backdoor designed with several layers to load different modules based on specific purposes. This backdoor communicates with its C&C server using a custom protocol protected by Transport Layer Security (TLS), ensuring secure communication.",Salt Typhoon proceeds by deploying GhostSpider to ensure stealth through its expansive module command support and other backdoors,"& T1059 Command and Scripting Interpreter
-&T1036 Masquerading"
-FGS5009,NinjaCopy,"NinjaCopy is a PowerShell script capable of reading SYSTEM files that were normally locked, such as NTDS.dit or sensitive registry locations. ",Salt Typhoon employed a new variant of the NinjaCopy tool to bypass security mechanisms and extract sensitive system files.,&T1006 Direct Volume Access
-FGS5010,TrillClient ,TrillClient is a custom stealers for harvesting credentials and browser data.,"Salt Typhoon employs the TrillClient information stealer for this routine, primarily collecting user credentials from browser user profiles. TrillClient launches a PowerShelll script that will collect user profiles to be saved at a specific location.",T1555.003 Credentials from Password Stores: Credentials from Web Browsers
-FGS5011,SnappyBee,Deploys stealers for harvesting credentials and browser data.,Salt Typhoon utilized SnappyBee to steal session tokens.,&T1528 Steal Application Access Token
 FGS5012,GTPDOOR,"The malware can hide C2 traffic over GPRS Tunnelling Protocol, Control Plane or GTP-C signaling messages.","The malware leverages the GTP protocol to encapsulate TinyShell traffic within a valid PDP context session. The threat actors, known as LightBasin, have utilized GTPdoor for command-and-control (C2) capabilities, enabling them to blend seamlessly into mobile network protocols.",T1071.501 Telecom Protocol
-FGS5013,SLAPSTICK ,"SLAPSTICK is a Solaris PAM backdoor that bypasses authentication with a hard-coded password, captures credentials during login attempts, and stores them in an obfuscated text file to maintain access and evade detection.", LightBasin deployed SLAPSTICK to establish a backdoor and persistent access to Solaris systems by automatically siphoning credentials to an obfuscated text file.,"T1105 Ingress Tool Transfer
-
-T1556.003 Modify Authentication Process: Pluggable Authentication Modules
-
-T1056 Input Capture
-
-T1119 Automated Collection
-
-T1027 Obfuscated Files or Information
-
-T1021 Remote Services"
 FGS5014,CordScan,CordScan is a network-scanning and packet-capture utility containing logic to fingerprint and retrieve data relating to common telecommunication systems from infrastructure such as SGSNs.,"Liminal Panda utilized CordScan for network mapping and packet-data collection related to common telecommunication systems (e.g., SGSN). This process included analyzing data transmitted to and from mobile stations and identifying the location information of registered GPRS users.","T1040 Network Sniffing
 
 T1046 Network Service Discovery"
@@ -44,7 +26,6 @@ S0154,Cobalt Strike,"Cobalt Strike is a commercial, full-featured, remote access
 In addition to its own capabilities, Cobalt Strike leverages the capabilities of other well-known tools such as Metasploit and Mimikatz.
 ","Salt Typhoon used Cobal Strike to deploy malicious payloads with custom backdoors.
 ",FGT1021 Remote Services
-S1161,BPFDOOR,"BPFDoor is a Linux based passive long-term backdoor used by China-based threat actors. First seen in 2021, BPFDoor is named after its usage of Berkley Packet Filter (BPF) to execute single task instructions. BPFDoor supports multiple protocols for communicating with a C2 including TCP, UDP, and ICMP and can start local or reverse shells that bypass firewalls using iptables.","BPFDoor installs on a Linux host and attaches a BPF filter to passively scan network traffic. When it detects a crafted packet with a correct trigger, it opens a reverse shell or executes commands without exposing ports. It deletes itself after execution and remains in memory to maintain stealth and persistence.",FGT1195.501
 S0600,Doki,Doki is a backdoor that uses a unique Dogecoin-based Domain Generation Algorithm and was first observed in July 2020. Doki was used in conjunction with the ngrok Mining Botnet in a campaign that targeted Docker servers in cloud platforms.,,
 S0683,"	Peirates",Peirates is a post-exploitation Kubernetes exploitation framework with a focus on gathering service account tokens for lateral movement and privilege escalation. The tool is written in GoLang and publicly available on GitHub.,,
 S0601,Hildegard,Hildegard is malware that targets misconfigured kubelets for initial access and runs cryptocurrency miner operations. The malware was first observed in January 2021. The TeamTNT activity group is believed to be behind Hildegard.,,
